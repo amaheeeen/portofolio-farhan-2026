@@ -1,0 +1,46 @@
+/*
+ * Farhan Kholid Portfolio - Custom CSS
+ *
+ * File ini berisi gaya yang tidak dapat diatasi sepenuhnya oleh Tailwind.
+ * Digunakan untuk monogram FK di latar belakang dan efek smooth scrolling.
+ */
+
+:root {
+    /* Palet Warna */
+    --color-army-dark: #1E2D2B; /* Warna Hijau Tua (Dark Army Green) */
+    --color-army-light: #4A6E6A; /* Warna Hijau Muda (Light Army Green) */
+    --color-white: #ffffff;
+    --color-black: #111827; /* Tailwind Gray-900 */
+    --color-gray: #6B7280; /* Tailwind Gray-500 */
+}
+
+/* 1. Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 2. Custom Font for Retro Vibe */
+/* Menggunakan Inter sebagai default Tailwind, tapi bisa dikustomisasi */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Mobile adjustments for monogram */
+@media (max-width: 768px) {
+    .monogram-bg {
+        font-size: 40vw;
+        opacity: 0.06;
+    }
+}
+
+/* 4. Scroll-Triggered Animation Placeholder Class */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
