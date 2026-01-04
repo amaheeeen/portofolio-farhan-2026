@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="pt-4 flex gap-4">
-                        <a href="https://kalcerid-pemweb-production.up.railway.app/" class="px-6 py-3 bg-army-dark text-white rounded-lg hover:bg-army-light transition shadow-lg hover:shadow-xl flex items-center gap-2">
+                        <a href="https://kalcerid-pemweb-production-f0a2.up.railway.app/" class="px-6 py-3 bg-army-dark text-white rounded-lg hover:bg-army-light transition shadow-lg hover:shadow-xl flex items-center gap-2">
                             <i data-lucide="external-link" class="w-4 h-4"></i> Live Demo
                         </a>
                         <a href="https://github.com/amaheeeen/kalcer.id-pemweb" target="_blank" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:border-army-dark hover:text-army-dark transition flex items-center gap-2">
@@ -128,6 +128,45 @@
                         <a href="https://github.com/amaheeeen/DataSmoothing" target="_blank" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:border-army-dark hover:text-army-dark transition flex items-center gap-2">
                             <i data-lucide="github" class="w-4 h-4"></i> Code
                         </a>
+                    </div>
+                </div>
+            </div>
+
+            {{-- PROJECT 04: LUMINAVISA (Layout: Text Left, Image Right) --}}
+            <div class="group grid lg:grid-cols-12 gap-12 items-center fade-in-up">
+                <div class="lg:col-span-5 space-y-6 order-2 lg:order-1">
+                    <span class="text-6xl font-extrabold text-gray-100 absolute -z-10 -mt-12 right-0 lg:right-auto lg:left-0 select-none">04</span>
+                    <h2 class="text-3xl font-bold text-army-dark leading-tight">LuminaVisa <br><span class="text-lg font-normal text-gray-500">Global Visa Intelligence</span></h2>
+                    
+                    <p class="text-gray-600 leading-relaxed">
+                        A comprehensive visa information and planning platform. It features an interactive visa requirement calculator, real-time embassy directories, and a streamlined document checklist generator designed to simplify international travel bureaucracy.
+                    </p>
+
+                    <div class="space-y-2">
+                        <p class="text-xs font-bold text-army-light uppercase tracking-wider">Tech Stack</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-mono rounded-full">Laravel</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-mono rounded-full">Alpine.js</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-mono rounded-full">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-mono rounded-full">PostgreSQL</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex gap-4">
+                        <a href="https://fsi-visa-production.up.railway.app/" target="_blank" class="px-6 py-3 bg-army-dark text-white rounded-lg hover:bg-army-light transition shadow-lg hover:shadow-xl flex items-center gap-2">
+                            <i data-lucide="external-link" class="w-4 h-4"></i> Live Demo
+                        </a>
+                        <a href="https://github.com/amaheeeen/lumina-visa" target="_blank" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:border-army-dark hover:text-army-dark transition flex items-center gap-2">
+                            <i data-lucide="github" class="w-4 h-4"></i> Code
+                        </a>
+                    </div>
+                </div>
+
+                 <div class="lg:col-span-7 relative order-1 lg:order-2">
+                    <div class="absolute inset-0 bg-army-light/10 transform -translate-x-4 translate-y-4 rounded-2xl transition-transform duration-500 group-hover:-translate-x-2 group-hover:translate-y-2"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 aspect-video">
+                        {{-- Pastikan Anda sudah meletakkan gambar porto-fe_4.png di public/assets/img/ --}}
+                        <img src="{{ asset('assets/img/porto-fe_4.png') }}" alt="LuminaVisa Platform" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105">
                     </div>
                 </div>
             </div>

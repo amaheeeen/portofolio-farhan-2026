@@ -11,6 +11,8 @@
 
         <div class="grid lg:grid-cols-3 gap-10">
             <div class="lg:col-span-2 space-y-10">
+                
+                {{-- PROFILE SECTION --}}
                 <section class="p-6 bg-accent-gray rounded-xl shadow-lg border border-gray-200 fade-in-up">
                     <div class="flex items-start space-x-6 mb-6">
                          <img src="{{ asset('assets/img/PP Formal.png') }}" alt="Foto Profil Farhan Kholid" class="w-24 h-24 rounded-full object-cover border-4 border-white shadow-md">
@@ -19,7 +21,22 @@
                             <p class="text-gray-600 mt-1">Front-End Engineer Associate | UI/Visual Designer.</p>
                         </div>
                     </div>
-                    <p class="text-gray-700">I am a hybrid professional with a strong background in visual design and branding (4 years), currently actively transitioning into Front-End Engineering. I thrive on translating complex ideas into elegant user interfaces and powerful visual assets. My passion lies in building functional, minimalist designs with a unique aesthetic flair, often inspired by retro-modern style, which I bring to life using modern technologies like JavaScript, React, and Tailwind CSS.</p>
+                    <p class="text-gray-700 leading-relaxed">
+                        I am a hybrid professional with a strong background in visual design and branding (4 years), currently actively transitioning into Front-End Engineering. I thrive on translating complex ideas into elegant user interfaces and powerful visual assets. My passion lies in building functional, minimalist designs with a unique aesthetic flair, often inspired by retro-modern style, which I bring to life using modern technologies like JavaScript, React, and Tailwind CSS.
+                    </p>
+
+                    {{-- BAGIAN CV (DITAMBAHKAN DI SINI) --}}
+                    <div class="mt-8 flex flex-wrap gap-4 border-t border-gray-300 pt-6">
+                        {{-- Tombol Lihat Online --}}
+                        <a href="{{ route('cv.web') }}" class="inline-flex items-center px-6 py-3 bg-army-dark text-white font-bold rounded-lg hover:bg-army-light transition duration-300 shadow-md group">
+                            <i data-lucide="eye" class="w-5 h-5 mr-2 group-hover:scale-110 transition-transform"></i> View CV Online
+                        </a>
+                        
+                        {{-- Tombol Download PDF --}}
+                        <a href="{{ asset('assets/docs/CV_Farhan-Kholid.pdf') }}" download class="inline-flex items-center px-6 py-3 border-2 border-army-dark text-army-dark font-bold rounded-lg hover:bg-army-dark hover:text-white transition duration-300 group">
+                            <i data-lucide="download" class="w-5 h-5 mr-2 group-hover:translate-y-1 transition-transform"></i> Download PDF
+                        </a>
+                    </div>
                 </section>
                 
                 <section class="p-6 bg-white rounded-xl shadow-lg border border-gray-200 fade-in-up" id="education">
@@ -33,7 +50,7 @@
                         <li class="border-l-4 border-army-light pl-4">
                             <p class="text-lg font-semibold">Bachelor of Architecture (S.Ars)</p>
                             <p class="text-gray-600">Binus University - Jakarta (2019 - 2020)</p>
-                            <p class="text-sm text-gray-500">Focus: Web Development, Algorithms, and Interaction Design.</p>
+                            <p class="text-sm text-gray-500">Focus: Design Fundamentals & Spatial Planning.</p>
                         </li>
                     </ul>
                 </section>
@@ -67,7 +84,7 @@
                             <span class="bg-army-dark text-white text-sm font-mono px-3 py-1 rounded-full">Tailwind CSS</span>
                             <span class="bg-army-dark text-white text-sm font-mono px-3 py-1 rounded-full">JavaScript (ES6+)</span>
                             <span class="bg-army-dark text-white text-sm font-mono px-3 py-1 rounded-full">Git/GitHub</span>
-                            <span class="bg-army-dark text-white text-sm font-mono px-3 py-1 rounded-full">Responsive Design.</span>
+                            <span class="bg-army-dark text-white text-sm font-mono px-3 py-1 rounded-full">Responsive Design</span>
                         </div>
                     </div>
 
@@ -83,18 +100,18 @@
                 </section>
 
                 <section class="p-6 bg-white rounded-xl shadow-lg border border-gray-200 fade-in-up">
-                    <h3 class="text-2xl font-bold text-army-dark mb-4 border-b border-gray-200 pb-2">Languange & Interest</h3>
+                    <h3 class="text-2xl font-bold text-army-dark mb-4 border-b border-gray-200 pb-2">Languages & Interest</h3>
                     
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <h4 class="font-semibold text-army-light mb-2">Languange</h4>
+                            <h4 class="font-semibold text-army-light mb-2">Languages</h4>
                             <ul class="text-gray-700 space-y-1 text-sm">
                                 <li>Indonesia (Native)</li>
                                 <li>English (Intermediate)</li>
                             </ul>
                         </div>
                         <div>
-                            <h4 class="font-semibold text-army-light mb-2">Interest</h4>
+                            <h4 class="font-semibold text-army-light mb-2">Interests</h4>
                             <ul class="text-gray-700 space-y-1 text-sm">
                                 <li>Minimalist Architecture</li>
                                 <li>Digital Photography</li>
@@ -112,7 +129,7 @@
                         <li class="flex items-center"><i data-lucide="map-pin" class="w-5 h-5 mr-3 text-army-light"></i> Jakarta, Indonesia</li>
                     </ul>
                     <div class="mt-4 flex space-x-4">
-                        <a href="{{ url('/contact') }}" class="inline-flex items-center text-sm font-medium text-white bg-army-dark px-4 py-2 rounded-lg hover:bg-army-light transition duration-150">Kirim Pesan &rarr;</a>
+                        <a href="{{ route('contact') }}" class="inline-flex items-center text-sm font-medium text-white bg-army-dark px-4 py-2 rounded-lg hover:bg-army-light transition duration-150">Kirim Pesan &rarr;</a>
                     </div>
                 </section>
 
