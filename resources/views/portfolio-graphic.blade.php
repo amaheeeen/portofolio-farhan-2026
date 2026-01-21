@@ -87,7 +87,7 @@
             </div>
 
             {{-- Bento Grid Layout --}}
-            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-[800px] md:h-[600px]">
+            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-200 md:h-150">
                 
                 {{-- Item 1: Besar Kiri --}}
                 <div class="md:col-span-2 md:row-span-2 bg-gray-800 rounded-2xl overflow-hidden relative group fade-in-up">
@@ -127,7 +127,7 @@
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 
                 {{-- Visual Stack (Tumpukan Gambar) --}}
-                <div class="relative h-[500px] w-full fade-in-up order-2 lg:order-1">
+                <div class="relative h-125 w-full fade-in-up order-2 lg:order-1">
                     {{-- Gambar Belakang --}}
                     <div class="absolute top-0 left-0 w-3/4 h-3/4 bg-gray-200 rounded-xl overflow-hidden z-0">
                          <img src="https://placehold.co/600x600/e5e7eb/9ca3af?text=Desktop+UI" class="w-full h-full object-cover">
