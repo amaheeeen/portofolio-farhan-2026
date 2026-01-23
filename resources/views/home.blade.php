@@ -32,11 +32,11 @@
 
             {{-- Photo Collage --}}
             <div class="lg:col-span-4 hidden lg:block relative h-[500px]">
-                 <div class="absolute top-0 right-0 w-72 h-96 bg-gray-300 border-4 border-black shadow-[12px_12px_0px_0px_#ccff00] z-20 overflow-hidden hover:translate-x-2 hover:translate-y-2 transition duration-300">
-                    <img src="{{ asset('assets/img/PP Formal.png') }}" class="w-full h-full object-cover grayscale contrast-125">
+                 <div class="absolute top-0 right-0 w-80 h-80 bg-gray-300 border-4 border-black rounded-full shadow-[12px_12px_0px_0px_#ccff00] z-20 overflow-hidden hover:translate-x-2 hover:translate-y-2 transition duration-300">
+                    <img src="{{ asset('assets/img/PP Formal.png') }}" alt="Farhan Kholid" loading="lazy" class="w-full h-full object-cover object-center grayscale contrast-125">
                  </div>
                  {{-- Abstract Shapes --}}
-                 <div class="absolute top-20 -right-8 w-72 h-96 bg-[#ff4d00] border-4 border-black z-10"></div>
+                 <div class="absolute top-16 -right-6 w-80 h-80 bg-[#ff4d00] border-4 border-black rounded-full z-10"></div>
                  <div class="absolute bottom-10 -left-8 bg-white border-2 border-black px-4 py-2 z-30 font-mono-pm text-xs font-bold rotate-3">
                     JAKARTA /// ID
                  </div>
@@ -164,7 +164,7 @@
          ======================================================================= --}}
     <section id="project-mono" class="min-h-screen bg-black text-white flex items-center border-b-4 border-white snap-start relative overflow-hidden">
         {{-- FADED BACKGROUND IMAGE --}}
-        <img src="{{ asset('assets/img/porto-fe_1.png') }}" class="absolute inset-0 w-full h-full object-cover opacity-30 grayscale blur-sm">
+        <img src="{{ asset('assets/img/porto-fe_1.png') }}" alt="Mono Stock Project" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-30 grayscale blur-sm">
         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
 
         <div class="max-w-7xl w-full mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
@@ -204,7 +204,7 @@
                     RAW DOM MANIPULATION
                 </div>
                 <div class="border-4 border-white p-2 shadow-[16px_16px_0px_0px_#ccff00] bg-gray-900 rotate-2 hover:rotate-0 transition duration-500">
-                    <img src="{{ asset('assets/img/porto-fe_1.png') }}" class="w-full h-auto grayscale hover:grayscale-0 transition">
+                    <img src="{{ asset('assets/img/porto-fe_1.png') }}" alt="Mono Stock Dashboard" loading="lazy" class="w-full h-auto grayscale hover:grayscale-0 transition">
                 </div>
             </div>
         </div>
@@ -214,43 +214,44 @@
     {{-- =======================================================================
          SLIDE 5: FRONT-END PROJECT 2 - KALCER.ID
          ======================================================================= --}}
-    <section id="project-kalcer" class="min-h-screen bg-white text-black flex items-center border-b-4 border-black snap-start relative overflow-hidden">
+    <section id="project-kalcer" class="min-h-screen bg-black text-white flex items-center border-b-4 border-white snap-start relative overflow-hidden">
         {{-- FADED BACKGROUND IMAGE --}}
-        <img src="{{ asset('assets/img/porto-fe_2.png') }}" class="absolute inset-0 w-full h-full object-cover opacity-10 blur-sm">
+        <img src="{{ asset('assets/img/porto-fe_2.png') }}" alt="Kalcer.id Project" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-20 blur-sm">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
         
         <div class="max-w-7xl w-full mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
             {{-- Preview Left --}}
             <div class="order-2 lg:order-1 relative">
-                <div class="absolute -bottom-6 -right-6 bg-black text-white px-4 py-2 font-mono-pm text-xs font-bold border-2 border-[#ff4d00] z-20">
+                <div class="absolute -bottom-6 -right-6 bg-[#ff4d00] text-white px-4 py-2 font-mono-pm text-xs font-bold border-2 border-white z-20">
                     ALGORITHM: VIRALITY SCORE
                 </div>
-                <div class="border-4 border-black p-2 shadow-[-16px_16px_0px_0px_#ff4d00] bg-white -rotate-1 hover:rotate-0 transition duration-500">
-                    <img src="{{ asset('assets/img/porto-fe_2.png') }}" class="w-full h-auto">
+                <div class="border-4 border-white p-2 shadow-[-16px_16px_0px_0px_#ff4d00] bg-gray-900 -rotate-1 hover:rotate-0 transition duration-500">
+                    <img src="{{ asset('assets/img/porto-fe_2.png') }}" alt="Kalcer.id Application" loading="lazy" class="w-full h-auto">
                 </div>
             </div>
 
             <div class="order-1 lg:order-2 text-right lg:text-left">
-                <div class="inline-flex items-center gap-2 mb-4 bg-black text-white px-3 py-1 border-2 border-[#ff4d00] justify-end lg:justify-start">
+                <div class="inline-flex items-center gap-2 mb-4 bg-white text-black px-3 py-1 border-2 border-[#ff4d00] justify-end lg:justify-start">
                     <span class="font-mono-pm text-xs font-bold">PROJECT_02 /// FULLSTACK</span>
                     <i data-lucide="database" class="w-4 h-4"></i>
                 </div>
                 
-                <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase text-black">
+                <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase text-white">
                     Kalcer<span class="text-[#ff4d00]">.</span>ID
                 </h2>
                 
                 <div class="flex flex-wrap gap-2 mb-8 justify-end lg:justify-start">
-                    <span class="bg-gray-100 border-2 border-black px-2 py-1 text-xs font-mono-pm font-bold">LARAVEL 11</span>
-                    <span class="bg-gray-100 border-2 border-black px-2 py-1 text-xs font-mono-pm font-bold">MYSQL</span>
-                    <span class="bg-gray-100 border-2 border-black px-2 py-1 text-xs font-mono-pm font-bold">TAILWIND</span>
+                    <span class="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-2 py-1 text-xs font-mono-pm font-bold">LARAVEL 11</span>
+                    <span class="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-2 py-1 text-xs font-mono-pm font-bold">MYSQL</span>
+                    <span class="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-2 py-1 text-xs font-mono-pm font-bold">TAILWIND</span>
                 </div>
                 
-                <p class="text-lg text-gray-800 mb-8 max-w-md ml-auto lg:ml-0 font-medium">
+                <p class="text-lg text-white mb-8 max-w-md ml-auto lg:ml-0 font-medium">
                     Viral hangout monitoring system. Features a custom Virality Score algorithm, personality-based filtering, and a seamless administrative backend.
                 </p>
                 
                 <div class="flex gap-4 justify-end lg:justify-start">
-                    <a href="https://kalcerid-pemweb-production-f0a2.up.railway.app/" target="_blank" class="bg-black text-white px-8 py-3 font-bold hover:bg-[#ff4d00] transition shadow-[4px_4px_0px_0px_gray]">
+                    <a href="http://kalcer-id.zeabur.app/" target="_blank" class="bg-[#ff4d00] text-white px-8 py-3 font-bold hover:bg-white hover:text-black transition shadow-[4px_4px_0px_0px_white]">
                         VISIT APP
                     </a>
                 </div>
@@ -264,7 +265,7 @@
          ======================================================================= --}}
     <section id="project-lumina" class="min-h-screen bg-[#1e1e1e] text-white flex items-center border-b-4 border-black snap-start relative overflow-hidden">
         {{-- FADED BACKGROUND IMAGE --}}
-        <img src="{{ asset('assets/img/porto-fe_4.png') }}" class="absolute inset-0 w-full h-full object-cover opacity-20 blur-sm">
+        <img src="{{ asset('assets/img/porto-fe_4.png') }}" alt="Lumina Visa Project" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-20 blur-sm">
         
         <div class="max-w-7xl w-full mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-8 items-center">
             <div class="lg:col-span-5">
@@ -291,7 +292,7 @@
             </div>
             
             <div class="lg:col-span-7 relative">
-                <img src="{{ asset('assets/img/porto-fe_4.png') }}" class="w-full border-4 border-white shadow-[12px_12px_0px_0px_#ccff00] relative z-10 rotate-1 hover:rotate-0 transition duration-500">
+                <img src="{{ asset('assets/img/porto-fe_4.png') }}" alt="Lumina Visa Platform" loading="lazy" class="w-full border-4 border-white shadow-[12px_12px_0px_0px_#ccff00] relative z-10 rotate-1 hover:rotate-0 transition duration-500">
             </div>
         </div>
     </section>
@@ -325,7 +326,7 @@
                 {{-- Slide Item 1 --}}
                 <div class="min-w-[80vw] md:min-w-[40vw] snap-center bg-[#f4f4f0] border-4 border-black p-4 shadow-[8px_8px_0px_0px_black]">
                     <div class="h-80 bg-white border-2 border-gray-200 flex items-center justify-center mb-4">
-                        <img src="{{ asset('assets/img/LOGO CU25 (no Bg)_low.png') }}" class="h-48 object-contain">
+                        <img src="{{ asset('assets/img/LOGO CU25 (no Bg)_low.png') }}" alt="CITEUP 2025 Logo" loading="lazy" class="h-48 object-contain">
                     </div>
                     <h3 class="font-bold font-mono-pm">PRIMARY LOGO MARK</h3>
                 </div>
@@ -493,11 +494,27 @@
                 {{-- Form --}}
                 <div class="bg-[#f4f4f0] border-4 border-black p-8 shadow-[12px_12px_0px_0px_black]">
                     <h3 class="font-bold text-xl mb-6 font-mono-pm border-b-2 border-black pb-2">SEND SIGNAL ///</h3>
+                    @if(session('success'))
+                        <div class="mb-4 bg-[#ccff00] border-2 border-black p-4 font-mono-pm font-bold">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if($errors->any())
+                        <div class="mb-4 bg-[#ff4d00] text-white border-2 border-black p-4 font-mono-pm">
+                            <ul class="list-disc list-inside">
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form action="{{ route('contact.submit') }}" method="POST" class="space-y-4">
                         @csrf
-                        <input type="text" name="name" placeholder="YOUR NAME" class="w-full bg-white border-2 border-black p-4 font-mono-pm focus:outline-none focus:bg-[#ccff00] focus:placeholder-black transition">
-                        <input type="email" name="email" placeholder="EMAIL ADDRESS" class="w-full bg-white border-2 border-black p-4 font-mono-pm focus:outline-none focus:bg-[#ccff00] focus:placeholder-black transition">
-                        <textarea name="message" rows="3" placeholder="MESSAGE..." class="w-full bg-white border-2 border-black p-4 font-mono-pm focus:outline-none focus:bg-[#ccff00] focus:placeholder-black transition"></textarea>
+                        <input type="text" name="name" placeholder="YOUR NAME" value="{{ old('name') }}" required class="w-full bg-white border-2 border-black p-4 font-mono-pm focus:outline-none focus:bg-[#ccff00] focus:placeholder-black transition">
+                        <input type="email" name="email" placeholder="EMAIL ADDRESS" value="{{ old('email') }}" required class="w-full bg-white border-2 border-black p-4 font-mono-pm focus:outline-none focus:bg-[#ccff00] focus:placeholder-black transition">
+                        <textarea name="message" rows="3" placeholder="MESSAGE..." required class="w-full bg-white border-2 border-black p-4 font-mono-pm focus:outline-none focus:bg-[#ccff00] focus:placeholder-black transition">{{ old('message') }}</textarea>
                         <button type="submit" class="w-full bg-black text-white py-4 font-bold hover:bg-[#ff4d00] transition border-2 border-transparent hover:border-black shadow-[4px_4px_0px_0px_white]">INITIATE</button>
                     </form>
                 </div>
@@ -520,9 +537,15 @@
                     </div>
                     
                     <div class="flex gap-4 mt-8 justify-center">
-                        <a href="#" class="w-14 h-14 border-4 border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition shadow-[6px_6px_0px_0px_black] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]"><i data-lucide="linkedin"></i></a>
-                        <a href="#" class="w-14 h-14 border-4 border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition shadow-[6px_6px_0px_0px_black] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]"><i data-lucide="github"></i></a>
-                        <a href="#" class="w-14 h-14 border-4 border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition shadow-[6px_6px_0px_0px_black] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]"><i data-lucide="instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/farhan-kholid" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="w-14 h-14 border-4 border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition shadow-[6px_6px_0px_0px_black] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]">
+                            <i data-lucide="linkedin" class="w-6 h-6 text-black hover:text-white"></i>
+                        </a>
+                        <a href="mailto:farhankholid20@gmail.com" aria-label="Send Email" class="w-14 h-14 border-4 border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition shadow-[6px_6px_0px_0px_black] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]">
+                            <i data-lucide="mail" class="w-6 h-6 text-black hover:text-white"></i>
+                        </a>
+                        <a href="https://www.instagram.com/frhnkhld" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile" class="w-14 h-14 border-4 border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition shadow-[6px_6px_0px_0px_black] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]">
+                            <i data-lucide="instagram" class="w-6 h-6 text-black hover:text-white"></i>
+                        </a>
                     </div>
                 </div>
             </div>

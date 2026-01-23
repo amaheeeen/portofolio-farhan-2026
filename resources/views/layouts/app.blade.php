@@ -3,65 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Farhan Kholid - Front-End Engineer & Visual Design Specialist Portfolio">
+    <meta name="author" content="Farhan Kholid">
+    
     <title>@yield('title', 'Farhan Kholid - Creative Engineer')</title>
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{-- Preconnect to external domains for performance --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
+    {{-- Google Fonts with display=swap for better performance --}}
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=Playfair+Display:ital,wght@0,400;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Limelight&display=swap" rel="stylesheet">
     
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <style>
-        /* --- POSTMODERN VARIABLES --- */
-        :root {
-            --pm-black: #1a1a1a;
-            --pm-white: #ffffff;
-            --pm-paper: #f4f4f0;
-            --pm-neon: #ccff00; /* Acid Green */
-            --pm-orange: #ff4d00; /* International Orange */
-        }
-
-        body {
-            background-color: var(--pm-paper);
-            color: var(--pm-black);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden; /* Prevent horizontal scroll */
-        }
-
-        /* Typography */
-        .font-serif-pm { font-family: 'Playfair Display', serif; }
-        .font-mono-pm { font-family: 'Space Mono', monospace; }
-        .font-lime { font-family: 'Limelight', cursive; }
-
-        /* Brutalist Utilities */
-        .brutal-border { border: 2px solid var(--pm-black); }
-        .brutal-shadow { box-shadow: 6px 6px 0px 0px var(--pm-black); }
-        .brutal-shadow:hover { 
-            box-shadow: 2px 2px 0px 0px var(--pm-black); 
-            transform: translate(4px, 4px);
-        }
-
-        /* --- PRESENTATION MODE LOGIC --- */
-        /* Class ini akan di-inject lewat JS */
-        .presentation-active {
-            scroll-snap-type: y mandatory;
-            height: 100vh;
-            overflow-y: scroll;
-        }
-        
-        .presentation-active section {
-            scroll-snap-align: start;
-            scroll-snap-stop: always;
-            min-height: 100vh;
-            /* Pastikan konten vertikal bisa discroll jika lebih tinggi dari layar */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Hide scrollbar saat presentasi agar bersih */
-        .presentation-active::-webkit-scrollbar { width: 0; }
-    </style>
+    {{-- Vite CSS & JS --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="antialiased selection:bg-black selection:text-[#ccff00]">
 
@@ -77,29 +32,5 @@
         @yield('content')
     </main>
 
-    <script>
-        lucide.createIcons();
-
-        function togglePresentationMode() {
-            const scroller = document.getElementById('main-scroller');
-            const btn = document.getElementById('pres-btn');
-            
-            // Toggle Class
-            scroller.classList.toggle('presentation-active');
-            
-            // Ubah Teks Button
-            if(scroller.classList.contains('presentation-active')) {
-                btn.innerText = "EXIT SLIDE MODE";
-                btn.style.backgroundColor = "#ccff00";
-                btn.style.boxShadow = "4px 4px 0px 0px black";
-                // Reset scroll ke atas
-                window.scrollTo(0,0);
-            } else {
-                btn.innerText = "ENTER SLIDE MODE";
-                btn.style.backgroundColor = "white";
-                btn.style.boxShadow = "4px 4px 0px 0px white";
-            }
-        }
-    </script>
 </body>
 </html>

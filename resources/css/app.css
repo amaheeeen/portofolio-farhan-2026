@@ -9,3 +9,92 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* --- POSTMODERN VARIABLES --- */
+:root {
+    --pm-black: #1a1a1a;
+    --pm-white: #ffffff;
+    --pm-paper: #f4f4f0;
+    --pm-neon: #ccff00; /* Acid Green */
+    --pm-orange: #ff4d00; /* International Orange */
+}
+
+body {
+    background-color: var(--pm-paper);
+    color: var(--pm-black);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Typography */
+.font-serif-pm { 
+    font-family: 'Playfair Display', serif; 
+}
+
+.font-mono-pm { 
+    font-family: 'Space Mono', monospace; 
+}
+
+.font-lime { 
+    font-family: 'Limelight', cursive; 
+}
+
+/* Brutalist Utilities */
+.brutal-border { 
+    border: 2px solid var(--pm-black); 
+}
+
+.brutal-shadow { 
+    box-shadow: 6px 6px 0px 0px var(--pm-black); 
+}
+
+.brutal-shadow:hover { 
+    box-shadow: 2px 2px 0px 0px var(--pm-black); 
+    transform: translate(4px, 4px);
+}
+
+/* --- PRESENTATION MODE LOGIC --- */
+.presentation-active {
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.presentation-active section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Hide scrollbar saat presentasi agar bersih */
+.presentation-active::-webkit-scrollbar { 
+    width: 0; 
+}
+
+/* Hide scrollbar for horizontal sliders */
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Image optimization */
+img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
