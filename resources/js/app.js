@@ -2,9 +2,25 @@ import './bootstrap';
 import { createIcons } from 'lucide';
 
 // Initialize Lucide icons
+function initLucideIcons() {
+    createIcons({
+        attrs: {
+            class: 'lucide-icon',
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    createIcons();
+    initLucideIcons();
 });
+
+// Re-initialize icons if new content is added dynamically
+if (typeof window !== 'undefined') {
+    // Re-run after a short delay to catch any dynamically added icons
+    setTimeout(() => {
+        initLucideIcons();
+    }, 100);
+}
 
 // Lazy load images
 document.addEventListener('DOMContentLoaded', () => {

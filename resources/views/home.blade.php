@@ -1,559 +1,398 @@
 @extends('layouts.app')
 
-@section('title', 'Farhan Kholid - Ultra Portfolio')
+@section('title', 'Farhan Kholid - Creative Portfolio')
 
 @section('content')
 
     {{-- =======================================================================
-         SLIDE 1: HERO (COVER) - POSTMODERN STYLE
+         HERO SECTION: FADED GREEN GLASS
          ======================================================================= --}}
-    <section id="hero" class="relative min-h-screen flex items-center justify-center p-6 border-b-4 border-black bg-[#e6e6e6] overflow-hidden snap-start">
-        {{-- Background Grid --}}
-        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 40px 40px;"></div>
-
-        <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div class="lg:col-span-8">
-                {{-- Sticker Decor --}}
-                <div class="inline-block bg-[#ccff00] border-2 border-black px-4 py-1 mb-6 -rotate-2 shadow-[4px_4px_0px_0px_black]">
-                    <span class="font-mono-pm text-sm font-bold tracking-widest">SYSTEM_READY /// V.3.0</span>
-                </div>
-                
-                <h1 class="text-7xl md:text-9xl font-black leading-[0.85] tracking-tighter mb-6 mix-blend-hard-light relative">
-                    FARHAN<br>
-                    <span class="font-serif-pm italic font-light ml-12 block text-stroke-black text-transparent md:text-black">KHOLID</span>
-                    {{-- Decorative Circle --}}
-                    <div class="absolute -top-10 -left-10 w-32 h-32 rounded-full border-2 border-black animate-spin-slow opacity-20 hidden md:block" style="border-style: dashed;"></div>
-                </h1>
-                
-                <div class="font-mono-pm max-w-xl border-l-8 border-[#ff4d00] pl-6 py-4 bg-white/80 backdrop-blur-sm border-2 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,0.2)]">
-                    <p class="text-xl font-bold uppercase">Front-End Engineer & <br> Visual Design Specialist.</p>
-                </div>
-            </div>
-
-            {{-- Photo Collage --}}
-            <div class="lg:col-span-4 hidden lg:block relative h-[500px]">
-                 <div class="absolute top-0 right-0 w-80 h-80 bg-gray-300 border-4 border-black rounded-full shadow-[12px_12px_0px_0px_#ccff00] z-20 overflow-hidden hover:translate-x-2 hover:translate-y-2 transition duration-300">
-                    <img src="{{ asset('assets/img/PP Formal.png') }}" alt="Farhan Kholid" loading="lazy" class="w-full h-full object-cover object-center grayscale contrast-125">
-                 </div>
-                 {{-- Abstract Shapes --}}
-                 <div class="absolute top-16 -right-6 w-80 h-80 bg-[#ff4d00] border-4 border-black rounded-full z-10"></div>
-                 <div class="absolute bottom-10 -left-8 bg-white border-2 border-black px-4 py-2 z-30 font-mono-pm text-xs font-bold rotate-3">
-                    JAKARTA /// ID
-                 </div>
-            </div>
-        </div>
-        
-        {{-- Scroll Indicator --}}
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-            <span class="font-mono-pm text-[10px] bg-black text-white px-2">SCROLL TO BEGIN</span>
-            <i data-lucide="arrow-down" class="w-6 h-6"></i>
-        </div>
-    </section>
-
-
-    {{-- =======================================================================
-         SLIDE 2: ABOUT (THE HYBRID)
-         ======================================================================= --}}
-    <section id="about" class="min-h-screen bg-white flex items-center border-b-4 border-black relative py-20 snap-start overflow-hidden">
-        {{-- Decorative Marquee Background --}}
-        <div class="absolute top-10 left-0 w-full opacity-5 -rotate-3 pointer-events-none whitespace-nowrap text-9xl font-black select-none">
-            DESIGN /// CODE /// DESIGN /// CODE /// DESIGN /// CODE ///
-        </div>
-
-        <div class="max-w-7xl w-full mx-auto px-6 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="order-2 lg:order-1">
-                    <h2 class="text-6xl md:text-8xl font-serif-pm italic mb-8 relative inline-block">
-                        The Hybrid
-                        <span class="absolute -bottom-2 left-0 w-full h-4 bg-[#ccff00] -z-10"></span>
-                    </h2>
-                    
-                    <div class="font-mono-pm text-sm leading-relaxed text-justify space-y-6">
-                        <div class="p-8 border-4 border-black bg-[#f4f4f0] shadow-[10px_10px_0px_0px_#ff4d00] relative">
-                            <i data-lucide="zap" class="absolute -top-4 -left-4 w-8 h-8 bg-black text-[#ccff00] p-1 border-2 border-white"></i>
-                            <p class="font-bold mb-2">/// PROFILE_SUMMARY</p>
-                            <p>A hybrid professional with 4 years of visual design background, currently transitioning into Front-End Engineering. I combine architectural aesthetic sensibility with computer algorithmic precision.</p>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Brutalist Skills Grid --}}
-                <div class="order-1 lg:order-2 grid grid-cols-2 gap-6">
-                    <div class="bg-[#1a1a1a] text-[#ccff00] p-6 border-4 border-black aspect-square flex flex-col justify-between hover:bg-[#ccff00] hover:text-black transition duration-300">
-                        <i data-lucide="terminal" class="w-12 h-12"></i>
-                        <span class="font-mono-pm font-bold text-2xl">DEV.<br>CORE</span>
-                    </div>
-                    <div class="bg-white p-6 border-4 border-black aspect-square flex flex-col justify-center gap-2 shadow-[8px_8px_0px_0px_gray]">
-                        <span class="bg-black text-white px-2 py-1 text-xs font-mono-pm">Laravel 11</span>
-                        <span class="bg-black text-white px-2 py-1 text-xs font-mono-pm">React.js</span>
-                        <span class="bg-black text-white px-2 py-1 text-xs font-mono-pm">Tailwind</span>
-                    </div>
-                    <div class="bg-[#ff4d00] p-6 border-4 border-black aspect-square flex flex-col justify-center gap-2">
-                        <span class="bg-white border-2 border-black px-2 py-1 text-xs font-mono-pm font-bold">Figma</span>
-                        <span class="bg-white border-2 border-black px-2 py-1 text-xs font-mono-pm font-bold">Adobe Suite</span>
-                    </div>
-                    <div class="bg-[#f4f4f0] p-6 border-4 border-black aspect-square flex flex-col justify-between hover:rotate-3 transition">
-                        <i data-lucide="pen-tool" class="w-12 h-12"></i>
-                        <span class="font-mono-pm font-bold text-2xl">ART.<br>DIR</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    {{-- =======================================================================
-         SLIDE 3: EXPERIENCE & EDUCATION
-         ======================================================================= --}}
-    <section id="experience" class="min-h-screen bg-[#ccff00] flex items-center border-b-4 border-black py-20 snap-start relative">
-        {{-- Background Pattern --}}
-        <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), repeating-linear-gradient(45deg, #000 25%, #ccff00 25%, #ccff00 75%, #000 75%, #000); background-position: 0 0, 20px 20px; background-size: 40px 40px;"></div>
-
-        <div class="max-w-7xl w-full mx-auto px-6 relative z-10">
-            <h2 class="text-5xl md:text-7xl font-black mb-12 uppercase bg-white border-4 border-black inline-block px-6 py-2 shadow-[8px_8px_0px_0px_black]">
-                Timeline
-            </h2>
+    <section id="hero" class="min-h-screen w-full flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
             
-            <div class="grid md:grid-cols-2 gap-12">
-                {{-- Experience --}}
-                <div class="space-y-6">
-                    <h3 class="font-mono-pm text-xl bg-black text-white inline-block px-2 py-1 mb-4">/// EXPERIENCE</h3>
+            {{-- Typography / Intro (In Strong Glass) --}}
+            <div class="text-left space-y-8 reveal-on-scroll col-span-2 md:col-span-1">
+                <div class="glass-strong rounded-[2.5rem] p-10 md:p-12 relative overflow-hidden">
+                    {{-- Decorative Blur --}}
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -z-10 animate-pulse"></div>
                     
-                    <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition">
-                        <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-bold text-xl">Graphic & UI Designer</h4>
-                            <span class="font-mono-pm text-xs bg-[#ff4d00] text-white px-2 py-1">2021-2023</span>
-                        </div>
-                        <p class="font-serif-pm italic mb-2">Royal Rinjani</p>
-                        <ul class="list-disc list-inside text-sm text-gray-700 font-mono-pm">
-                            <li>Designed responsive UI layouts</li>
-                            <li>Developed design systems</li>
-                        </ul>
+                    <div class="inline-block px-4 py-1 rounded-full bg-emerald-100/50 backdrop-blur-md border border-emerald-200/50 shadow-sm mb-6">
+                        <span class="font-mono text-xs text-emerald-800 tracking-widest uppercase font-bold">/// UI_ENGINEER</span>
                     </div>
-
-                    <div class="bg-white border-4 border-black p-6 shadow-[8px_8px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition">
-                        <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-bold text-xl">Digital Mkt. Manager</h4>
-                            <span class="font-mono-pm text-xs bg-black text-white px-2 py-1">2019-2020</span>
-                        </div>
-                        <p class="font-serif-pm italic mb-2">PT Farhan Surya Indah</p>
-                        <p class="text-sm text-gray-700 font-mono-pm">Managed corporate assets & SEO.</p>
-                    </div>
-                </div>
-
-                {{-- Education --}}
-                <div>
-                    <h3 class="font-mono-pm text-xl bg-black text-white inline-block px-2 py-1 mb-10">/// EDUCATION</h3>
                     
-                    <div class="bg-[#ff4d00] border-4 border-black p-6 text-white shadow-[8px_8px_0px_0px_black] relative">
-                        {{-- Paper Clip Decor --}}
-                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-gray-200 border-2 border-black rotate-2"></div>
-                        
-                        <h4 class="font-bold text-2xl mb-1">Bachelor of Comp. Science</h4>
-                        <p class="font-mono-pm text-sm text-black bg-white inline-block px-1">Universitas Pertamina (2023 - Present)</p>
-                        <p class="text-sm mt-4 font-bold">Focus: Web Algorithms, Interaction Design.</p>
+                    <h1 class="font-syne font-black text-5xl md:text-7xl text-emerald-950 leading-[0.9] tracking-tight mb-4">
+                        Farhan<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">Kholid.</span>
+                    </h1>
+                    
+                    <div class="space-y-1 mb-8">
+                        <h2 class="font-syne font-bold text-2xl md:text-3xl text-emerald-800">UI/UX Designer</h2>
+                        <h2 class="font-syne font-bold text-2xl md:text-3xl text-emerald-600/60">& Graphic Designer</h2>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-
-    {{-- =======================================================================
-         SLIDE 4: FRONT-END PROJECT 1 - MONO STOCK
-         ======================================================================= --}}
-    <section id="project-mono" class="min-h-screen bg-black text-white flex items-center border-b-4 border-white snap-start relative overflow-hidden">
-        {{-- FADED BACKGROUND IMAGE --}}
-        <img src="{{ asset('assets/img/porto-fe_1.png') }}" alt="Mono Stock Project" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-30 grayscale blur-sm">
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-
-        <div class="max-w-7xl w-full mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <div class="inline-flex items-center gap-2 mb-4 bg-[#ccff00] text-black px-3 py-1 border-2 border-white">
-                    <i data-lucide="cpu" class="w-4 h-4"></i>
-                    <span class="font-mono-pm text-xs font-bold">PROJECT_01 /// INVENTORY</span>
-                </div>
-                
-                <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase leading-none text-transparent stroke-text" style="-webkit-text-stroke: 2px white;">
-                    MONO<br>STOCK
-                </h2>
-                
-                <div class="flex flex-wrap gap-3 mb-8">
-                    <span class="bg-gray-800 border border-gray-600 px-3 py-1 text-xs font-mono-pm text-[#ccff00]">VANILLA JS</span>
-                    <span class="bg-gray-800 border border-gray-600 px-3 py-1 text-xs font-mono-pm text-[#ccff00]">CANVAS API</span>
-                    <span class="bg-gray-800 border border-gray-600 px-3 py-1 text-xs font-mono-pm text-[#ccff00]">NO FRAMEWORK</span>
-                </div>
-                
-                <p class="text-lg text-gray-300 mb-8 max-w-md leading-relaxed border-l-4 border-[#ff4d00] pl-4">
-                    A minimalist inventory dashboard built exclusively with core web technologies. Demonstrating mastery of Modular JavaScript without dependencies.
-                </p>
-                
-                <div class="flex gap-4">
-                    <a href="https://frhnkhld.github.io/Mono-Inventory-Dashboard/" target="_blank" class="bg-[#ccff00] text-black border-2 border-[#ccff00] px-8 py-3 font-bold hover:bg-transparent hover:text-[#ccff00] transition">
-                        LIVE DEMO
-                    </a>
-                    <a href="https://github.com/frhnkhld/Mono-Inventory-Dashboard" target="_blank" class="border-2 border-white px-8 py-3 font-bold hover:bg-white hover:text-black transition">
-                        REPO
-                    </a>
-                </div>
-            </div>
-            
-            {{-- Floating Preview --}}
-            <div class="hidden lg:block relative">
-                <div class="absolute -top-6 -left-6 bg-[#ff4d00] text-white px-4 py-2 font-mono-pm text-xs font-bold border-2 border-white z-20">
-                    RAW DOM MANIPULATION
-                </div>
-                <div class="border-4 border-white p-2 shadow-[16px_16px_0px_0px_#ccff00] bg-gray-900 rotate-2 hover:rotate-0 transition duration-500">
-                    <img src="{{ asset('assets/img/porto-fe_1.png') }}" alt="Mono Stock Dashboard" loading="lazy" class="w-full h-auto grayscale hover:grayscale-0 transition">
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    {{-- =======================================================================
-         SLIDE 5: FRONT-END PROJECT 2 - KALCER.ID
-         ======================================================================= --}}
-    <section id="project-kalcer" class="min-h-screen bg-black text-white flex items-center border-b-4 border-white snap-start relative overflow-hidden">
-        {{-- FADED BACKGROUND IMAGE --}}
-        <img src="{{ asset('assets/img/porto-fe_2.png') }}" alt="Kalcer.id Project" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-20 blur-sm">
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
-        
-        <div class="max-w-7xl w-full mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-            {{-- Preview Left --}}
-            <div class="order-2 lg:order-1 relative">
-                <div class="absolute -bottom-6 -right-6 bg-[#ff4d00] text-white px-4 py-2 font-mono-pm text-xs font-bold border-2 border-white z-20">
-                    ALGORITHM: VIRALITY SCORE
-                </div>
-                <div class="border-4 border-white p-2 shadow-[-16px_16px_0px_0px_#ff4d00] bg-gray-900 -rotate-1 hover:rotate-0 transition duration-500">
-                    <img src="{{ asset('assets/img/porto-fe_2.png') }}" alt="Kalcer.id Application" loading="lazy" class="w-full h-auto">
-                </div>
-            </div>
-
-            <div class="order-1 lg:order-2 text-right lg:text-left">
-                <div class="inline-flex items-center gap-2 mb-4 bg-white text-black px-3 py-1 border-2 border-[#ff4d00] justify-end lg:justify-start">
-                    <span class="font-mono-pm text-xs font-bold">PROJECT_02 /// FULLSTACK</span>
-                    <i data-lucide="database" class="w-4 h-4"></i>
-                </div>
-                
-                <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase text-white">
-                    Kalcer<span class="text-[#ff4d00]">.</span>ID
-                </h2>
-                
-                <div class="flex flex-wrap gap-2 mb-8 justify-end lg:justify-start">
-                    <span class="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-2 py-1 text-xs font-mono-pm font-bold">LARAVEL 11</span>
-                    <span class="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-2 py-1 text-xs font-mono-pm font-bold">MYSQL</span>
-                    <span class="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-2 py-1 text-xs font-mono-pm font-bold">TAILWIND</span>
-                </div>
-                
-                <p class="text-lg text-white mb-8 max-w-md ml-auto lg:ml-0 font-medium">
-                    Viral hangout monitoring system. Features a custom Virality Score algorithm, personality-based filtering, and a seamless administrative backend.
-                </p>
-                
-                <div class="flex gap-4 justify-end lg:justify-start">
-                    <a href="http://kalcer-id.zeabur.app/" target="_blank" class="bg-[#ff4d00] text-white px-8 py-3 font-bold hover:bg-white hover:text-black transition shadow-[4px_4px_0px_0px_white]">
-                        VISIT APP
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    {{-- =======================================================================
-         SLIDE 6: FRONT-END PROJECT 3 - LUMINA VISA
-         ======================================================================= --}}
-    <section id="project-lumina" class="min-h-screen bg-[#1e1e1e] text-white flex items-center border-b-4 border-black snap-start relative overflow-hidden">
-        {{-- FADED BACKGROUND IMAGE --}}
-        <img src="{{ asset('assets/img/porto-fe_4.png') }}" alt="Lumina Visa Project" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-20 blur-sm">
-        
-        <div class="max-w-7xl w-full mx-auto px-6 relative z-10 grid lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-5">
-                <span class="font-mono-pm text-xs font-bold tracking-widest mb-4 block text-[#ccff00] border-b border-[#ccff00] pb-1 w-max">PROJECT 03 /// UTILITY</span>
-                
-                <h2 class="text-6xl md:text-8xl font-black mb-6 uppercase leading-none">
-                    Lumina<br><span class="text-transparent stroke-text" style="-webkit-text-stroke: 1px white;">Visa</span>
-                </h2>
-                
-                <div class="bg-white/10 backdrop-blur-md p-6 border-2 border-white mb-8">
-                    <p class="text-lg font-bold font-mono-pm text-[#ccff00] mb-2">
-                        "Simplifying international travel bureaucracy."
+                    <p class="font-sans text-emerald-900/80 max-w-md leading-relaxed text-lg mb-8 font-medium">
+                        Crafting <span class="font-bold text-emerald-600">organic interfaces</span> that breathe. 
+                        I turn pixels into living, liquid experiences.
                     </p>
-                    <ul class="space-y-2 font-mono-pm text-sm text-gray-300">
-                        <li>+ Interactive Visa Calculator</li>
-                        <li>+ Real-time Embassy Directory</li>
-                        <li>+ Document Checklist Generator</li>
-                    </ul>
-                </div>
 
-                <a href="https://fsi-visa-production.up.railway.app/" target="_blank" class="inline-block bg-[#ccff00] text-black px-8 py-4 font-bold border-2 border-transparent hover:bg-black hover:text-white hover:border-[#ccff00] transition">
-                    LAUNCH PLATFORM
-                </a>
-            </div>
-            
-            <div class="lg:col-span-7 relative">
-                <img src="{{ asset('assets/img/porto-fe_4.png') }}" alt="Lumina Visa Platform" loading="lazy" class="w-full border-4 border-white shadow-[12px_12px_0px_0px_#ccff00] relative z-10 rotate-1 hover:rotate-0 transition duration-500">
-            </div>
-        </div>
-    </section>
-
-
-    {{-- =======================================================================
-         SLIDE 7: GRAPHIC 1 - CITEUP 2025
-         ======================================================================= --}}
-    <section id="graphic-citeup-2025" class="min-h-screen bg-white flex items-center border-b-4 border-black snap-start relative overflow-hidden">
-        {{-- RIPPLE TEXT (MARQUEE BG) --}}
-        <div class="absolute top-1/2 -translate-y-1/2 w-full -rotate-6 z-0 opacity-10 pointer-events-none">
-             <div class="whitespace-nowrap text-[12rem] font-black text-black">
-                CITEUP 2025 /// CITEUP 2025 /// CITEUP 2025 ///
-             </div>
-        </div>
-
-        <div class="max-w-7xl w-full mx-auto px-6 relative z-10">
-            <div class="flex justify-between items-end mb-8">
-                <div>
-                    <span class="bg-black text-white px-3 py-1 font-mono-pm text-xs font-bold">GRAPHIC_01</span>
-                    <h2 class="text-6xl font-black mt-2">CITEUP 2025</h2>
-                </div>
-                <div class="text-right">
-                    <p class="font-mono-pm text-sm">EVENT BRANDING</p>
-                    <p class="font-mono-pm text-xs text-gray-500">SCROLL HORIZONTALLY &rarr;</p>
-                </div>
-            </div>
-
-            {{-- HORIZONTAL SLIDER --}}
-            <div class="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory hide-scrollbar">
-                {{-- Slide Item 1 --}}
-                <div class="min-w-[80vw] md:min-w-[40vw] snap-center bg-[#f4f4f0] border-4 border-black p-4 shadow-[8px_8px_0px_0px_black]">
-                    <div class="h-80 bg-white border-2 border-gray-200 flex items-center justify-center mb-4">
-                        <img src="{{ asset('assets/img/LOGO CU25 (no Bg)_low.png') }}" alt="CITEUP 2025 Logo" loading="lazy" class="h-48 object-contain">
-                    </div>
-                    <h3 class="font-bold font-mono-pm">PRIMARY LOGO MARK</h3>
-                </div>
-
-                {{-- Slide Item 2 (Placeholder) --}}
-                <div class="min-w-[80vw] md:min-w-[40vw] snap-center bg-black text-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_#ccff00]">
-                    <div class="h-80 bg-gray-800 flex items-center justify-center mb-4 border-2 border-white">
-                        <span class="font-lime text-2xl">MERCHANDISE</span>
-                    </div>
-                    <h3 class="font-bold font-mono-pm text-[#ccff00]">APPAREL DESIGN</h3>
-                </div>
-
-                 {{-- Slide Item 3 (Placeholder) --}}
-                 <div class="min-w-[80vw] md:min-w-[40vw] snap-center bg-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_gray]">
-                    <div class="h-80 bg-gray-100 flex items-center justify-center mb-4 border-2 border-black">
-                        <span class="font-lime text-2xl">SOCIAL MEDIA</span>
-                    </div>
-                    <h3 class="font-bold font-mono-pm">INSTAGRAM FEEDS</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    {{-- =======================================================================
-         SLIDE 8: GRAPHIC 2 - CITEUP 2024
-         ======================================================================= --}}
-    <section id="graphic-citeup-2024" class="min-h-screen bg-[#ff4d00] flex items-center border-b-4 border-black snap-start relative overflow-hidden">
-        {{-- RIPPLE TEXT --}}
-        <div class="absolute top-1/2 -translate-y-1/2 w-full rotate-3 z-0 opacity-20 pointer-events-none">
-             <div class="whitespace-nowrap text-[12rem] font-black text-black">
-                CITEUP 2024 /// CITEUP 2024 /// CITEUP 2024 ///
-             </div>
-        </div>
-
-        <div class="max-w-7xl w-full mx-auto px-6 relative z-10">
-             <div class="flex justify-between items-end mb-8 text-white">
-                <div>
-                    <span class="bg-white text-black px-3 py-1 font-mono-pm text-xs font-bold">GRAPHIC_02</span>
-                    <h2 class="text-6xl font-black mt-2">CITEUP 2024</h2>
-                </div>
-                <div class="text-right">
-                    <p class="font-mono-pm text-sm">VISUAL IDENTITY</p>
-                </div>
-            </div>
-
-            {{-- SLIDER --}}
-            <div class="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory hide-scrollbar">
-                <div class="min-w-[80vw] md:min-w-[40vw] snap-center bg-white border-4 border-black p-4 shadow-[8px_8px_0px_0px_black]">
-                    <div class="h-80 bg-gray-100 border-2 border-black flex items-center justify-center mb-4">
-                        <span class="font-bold text-2xl">LOGO CONCEPT</span>
-                    </div>
-                </div>
-                <div class="min-w-[80vw] md:min-w-[40vw] snap-center bg-black border-4 border-black p-4 shadow-[8px_8px_0px_0px_white]">
-                    <div class="h-80 bg-gray-800 border-2 border-white flex items-center justify-center mb-4">
-                        <span class="font-bold text-2xl text-white">KEY VISUAL</span>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#work" class="px-8 py-3 rounded-full bg-emerald-900 text-white font-bold hover:bg-emerald-800 hover:shadow-lg hover:-translate-y-1 transition duration-300">
+                            View Work
+                        </a>
+                        <a href="#contact" class="px-8 py-3 rounded-full bg-white/40 backdrop-blur-sm border border-emerald-800/10 text-emerald-900 font-bold hover:bg-white hover:text-emerald-600 transition duration-300">
+                            Contact
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-
-    {{-- =======================================================================
-         SLIDE 9: GRAPHIC 3 - ROYAL RINJANI
-         ======================================================================= --}}
-    <section id="graphic-royal" class="min-h-screen bg-[#1a1a1a] text-white flex items-center border-b-4 border-black snap-start relative overflow-hidden">
-        {{-- RIPPLE TEXT --}}
-        <div class="absolute top-20 w-full z-0 opacity-10 pointer-events-none">
-             <div class="whitespace-nowrap text-[10rem] font-black text-white animate-marquee">
-                ROYAL RINJANI /// ROYAL RINJANI /// ROYAL RINJANI ///
-             </div>
-        </div>
-
-        <div class="max-w-7xl w-full mx-auto px-6 relative z-10">
-             <div class="mb-10">
-                <span class="text-[#ccff00] font-mono-pm text-xs font-bold tracking-widest border border-[#ccff00] px-2 py-1">GRAPHIC_03</span>
-                <h2 class="text-6xl font-black mt-4 uppercase">Royal Rinjani</h2>
-            </div>
-
-            {{-- SLIDER --}}
-            <div class="flex overflow-x-auto gap-8 pb-8 snap-x snap-mandatory hide-scrollbar">
-                <div class="min-w-[80vw] md:min-w-[30vw] snap-center border-2 border-white p-6 hover:bg-[#ccff00] hover:text-black hover:border-black transition duration-300 group">
-                    <i data-lucide="figma" class="w-12 h-12 mb-6"></i>
-                    <h3 class="text-3xl font-bold mb-2">UI Design</h3>
-                    <p class="font-mono-pm text-xs opacity-70 group-hover:opacity-100">BOOKING ENGINE INTERFACE</p>
-                </div>
-                 <div class="min-w-[80vw] md:min-w-[30vw] snap-center border-2 border-white p-6 hover:bg-[#ccff00] hover:text-black hover:border-black transition duration-300 group">
-                    <i data-lucide="smartphone" class="w-12 h-12 mb-6"></i>
-                    <h3 class="text-3xl font-bold mb-2">Mobile App</h3>
-                    <p class="font-mono-pm text-xs opacity-70 group-hover:opacity-100">TRAVEL COMPANION APP</p>
-                </div>
-                 <div class="min-w-[80vw] md:min-w-[30vw] snap-center border-2 border-white p-6 hover:bg-[#ccff00] hover:text-black hover:border-black transition duration-300 group">
-                    <i data-lucide="book-open" class="w-12 h-12 mb-6"></i>
-                    <h3 class="text-3xl font-bold mb-2">Brand Guide</h3>
-                    <p class="font-mono-pm text-xs opacity-70 group-hover:opacity-100">VISUAL IDENTITY SYSTEM</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    {{-- =======================================================================
-         SLIDE 10: GRAPHIC 4 - DESIGN LAB
-         ======================================================================= --}}
-    <section id="graphic-lab" class="min-h-screen bg-[#f4f4f0] flex items-center border-b-4 border-black snap-start relative overflow-hidden">
-        {{-- RIPPLE TEXT --}}
-        <div class="absolute bottom-0 w-full z-0 opacity-10 pointer-events-none">
-             <div class="whitespace-nowrap text-[8rem] font-black text-black">
-                DESIGN LAB /// DESIGN LAB /// DESIGN LAB ///
-             </div>
-        </div>
-
-        <div class="max-w-7xl w-full mx-auto px-6 relative z-10">
-             <div class="flex items-center gap-4 mb-10">
-                 <div class="w-16 h-16 bg-black text-white flex items-center justify-center font-bold text-2xl border-4 border-[#ff4d00]">DL</div>
-                 <h2 class="text-6xl font-black uppercase">Design Lab</h2>
-            </div>
-            
-            <p class="font-mono-pm max-w-lg mb-8 p-4 bg-white border-2 border-black">
-                /// ACADEMIC ARCHIVES & EXPERIMENTS
-                <br>A collection of raw ideas, university assignments, and visual explorations.
-            </p>
-
-            {{-- SLIDER --}}
-            <div class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar">
-                {{-- Lab Item 1 --}}
-                <div class="min-w-[60vw] md:min-w-[25vw] snap-center bg-white border-2 border-black p-2 shadow-[4px_4px_0px_0px_black] rotate-1">
-                    <div class="h-64 bg-gray-200 border border-black mb-2 flex items-center justify-center">POSTER</div>
-                    <p class="font-bold text-center font-mono-pm text-xs">TYPOGRAPHY 101</p>
-                </div>
-                {{-- Lab Item 2 --}}
-                <div class="min-w-[60vw] md:min-w-[25vw] snap-center bg-white border-2 border-black p-2 shadow-[4px_4px_0px_0px_black] -rotate-1">
-                    <div class="h-64 bg-gray-800 text-white border border-black mb-2 flex items-center justify-center">3D RENDER</div>
-                    <p class="font-bold text-center font-mono-pm text-xs">SPATIAL FORM</p>
-                </div>
-                {{-- Lab Item 3 --}}
-                <div class="min-w-[60vw] md:min-w-[25vw] snap-center bg-white border-2 border-black p-2 shadow-[4px_4px_0px_0px_black] rotate-2">
-                    <div class="h-64 bg-[#ff4d00] border border-black mb-2 flex items-center justify-center">SKETCH</div>
-                    <p class="font-bold text-center font-mono-pm text-xs">MANUAL DRAWING</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    {{-- =======================================================================
-         SLIDE 11: CONTACT
-         ======================================================================= --}}
-    <section id="contact" class="min-h-screen bg-[#ccff00] flex items-center justify-center p-6 border-b-4 border-black snap-start relative">
-        {{-- Background Noise --}}
-        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 30px 30px;"></div>
-
-        <div class="max-w-4xl w-full text-center relative z-10">
-            
-            <div class="inline-block border-4 border-black px-8 py-2 mb-8 bg-white shadow-[8px_8px_0px_0px_black] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition cursor-pointer">
-                <span class="font-mono-pm text-sm font-bold tracking-widest">STATUS: OPEN FOR WORK</span>
-            </div>
-
-            <h2 class="text-7xl md:text-9xl font-black mb-12 tracking-tighter text-black mix-blend-multiply">
-                LET'S TALK
-            </h2>
-
-            <div class="grid md:grid-cols-2 gap-8 text-left">
-                {{-- Form --}}
-                <div class="bg-[#f4f4f0] border-4 border-black p-8 shadow-[12px_12px_0px_0px_black]">
-                    <h3 class="font-bold text-xl mb-6 font-mono-pm border-b-2 border-black pb-2">SEND SIGNAL ///</h3>
-                    @if(session('success'))
-                        <div class="mb-4 bg-[#ccff00] border-2 border-black p-4 font-mono-pm font-bold">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-
-                    @if($errors->any())
-                        <div class="mb-4 bg-[#ff4d00] text-white border-2 border-black p-4 font-mono-pm">
-                            <ul class="list-disc list-inside">
-                                @foreach($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    <form action="{{ route('contact.submit') }}" method="POST" class="space-y-4">
-                        @csrf
-                        <input type="text" name="name" placeholder="YOUR NAME" value="{{ old('name') }}" required class="w-full bg-white border-2 border-black p-4 font-mono-pm focus:outline-none focus:bg-[#ccff00] focus:placeholder-black transition">
-                        <input type="email" name="email" placeholder="EMAIL ADDRESS" value="{{ old('email') }}" required class="w-full bg-white border-2 border-black p-4 font-mono-pm focus:outline-none focus:bg-[#ccff00] focus:placeholder-black transition">
-                        <textarea name="message" rows="3" placeholder="MESSAGE..." required class="w-full bg-white border-2 border-black p-4 font-mono-pm focus:outline-none focus:bg-[#ccff00] focus:placeholder-black transition">{{ old('message') }}</textarea>
-                        <button type="submit" class="w-full bg-black text-white py-4 font-bold hover:bg-[#ff4d00] transition border-2 border-transparent hover:border-black shadow-[4px_4px_0px_0px_white]">INITIATE</button>
-                    </form>
-                </div>
-
-                {{-- Info --}}
-                <div class="flex flex-col justify-between font-mono-pm">
-                    <div class="space-y-8 bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_black]">
-                        <div>
-                            <p class="text-xs text-black uppercase mb-1 font-bold">Direct Email</p>
-                            <a href="mailto:farhankholid20@gmail.com" class="text-xl font-bold hover:bg-[#ff4d00] hover:text-white px-1">farhankholid20@gmail.com</a>
-                        </div>
-                        <div>
-                            <p class="text-xs text-black uppercase mb-1 font-bold">Phone</p>
-                            <p class="text-xl font-bold">+62 813-8833-7828</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-black uppercase mb-1 font-bold">Base</p>
-                            <p class="text-xl font-bold">Jakarta, Indonesia</p>
-                        </div>
-                    </div>
+            {{-- Visual / Glass Card with CDN Icons --}}
+            <div class="relative reveal-on-scroll text-center md:text-right flex justify-center md:justify-end">
+                <div class="glass-faded rounded-[3rem] p-4 inline-block transform rotate-2 hover:rotate-0 transition duration-500 relative">
+                     {{-- Floating Decor --}}
+                    <div class="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-br from-teal-200 to-emerald-200 blur-xl opacity-60 animate-float"></div>
                     
-                    <div class="flex gap-4 mt-8 justify-center">
-                        <a href="https://www.linkedin.com/in/farhan-kholid" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="w-14 h-14 border-4 border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition shadow-[6px_6px_0px_0px_black] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]">
-                            <i data-lucide="linkedin" class="w-6 h-6 text-black hover:text-white"></i>
-                        </a>
-                        <a href="mailto:farhankholid20@gmail.com" aria-label="Send Email" class="w-14 h-14 border-4 border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition shadow-[6px_6px_0px_0px_black] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]">
-                            <i data-lucide="mail" class="w-6 h-6 text-black hover:text-white"></i>
-                        </a>
-                        <a href="https://www.instagram.com/frhnkhld" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile" class="w-14 h-14 border-4 border-black bg-white flex items-center justify-center hover:bg-black hover:text-white transition shadow-[6px_6px_0px_0px_black] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px]">
-                            <i data-lucide="instagram" class="w-6 h-6 text-black hover:text-white"></i>
-                        </a>
+                    <img src="{{ asset('assets/img/PP FORMAL.PNG') }}" alt="Profile" class="w-72 h-72 md:w-96 md:h-96 object-cover rounded-[2.5rem] shadow-2xl shadow-emerald-900/10">
+                    
+                    {{-- Floating Glass Chips (CDN Icons) --}}
+                    <div class="absolute -bottom-6 -left-6 glass-chip px-5 py-3 rounded-2xl flex items-center gap-3 animate-float-delay-1">
+                        <img src="https://cdn.simpleicons.org/figma/0acf83" class="w-6 h-6" alt="Figma">
+                        <span class="font-mono text-xs font-bold text-emerald-900">Figma</span>
+                    </div>
+                     <div class="absolute top-12 -right-10 glass-chip px-5 py-3 rounded-2xl flex items-center gap-3 animate-float-delay-2">
+                        <img src="https://cdn.simpleicons.org/laravel/FF2D20" class="w-6 h-6" alt="Laravel">
+                        <span class="font-mono text-xs font-bold text-emerald-900">Laravel</span>
                     </div>
                 </div>
             </div>
-
-            <footer class="mt-20 text-center text-black/60 font-mono-pm text-[10px] uppercase tracking-widest font-bold">
-                &copy; 2026 FARHAN KHOLID. BUILT WITH LARAVEL & RAW PASSION.
-            </footer>
         </div>
     </section>
+
+    {{-- =======================================================================
+         ABOUT SECTION: EXPANDED NARRATIVE
+         ======================================================================= --}}
+    <section id="about" class="py-24 w-full relative z-10">
+        <div class="container mx-auto px-6 max-w-5xl">
+            {{-- Narrative --}}
+            <div class="grid md:grid-cols-5 gap-12 mb-20 items-start">
+                <div class="md:col-span-2 reveal-on-scroll">
+                    <h2 class="font-syne font-bold text-4xl md:text-5xl text-emerald-950 mb-6 leading-tight">
+                        Bridging<br>
+                        <span class="text-emerald-600">Design &<br>Code.</span>
+                    </h2>
+                </div>
+                <div class="md:col-span-3 space-y-6 reveal-on-scroll">
+                    <p class="font-sans text-emerald-900/80 text-lg leading-relaxed">
+                        I am a hybrid professional standing at the intersection of aesthetic and engineering. My journey began in the structured world of <strong>Architecture & Design</strong>, where I learned the importance of form, space, and user harmony. This foundation seamlessly transitioned into Computer Science, where I now apply those same principles to build digital environments. I don't just code; I architect experiences.
+                    </p>
+                    <p class="font-sans text-emerald-900/80 text-lg leading-relaxed">
+                        My approach is deeply <strong>detail-oriented and user-centric</strong>. I am obsessed with clean, maintainable code and pixel-perfect design execution. Whether it's refining a micro-interaction or structuring a complex database, I believe that quality lies in the details that others might overlook. I build interfaces that feel natural, intuitive, and alive.
+                    </p>
+                </div>
+            </div>
+
+            {{-- Tech Stack --}}
+            <div class="glass-faded rounded-[3rem] p-10 reveal-on-scroll border border-emerald-100/50">
+                <div class="grid md:grid-cols-2 gap-12">
+                     <div>
+                        <h3 class="font-mono text-emerald-600 text-sm tracking-widest uppercase mb-6 font-bold flex items-center gap-2">
+                             <span class="w-2 h-2 rounded-full bg-emerald-500"></span> DESIGN_LAB
+                        </h3>
+                        <div class="flex flex-wrap gap-3">
+                             <div class="glass-chip px-5 py-3 rounded-xl text-emerald-900 font-bold text-sm flex items-center gap-3">
+                                <img src="https://cdn.simpleicons.org/figma/0acf83" class="w-6 h-6" alt="Figma"> Figma
+                            </div>
+                            <div class="glass-chip px-5 py-3 rounded-xl text-emerald-900 font-bold text-sm flex items-center gap-3">
+                                <img src="https://cdn.simpleicons.org/adobephotoshop/31A8FF" class="w-6 h-6" alt="PS"> Photoshop
+                            </div>
+                            <div class="glass-chip px-5 py-3 rounded-xl text-emerald-900 font-bold text-sm flex items-center gap-3">
+                                <img src="https://cdn.simpleicons.org/adobeillustrator/FF9A00" class="w-6 h-6" alt="AI"> Illustrator
+                            </div>
+                            <div class="glass-chip px-5 py-3 rounded-xl text-emerald-900 font-bold text-sm flex items-center gap-3">
+                                <img src="https://cdn.simpleicons.org/adobexd/FF61F6" class="w-6 h-6" alt="XD"> Adobe XD
+                            </div>
+                        </div>
+                     </div>
+                     
+                     <div>
+                        <h3 class="font-mono text-teal-600 text-sm tracking-widest uppercase mb-6 font-bold flex items-center gap-2">
+                             <span class="w-2 h-2 rounded-full bg-teal-500"></span> DEV_TERMINAL
+                        </h3>
+                        <div class="flex flex-wrap gap-3">
+                            <div class="glass-chip px-5 py-3 rounded-xl text-emerald-900 font-bold text-sm flex items-center gap-3">
+                                 <img src="https://cdn.simpleicons.org/laravel/FF2D20" class="w-6 h-6" alt="Laravel"> Laravel
+                            </div>
+                            <div class="glass-chip px-5 py-3 rounded-xl text-emerald-900 font-bold text-sm flex items-center gap-3">
+                                <img src="https://cdn.simpleicons.org/react/61DAFB" class="w-6 h-6" alt="React"> React
+                            </div>
+                            <div class="glass-chip px-5 py-3 rounded-xl text-emerald-900 font-bold text-sm flex items-center gap-3">
+                                 <img src="https://cdn.simpleicons.org/vue.js/4FC08D" class="w-6 h-6" alt="Vue"> Vue
+                            </div>
+                            <div class="glass-chip px-5 py-3 rounded-xl text-emerald-900 font-bold text-sm flex items-center gap-3">
+                                 <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" class="w-6 h-6" alt="Tailwind"> Tailwind
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- =======================================================================
+         WORK SECTION: FULL SHOWCASE (VERTICAL)
+         ======================================================================= --}}
+    <section id="work" class="w-full relative z-10 pb-24">
+        <div class="container mx-auto px-6 max-w-6xl">
+             <div class="mb-24 text-center reveal-on-scroll">
+                 <h2 class="font-syne font-bold text-4xl md:text-5xl text-emerald-950 mb-4">Selected Works</h2>
+                 <p class="font-sans text-emerald-700/70 font-medium">A curated selection of problems solved and universes built.</p>
+            </div>
+
+            <div class="space-y-32">
+                {{-- PROJECT 1: MONO STOCK --}}
+                <div class="group reveal-on-scroll">
+                    <div class="glass-faded rounded-[3rem] p-4 md:p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/10 mb-8 border border-white/60">
+                         <div class="w-full h-auto bg-emerald-50/50 rounded-[2.5rem] overflow-hidden flex items-center justify-center relative">
+                            {{-- Image Container: object-contain to avoid cropping --}}
+                            <img src="{{ asset('assets/img/porto-fe_1.png') }}" class="w-full h-auto object-contain max-h-[80vh] hover:scale-[1.01] transition duration-700" alt="Mono Stock Dashboard">
+                         </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 px-4">
+                        <div class="md:col-span-1">
+                             <h3 class="font-syne font-bold text-3xl md:text-4xl text-emerald-950 mb-2">Mono Stock</h3>
+                             <div class="flex flex-wrap gap-2 mb-4">
+                                 <span class="text-[10px] font-mono font-bold tracking-widest text-emerald-700 uppercase bg-emerald-100 px-3 py-1 rounded-full">Web App</span>
+                                 <span class="text-[10px] font-mono font-bold tracking-widest text-teal-700 uppercase bg-teal-100 px-3 py-1 rounded-full">Dashboard</span>
+                             </div>
+                        </div>
+                        <div class="md:col-span-2 space-y-4">
+                             <div>
+                                 <h4 class="font-mono text-xs text-emerald-500 font-bold uppercase tracking-widest mb-1">The Problem</h4>
+                                 <p class="text-emerald-900/80 font-sans leading-relaxed">
+                                     Financial dashboards often suffer from information overload, presenting dense data without hierarchy or visual breathing room. Users struggle to identify key stock trends quickly, leading to decision fatigue in high-stakes trading environments.
+                                 </p>
+                             </div>
+                             <div>
+                                 <h4 class="font-mono text-xs text-emerald-500 font-bold uppercase tracking-widest mb-1">The Solution</h4>
+                                 <p class="text-emerald-900/80 font-sans leading-relaxed">
+                                     I designed a monochromatic, high-contrast interface that prioritizes data clarity. By using a "card-based" layout and subtle glassmorphism, I separated distinct data streams. The result is a dashboard that allows traders to scan market movements instantly while reducing cognitive load through a clean, minimalist aesthetic.
+                                 </p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- PROJECT 2: KALCER.ID --}}
+                <div class="group reveal-on-scroll">
+                    <div class="glass-faded rounded-[3rem] p-4 md:p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/10 mb-8 border border-white/60">
+                         <div class="w-full h-auto bg-emerald-50/50 rounded-[2.5rem] overflow-hidden flex items-center justify-center relative">
+                            <img src="{{ asset('assets/img/porto-fe_2.png') }}" class="w-full h-auto object-contain max-h-[80vh] hover:scale-[1.01] transition duration-700" alt="Kalcer.ID">
+                         </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 px-4">
+                        <div class="md:col-span-1">
+                             <h3 class="font-syne font-bold text-3xl md:text-4xl text-emerald-950 mb-2">Kalcer.ID</h3>
+                             <div class="flex flex-wrap gap-2 mb-4">
+                                 <span class="text-[10px] font-mono font-bold tracking-widest text-emerald-700 uppercase bg-emerald-100 px-3 py-1 rounded-full">Fullstack</span>
+                                 <span class="text-[10px] font-mono font-bold tracking-widest text-teal-700 uppercase bg-teal-100 px-3 py-1 rounded-full">Culture</span>
+                             </div>
+                        </div>
+                        <div class="md:col-span-2 space-y-4">
+                             <div>
+                                 <h4 class="font-mono text-xs text-emerald-500 font-bold uppercase tracking-widest mb-1">The Problem</h4>
+                                 <p class="text-emerald-900/80 font-sans leading-relaxed">
+                                     Cultural events and local heritage sites in Indonesia lacked a unified digital platform for discovery and ticketing. Users had to navigate fragmented websites with poor mobile compatibility to find cultural activities.
+                                 </p>
+                             </div>
+                             <div>
+                                 <h4 class="font-mono text-xs text-emerald-500 font-bold uppercase tracking-widest mb-1">The Solution</h4>
+                                 <p class="text-emerald-900/80 font-sans leading-relaxed">
+                                     Kalcer.ID bridges this gap as a comprehensive cultural hub. I developed a responsive full-stack application that integrates event discovery, booking, and educational content. The UI focuses on vibrant imagery and smooth navigation to evoke the richness of the culture it represents.
+                                 </p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- PROJECT 3: LUMINA VISA --}}
+                <div class="group reveal-on-scroll">
+                    <div class="glass-faded rounded-[3rem] p-4 md:p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/10 mb-8 border border-white/60">
+                         <div class="w-full h-auto bg-emerald-50/50 rounded-[2.5rem] overflow-hidden flex items-center justify-center relative">
+                            <img src="{{ asset('assets/img/porto-fe_4.png') }}" class="w-full h-auto object-contain max-h-[80vh] hover:scale-[1.01] transition duration-700" alt="Lumina Visa">
+                         </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 px-4">
+                        <div class="md:col-span-1">
+                             <h3 class="font-syne font-bold text-3xl md:text-4xl text-emerald-950 mb-2">LuminaVisa</h3>
+                             <div class="flex flex-wrap gap-2 mb-4">
+                                 <span class="text-[10px] font-mono font-bold tracking-widest text-emerald-700 uppercase bg-emerald-100 px-3 py-1 rounded-full">Mobile App</span>
+                                 <span class="text-[10px] font-mono font-bold tracking-widest text-teal-700 uppercase bg-teal-100 px-3 py-1 rounded-full">Utility</span>
+                             </div>
+                        </div>
+                        <div class="md:col-span-2 space-y-4">
+                             <div>
+                                 <h4 class="font-mono text-xs text-emerald-500 font-bold uppercase tracking-widest mb-1">The Problem</h4>
+                                 <p class="text-emerald-900/80 font-sans leading-relaxed">
+                                     Visa application processes are notoriously complex and opaque. Travelers often feel anxious about document requirements and status tracking, leading to abandonment or errors.
+                                 </p>
+                             </div>
+                             <div>
+                                 <h4 class="font-mono text-xs text-emerald-500 font-bold uppercase tracking-widest mb-1">The Solution</h4>
+                                 <p class="text-emerald-900/80 font-sans leading-relaxed">
+                                     LuminaVisa simplifies the journey with a progress-based mobile interface. I focused on breaking down complex forms into bite-sized steps with clear visual feedback. The "Lumina" branding uses light and transparency metaphors to suggest clarity and ease in a typically bureaucratic process.
+                                 </p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                
+                {{-- PROJECT 4: CITEUP 2025 --}}
+                <div class="group reveal-on-scroll">
+                    <div class="glass-faded rounded-[3rem] p-4 md:p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/10 mb-8 border border-white/60">
+                         <div class="w-full h-auto bg-emerald-50/50 rounded-[2.5rem] overflow-hidden flex items-center justify-center relative">
+                            <img src="{{ asset('assets/img/porto-gd_1.png') }}" class="w-full h-auto object-contain max-h-[80vh] hover:scale-[1.01] transition duration-700" alt="CiteUp 2025">
+                         </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 px-4">
+                        <div class="md:col-span-1">
+                             <h3 class="font-syne font-bold text-3xl md:text-4xl text-emerald-950 mb-2">CiteUp 2025</h3>
+                             <div class="flex flex-wrap gap-2 mb-4">
+                                 <span class="text-[10px] font-mono font-bold tracking-widest text-emerald-700 uppercase bg-emerald-100 px-3 py-1 rounded-full">Event Branding</span>
+                                 <span class="text-[10px] font-mono font-bold tracking-widest text-teal-700 uppercase bg-teal-100 px-3 py-1 rounded-full">Identity</span>
+                             </div>
+                        </div>
+                        <div class="md:col-span-2 space-y-4">
+                             <div>
+                                 <h4 class="font-mono text-xs text-emerald-500 font-bold uppercase tracking-widest mb-1">The Problem</h4>
+                                 <p class="text-emerald-900/80 font-sans leading-relaxed">
+                                     The annual tech conference needed a fresh identity that signaled innovation while remaining accessible to a diverse student body. Previous brandings felt too corporate and stiff.
+                                 </p>
+                             </div>
+                             <div>
+                                 <h4 class="font-mono text-xs text-emerald-500 font-bold uppercase tracking-widest mb-1">The Solution</h4>
+                                 <p class="text-emerald-900/80 font-sans leading-relaxed">
+                                     For CiteUp 2025, I developed a dynamic visual identity system based on "connected nodes." The branding uses vibrant gradients and geometric patterns to represent the convergence of ideas. The assets were deployed across social media, merchandise, and stage design, creating a cohesive and energetic atmosphere.
+                                 </p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- PROJECT 5: CITEUP 2026 (PLACEHOLDER) --}}
+                <div class="group reveal-on-scroll">
+                    <div class="glass-faded rounded-[3rem] p-4 md:p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/10 mb-8 border border-white/60">
+                         <div class="w-full h-[500px] bg-gradient-to-br from-emerald-100 to-teal-100 rounded-[2.5rem] overflow-hidden flex flex-col items-center justify-center relative">
+                            <div class="glass-strong px-8 py-4 rounded-full border border-white/50 animate-pulse">
+                                <span class="font-mono text-xl font-bold text-emerald-800 tracking-widest">CONFIDENTIAL</span>
+                            </div>
+                            <span class="font-sans text-emerald-600/60 mt-4 text-sm font-medium">Coming Soon</span>
+                         </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 px-4">
+                        <div class="md:col-span-1">
+                             <h3 class="font-syne font-bold text-3xl md:text-4xl text-emerald-950 mb-2">CiteUp 2026</h3>
+                             <div class="flex flex-wrap gap-2 mb-4">
+                                 <span class="text-[10px] font-mono font-bold tracking-widest text-emerald-700 uppercase bg-emerald-100 px-3 py-1 rounded-full">Future Project</span>
+                                 <span class="text-[10px] font-mono font-bold tracking-widest text-teal-700 uppercase bg-teal-100 px-3 py-1 rounded-full">Branding</span>
+                             </div>
+                        </div>
+                        <div class="md:col-span-2 space-y-4">
+                             <div>
+                                 <h4 class="font-mono text-xs text-emerald-500 font-bold uppercase tracking-widest mb-1">The Vision</h4>
+                                 <p class="text-emerald-900/80 font-sans leading-relaxed">
+                                     Currently in the conceptualization phase, the 2026 edition of CiteUp will explore the theme of "Digital Symbiosis." 
+                                 </p>
+                             </div>
+                             <div>
+                                 <h4 class="font-mono text-xs text-emerald-500 font-bold uppercase tracking-widest mb-1">Status</h4>
+                                 <p class="text-emerald-900/80 font-sans leading-relaxed">
+                                     Early visual explorations focus on organic typography and bio-digital textures. Full case study to be revealed upon official launch.
+                                 </p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- PROJECT 6: FARHAN SURYA INDAH --}}
+                <div class="group reveal-on-scroll">
+                    <div class="glass-faded rounded-[3rem] p-4 md:p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-emerald-900/10 mb-8 border border-white/60">
+                         <div class="w-full h-auto bg-emerald-50/50 rounded-[2.5rem] overflow-hidden flex items-center justify-center relative">
+                            <img src="{{ asset('assets/img/porto-gd_2.png') }}" class="w-full h-auto object-contain max-h-[80vh] hover:scale-[1.01] transition duration-700" alt="Farhan Surya Indah">
+                         </div>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-8 px-4">
+                        <div class="md:col-span-1">
+                             <h3 class="font-syne font-bold text-3xl md:text-4xl text-emerald-950 mb-2">FSI Corporate</h3>
+                             <div class="flex flex-wrap gap-2 mb-4">
+                                 <span class="text-[10px] font-mono font-bold tracking-widest text-emerald-700 uppercase bg-emerald-100 px-3 py-1 rounded-full">Corporate Identity</span>
+                                 <span class="text-[10px] font-mono font-bold tracking-widest text-teal-700 uppercase bg-teal-100 px-3 py-1 rounded-full">Marketing</span>
+                             </div>
+                        </div>
+                        <div class="md:col-span-2 space-y-4">
+                             <div>
+                                 <h4 class="font-mono text-xs text-emerald-500 font-bold uppercase tracking-widest mb-1">The Problem</h4>
+                                 <p class="text-emerald-900/80 font-sans leading-relaxed">
+                                     Farhan Surya Indah, a growing enterprise, struggled with an outdated brand image that didn't reflect its modern workplace values. Their internal communications and external marketing lacked consistency.
+                                 </p>
+                             </div>
+                             <div>
+                                 <h4 class="font-mono text-xs text-emerald-500 font-bold uppercase tracking-widest mb-1">The Solution</h4>
+                                 <p class="text-emerald-900/80 font-sans leading-relaxed">
+                                     I led a comprehensive rebrand focusing on "Workplace Experience." The new identity utilizes professional yet approachable typography and a color palette that signifies growth and stability. The project included redesigning internal portals, marketing decks, and physical signage.
+                                 </p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    {{-- =======================================================================
+         CONTACT SECTION: GLASS FORM
+         ======================================================================= --}}
+    <section id="contact" class="py-24 w-full relative z-10">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="glass-faded rounded-[3rem] p-8 md:p-16 text-center reveal-on-scroll relative overflow-hidden">
+                {{-- Decorative Blob behind form --}}
+                <div class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-emerald-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -z-10 animate-pulse"></div>
+
+                <h2 class="font-syne font-bold text-4xl md:text-5xl text-emerald-950 mb-6">Let's Create Together</h2>
+                <p class="font-sans text-emerald-800/80 mb-10 text-lg font-medium">Have a project in mind? Let's build something organic.</p>
+
+                <form action="#" class="max-w-md mx-auto space-y-4">
+                    <input type="text" placeholder="Your Name" class="w-full px-6 py-4 rounded-xl bg-white/50 backdrop-blur-sm border border-emerald-100 focus:outline-none focus:ring-2 focus:ring-emerald-400 text-emerald-900 placeholder-emerald-800/40 shadow-sm transition">
+                    <input type="email" placeholder="Your Email" class="w-full px-6 py-4 rounded-xl bg-white/50 backdrop-blur-sm border border-emerald-100 focus:outline-none focus:ring-2 focus:ring-emerald-400 text-emerald-900 placeholder-emerald-800/40 shadow-sm transition">
+                    <textarea rows="4" placeholder="Tell me about your project..." class="w-full px-6 py-4 rounded-xl bg-white/50 backdrop-blur-sm border border-emerald-100 focus:outline-none focus:ring-2 focus:ring-emerald-400 text-emerald-900 placeholder-emerald-800/40 shadow-sm transition"></textarea>
+                    
+                    <button type="button" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 text-white font-bold text-lg hover:shadow-lg hover:shadow-emerald-500/20 hover:scale-[1.02] transition duration-300">
+                        Send Message
+                    </button>
+                </form>
+
+                 <div class="mt-12 flex justify-center gap-6">
+                    <a href="https://www.linkedin.com/in/farhan-kholid" target="_blank" class="w-14 h-14 bg-white/80 rounded-full flex items-center justify-center hover:scale-110 transition shadow-sm group border border-emerald-100">
+                        <img src="https://cdn.simpleicons.org/linkedin/0077b5" class="w-6 h-6 opacity-80 group-hover:opacity-100" alt="LI">
+                    </a>
+                    <a href="https://www.instagram.com/frhnkhld_" target="_blank" class="w-14 h-14 bg-white/80 rounded-full flex items-center justify-center hover:scale-110 transition shadow-sm group border border-emerald-100">
+                        <img src="https://cdn.simpleicons.org/instagram/E4405F" class="w-6 h-6 opacity-80 group-hover:opacity-100" alt="IG">
+                    </a>
+                    <a href="mailto:farhankholid20@gmail.com" class="w-14 h-14 bg-white/80 rounded-full flex items-center justify-center hover:scale-110 transition shadow-sm group border border-emerald-100">
+                         <img src="https://cdn.simpleicons.org/gmail/EA4335" class="w-6 h-6 opacity-80 group-hover:opacity-100" alt="Mail">
+                    </a>
+                    <a href="https://github.com/farhankholid" target="_blank" class="w-14 h-14 bg-white/80 rounded-full flex items-center justify-center hover:scale-110 transition shadow-sm group border border-emerald-100">
+                         <img src="https://cdn.simpleicons.org/github/181717" class="w-6 h-6 opacity-80 group-hover:opacity-100" alt="GH">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="w-full py-8 text-center relative z-10 border-t border-white/20">
+        <p class="font-mono text-[10px] text-emerald-800/50 uppercase tracking-widest font-bold">
+            &copy; 2026 Farhan Kholid. Faded Green Universe.
+        </p>
+    </footer>
 
 @endsection
