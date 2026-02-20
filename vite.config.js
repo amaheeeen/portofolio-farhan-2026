@@ -15,4 +15,15 @@ export default defineConfig({
             ignored: ['**/storage/framework/views/**'],
         },
     },
+    build: {
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    'lucide': ['lucide'],
+                },
+            },
+        },
+        cssCodeSplit: true,
+        sourcemap: false, // Disable in production for smaller builds
+    },
 });
