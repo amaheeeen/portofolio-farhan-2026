@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Farhan Kholid - UI/UX & Graphic Designer Portfolio. Molded with Claymorphism."
+    />
+    <title>Farhan Kholid - 2026 Portofolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Outfit", "sans-serif"],
+              syne: ["Syne", "sans-serif"],
+            },
+            colors: {
+              sand: "#F0F5F9",
+              mint: "#e6faec",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Custom Claymorphism Styles -->
+    <style>
+      body {
+        background-color: #f0f5f9;
+        color: #1e293b; /* text-slate-800 */
+      }
+
+      /* Base Clay Styling */
+      .clay-card {
+        background-color: #ffffff;
+        border-radius: 2rem;
+        box-shadow:
+          15px 15px 30px #d1d9e6,
+          -15px -15px 30px #ffffff,
+          inset -5px -5px 10px rgba(0, 0, 0, 0.03),
+          inset 5px 5px 10px rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+      }
+
+      .clay-container {
+        background-color: #f0f5f9;
+        border-radius: 2rem;
+        box-shadow:
+          15px 15px 30px #d1d9e6,
+          -15px -15px 30px #ffffff,
+          inset -5px -5px 10px rgba(0, 0, 0, 0.03),
+          inset 5px 5px 10px rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+      }
+
+      .clay-card-deep {
+        background-color: #ffffff;
+        border-radius: 2.5rem;
+        box-shadow:
+          20px 20px 40px #c8d0e0,
+          -20px -20px 40px #ffffff,
+          inset -8px -8px 15px rgba(0, 0, 0, 0.05),
+          inset 8px 8px 15px rgba(255, 255, 255, 0.9);
+        transition: all 0.3s ease;
+      }
+
+      .clay-btn {
+        background-color: #f0f5f9;
+        border-radius: 9999px;
+        box-shadow:
+          8px 8px 16px #d1d9e6,
+          -8px -8px 16px #ffffff,
+          inset -3px -3px 6px rgba(0, 0, 0, 0.02),
+          inset 3px 3px 6px rgba(255, 255, 255, 0.8);
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border: none;
+        color: #1e293b;
+        font-weight: 600;
+      }
+
+      .clay-btn:hover {
+        transform: scale(1.05);
+        box-shadow:
+          10px 10px 20px #ccdbed,
+          -10px -10px 20px #ffffff,
+          inset -5px -5px 10px rgba(0, 0, 0, 0.05),
+          inset 5px 5px 10px rgba(255, 255, 255, 0.9);
+      }
+
+      .clay-circle {
+        background-color: #ffffff;
+        border-radius: 50%;
+        box-shadow:
+          10px 10px 20px #d1d9e6,
+          -10px -10px 20px #ffffff,
+          inset -4px -4px 8px rgba(0, 0, 0, 0.03),
+          inset 4px 4px 8px rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .clay-circle:hover {
+        transform: scale(1.1);
+        box-shadow:
+          12px 12px 24px #cbd5e1,
+          -12px -12px 24px #ffffff,
+          inset -6px -6px 12px rgba(0, 0, 0, 0.06),
+          inset 6px 6px 12px rgba(255, 255, 255, 0.9);
+      }
+
+      /* Clay Blob inside hero */
+      .clay-blob {
+        background-color: #e2e8f0;
+        border-radius: 50%;
+        box-shadow:
+          15px 15px 30px #cbd5e1,
+          -15px -15px 30px #f8fafc,
+          inset -10px -10px 20px rgba(0, 0, 0, 0.05),
+          inset 10px 10px 20px rgba(255, 255, 255, 0.8);
+        animation: float 6s ease-in-out infinite;
+      }
+
+      /* Utility for internal shadows only (like pressed areas, image windows) */
+      .clay-inset {
+        background-color: #f0f5f9;
+        border-radius: 1.5rem;
+        box-shadow:
+          inset 8px 8px 16px #d1d9e6,
+          inset -8px -8px 16px #ffffff;
+      }
+
+      /* Input styling */
+      .clay-input {
+        background-color: #f0f5f9;
+        box-shadow:
+          inset 4px 4px 8px #d1d9e6,
+          inset -4px -4px 8px #ffffff;
+        transition: box-shadow 0.3s ease;
+      }
+      .clay-input:focus {
+        box-shadow:
+          inset 6px 6px 10px #cbd5e1,
+          inset -6px -6px 10px #ffffff;
+      }
+
+      /* Animations */
+      @keyframes float {
+        0% {
+          transform: translateY(0px) scale(1);
+        }
+        50% {
+          transform: translateY(-20px) scale(1.02);
+        }
+        100% {
+          transform: translateY(0px) scale(1);
+        }
+      }
+
+      /* Hide Scrollbar Utility */
+      .hide-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+      }
+    </style>
+  </head>
+  <body
+    class="antialiased font-sans selection:bg-slate-300 selection:text-slate-900 overflow-hidden"
+  >
+    <!-- Snap Container -->
+    <main class="h-screen w-full overflow-y-scroll snap-y snap-mandatory scroll-smooth hide-scrollbar relative">
+    <!-- =======================================================================
+         SIDEBAR NAV
+         ======================================================================= -->
+    <aside class="fixed left-4 top-1/2 -translate-y-1/2 z-50 clay-card rounded-full p-4 flex flex-col gap-6">
+      <!-- Home -->
+      <a href="#hero" class="relative group">
+        <div class="w-12 h-12 clay-circle text-slate-500 group-hover:text-[#0ea5e9]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <!-- Tooltip -->
+        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white text-slate-700 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap">Home</span>
+      </a>
+
+      <!-- About/CV -->
+      <a href="#resume" class="relative group">
+        <div class="w-12 h-12 clay-circle text-slate-500 group-hover:text-[#8b5cf6]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v-4a2 2 0 1 0-4 0v4"/><path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"/><path d="M18 5v17"/><path d="m4 6 8-4 8 4"/><path d="M6 5v17"/><circle cx="12" cy="9" r="2"/></svg>
+        </div>
+        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white text-slate-700 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap">About Me</span>
+      </a>
+
+      <!-- UI/UX -->
+      <a href="#mono-stock" class="relative group">
+        <div class="w-12 h-12 clay-circle text-slate-500 group-hover:text-[#0ea5e9]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="9"/></svg>
+        </div>
+        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white text-slate-700 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap">UI/UX Projects</span>
+      </a>
+
+      <!-- Graphic Design -->
+      <a href="#citeup-2025" class="relative group">
+        <div class="w-12 h-12 clay-circle text-slate-500 group-hover:text-[#f59e0b]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg>
+        </div>
+        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white text-slate-700 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap">Graphic Archives</span>
+      </a>
+
+      <!-- Contact -->
+      <a href="#contact" class="relative group">
+        <div class="w-12 h-12 clay-circle text-slate-500 group-hover:text-slate-800">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white text-slate-700 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap">Contact</span>
+      </a>
+    </aside>
+
+    <section
+      id="hero"
+      class="h-screen w-full snap-start p-8 pl-32 flex items-center justify-center relative overflow-hidden"
+    >
+      <!-- Floating 3D Clay Blobs -->
+      <div class="absolute top-1/4 left-1/4 w-64 h-64 clay-blob bg-[#e8f1f8] opacity-70" style="animation-delay: 0s"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 clay-blob bg-[#e0ecf6] opacity-70" style="animation-delay: 2s"></div>
+
+      <div class="relative z-10 text-center flex flex-col items-center">
+        <!-- Status Pill -->
+        <div class="clay-btn px-6 py-2 mb-8 text-sm uppercase tracking-widest text-[#8b5cf6] cursor-default flex items-center gap-2 mx-auto">
+          <span class="w-2 h-2 rounded-full bg-[#8b5cf6] animate-pulse"></span>
+          Available for work
+        </div>
+
+        <h1 class="font-syne font-black text-6xl md:text-8xl lg:text-[9rem] text-slate-800 leading-[0.9] tracking-tighter mb-6">
+          FARHAN
+          <br />
+          KHOLID<span class="text-[#0ea5e9]">.</span>
+        </h1>
+
+        <h2 class="font-syne font-bold text-2xl md:text-4xl text-slate-500 mb-12 max-w-2xl mx-auto">
+          Lead <span class="text-slate-700">UI/UX</span> & <span class="text-slate-700">Graphic Designer</span>
+        </h2>
+
+        <!-- Tool Icons (Centered) -->
+        <div class="flex justify-center gap-6 flex-wrap w-full">
+          <div class="clay-circle w-16 h-16" title="Figma">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="w-8 h-8" alt="Figma" />
+          </div>
+          <div class="clay-circle w-16 h-16" title="Framer">
+            <img src="https://cdn.simpleicons.org/framer/0055FF" class="w-8 h-8" alt="Framer" />
+          </div>
+          <div class="clay-circle w-16 h-16" title="Adobe Photoshop">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" class="w-8 h-8" alt="Photoshop" />
+          </div>
+          <div class="clay-circle w-16 h-16" title="Adobe Illustrator">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg" class="w-8 h-8" alt="Illustrator" />
+          </div>
+          <div class="clay-circle w-16 h-16" title="Canva">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" class="w-8 h-8" alt="Canva" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 2: RESUME / CV
+         ======================================================================= -->
+    <section id="resume" class="h-screen w-full snap-start p-8 pl-32 flex flex-col items-center justify-center relative overflow-hidden bg-[#e8f1f8]">
+      <div class="w-full h-full max-w-[1600px] flex flex-col">
+        
+        <!-- Section Header (Fixed Height) -->
+        <div class="mb-6 flex justify-between items-end flex-shrink-0">
+          <div>
+            <div class="inline-block clay-btn px-4 py-1 mb-2 text-xs font-bold tracking-widest text-[#8b5cf6]">ABOUT ME</div>
+            <h2 class="font-syne font-black text-4xl text-slate-800 leading-none">Resume & <br/> Experience</h2>
+          </div>
+          <p class="font-sans text-slate-500 max-w-sm text-right text-sm">Hybrid Front-End Engineer & Visual Designer specializing in bridging design fidelity with engineering precision.</p>
+        </div>
+
+        <!-- 3x3 Bento Grid (Fills remaining height) -->
+        <div class="grid grid-cols-3 grid-rows-3 gap-6 flex-grow min-h-0">
+          
+          <!-- Experience (Spans 2 cols, 3 rows) -->
+          <div class="clay-card p-8 col-span-2 row-span-3 flex flex-col h-full overflow-hidden">
+            <h3 class="font-syne font-bold text-2xl text-slate-800 mb-6 border-b-2 border-slate-100 pb-2 flex-shrink-0">Professional Timeline</h3>
+            
+            <div class="flex-grow flex flex-col justify-between gap-4">
+              <!-- Experience 1 -->
+              <div class="relative pl-6 border-l-2 border-slate-200">
+                <div class="absolute w-3 h-3 rounded-full bg-[#f59e0b] -left-[7px] top-1"></div>
+                <h4 class="font-syne font-bold text-lg text-slate-800 leading-tight">CITEUP 2025</h4>
+                <p class="font-sans text-[#f59e0b] font-bold text-xs mb-2">Head of Creative Department (2025)</p>
+                <p class="font-sans text-slate-600 text-sm line-clamp-3">Spearheaded the visual identity for the entire event, developing the "Node of Connection" concept that was applied across digital, print, and merchandise assets. Managed a creative team ensuring 100% brand consistency.</p>
+              </div>
+
+              <!-- Experience 2 -->
+              <div class="relative pl-6 border-l-2 border-slate-200">
+                <div class="absolute w-3 h-3 rounded-full bg-[#0ea5e9] -left-[7px] top-1"></div>
+                <h4 class="font-syne font-bold text-lg text-slate-800 leading-tight">CITEUP 2024</h4>
+                <p class="font-sans text-[#0ea5e9] font-bold text-xs mb-2">Creative Media Staff (2024)</p>
+                <p class="font-sans text-slate-600 text-sm line-clamp-3">Collaborated with the creative team to design engaging marketing collateral using Adobe Photoshop and Illustrator. Assisted in the event guidebook layout and rapid design revisions.</p>
+              </div>
+
+              <!-- Experience 3 -->
+              <div class="relative pl-6 border-l-2 border-transparent">
+                <div class="absolute w-3 h-3 rounded-full bg-[#8b5cf6] -left-[7px] top-1"></div>
+                <h4 class="font-syne font-bold text-lg text-slate-800 leading-tight">PT Farhan Surya Indah</h4>
+                <p class="font-sans text-[#8b5cf6] font-bold text-xs mb-2">Graphic & UI Designer (2021 &ndash; 2023)</p>
+                <p class="font-sans text-slate-600 text-sm line-clamp-3">Designed high-fidelity user interfaces (UI) for web and mobile booking platforms. Developed design systems that reduced developer hand-off friction by approximately 30%.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tech Stack -->
+          <div class="clay-inset p-6 col-span-1 row-span-1 flex flex-col justify-center h-full">
+            <h4 class="font-syne font-bold text-slate-800 text-lg mb-2 flex items-center gap-2">
+              <span class="w-8 h-8 clay-circle bg-white text-xs">💻</span> Tech Stack
+            </h4>
+            <p class="font-sans text-slate-600 text-sm font-medium leading-relaxed">Laravel (PHP)<br/>React.js / Vue.js<br/>Tailwind CSS</p>
+          </div>
+
+          <!-- Design Tools -->
+          <div class="clay-inset p-6 col-span-1 row-span-1 flex flex-col justify-center h-full">
+            <h4 class="font-syne font-bold text-slate-800 text-lg mb-2 flex items-center gap-2">
+              <span class="w-8 h-8 clay-circle bg-white text-xs">🎨</span> Design Tools
+            </h4>
+            <p class="font-sans text-slate-600 text-sm font-medium leading-relaxed">Figma (Prototyping)<br/>Adobe Photoshop<br/>Adobe Illustrator</p>
+          </div>
+
+          <!-- Education & Soft Skills (Combined to save space) -->
+          <div class="clay-inset p-6 col-span-1 row-span-1 flex flex-col justify-center h-full">
+             <h4 class="font-syne font-bold text-slate-800 text-base mb-1">Education</h4>
+             <p class="font-sans text-slate-600 text-xs font-medium mb-4">Pertamina University (2023-2027) <br/> Computer Science</p>
+             
+             <h4 class="font-syne font-bold text-slate-800 text-base mb-1">Soft Skills</h4>
+             <p class="font-sans text-slate-600 text-xs font-medium">Creative Leadership, Mentorship, Team Collaboration, Project Management.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 3: UI/UX ENGINEERING INTRO
+         ======================================================================= -->
+    <section id="uiux-intro" class="h-screen w-full snap-start relative flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
+      <div class="w-full flex flex-col items-center justify-center pt-8 md:pt-16">
+        <div class="container mx-auto px-6 max-w-7xl">
+          <div class="text-center">
+            <div class="inline-block clay-btn px-6 py-2 mb-4 text-sm font-bold tracking-widest text-[#0ea5e9]">
+              PART 1
+            </div>
+            <h2 class="font-syne font-black text-4xl md:text-5xl text-slate-800 mb-4">
+              UI/UX Engineering
+            </h2>
+            <p class="font-sans text-slate-500 max-w-xl mx-auto font-medium text-lg">
+              Digital products molded with precision, empathy, and logic.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 4: UI/UX PROJECT 1 - FSI BOARD
+         ======================================================================= -->
+    <section id="fsi-board" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
+      <div class="h-full w-full max-w-[1600px] grid grid-cols-12 gap-6 items-stretch">
+        <div class="col-span-12 md:col-span-8 h-full clay-inset rounded-[2rem] flex items-center justify-center p-6 overflow-hidden bg-gradient-to-br from-[#e0ecf6] to-[#F0F5F9]">
+          <span class="font-syne font-bold text-slate-400 text-4xl opacity-50">Admin Dashboard Preview</span>
+        </div>
+        
+        <div class="col-span-12 md:col-span-4 h-full flex flex-col gap-6">
+          <div class="clay-card p-8 flex-shrink-0">
+             <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 01</div>
+             <h3 class="font-syne font-bold text-3xl md:text-4xl text-slate-800 mb-4 leading-none">FSI BOARD</h3>
+             <p class="text-slate-600 font-sans leading-relaxed text-sm">Dashboard Sistem Manajemen Umrah dan Haji untuk PT Farhan Surya Indah. Dibangun untuk memonitor data jamaah dan operasional secara real-time dan efisien.</p>
+          </div>
+
+          <div class="clay-inset p-8 flex-grow flex flex-col justify-center gap-4">
+             <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider">Platform</h4>
+             <p class="font-sans text-slate-600 font-bold text-sm">Web Dashboard CMS</p>
+          </div>
+
+          <div class="flex-shrink-0">
+             <a href="#" class="clay-btn w-full py-6 text-center block text-sm font-bold tracking-widest text-[#0ea5e9] bg-white text-lg">VIEW DETAILS</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 5: UI/UX PROJECT 2 - PILGRIM TRACKER
+         ======================================================================= -->
+    <section id="pilgrim-tracker" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
+      <div class="h-full w-full max-w-[1600px] grid grid-cols-12 gap-6 items-stretch">
+        <div class="col-span-12 md:col-span-8 h-full clay-inset rounded-[2rem] flex items-center justify-center p-6 overflow-hidden bg-gradient-to-br from-[#e0ecf6] to-[#F0F5F9]">
+          <span class="font-syne font-bold text-slate-400 text-4xl opacity-50">App Prototype</span>
+        </div>
+        
+        <div class="col-span-12 md:col-span-4 h-full flex flex-col gap-6">
+          <div class="clay-card p-8 flex-shrink-0">
+             <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 02</div>
+             <h3 class="font-syne font-bold text-2xl md:text-3xl text-slate-800 mb-4 leading-none">Pilgrim Tracker (Mobile UI)</h3>
+             <p class="text-slate-600 font-sans leading-relaxed text-xs">Prototipe aplikasi mobile untuk mengoptimalkan layanan Tour & Travel melalui pelacakan jamaah.</p>
+          </div>
+
+          <div class="clay-inset p-6 flex-grow flex flex-col justify-center overflow-y-auto hide-scrollbar">
+             <ul class="text-slate-500 font-sans text-xs space-y-2 list-disc pl-4">
+                <li><span class="font-bold text-slate-700">Discover:</span> Promosi program tur 3 negara & pendaftaran.</li>
+                <li><span class="font-bold text-slate-700">Tracker:</span> Peta & pelacakan titik lokasi jamaah.</li>
+                <li><span class="font-bold text-slate-700">Search & Detail:</span> Pencarian layanan wisata 9 Hari.</li>
+                <li><span class="font-bold text-slate-700">Notification & Account:</span> Manajemen profil dan sistem pesan.</li>
+              </ul>
+          </div>
+
+          <div class="flex-shrink-0">
+             <a href="#" class="clay-btn w-full py-6 text-center block text-sm font-bold tracking-widest text-[#0ea5e9] bg-white text-lg">EXPLORE PROTOTYPE</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 6: UI/UX PROJECT 3 - KALCER.ID
+         ======================================================================= -->
+    <section id="kalcer-id" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
+      <div class="h-full w-full max-w-[1600px] grid grid-cols-12 gap-6 items-stretch">
+        <div class="col-span-12 md:col-span-8 h-full clay-inset rounded-[2rem] flex items-center justify-center p-6 overflow-hidden">
+          <img src="assets/img/porto-fe_2.png" class="w-full h-full object-contain rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Kalcer.ID" />
+        </div>
+        
+        <div class="col-span-12 md:col-span-4 h-full flex flex-col gap-6">
+          <div class="clay-card p-8 flex-shrink-0">
+             <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 03</div>
+             <h3 class="font-syne font-bold text-3xl md:text-4xl text-slate-800 mb-4 leading-none">Kalcer.ID</h3>
+             <p class="text-slate-600 font-sans leading-relaxed text-sm">A comprehensive cultural hub bridging fragmented heritage sites into one unified platform. Features dynamic event discovery wrapped in a smooth, responsive UI.</p>
+          </div>
+
+          <div class="clay-inset p-8 flex-grow flex flex-col justify-center gap-4">
+             <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider">Tech Stack</h4>
+             <div class="flex gap-4">
+               <div class="w-12 h-12 clay-circle bg-white" title="React"><img src="https://cdn.simpleicons.org/react/61DAFB" class="w-6 h-6" alt="React" /></div>
+               <div class="w-12 h-12 clay-circle bg-white" title="Next.js"><img src="https://cdn.simpleicons.org/nextdotjs/000000" class="w-6 h-6" alt="Next.js" /></div>
+             </div>
+          </div>
+
+          <div class="flex-shrink-0">
+             <a href="#" class="clay-btn w-full py-6 text-center block text-sm font-bold tracking-widest text-[#0ea5e9] bg-white text-lg">VIEW LIVE PROJECT</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 7: UI/UX PROJECT 4 - LUMINAVISA
+         ======================================================================= -->
+    <section id="lumina-visa" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
+      <div class="h-full w-full max-w-[1600px] grid grid-cols-12 gap-6 items-stretch">
+        <div class="col-span-12 md:col-span-8 h-full clay-inset rounded-[2rem] flex items-center justify-center p-6 overflow-hidden">
+          <img src="assets/img/porto-fe_4.png" class="w-full h-full object-contain rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Lumina Visa" />
+        </div>
+        
+        <div class="col-span-12 md:col-span-4 h-full flex flex-col gap-6">
+          <div class="clay-card p-8 flex-shrink-0">
+             <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 04</div>
+             <h3 class="font-syne font-bold text-3xl md:text-4xl text-slate-800 mb-4 leading-none">LuminaVisa</h3>
+             <p class="text-slate-600 font-sans leading-relaxed text-sm">A mobile app aimed at simplifying opaque visa processes. Broken down into bite-sized steps with clear visual feedback to ease traveler anxiety.</p>
+          </div>
+
+          <div class="clay-inset p-8 flex-grow flex flex-col justify-center gap-4">
+             <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider">Tech Stack</h4>
+             <div class="flex gap-4">
+               <div class="w-12 h-12 clay-circle bg-white" title="Figma"><img src="https://cdn.simpleicons.org/figma/F24E1E" class="w-6 h-6" alt="Figma" /></div>
+             </div>
+          </div>
+
+          <div class="flex-shrink-0">
+             <a href="#" class="clay-btn w-full py-6 text-center block text-sm font-bold tracking-widest text-[#0ea5e9] bg-white text-lg">EXPLORE CASE STUDY</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 8: UI/UX PROJECT 5 - MONO STOCK
+         ======================================================================= -->
+    <section id="mono-stock" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
+      <div class="h-full w-full max-w-[1600px] grid grid-cols-12 gap-6 items-stretch">
+        <!-- Left Column: Image -->
+        <div class="col-span-12 md:col-span-8 h-full clay-inset rounded-[2rem] flex items-center justify-center p-6 overflow-hidden">
+          <img src="assets/img/porto-fe_1.png" class="w-full h-full object-contain rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Mono Stock Dashboard" />
+        </div>
+        
+        <!-- Right Column: Details -->
+        <div class="col-span-12 md:col-span-4 h-full flex flex-col gap-6">
+          <div class="clay-card p-8 flex-shrink-0">
+             <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 05</div>
+             <h3 class="font-syne font-bold text-3xl md:text-4xl text-slate-800 mb-4 leading-none">Mono Stock</h3>
+             <p class="text-slate-600 font-sans leading-relaxed text-sm">Designed a monochromatic, high-contrast dashboard to reduce decision fatigue for traders. The clean layout prioritizes rapid market scanning without cognitive overload.</p>
+          </div>
+
+          <div class="clay-inset p-8 flex-grow flex flex-col justify-center gap-4">
+             <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider">Tech Stack</h4>
+             <div class="flex gap-4">
+               <div class="w-12 h-12 clay-circle bg-white" title="Vue.js"><img src="https://cdn.simpleicons.org/vuedotjs/4FC08D" class="w-6 h-6" alt="Vue" /></div>
+               <div class="w-12 h-12 clay-circle bg-white" title="Tailwind CSS"><img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" class="w-6 h-6" alt="Tailwind" /></div>
+             </div>
+          </div>
+
+          <div class="flex-shrink-0">
+             <a href="#" class="clay-btn w-full py-6 text-center block text-sm font-bold tracking-widest text-[#0ea5e9] bg-white text-lg">VIEW LIVE DEMO</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 9: GRAPHIC DESIGN INTRO
+         ======================================================================= -->
+    <section id="graphic-intro" class="h-screen w-full snap-start relative flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
+      <div class="w-full flex flex-col items-center justify-center pt-8 md:pt-16">
+        <div class="container mx-auto px-6 max-w-7xl">
+          <div class="text-center clay-card p-12 relative z-10 w-[80vw] max-w-3xl">
+            <div class="inline-block clay-btn px-6 py-2 mb-4 text-sm font-bold tracking-widest text-[#f59e0b]">
+              PART 2
+            </div>
+            <h2 class="font-syne font-black text-4xl md:text-5xl text-slate-800 mb-6">
+              Graphic Design Archives
+            </h2>
+            <p class="font-sans text-slate-500 font-medium text-lg">
+              Branding, typography, and visual identities crafted with care.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 10: GRAPHIC DESIGN - FSI
+         ======================================================================= -->
+    <section id="graphic-fsi" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
+       <div class="w-full mb-4 flex justify-between items-end flex-shrink-0 max-w-[1600px] px-2">
+         <div>
+           <div class="inline-block clay-btn px-4 py-1 mb-2 text-xs font-bold tracking-widest text-[#f59e0b]">ARCHIVE 01</div>
+           <h2 class="font-syne font-black text-3xl md:text-4xl text-slate-800 leading-none">PT FARHAN SURYA INDAH</h2>
+         </div>
+       </div>
+
+       <!-- Bento Grid FSI -->
+       <div class="h-full w-full max-w-[1600px] grid grid-cols-4 grid-rows-4 gap-4 flex-grow min-h-0">
+          <div class="clay-card col-span-3 row-span-1 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/fsi/image1.png" data-full="./assets/img/fsi/image1.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="FSI Design" /></div>
+          
+          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/fsi/image4.png" data-full="./assets/img/fsi/image4.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="FSI Design" /></div>
+
+          <div class="clay-card col-span-3 row-span-1 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/fsi/image2.png" data-full="./assets/img/fsi/image2.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="FSI Design" /></div>
+
+          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/fsi/image5.png" data-full="./assets/img/fsi/image5.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="FSI Design" /></div>
+
+          <div class="clay-card col-span-2 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/fsi/image7.png" data-full="./assets/img/fsi/image7.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="FSI Design" /></div>
+
+          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/fsi/image3.png" data-full="./assets/img/fsi/image3.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="FSI Design" /></div>
+       </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 11: GRAPHIC DESIGN - CITEUP 2025
+         ======================================================================= -->
+    <section id="citeup-2025" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
+       <div class="w-full mb-4 flex justify-between items-end flex-shrink-0 max-w-[1600px] px-2">
+         <div>
+           <div class="inline-block clay-btn px-4 py-1 mb-2 text-xs font-bold tracking-widest text-[#f59e0b]">ARCHIVE 02</div>
+           <h2 class="font-syne font-black text-3xl md:text-4xl text-slate-800 leading-none">CITEUP 2025</h2>
+         </div>
+       </div>
+
+       <!-- Bento Grid CITEUP 2025 -->
+       <div class="h-full w-full max-w-[1600px] grid grid-cols-4 grid-rows-4 gap-4 flex-grow min-h-0">
+          <div class="clay-card col-span-2 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image3.png" data-full="./assets/img/cu25/image3.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
+          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image9.png" data-full="./assets/img/cu25/image9.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
+          <div class="clay-card col-span-1 row-span-1 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image2.png" data-full="./assets/img/cu25/image2.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
+          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image5.png" data-full="./assets/img/cu25/image5.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
+          <div class="clay-card col-span-1 row-span-1 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image1.png" data-full="./assets/img/cu25/image1.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
+          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image8.png" data-full="./assets/img/cu25/image8.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
+          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image4.png" data-full="./assets/img/cu25/image4.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
+          <div class="clay-card col-span-1 row-span-1 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image6.png" data-full="./assets/img/cu25/image6.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
+       </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 12: GRAPHIC DESIGN - CITEUP 2024
+         ======================================================================= -->
+    <section id="citeup-2024" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
+       <div class="w-full mb-4 flex justify-between items-end flex-shrink-0 max-w-[1600px] px-2">
+         <div>
+           <div class="inline-block clay-btn px-4 py-1 mb-2 text-xs font-bold tracking-widest text-[#f59e0b]">ARCHIVE 03</div>
+           <h2 class="font-syne font-black text-3xl md:text-4xl text-slate-800 leading-none">CITEUP 2024</h2>
+         </div>
+       </div>
+
+       <!-- Filler for CITEUP 2024 -->
+       <div class="h-full w-full max-w-[1600px] grid grid-cols-3 grid-rows-3 gap-6 flex-grow min-h-0">
+          <div class="clay-card col-span-1 row-span-3 p-8 flex items-center justify-center rounded-[2rem] bg-[#f8fafc]">
+            <p class="font-sans text-slate-400 font-bold text-lg text-center">Archived Files</p>
+          </div>
+          <div class="clay-card col-span-2 row-span-3 p-8 flex items-center justify-center rounded-[2rem] bg-[#f8fafc]">
+            <p class="font-sans text-slate-400 font-bold text-lg text-center opacity-50">Under Construction / Transferring</p>
+          </div>
+       </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 4: CONTACT
+         ======================================================================= -->
+    <section id="contact" class="h-screen w-full snap-start relative flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
+      <div class="container mx-auto px-6 max-w-4xl w-full">
+        <div
+          class="clay-card-deep p-8 md:p-16 text-center relative overflow-hidden"
+        >
+          <h2
+            class="font-syne font-black text-4xl md:text-5xl text-slate-800 mb-6 relative z-10"
+          >
+            Let's Connect
+          </h2>
+          <p
+            class="font-sans text-slate-500 mb-10 text-lg font-medium relative z-10"
+          >
+            Have a project in mind? Let's mold it together.
+          </p>
+
+          <!-- Contact Form -->
+          <form action="#" class="max-w-md mx-auto space-y-6 relative z-10">
+            <input
+              type="text"
+              placeholder="Your Name"
+              class="w-full px-6 py-4 rounded-2xl border-none focus:outline-none text-slate-700 placeholder-slate-400 clay-input"
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              class="w-full px-6 py-4 rounded-2xl border-none focus:outline-none text-slate-700 placeholder-slate-400 clay-input"
+            />
+            <textarea
+              rows="4"
+              placeholder="Tell me about your project..."
+              class="w-full px-6 py-4 rounded-2xl border-none focus:outline-none text-slate-700 placeholder-slate-400 clay-input"
+            ></textarea>
+
+            <button
+              type="submit"
+              class="clay-btn w-full py-4 text-slate-700 font-bold text-lg hover:text-slate-900 mt-4 outline-none"
+            >
+              Send Message
+            </button>
+          </form>
+
+          <!-- Social Media CDN Icons in Fluffy Buttons -->
+          <div class="mt-16 flex justify-center gap-6 relative z-10 flex-wrap">
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-16 h-16 clay-circle group"
+              title="LinkedIn"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg"
+                class="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                alt="LinkedIn"
+              />
+            </a>
+            <a
+              href="https://github.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-16 h-16 clay-circle group"
+              title="GitHub"
+            >
+              <img
+                src="https://cdn.simpleicons.org/github/181717"
+                class="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                alt="GitHub"
+              />
+            </a>
+            <a
+              href="mailto:contact@example.com"
+              class="w-16 h-16 clay-circle group"
+              title="Email"
+            >
+              <img
+                src="https://cdn.simpleicons.org/gmail/EA4335"
+                class="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                alt="Gmail"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full py-8 text-center relative z-10 bg-[#F0F5F9] pb-12">
+      <p class="font-sans text-sm text-slate-400 tracking-wider font-semibold">
+        &copy; 2026 Farhan Kholid.
+      </p>
+    </footer>
+    <!-- =======================================================================
+         LIGHTBOX MODAL
+         ======================================================================= -->
+    <div
+      id="lightbox"
+      class="fixed inset-0 z-[200] hidden bg-black/90 flex justify-center items-center backdrop-blur-sm p-4"
+    >
+      <button
+        id="lightbox-close"
+        class="absolute top-6 right-6 text-white hover:text-gray-300 focus:outline-none z-[210]"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-10 h-10 drop-shadow-md"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <img
+        id="lightbox-img"
+        src=""
+        alt="Fullscreen View"
+        class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl relative z-[205]"
+      />
+    </div>
+
+    <!-- =======================================================================
+         PAGINATION INDICATORS
+         ======================================================================= -->
+    <nav class="fixed right-6 top-1/2 -translate-y-1/2 z-[200] flex flex-col gap-3 hidden md:flex">
+      <a href="#hero" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Home">
+        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
+      </a>
+      <a href="#resume" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Resume">
+        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#8b5cf6] transition-colors duration-300 scale-50 absolute inset-0"></span>
+      </a>
+      <a href="#uiux-intro" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="UI/UX Engineering">
+        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
+      </a>
+      <a href="#fsi-board" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="FSI Board">
+        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
+      </a>
+      <a href="#pilgrim-tracker" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Pilgrim Tracker">
+        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
+      </a>
+      <a href="#kalcer-id" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Kalcer.ID">
+        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
+      </a>
+      <a href="#lumina-visa" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="LuminaVisa">
+        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
+      </a>
+      <a href="#mono-stock" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Mono Stock">
+        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
+      </a>
+      <a href="#graphic-intro" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Graphic Design Archives">
+        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#f59e0b] transition-colors duration-300 scale-50 absolute inset-0"></span>
+      </a>
+      <a href="#graphic-fsi" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Graphic Design - FSI">
+        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#f59e0b] transition-colors duration-300 scale-50 absolute inset-0"></span>
+      </a>
+      <a href="#citeup-2025" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Graphic Design - CITEUP 2025">
+        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#f59e0b] transition-colors duration-300 scale-50 absolute inset-0"></span>
+      </a>
+      <a href="#citeup-2024" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Graphic Design - CITEUP 2024">
+        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#f59e0b] transition-colors duration-300 scale-50 absolute inset-0"></span>
+      </a>
+      <a href="#contact" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Contact">
+        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-slate-700 transition-colors duration-300 scale-50 absolute inset-0"></span>
+      </a>
+    </nav>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxClose = document.getElementById("lightbox-close");
+        const gridImages = document.querySelectorAll("img[data-full]");
+
+        // Open lightbox
+        gridImages.forEach((img) => {
+          img.addEventListener("click", () => {
+            const fullSrc = img.getAttribute("data-full");
+            if (fullSrc) {
+              lightboxImg.src = fullSrc;
+              lightbox.classList.remove("hidden");
+            }
+          });
+        });
+
+        // Close lightbox function
+        const closeLightbox = () => {
+          lightbox.classList.add("hidden");
+          lightboxImg.src = ""; // reset src
+        };
+
+        // Close on button click
+        lightboxClose.addEventListener("click", closeLightbox);
+
+        // Close on background click
+        lightbox.addEventListener("click", (e) => {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        // Close on Escape key
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && !lightbox.classList.contains("hidden")) {
+            closeLightbox();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
