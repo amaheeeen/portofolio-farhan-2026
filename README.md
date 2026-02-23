@@ -1,4 +1,4 @@
-# Farhan Kholid - UI/UX & Graphic Designer Portfolio 🎨✨
+# Farhan Kholid - UI/UX & Graphic Designer Portfolio
 
 > A highly curated, single-page landing portfolio showcasing design fidelity, engineering precision, and a strictly enforced **Claymorphism** aesthetic. Built for speed, elegance, and pixel-perfect responsiveness.
 
