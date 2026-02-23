@@ -9,9 +9,13 @@
     />
     <title>Farhan Kholid - 2026 Portofolio</title>
 
-    <!-- Google Fonts -->
+    <!-- Performance Optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap"
       rel="stylesheet"
@@ -182,13 +186,15 @@
       .hide-scrollbar::-webkit-scrollbar {
         display: none; /* Chrome, Safari and Opera */
       }
+
+
     </style>
   </head>
   <body
-    class="antialiased font-sans selection:bg-slate-300 selection:text-slate-900 overflow-hidden"
+    class="antialiased font-sans selection:bg-slate-300 selection:text-slate-900 bg-[#F0F5F9] text-slate-800"
   >
-    <!-- Snap Container -->
-    <main class="h-screen w-full overflow-y-scroll snap-y snap-mandatory scroll-smooth hide-scrollbar relative">
+    <main id="main-container" class="w-full min-h-screen overflow-y-auto overflow-x-hidden relative">
+    
     <!-- =======================================================================
          SIDEBAR NAV
          ======================================================================= -->
@@ -211,7 +217,7 @@
       </a>
 
       <!-- UI/UX -->
-      <a href="#mono-stock" class="relative group">
+      <a href="#uiux" class="relative group">
         <div class="w-12 h-12 clay-circle text-slate-500 group-hover:text-[#0ea5e9]">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="9"/></svg>
         </div>
@@ -237,7 +243,7 @@
 
     <section
       id="hero"
-      class="h-screen w-full snap-start p-8 pl-32 flex items-center justify-center relative overflow-hidden"
+      class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 relative overflow-hidden"
     >
       <!-- Floating 3D Clay Blobs -->
       <div class="absolute top-1/4 left-1/4 w-64 h-64 clay-blob bg-[#e8f1f8] opacity-70" style="animation-delay: 0s"></div>
@@ -250,7 +256,7 @@
           Available for work
         </div>
 
-        <h1 class="font-syne font-black text-6xl md:text-8xl lg:text-[9rem] text-slate-800 leading-[0.9] tracking-tighter mb-6">
+        <h1 class="font-syne font-black text-6xl md:text-[8rem] lg:text-[11rem] text-slate-800 leading-[0.9] tracking-tighter mb-6">
           FARHAN
           <br />
           KHOLID<span class="text-[#0ea5e9]">.</span>
@@ -284,8 +290,8 @@
     <!-- =======================================================================
          SECTION 2: RESUME / CV
          ======================================================================= -->
-    <section id="resume" class="h-screen w-full snap-start p-8 pl-32 flex flex-col items-center justify-center relative overflow-hidden bg-[#e8f1f8]">
-      <div class="w-full h-full max-w-[1600px] flex flex-col">
+    <section id="resume" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 relative overflow-hidden bg-[#e8f1f8]">
+      <div class="w-full h-full max-w-[1600px] flex flex-col py-12 px-8">
         
         <!-- Section Header (Fixed Height) -->
         <div class="mb-6 flex justify-between items-end flex-shrink-0">
@@ -293,251 +299,263 @@
             <div class="inline-block clay-btn px-4 py-1 mb-2 text-xs font-bold tracking-widest text-[#8b5cf6]">ABOUT ME</div>
             <h2 class="font-syne font-black text-4xl text-slate-800 leading-none">Resume & <br/> Experience</h2>
           </div>
-          <p class="font-sans text-slate-500 max-w-sm text-right text-sm">Hybrid Front-End Engineer & Visual Designer specializing in bridging design fidelity with engineering precision.</p>
+          <p class="font-sans text-slate-500 max-w-sm text-right text-sm hidden xl:block">Hybrid Front-End Engineer & Visual Designer specializing in bridging design fidelity with engineering precision.</p>
         </div>
 
-        <!-- 3x3 Bento Grid (Fills remaining height) -->
-        <div class="grid grid-cols-3 grid-rows-3 gap-6 flex-grow min-h-0">
+        <!-- 2-Column Bento Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 flex-grow min-h-0 items-start pb-4">
           
-          <!-- Experience (Spans 2 cols, 3 rows) -->
-          <div class="clay-card p-8 col-span-2 row-span-3 flex flex-col h-full overflow-hidden">
-            <h3 class="font-syne font-bold text-2xl text-slate-800 mb-6 border-b-2 border-slate-100 pb-2 flex-shrink-0">Professional Timeline</h3>
+          <!-- Left Column (Experience) -->
+          <div class="clay-card p-10 lg:col-span-7 flex flex-col h-full overflow-hidden">
+            <h3 class="font-syne font-black text-3xl text-slate-800 mb-6 border-b-2 border-slate-100 pb-2 flex-shrink-0">Professional Timeline</h3>
             
-            <div class="flex-grow flex flex-col justify-between gap-4">
+            <div class="flex-grow flex flex-col justify-between gap-5 pr-2">
               <!-- Experience 1 -->
-              <div class="relative pl-6 border-l-2 border-slate-200">
+              <div class="relative pl-6 border-l-2 border-slate-200 mt-2">
                 <div class="absolute w-3 h-3 rounded-full bg-[#f59e0b] -left-[7px] top-1"></div>
                 <h4 class="font-syne font-bold text-lg text-slate-800 leading-tight">CITEUP 2025</h4>
-                <p class="font-sans text-[#f59e0b] font-bold text-xs mb-2">Head of Creative Department (2025)</p>
-                <p class="font-sans text-slate-600 text-sm line-clamp-3">Spearheaded the visual identity for the entire event, developing the "Node of Connection" concept that was applied across digital, print, and merchandise assets. Managed a creative team ensuring 100% brand consistency.</p>
+                <p class="font-sans text-[#f59e0b] font-bold text-sm mb-1">Head of Creative Department (2025)</p>
+                <p class="font-sans text-slate-600 text-base leading-relaxed">Spearheaded the visual identity for the entire event, developing the "Node of Connection" concept that was applied across digital, print, and merchandise assets. Managed a creative team ensuring 100% brand consistency.</p>
               </div>
 
               <!-- Experience 2 -->
               <div class="relative pl-6 border-l-2 border-slate-200">
                 <div class="absolute w-3 h-3 rounded-full bg-[#0ea5e9] -left-[7px] top-1"></div>
                 <h4 class="font-syne font-bold text-lg text-slate-800 leading-tight">CITEUP 2024</h4>
-                <p class="font-sans text-[#0ea5e9] font-bold text-xs mb-2">Creative Media Staff (2024)</p>
-                <p class="font-sans text-slate-600 text-sm line-clamp-3">Collaborated with the creative team to design engaging marketing collateral using Adobe Photoshop and Illustrator. Assisted in the event guidebook layout and rapid design revisions.</p>
+                <p class="font-sans text-[#0ea5e9] font-bold text-sm mb-1">Creative Media Staff (2024)</p>
+                <p class="font-sans text-slate-600 text-base leading-relaxed">Collaborated with the creative team to design engaging marketing collateral using Adobe Photoshop and Illustrator. Assisted in the event guidebook layout and rapid design revisions.</p>
               </div>
 
               <!-- Experience 3 -->
-              <div class="relative pl-6 border-l-2 border-transparent">
+              <div class="relative pl-6 border-l-2 border-transparent mb-2">
                 <div class="absolute w-3 h-3 rounded-full bg-[#8b5cf6] -left-[7px] top-1"></div>
                 <h4 class="font-syne font-bold text-lg text-slate-800 leading-tight">PT Farhan Surya Indah</h4>
-                <p class="font-sans text-[#8b5cf6] font-bold text-xs mb-2">Graphic & UI Designer (2021 &ndash; 2023)</p>
-                <p class="font-sans text-slate-600 text-sm line-clamp-3">Designed high-fidelity user interfaces (UI) for web and mobile booking platforms. Developed design systems that reduced developer hand-off friction by approximately 30%.</p>
+                <p class="font-sans text-[#8b5cf6] font-bold text-sm mb-1">Graphic & UI Designer (2021 &ndash; 2023)</p>
+                <p class="font-sans text-slate-600 text-base leading-relaxed">Designed high-fidelity user interfaces (UI) for web and mobile booking platforms. Developed design systems that reduced developer hand-off friction by approximately 30%.</p>
               </div>
             </div>
           </div>
 
-          <!-- Tech Stack -->
-          <div class="clay-inset p-6 col-span-1 row-span-1 flex flex-col justify-center h-full">
-            <h4 class="font-syne font-bold text-slate-800 text-lg mb-2 flex items-center gap-2">
-              <span class="w-8 h-8 clay-circle bg-white text-xs">💻</span> Tech Stack
-            </h4>
-            <p class="font-sans text-slate-600 text-sm font-medium leading-relaxed">Laravel (PHP)<br/>React.js / Vue.js<br/>Tailwind CSS</p>
-          </div>
-
-          <!-- Design Tools -->
-          <div class="clay-inset p-6 col-span-1 row-span-1 flex flex-col justify-center h-full">
-            <h4 class="font-syne font-bold text-slate-800 text-lg mb-2 flex items-center gap-2">
-              <span class="w-8 h-8 clay-circle bg-white text-xs">🎨</span> Design Tools
-            </h4>
-            <p class="font-sans text-slate-600 text-sm font-medium leading-relaxed">Figma (Prototyping)<br/>Adobe Photoshop<br/>Adobe Illustrator</p>
-          </div>
-
-          <!-- Education & Soft Skills (Combined to save space) -->
-          <div class="clay-inset p-6 col-span-1 row-span-1 flex flex-col justify-center h-full">
-             <h4 class="font-syne font-bold text-slate-800 text-base mb-1">Education</h4>
-             <p class="font-sans text-slate-600 text-xs font-medium mb-4">Pertamina University (2023-2027) <br/> Computer Science</p>
-             
-             <h4 class="font-syne font-bold text-slate-800 text-base mb-1">Soft Skills</h4>
-             <p class="font-sans text-slate-600 text-xs font-medium">Creative Leadership, Mentorship, Team Collaboration, Project Management.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =======================================================================
-         SECTION 3: UI/UX ENGINEERING INTRO
-         ======================================================================= -->
-    <section id="uiux-intro" class="h-screen w-full snap-start relative flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
-      <div class="w-full flex flex-col items-center justify-center pt-8 md:pt-16">
-        <div class="container mx-auto px-6 max-w-7xl">
-          <div class="text-center">
-            <div class="inline-block clay-btn px-6 py-2 mb-4 text-sm font-bold tracking-widest text-[#0ea5e9]">
-              PART 1
+          <!-- Right Column (Tech, Soft Skills, Design) -->
+          <div class="lg:col-span-5 h-full flex flex-col gap-6 overflow-y-auto hide-scrollbar py-1">
+            
+            <!-- Tech Stack -->
+            <div class="clay-inset p-8 flex flex-col justify-center gap-4 flex-shrink-0 min-h-[160px]">
+              <h4 class="font-syne font-bold text-slate-800 text-2xl flex items-center gap-3">
+                <span class="w-10 h-10 clay-circle bg-white text-lg flex items-center justify-center">💻</span> Tech Stack
+              </h4>
+              <div class="flex flex-wrap gap-4 mt-2">
+                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Laravel">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" class="w-8 h-8" alt="Laravel" />
+                </div>
+                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="React.js">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" class="w-8 h-8" alt="React.js" />
+                </div>
+                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Vue.js">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" class="w-8 h-8" alt="Vue.js" />
+                </div>
+                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Tailwind CSS">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" class="w-8 h-8" alt="Tailwind CSS" />
+                </div>
+              </div>
             </div>
-            <h2 class="font-syne font-black text-4xl md:text-5xl text-slate-800 mb-4">
-              UI/UX Engineering
-            </h2>
-            <p class="font-sans text-slate-500 max-w-xl mx-auto font-medium text-lg">
-              Digital products molded with precision, empathy, and logic.
-            </p>
+
+            <!-- Design Tools -->
+            <div class="clay-inset p-8 flex flex-col justify-center gap-4 flex-shrink-0 min-h-[160px]">
+              <h4 class="font-syne font-bold text-slate-800 text-2xl flex items-center gap-3">
+                <span class="w-10 h-10 clay-circle bg-white text-lg flex items-center justify-center">🎨</span> Design Tools
+              </h4>
+              <div class="flex flex-wrap gap-4 mt-2">
+                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Figma">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="w-8 h-8" alt="Figma" />
+                </div>
+                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Adobe Photoshop">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" class="w-8 h-8" alt="Photoshop" />
+                </div>
+                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Adobe Illustrator">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg" class="w-8 h-8" alt="Illustrator" />
+                </div>
+                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Canva">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" class="w-8 h-8" alt="Canva" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Soft Skills & Education Wrapper -->
+            <div class="flex flex-col xl:flex-row gap-6 flex-shrink-0">
+               <!-- Education -->
+               <div class="clay-inset p-8 flex flex-col justify-center gap-4 w-full xl:w-1/2">
+                 <h4 class="font-syne font-bold text-slate-800 text-2xl mb-1 flex items-center gap-3">
+                   <span class="w-10 h-10 clay-circle bg-white text-lg flex items-center justify-center">🎓</span> Education
+                 </h4>
+                 <p class="font-sans text-slate-600 text-lg font-medium">Pertamina University (2023-2027) <br/> Computer Science</p>
+               </div>
+
+               <!-- Soft Skills -->
+               <div class="clay-inset p-8 flex flex-col justify-center gap-4 w-full xl:w-1/2">
+                 <h4 class="font-syne font-bold text-slate-800 text-2xl mb-1 flex items-center gap-3">
+                   <span class="w-10 h-10 clay-circle bg-white text-lg flex items-center justify-center">🤝</span> Soft Skills
+                 </h4>
+                 <div class="flex flex-wrap gap-2 mt-2">
+                   <span class="clay-btn px-4 py-2 text-xs font-bold text-slate-700">Leadership</span>
+                   <span class="clay-btn px-4 py-2 text-xs font-bold text-slate-700">Mentorship</span>
+                   <span class="clay-btn px-4 py-2 text-xs font-bold text-slate-700">Collaboration</span>
+                 </div>
+               </div>
+            </div>
+            
           </div>
         </div>
       </div>
     </section>
 
     <!-- =======================================================================
-         SECTION 4: UI/UX PROJECT 1 - FSI BOARD
+         SECTION 3: UI/UX ENGINEERING
          ======================================================================= -->
-    <section id="fsi-board" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
-      <div class="h-full w-full max-w-[1600px] grid grid-cols-12 gap-6 items-stretch">
-        <div class="col-span-12 md:col-span-8 h-full clay-inset rounded-[2rem] flex items-center justify-center p-6 overflow-hidden bg-gradient-to-br from-[#e0ecf6] to-[#F0F5F9]">
-          <span class="font-syne font-bold text-slate-400 text-4xl opacity-50">Admin Dashboard Preview</span>
+    <section id="uiux" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 relative overflow-hidden bg-[#F0F5F9]">
+      <div class="w-full max-w-[1600px] mx-auto flex flex-col gap-16">
+        
+        <!-- Intro -->
+        <div class="text-center mb-4">
+          <div class="inline-block clay-btn px-6 py-2 mb-4 text-sm font-bold tracking-widest text-[#0ea5e9]">
+            PART 1
+          </div>
+          <h2 class="font-syne font-black text-4xl md:text-5xl text-slate-800 mb-4">
+            UI/UX Engineering
+          </h2>
+          <p class="font-sans text-slate-500 max-w-xl mx-auto font-medium text-lg">
+            Digital products molded with precision, empathy, and logic.
+          </p>
+        </div>
+
+        <!-- FSI Board -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4">
+            <img src="./assets/img/porto-fe_6.png" class="w-full h-full object-contain rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="FSI Board" loading="lazy" decoding="async" />
+          </div>
+          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full">
+            <div>
+              <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 01</div>
+              <h3 class="font-syne font-black text-4xl text-slate-800 mb-4 leading-none">FSI BOARD</h3>
+              <p class="text-slate-600 font-sans leading-relaxed text-lg">Umrah and Hajj Management System Dashboard for PT Farhan Surya Indah. Built to monitor pilgrim data and daily operations efficiently in real-time.</p>
+            </div>
+            <div class="mt-auto">
+               <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider mb-3">Tech Stack</h4>
+               <div class="flex gap-4">
+                 <div class="w-12 h-12 clay-circle bg-white" title="Laravel"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" class="w-6 h-6" alt="Laravel" /></div>
+                 <div class="w-12 h-12 clay-circle bg-white" title="Tailwind CSS"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" class="w-6 h-6" alt="Tailwind" /></div>
+               </div>
+            </div>
+            <div class="mt-4">
+               <a href="#" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#0ea5e9]">VIEW DETAILS</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pilgrim Tracker -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4">
+            <img src="./assets/img/porto-fe_5.png" class="w-full h-full object-contain rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Pilgrim Tracker" loading="lazy" decoding="async" />
+          </div>
+          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full">
+            <div>
+              <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 02</div>
+              <h3 class="font-syne font-black text-4xl text-slate-800 mb-4 leading-none">Pilgrim Tracker</h3>
+              <p class="text-slate-600 font-sans leading-relaxed text-lg">Mobile app prototype specifically optimizing Tour & Travel services through real-time pilgrim tracking. Features live interactive maps and comprehensive travel itinerary discovery.</p>
+            </div>
+            <div class="mt-auto">
+               <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider mb-3">Tech Stack</h4>
+               <div class="flex gap-4">
+                 <div class="w-12 h-12 clay-circle bg-white" title="Figma"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="w-6 h-6" alt="Figma" /></div>
+               </div>
+            </div>
+            <div class="mt-4">
+               <a href="#" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#0ea5e9]">EXPLORE PROTOTYPE</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kalcer.ID -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4">
+            <img src="assets/img/porto-fe_2.png" class="w-full h-full object-cover object-top rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Kalcer.ID" loading="lazy" decoding="async" />
+          </div>
+          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full">
+            <div>
+              <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 03</div>
+              <h3 class="font-syne font-black text-4xl text-slate-800 mb-4 leading-none">Kalcer.ID</h3>
+              <p class="text-slate-600 font-sans leading-relaxed text-lg">A comprehensive cultural hub bridging fragmented heritage sites into one unified platform. Features dynamic event discovery wrapped in a smooth, responsive UI.</p>
+            </div>
+            <div class="mt-auto">
+               <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider mb-3">Tech Stack</h4>
+               <div class="flex gap-4 items-center flex-wrap">
+                 <div class="w-12 h-12 clay-circle bg-white" title="Laravel"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" class="w-6 h-6" alt="Laravel" /></div>
+                 <span class="px-3 py-2 rounded-full text-xs font-bold clay-card text-slate-700">Livewire</span>
+                 <span class="px-3 py-2 rounded-full text-xs font-bold clay-card text-slate-700">Breeze</span>
+                 <div class="w-12 h-12 clay-circle bg-white" title="Tailwind CSS"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" class="w-6 h-6" alt="Tailwind" /></div>
+               </div>
+            </div>
+            <div class="mt-4">
+               <a href="#" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#0ea5e9]">VIEW LIVE PROJECT</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- LuminaVisa -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4">
+            <img src="assets/img/porto-fe_4.png" class="w-full h-full object-cover object-top rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Lumina Visa" loading="lazy" decoding="async" />
+          </div>
+          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full">
+            <div>
+              <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 04</div>
+              <h3 class="font-syne font-black text-4xl text-slate-800 mb-4 leading-none">LuminaVisa</h3>
+              <p class="text-slate-600 font-sans leading-relaxed text-lg">A mobile app aimed at simplifying opaque visa processes. Broken down into bite-sized steps with clear visual feedback to ease traveler anxiety.</p>
+            </div>
+            <div class="mt-auto">
+               <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider mb-3">Tech Stack</h4>
+               <div class="flex gap-4 items-center flex-wrap">
+                 <div class="w-12 h-12 clay-circle bg-white" title="Laravel"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" class="w-6 h-6" alt="Laravel" /></div>
+                 <span class="px-3 py-2 rounded-full text-xs font-bold clay-card text-slate-700">Livewire</span>
+               </div>
+            </div>
+            <div class="mt-4">
+               <a href="#" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#0ea5e9]">EXPLORE CASE STUDY</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mono Stock -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4">
+            <img src="assets/img/porto-fe_1.png" class="w-full h-full object-cover object-top rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Mono Stock Dashboard" loading="lazy" decoding="async" />
+          </div>
+          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full">
+            <div>
+              <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 05</div>
+              <h3 class="font-syne font-black text-4xl text-slate-800 mb-4 leading-none">Mono Stock</h3>
+              <p class="text-slate-600 font-sans leading-relaxed text-lg">Designed a monochromatic, high-contrast dashboard to reduce decision fatigue for traders. The clean layout prioritizes rapid market scanning without cognitive overload.</p>
+            </div>
+            <div class="mt-auto">
+               <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider mb-3">Tech Stack</h4>
+               <div class="flex gap-4">
+                 <div class="w-12 h-12 clay-circle bg-white" title="Vue.js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" class="w-6 h-6" alt="Vue" /></div>
+                 <div class="w-12 h-12 clay-circle bg-white" title="Tailwind CSS"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" class="w-6 h-6" alt="Tailwind" /></div>
+               </div>
+            </div>
+            <div class="mt-4">
+               <a href="#" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#0ea5e9]">VIEW LIVE DEMO</a>
+            </div>
+          </div>
         </div>
         
-        <div class="col-span-12 md:col-span-4 h-full flex flex-col gap-6">
-          <div class="clay-card p-8 flex-shrink-0">
-             <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 01</div>
-             <h3 class="font-syne font-bold text-3xl md:text-4xl text-slate-800 mb-4 leading-none">FSI BOARD</h3>
-             <p class="text-slate-600 font-sans leading-relaxed text-sm">Dashboard Sistem Manajemen Umrah dan Haji untuk PT Farhan Surya Indah. Dibangun untuk memonitor data jamaah dan operasional secara real-time dan efisien.</p>
-          </div>
-
-          <div class="clay-inset p-8 flex-grow flex flex-col justify-center gap-4">
-             <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider">Platform</h4>
-             <p class="font-sans text-slate-600 font-bold text-sm">Web Dashboard CMS</p>
-          </div>
-
-          <div class="flex-shrink-0">
-             <a href="#" class="clay-btn w-full py-6 text-center block text-sm font-bold tracking-widest text-[#0ea5e9] bg-white text-lg">VIEW DETAILS</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =======================================================================
-         SECTION 5: UI/UX PROJECT 2 - PILGRIM TRACKER
-         ======================================================================= -->
-    <section id="pilgrim-tracker" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
-      <div class="h-full w-full max-w-[1600px] grid grid-cols-12 gap-6 items-stretch">
-        <div class="col-span-12 md:col-span-8 h-full clay-inset rounded-[2rem] flex items-center justify-center p-6 overflow-hidden bg-gradient-to-br from-[#e0ecf6] to-[#F0F5F9]">
-          <span class="font-syne font-bold text-slate-400 text-4xl opacity-50">App Prototype</span>
-        </div>
-        
-        <div class="col-span-12 md:col-span-4 h-full flex flex-col gap-6">
-          <div class="clay-card p-8 flex-shrink-0">
-             <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 02</div>
-             <h3 class="font-syne font-bold text-2xl md:text-3xl text-slate-800 mb-4 leading-none">Pilgrim Tracker (Mobile UI)</h3>
-             <p class="text-slate-600 font-sans leading-relaxed text-xs">Prototipe aplikasi mobile untuk mengoptimalkan layanan Tour & Travel melalui pelacakan jamaah.</p>
-          </div>
-
-          <div class="clay-inset p-6 flex-grow flex flex-col justify-center overflow-y-auto hide-scrollbar">
-             <ul class="text-slate-500 font-sans text-xs space-y-2 list-disc pl-4">
-                <li><span class="font-bold text-slate-700">Discover:</span> Promosi program tur 3 negara & pendaftaran.</li>
-                <li><span class="font-bold text-slate-700">Tracker:</span> Peta & pelacakan titik lokasi jamaah.</li>
-                <li><span class="font-bold text-slate-700">Search & Detail:</span> Pencarian layanan wisata 9 Hari.</li>
-                <li><span class="font-bold text-slate-700">Notification & Account:</span> Manajemen profil dan sistem pesan.</li>
-              </ul>
-          </div>
-
-          <div class="flex-shrink-0">
-             <a href="#" class="clay-btn w-full py-6 text-center block text-sm font-bold tracking-widest text-[#0ea5e9] bg-white text-lg">EXPLORE PROTOTYPE</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =======================================================================
-         SECTION 6: UI/UX PROJECT 3 - KALCER.ID
-         ======================================================================= -->
-    <section id="kalcer-id" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
-      <div class="h-full w-full max-w-[1600px] grid grid-cols-12 gap-6 items-stretch">
-        <div class="col-span-12 md:col-span-8 h-full clay-inset rounded-[2rem] flex items-center justify-center p-6 overflow-hidden">
-          <img src="assets/img/porto-fe_2.png" class="w-full h-full object-contain rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Kalcer.ID" />
-        </div>
-        
-        <div class="col-span-12 md:col-span-4 h-full flex flex-col gap-6">
-          <div class="clay-card p-8 flex-shrink-0">
-             <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 03</div>
-             <h3 class="font-syne font-bold text-3xl md:text-4xl text-slate-800 mb-4 leading-none">Kalcer.ID</h3>
-             <p class="text-slate-600 font-sans leading-relaxed text-sm">A comprehensive cultural hub bridging fragmented heritage sites into one unified platform. Features dynamic event discovery wrapped in a smooth, responsive UI.</p>
-          </div>
-
-          <div class="clay-inset p-8 flex-grow flex flex-col justify-center gap-4">
-             <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider">Tech Stack</h4>
-             <div class="flex gap-4">
-               <div class="w-12 h-12 clay-circle bg-white" title="React"><img src="https://cdn.simpleicons.org/react/61DAFB" class="w-6 h-6" alt="React" /></div>
-               <div class="w-12 h-12 clay-circle bg-white" title="Next.js"><img src="https://cdn.simpleicons.org/nextdotjs/000000" class="w-6 h-6" alt="Next.js" /></div>
-             </div>
-          </div>
-
-          <div class="flex-shrink-0">
-             <a href="#" class="clay-btn w-full py-6 text-center block text-sm font-bold tracking-widest text-[#0ea5e9] bg-white text-lg">VIEW LIVE PROJECT</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =======================================================================
-         SECTION 7: UI/UX PROJECT 4 - LUMINAVISA
-         ======================================================================= -->
-    <section id="lumina-visa" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
-      <div class="h-full w-full max-w-[1600px] grid grid-cols-12 gap-6 items-stretch">
-        <div class="col-span-12 md:col-span-8 h-full clay-inset rounded-[2rem] flex items-center justify-center p-6 overflow-hidden">
-          <img src="assets/img/porto-fe_4.png" class="w-full h-full object-contain rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Lumina Visa" />
-        </div>
-        
-        <div class="col-span-12 md:col-span-4 h-full flex flex-col gap-6">
-          <div class="clay-card p-8 flex-shrink-0">
-             <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 04</div>
-             <h3 class="font-syne font-bold text-3xl md:text-4xl text-slate-800 mb-4 leading-none">LuminaVisa</h3>
-             <p class="text-slate-600 font-sans leading-relaxed text-sm">A mobile app aimed at simplifying opaque visa processes. Broken down into bite-sized steps with clear visual feedback to ease traveler anxiety.</p>
-          </div>
-
-          <div class="clay-inset p-8 flex-grow flex flex-col justify-center gap-4">
-             <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider">Tech Stack</h4>
-             <div class="flex gap-4">
-               <div class="w-12 h-12 clay-circle bg-white" title="Figma"><img src="https://cdn.simpleicons.org/figma/F24E1E" class="w-6 h-6" alt="Figma" /></div>
-             </div>
-          </div>
-
-          <div class="flex-shrink-0">
-             <a href="#" class="clay-btn w-full py-6 text-center block text-sm font-bold tracking-widest text-[#0ea5e9] bg-white text-lg">EXPLORE CASE STUDY</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =======================================================================
-         SECTION 8: UI/UX PROJECT 5 - MONO STOCK
-         ======================================================================= -->
-    <section id="mono-stock" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
-      <div class="h-full w-full max-w-[1600px] grid grid-cols-12 gap-6 items-stretch">
-        <!-- Left Column: Image -->
-        <div class="col-span-12 md:col-span-8 h-full clay-inset rounded-[2rem] flex items-center justify-center p-6 overflow-hidden">
-          <img src="assets/img/porto-fe_1.png" class="w-full h-full object-contain rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Mono Stock Dashboard" />
-        </div>
-        
-        <!-- Right Column: Details -->
-        <div class="col-span-12 md:col-span-4 h-full flex flex-col gap-6">
-          <div class="clay-card p-8 flex-shrink-0">
-             <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 05</div>
-             <h3 class="font-syne font-bold text-3xl md:text-4xl text-slate-800 mb-4 leading-none">Mono Stock</h3>
-             <p class="text-slate-600 font-sans leading-relaxed text-sm">Designed a monochromatic, high-contrast dashboard to reduce decision fatigue for traders. The clean layout prioritizes rapid market scanning without cognitive overload.</p>
-          </div>
-
-          <div class="clay-inset p-8 flex-grow flex flex-col justify-center gap-4">
-             <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider">Tech Stack</h4>
-             <div class="flex gap-4">
-               <div class="w-12 h-12 clay-circle bg-white" title="Vue.js"><img src="https://cdn.simpleicons.org/vuedotjs/4FC08D" class="w-6 h-6" alt="Vue" /></div>
-               <div class="w-12 h-12 clay-circle bg-white" title="Tailwind CSS"><img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" class="w-6 h-6" alt="Tailwind" /></div>
-             </div>
-          </div>
-
-          <div class="flex-shrink-0">
-             <a href="#" class="clay-btn w-full py-6 text-center block text-sm font-bold tracking-widest text-[#0ea5e9] bg-white text-lg">VIEW LIVE DEMO</a>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- =======================================================================
          SECTION 9: GRAPHIC DESIGN INTRO
          ======================================================================= -->
-    <section id="graphic-intro" class="h-screen w-full snap-start relative flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
+    <section id="graphic-intro" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 relative overflow-hidden bg-[#F0F5F9]">
       <div class="w-full flex flex-col items-center justify-center pt-8 md:pt-16">
         <div class="container mx-auto px-6 max-w-7xl">
           <div class="text-center clay-card p-12 relative z-10 w-[80vw] max-w-3xl">
@@ -556,82 +574,69 @@
     </section>
 
     <!-- =======================================================================
-         SECTION 10: GRAPHIC DESIGN - FSI
+         SECTION 10: GRAPHIC DESIGN - CITEUP 2025
          ======================================================================= -->
-    <section id="graphic-fsi" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
-       <div class="w-full mb-4 flex justify-between items-end flex-shrink-0 max-w-[1600px] px-2">
-         <div>
-           <div class="inline-block clay-btn px-4 py-1 mb-2 text-xs font-bold tracking-widest text-[#f59e0b]">ARCHIVE 01</div>
-           <h2 class="font-syne font-black text-3xl md:text-4xl text-slate-800 leading-none">PT FARHAN SURYA INDAH</h2>
-         </div>
-       </div>
-
-       <!-- Bento Grid FSI -->
-       <div class="h-full w-full max-w-[1600px] grid grid-cols-4 grid-rows-4 gap-4 flex-grow min-h-0">
-          <div class="clay-card col-span-3 row-span-1 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/fsi/image1.png" data-full="./assets/img/fsi/image1.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="FSI Design" /></div>
-          
-          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/fsi/image4.png" data-full="./assets/img/fsi/image4.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="FSI Design" /></div>
-
-          <div class="clay-card col-span-3 row-span-1 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/fsi/image2.png" data-full="./assets/img/fsi/image2.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="FSI Design" /></div>
-
-          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/fsi/image5.png" data-full="./assets/img/fsi/image5.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="FSI Design" /></div>
-
-          <div class="clay-card col-span-2 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/fsi/image7.png" data-full="./assets/img/fsi/image7.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="FSI Design" /></div>
-
-          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/fsi/image3.png" data-full="./assets/img/fsi/image3.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="FSI Design" /></div>
-       </div>
+    <section id="citeup-2025" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 relative overflow-hidden bg-[#F0F5F9]">
+      <div class="w-full max-w-[1600px] h-full grid grid-cols-12 gap-8 items-center p-8">
+        <!-- Project 1: Image LEFT -->
+        <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[3rem] p-4 flex items-center justify-center bg-white/50 backdrop-blur-sm order-1 md:order-1">
+          <img src="./assets/img/cu25/cu25.png" class="w-full h-full object-cover rounded-3xl" alt="CITEUP 2025" loading="lazy" decoding="async" />
+        </div>
+        <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center order-2 md:order-2">
+           <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#f59e0b] w-max">ARCHIVE 01</div>
+           <h3 class="font-syne font-black text-4xl text-slate-800 mb-4 leading-none">CITEUP 2025</h3>
+           <p class="text-slate-600 font-sans leading-relaxed text-lg">Spearheaded the visual identity for the "Node of Connection" concept, creating a unified brand applied seamlessly across all digital and print assets.</p>
+           <div>
+             <a href="#" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 mt-4 rounded-full clay-card font-bold text-slate-800 hover:scale-105 transition-transform"><img src="https://cdn.simpleicons.org/instagram/E4405F" class="w-5 h-5" alt="Instagram"> View on Instagram</a>
+           </div>
+        </div>
+      </div>
     </section>
 
     <!-- =======================================================================
-         SECTION 11: GRAPHIC DESIGN - CITEUP 2025
+         SECTION 11: GRAPHIC DESIGN - CITEUP 2024
          ======================================================================= -->
-    <section id="citeup-2025" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
-       <div class="w-full mb-4 flex justify-between items-end flex-shrink-0 max-w-[1600px] px-2">
-         <div>
-           <div class="inline-block clay-btn px-4 py-1 mb-2 text-xs font-bold tracking-widest text-[#f59e0b]">ARCHIVE 02</div>
-           <h2 class="font-syne font-black text-3xl md:text-4xl text-slate-800 leading-none">CITEUP 2025</h2>
-         </div>
-       </div>
-
-       <!-- Bento Grid CITEUP 2025 -->
-       <div class="h-full w-full max-w-[1600px] grid grid-cols-4 grid-rows-4 gap-4 flex-grow min-h-0">
-          <div class="clay-card col-span-2 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image3.png" data-full="./assets/img/cu25/image3.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
-          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image9.png" data-full="./assets/img/cu25/image9.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
-          <div class="clay-card col-span-1 row-span-1 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image2.png" data-full="./assets/img/cu25/image2.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
-          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image5.png" data-full="./assets/img/cu25/image5.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
-          <div class="clay-card col-span-1 row-span-1 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image1.png" data-full="./assets/img/cu25/image1.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
-          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image8.png" data-full="./assets/img/cu25/image8.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
-          <div class="clay-card col-span-1 row-span-2 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image4.png" data-full="./assets/img/cu25/image4.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
-          <div class="clay-card col-span-1 row-span-1 rounded-[2rem] overflow-hidden cursor-pointer group flex items-center justify-center p-2"><img src="./assets/img/cu25/image6.png" data-full="./assets/img/cu25/image6.png" class="w-full h-full object-contain rounded-xl group-hover:scale-[1.03] transition-transform duration-500" alt="CiteUp 2025 Design" /></div>
-       </div>
+    <section id="citeup-2024" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 relative overflow-hidden bg-[#F0F5F9]">
+      <div class="w-full max-w-[1600px] h-full grid grid-cols-12 gap-8 items-center p-8">
+        <!-- Project 2: Image RIGHT -->
+        <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center order-2 md:order-1">
+           <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#f59e0b] w-max">ARCHIVE 02</div>
+           <h3 class="font-syne font-black text-4xl text-slate-800 mb-4 leading-none">CITEUP 2024</h3>
+           <p class="text-slate-600 font-sans leading-relaxed text-lg">Developed engaging marketing collateral and event guidebook layouts using rapid design iterations, ensuring a modern and immersive visual experience.</p>
+           <div>
+             <a href="#" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 mt-4 rounded-full clay-card font-bold text-slate-800 hover:scale-105 transition-transform"><img src="https://cdn.simpleicons.org/instagram/E4405F" class="w-5 h-5" alt="Instagram"> View on Instagram</a>
+           </div>
+        </div>
+        <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[3rem] p-4 flex items-center justify-center bg-white/50 backdrop-blur-sm order-1 md:order-2">
+          <img src="./assets/img/cu24/cu24.png" class="w-full h-full object-cover object-top rounded-3xl" alt="CITEUP 2024" loading="lazy" decoding="async" />
+        </div>
+      </div>
     </section>
 
     <!-- =======================================================================
-         SECTION 12: GRAPHIC DESIGN - CITEUP 2024
+         SECTION 12: GRAPHIC DESIGN - FSI
          ======================================================================= -->
-    <section id="citeup-2024" class="h-screen w-full snap-start p-8 pl-32 flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
-       <div class="w-full mb-4 flex justify-between items-end flex-shrink-0 max-w-[1600px] px-2">
-         <div>
-           <div class="inline-block clay-btn px-4 py-1 mb-2 text-xs font-bold tracking-widest text-[#f59e0b]">ARCHIVE 03</div>
-           <h2 class="font-syne font-black text-3xl md:text-4xl text-slate-800 leading-none">CITEUP 2024</h2>
-         </div>
-       </div>
-
-       <!-- Filler for CITEUP 2024 -->
-       <div class="h-full w-full max-w-[1600px] grid grid-cols-3 grid-rows-3 gap-6 flex-grow min-h-0">
-          <div class="clay-card col-span-1 row-span-3 p-8 flex items-center justify-center rounded-[2rem] bg-[#f8fafc]">
-            <p class="font-sans text-slate-400 font-bold text-lg text-center">Archived Files</p>
-          </div>
-          <div class="clay-card col-span-2 row-span-3 p-8 flex items-center justify-center rounded-[2rem] bg-[#f8fafc]">
-            <p class="font-sans text-slate-400 font-bold text-lg text-center opacity-50">Under Construction / Transferring</p>
-          </div>
-       </div>
+    <section id="graphic-fsi" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 relative overflow-hidden bg-[#F0F5F9]">
+      <div class="w-full max-w-[1600px] h-full grid grid-cols-12 gap-8 items-center p-8">
+        <!-- Project 3: Image LEFT -->
+        <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[3rem] p-4 flex items-center justify-center bg-white/50 backdrop-blur-sm order-1 md:order-1">
+          <img src="./assets/img/fsi/fsi.png" class="w-full h-full object-cover object-top rounded-3xl" alt="PT Farhan Surya Indah" loading="lazy" decoding="async" />
+        </div>
+        <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center order-2 md:order-2">
+           <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#f59e0b] w-max">ARCHIVE 03</div>
+           <h3 class="font-syne font-black text-4xl text-slate-800 mb-4 leading-none">PT FARHAN SURYA INDAH</h3>
+           <p class="text-slate-600 font-sans leading-relaxed text-lg">Designed full-scale visual identities and promotional materials for various programs, enhancing brand recognition across all platforms.</p>
+           <div>
+             <a href="#" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 mt-4 rounded-full clay-card font-bold text-slate-800 hover:scale-105 transition-transform"><img src="https://cdn.simpleicons.org/instagram/E4405F" class="w-5 h-5" alt="Instagram"> View on Instagram</a>
+           </div>
+        </div>
+      </div>
     </section>
 
     <!-- =======================================================================
          SECTION 4: CONTACT
          ======================================================================= -->
-    <section id="contact" class="h-screen w-full snap-start relative flex flex-col justify-center items-center overflow-hidden bg-[#F0F5F9]">
+    <section id="contact" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 relative overflow-hidden bg-[#F0F5F9]">
       <div class="container mx-auto px-6 max-w-4xl w-full">
         <div
           class="clay-card-deep p-8 md:p-16 text-center relative overflow-hidden"
@@ -757,50 +762,7 @@
       />
     </div>
 
-    <!-- =======================================================================
-         PAGINATION INDICATORS
-         ======================================================================= -->
-    <nav class="fixed right-6 top-1/2 -translate-y-1/2 z-[200] flex flex-col gap-3 hidden md:flex">
-      <a href="#hero" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Home">
-        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
-      </a>
-      <a href="#resume" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Resume">
-        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#8b5cf6] transition-colors duration-300 scale-50 absolute inset-0"></span>
-      </a>
-      <a href="#uiux-intro" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="UI/UX Engineering">
-        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
-      </a>
-      <a href="#fsi-board" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="FSI Board">
-        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
-      </a>
-      <a href="#pilgrim-tracker" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Pilgrim Tracker">
-        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
-      </a>
-      <a href="#kalcer-id" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Kalcer.ID">
-        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
-      </a>
-      <a href="#lumina-visa" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="LuminaVisa">
-        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
-      </a>
-      <a href="#mono-stock" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Mono Stock">
-        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#0ea5e9] transition-colors duration-300 scale-50 absolute inset-0"></span>
-      </a>
-      <a href="#graphic-intro" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Graphic Design Archives">
-        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#f59e0b] transition-colors duration-300 scale-50 absolute inset-0"></span>
-      </a>
-      <a href="#graphic-fsi" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Graphic Design - FSI">
-        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#f59e0b] transition-colors duration-300 scale-50 absolute inset-0"></span>
-      </a>
-      <a href="#citeup-2025" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Graphic Design - CITEUP 2025">
-        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#f59e0b] transition-colors duration-300 scale-50 absolute inset-0"></span>
-      </a>
-      <a href="#citeup-2024" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Graphic Design - CITEUP 2024">
-        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-[#f59e0b] transition-colors duration-300 scale-50 absolute inset-0"></span>
-      </a>
-      <a href="#contact" class="w-4 h-4 md:w-3 md:h-3 rounded-full clay-circle group relative" title="Contact">
-        <span class="w-full h-full rounded-full bg-transparent group-hover:bg-slate-700 transition-colors duration-300 scale-50 absolute inset-0"></span>
-      </a>
-    </nav>
+
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -842,6 +804,9 @@
             closeLightbox();
           }
         });
+
+
+
       });
     </script>
   </body>
