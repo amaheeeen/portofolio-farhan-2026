@@ -281,17 +281,52 @@
         100% { transform: translate3d(0, 0px, 0) scale(1) rotate(0deg); }
       }
 
+      /* Liquid Background Gradient */
+      @keyframes liquid-gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .liquid-bg {
+        background: linear-gradient(-45deg, #F0F5F9, #e0ecf6, #f3e8ff, #e0f2fe);
+        background-size: 400% 400%;
+        animation: liquid-gradient 15s ease infinite;
+      }
+      .dark .liquid-bg {
+        background: linear-gradient(-45deg, #0f172a, #1e1b4b, #0c4a6e, #020617);
+        background-size: 400% 400%;
+        animation: liquid-gradient 15s ease infinite;
+      }
+
+      /* Noise Overlay for Gen Z Aesthetic */
+      .noise-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.04;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
+      .dark .noise-bg {
+        opacity: 0.06;
+      }
     </style>
   </head>
   <body
-    class="antialiased font-sans selection:bg-[#0ea5e9] selection:text-white bg-[#F0F5F9] dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300"
+    class="antialiased font-sans selection:bg-[#c026d3] selection:text-white text-slate-800 dark:text-slate-100 transition-colors duration-300 relative"
   >
+    <!-- Liquid Faded Gradient Background -->
+    <div class="fixed inset-0 z-[-20] liquid-bg transition-colors duration-500"></div>
+    <div class="noise-bg"></div>
     <main id="main-container" class="w-full min-h-screen overflow-x-hidden relative transition-colors duration-300">
     
-    <!-- Background Clay Blobs (GPU Accelerated) -->
-    <div class="absolute top-10 -left-20 w-96 h-96 rounded-full bg-blue-200/40 dark:bg-blue-900/40 blur-2xl opacity-50 -z-10 clay-card border-none will-change-transform" style="animation: float-clay 20s infinite linear; transform: translateZ(0); backface-visibility: hidden; perspective: 1000px;"></div>
-    <div class="absolute top-[30%] -right-32 w-[30rem] h-[30rem] rounded-full bg-teal-200/40 dark:bg-teal-900/40 blur-2xl opacity-50 -z-10 clay-card border-none will-change-transform" style="animation: float-clay 25s infinite linear 2s; transform: translateZ(0); backface-visibility: hidden; perspective: 1000px;"></div>
-    <div class="absolute top-[60%] left-[-10%] w-80 h-80 rounded-full bg-orange-200/40 dark:bg-orange-900/40 blur-2xl opacity-50 -z-10 clay-card border-none will-change-transform" style="animation: float-clay 22s infinite linear 5s; transform: translateZ(0); backface-visibility: hidden; perspective: 1000px;"></div>
+    <!-- Background Clay Blobs (Vibrant Gen Z Palette) -->
+    <div class="absolute top-10 -left-20 w-96 h-96 rounded-full bg-fuchsia-400/30 dark:bg-fuchsia-600/30 blur-3xl opacity-60 -z-10 clay-card border-none will-change-transform mix-blend-multiply dark:mix-blend-screen" style="animation: float-clay 20s infinite linear; transform: translateZ(0); backface-visibility: hidden; perspective: 1000px;"></div>
+    <div class="absolute top-[30%] -right-32 w-[30rem] h-[30rem] rounded-full bg-cyan-400/30 dark:bg-cyan-600/30 blur-3xl opacity-60 -z-10 clay-card border-none will-change-transform mix-blend-multiply dark:mix-blend-screen" style="animation: float-clay 25s infinite linear 2s; transform: translateZ(0); backface-visibility: hidden; perspective: 1000px;"></div>
+    <div class="absolute top-[60%] left-[-10%] w-80 h-80 rounded-full bg-lime-400/30 dark:bg-lime-600/30 blur-3xl opacity-60 -z-10 clay-card border-none will-change-transform mix-blend-multiply dark:mix-blend-screen" style="animation: float-clay 22s infinite linear 5s; transform: translateZ(0); backface-visibility: hidden; perspective: 1000px;"></div>
     <!-- =======================================================================
          SIDEBAR NAV
          ======================================================================= -->
@@ -317,28 +352,20 @@
         <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap max-md:hidden">Home</span>
       </a>
 
-      <!-- About/CV -->
-      <a href="#resume" class="relative group">
-        <div class="w-12 h-12 max-md:w-10 max-md:h-10 clay-circle text-slate-500 group-hover:text-[#8b5cf6]">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 max-md:w-4 max-md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v-4a2 2 0 1 0-4 0v4"/><path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"/><path d="M18 5v17"/><path d="m4 6 8-4 8 4"/><path d="M6 5v17"/><circle cx="12" cy="9" r="2"/></svg>
-        </div>
-        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap max-md:hidden">About Me</span>
-      </a>
-
-      <!-- UI/UX -->
-      <a href="#uiux" class="relative group">
+      <!-- Selected Work -->
+      <a href="#work" class="relative group">
         <div class="w-12 h-12 max-md:w-10 max-md:h-10 clay-circle text-slate-500 group-hover:text-[#0ea5e9]">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 max-md:w-4 max-md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="9"/></svg>
         </div>
-        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap max-md:hidden">UI/UX Projects</span>
+        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap max-md:hidden">Selected Work</span>
       </a>
 
-      <!-- Graphic Design -->
-      <a href="#citeup-2025" class="relative group">
-        <div class="w-12 h-12 max-md:w-10 max-md:h-10 clay-circle text-slate-500 group-hover:text-[#f59e0b]">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 max-md:w-4 max-md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/><path d="m14 7 3 3"/><path d="M5 6v4"/><path d="M19 14v4"/><path d="M10 2v2"/><path d="M7 8H3"/><path d="M21 16h-4"/><path d="M11 3H9"/></svg>
+      <!-- About -->
+      <a href="#about" class="relative group">
+        <div class="w-12 h-12 max-md:w-10 max-md:h-10 clay-circle text-slate-500 group-hover:text-[#8b5cf6]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 max-md:w-4 max-md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v-4a2 2 0 1 0-4 0v4"/><path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"/><path d="M18 5v17"/><path d="m4 6 8-4 8 4"/><path d="M6 5v17"/><circle cx="12" cy="9" r="2"/></svg>
         </div>
-        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap max-md:hidden">Graphic Archives</span>
+        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap max-md:hidden">About</span>
       </a>
 
       <!-- Contact -->
@@ -360,391 +387,236 @@
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-80 h-80 max-md:w-48 max-md:h-48 rounded-full blur-3xl opacity-40 bg-gradient-to-tr from-[#f5f0f9] to-[#ece0f6] dark:from-fuchsia-900 dark:to-rose-900 -z-10" style="animation: blob-bounce 12s infinite alternate;"></div>
 
       <div class="relative z-10 text-center flex flex-col items-center">
-        <!-- Profile Picture -->
-        <div class="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full clay-card p-2 mx-auto mb-8 flex-shrink-0 transition-transform duration-500 hover:scale-105">
-          <img src="./assets/img/pp-formal.png" alt="Farhan Kholid" class="w-full h-full object-cover rounded-full" loading="eager" decoding="async" />
+        <!-- Decorative Stars (Gen Z aesthetic) -->
+        <div class="absolute -top-10 left-10 md:-left-20 animate-spin" style="animation-duration: 4s;">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" class="text-fuchsia-400 opacity-60">
+            <path d="M20 0L23.5 16.5L40 20L23.5 23.5L20 40L16.5 23.5L0 20L16.5 16.5L20 0Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="absolute top-20 right-10 md:-right-10 animate-spin" style="animation-duration: 6s; animation-direction: reverse;">
+          <svg width="24" height="24" viewBox="0 0 40 40" fill="none" class="text-cyan-400 opacity-60">
+            <path d="M20 0L23.5 16.5L40 20L23.5 23.5L20 40L16.5 23.5L0 20L16.5 16.5L20 0Z" fill="currentColor"/>
+          </svg>
+        </div>
+
+        <!-- Profile Picture with Hover Effect -->
+        <div class="relative group cursor-pointer mb-8">
+          <div class="absolute -inset-1 bg-gradient-to-r from-fuchsia-500 to-cyan-500 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-500 animate-pulse"></div>
+          <div class="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full clay-card p-1 mx-auto relative flex-shrink-0 transition-transform duration-500 group-hover:scale-105">
+            <img src="./assets/img/pp-formal.png" alt="Farhan Kholid" class="w-full h-full object-cover rounded-full" loading="eager" decoding="async" />
+            <!-- Floating Badge -->
+            <div class="absolute -bottom-2 -right-2 bg-white dark:bg-slate-800 text-2xl p-2 rounded-full shadow-lg border border-slate-100 dark:border-slate-700 animate-bounce">
+              ✨
+            </div>
+          </div>
         </div>
 
         <!-- Status Pill -->
-        <div class="clay-btn px-6 py-2 mb-8 text-sm uppercase tracking-widest text-[#8b5cf6] cursor-default flex items-center gap-2 mx-auto">
-          <span class="w-2 h-2 rounded-full bg-[#8b5cf6] animate-pulse"></span>
+        <div class="clay-btn px-6 py-2 mb-8 text-sm uppercase tracking-widest text-[#c026d3] dark:text-[#e879f9] cursor-default flex items-center gap-2 mx-auto border border-fuchsia-200 dark:border-fuchsia-900/50">
+          <span class="w-2 h-2 rounded-full bg-[#c026d3] animate-ping absolute opacity-75"></span>
+          <span class="w-2 h-2 rounded-full bg-[#c026d3] relative"></span>
           Available for work
         </div>
-
-        <h1 class="font-syne font-black text-5xl md:text-[8rem] lg:text-[11rem] text-slate-800 dark:text-slate-100 leading-[1] md:leading-[0.9] tracking-tighter mb-6 transition-colors duration-300">
+        <h1 class="font-syne font-black text-5xl md:text-7xl lg:text-[7rem] text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-slate-500 dark:from-white dark:to-slate-400 pb-2 leading-[1.1] md:leading-[1.1] tracking-tighter mb-2 transition-colors duration-300">
           FARHAN
           <br />
-          KHOLID<span class="text-[#0ea5e9]">.</span>
+          KHOLID<span class="text-fuchsia-400">.</span>
         </h1>
 
-        <h2 class="font-syne font-bold text-xl md:text-4xl text-slate-500 mb-12 max-w-2xl mx-auto px-4 transition-colors duration-300">
-           <span class="text-slate-700 dark:text-slate-200">UI/UX</span> & <span class="text-slate-700 dark:text-slate-200">Graphic Designer</span>
+        <h2 class="font-syne font-bold text-xl md:text-3xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto px-4 transition-colors duration-300 lowercase tracking-wide">
+           <span class="text-slate-800 dark:text-white font-black">UI/UX DESIGNER</span> <br>crafting intuitive digital experiences
         </h2>
 
-        <!-- Tool Icons (Centered) -->
-        <div class="flex justify-center gap-6 flex-wrap w-full">
-          <div class="clay-circle w-16 h-16" title="Figma">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="w-8 h-8" alt="Figma" />
-          </div>
-          <div class="clay-circle w-16 h-16" title="Framer">
-            <img src="https://cdn.simpleicons.org/framer/0055FF" class="w-8 h-8" alt="Framer" />
-          </div>
-          <div class="clay-circle w-16 h-16" title="Adobe Photoshop">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" class="w-8 h-8" alt="Photoshop" />
-          </div>
-          <div class="clay-circle w-16 h-16" title="Adobe Illustrator">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg" class="w-8 h-8" alt="Illustrator" />
-          </div>
-          <div class="clay-circle w-16 h-16" title="Canva">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" class="w-8 h-8" alt="Canva" />
-          </div>
+        <!-- Tech/Design Stack Logos -->
+        <div class="flex justify-center gap-3 md:gap-4 flex-wrap w-full mt-4 max-w-2xl mx-auto">
+          <span class="clay-btn px-5 py-3 text-sm font-bold text-slate-700 flex items-center gap-2 cursor-default hover:-translate-y-1 transition-transform"><img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma" class="w-5 h-5" /></span>
+          <span class="clay-btn px-5 py-3 text-sm font-bold text-slate-700 flex items-center gap-2 cursor-default hover:-translate-y-1 transition-transform"><img src="https://cdn.simpleicons.org/framer/0055FF" alt="Framer" class="w-5 h-5" /></span>
+          <span class="clay-btn px-5 py-3 text-sm font-bold text-slate-700 flex items-center gap-2 cursor-default hover:-translate-y-1 transition-transform"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" class="w-8 h-8" alt="Photoshop"></span>
+          <span class="clay-btn px-5 py-3 text-sm font-bold text-slate-700 flex items-center gap-2 cursor-default hover:-translate-y-1 transition-transform"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg" class="w-8 h-8" alt="Illustrator"></span>
+          <span class="clay-btn px-5 py-3 text-sm font-bold text-slate-700 flex items-center gap-2 cursor-default hover:-translate-y-1 transition-transform"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React" class="w-5 h-5" /></span>
         </div>
       </div>
     </section>
 
     <!-- =======================================================================
-         SECTION 2: RESUME / CV
+         SECTION 2: ABOUT
          ======================================================================= -->
-    <section id="resume" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-[#e8f1f8] dark:bg-slate-900 transition-colors duration-300">
+    <section id="about" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-[#e8f1f8] dark:bg-slate-900 transition-colors duration-300">
       <div class="w-full h-full max-w-[1600px] flex flex-col py-12 px-8 max-md:px-2 max-md:py-4">
-        
-        <!-- Section Header (Fixed Height) -->
-        <div class="mb-6 flex justify-between items-end flex-shrink-0">
+        <div class="mb-12 flex justify-between items-end flex-shrink-0">
           <div>
             <div class="inline-block clay-btn px-4 py-1 mb-2 text-xs font-bold tracking-widest text-[#8b5cf6]">ABOUT ME</div>
-            <h2 class="font-syne font-black text-4xl text-slate-800 dark:text-slate-100 leading-none transition-colors duration-300">Resume & <br/> Experience</h2>
+            <h2 class="font-syne font-black text-4xl text-slate-800 dark:text-slate-100 leading-none transition-colors duration-300">Background & <br/> Philosophy</h2>
           </div>
-          <p class="font-sans text-slate-500 dark:text-slate-400 max-w-sm text-right text-sm hidden xl:block transition-colors duration-300">Hybrid Front-End Engineer & Visual Designer specializing in bridging design fidelity with engineering precision.</p>
         </div>
 
-        <!-- 2-Column Bento Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 flex-grow min-h-0 items-start pb-4">
-          
-          <!-- Left Column (Experience) -->
-          <div class="clay-card p-10 max-md:p-6 lg:col-span-7 flex flex-col h-full overflow-hidden">
-            <h3 class="font-syne font-black text-3xl text-slate-800 dark:text-slate-100 mb-6 border-b-2 border-slate-100 dark:border-slate-700 pb-2 flex-shrink-0 transition-colors duration-300">Professional Timeline</h3>
-            
-            <div class="flex-grow flex flex-col justify-between gap-5 pr-2">
-              <!-- Experience 1 -->
-              <div class="relative pl-6 border-l-2 border-slate-200 mt-2">
-                <div class="absolute w-3 h-3 rounded-full bg-[#f59e0b] -left-[7px] top-1"></div>
-                <h4 class="font-syne font-bold text-lg text-slate-800 dark:text-slate-100 transition-colors leading-tight">CITEUP 2025</h4>
-                <p class="font-sans text-[#f59e0b] font-bold text-sm mb-1">Head of Creative Department (2025)</p>
-                <p class="font-sans text-slate-600 dark:text-slate-300 transition-colors text-base leading-relaxed">Spearheaded the visual identity for the entire event, developing the "Node of Connection" concept that was applied across digital, print, and merchandise assets. Managed a creative team ensuring 100% brand consistency.</p>
-              </div>
-
-              <!-- Experience 2 -->
-              <div class="relative pl-6 border-l-2 border-slate-200">
-                <div class="absolute w-3 h-3 rounded-full bg-[#0ea5e9] -left-[7px] top-1"></div>
-                <h4 class="font-syne font-bold text-lg text-slate-800 dark:text-slate-100 transition-colors leading-tight">CITEUP 2024</h4>
-                <p class="font-sans text-[#0ea5e9] font-bold text-sm mb-1">Creative Media Staff (2024)</p>
-                <p class="font-sans text-slate-600 dark:text-slate-300 transition-colors text-base leading-relaxed">Collaborated with the creative team to design engaging marketing collateral using Adobe Photoshop and Illustrator. Assisted in the event guidebook layout and rapid design revisions.</p>
-              </div>
-
-              <!-- Experience 3 -->
-              <div class="relative pl-6 border-l-2 border-transparent mb-2">
-                <div class="absolute w-3 h-3 rounded-full bg-[#8b5cf6] -left-[7px] top-1"></div>
-                <h4 class="font-syne font-bold text-lg text-slate-800 dark:text-slate-100 transition-colors leading-tight">PT Farhan Surya Indah</h4>
-                <p class="font-sans text-[#8b5cf6] font-bold text-sm mb-1">Graphic & UI Designer (2021 &ndash; 2023)</p>
-                <p class="font-sans text-slate-600 dark:text-slate-300 transition-colors text-base leading-relaxed">Designed high-fidelity user interfaces (UI) for web and mobile booking platforms. Developed design systems that reduced developer hand-off friction by approximately 30%.</p>
-              </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="clay-card p-10 max-md:p-6 flex flex-col justify-center relative overflow-hidden group">
+            <div class="absolute -inset-2 bg-gradient-to-br from-fuchsia-500/10 to-cyan-500/10 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]"></div>
+            <div class="relative z-10">
+              <h3 class="font-syne font-bold text-2xl text-slate-800 dark:text-slate-100 mb-4 transition-colors">Who I Am</h3>
+              <p class="font-sans text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-6">
+                I am a UI/UX Designer and Front-End Engineer who specializes in translating complex user flows into seamless, intuitive interfaces. Currently studying Computer Science at Pertamina University, I bridge the gap between design fidelity and engineering precision.
+              </p>
+              <p class="font-sans text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
+                With experience spanning product design, event branding, and front-end architecture, I bring a holistic approach to building digital products that both users and developers love.
+              </p>
             </div>
           </div>
-
-          <!-- Right Column (Tech, Soft Skills, Design) -->
-          <div class="lg:col-span-5 h-full flex flex-col gap-6 overflow-y-auto hide-scrollbar py-1">
-            
-            <!-- Tech Stack -->
-            <div class="clay-inset p-8 max-md:p-6 flex flex-col justify-center gap-4 flex-shrink-0 min-h-[160px]">
-              <h4 class="font-syne font-bold text-slate-800 dark:text-slate-200 text-2xl flex items-center gap-3 transition-colors duration-300">
-                <span class="w-10 h-10 clay-circle bg-white text-lg flex items-center justify-center">💻</span> Tech Stack
-              </h4>
-              <div class="flex flex-wrap gap-4 mt-2">
-                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Laravel">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" class="w-8 h-8" alt="Laravel" />
+          <div class="clay-card p-10 max-md:p-6 flex flex-col justify-center relative overflow-hidden group">
+            <div class="absolute -inset-2 bg-gradient-to-br from-lime-500/10 to-cyan-500/10 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]"></div>
+            <div class="relative z-10">
+              <h3 class="font-syne font-bold text-2xl text-slate-800 dark:text-slate-100 mb-4 transition-colors">Design Philosophy</h3>
+            <div class="space-y-6">
+              <div class="flex gap-4 items-start">
+                <div class="w-12 h-12 clay-circle bg-white flex-shrink-0 text-xl flex items-center justify-center">🎯</div>
+                <div>
+                  <h4 class="font-syne font-bold text-lg text-slate-800 dark:text-slate-100">Purpose-Driven UX</h4>
+                  <p class="font-sans text-slate-600 dark:text-slate-300">Every pixel must serve a purpose. I focus on solving real user problems, not just making things look pretty.</p>
                 </div>
-                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="React.js">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" class="w-8 h-8" alt="React.js" />
+              </div>
+              <div class="flex gap-4 items-start">
+                <div class="w-12 h-12 clay-circle bg-white flex-shrink-0 text-xl flex items-center justify-center">🧩</div>
+                <div>
+                  <h4 class="font-syne font-bold text-lg text-slate-800 dark:text-slate-100">Systems Thinking</h4>
+                  <p class="font-sans text-slate-600 dark:text-slate-300">I build scalable design systems that maintain consistency and accelerate development cycles.</p>
                 </div>
-                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Vue.js">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" class="w-8 h-8" alt="Vue.js" />
-                </div>
-                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Tailwind CSS">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" class="w-8 h-8" alt="Tailwind CSS" />
+              </div>
+              <div class="flex gap-4 items-start">
+                <div class="w-12 h-12 clay-circle bg-white flex-shrink-0 text-xl flex items-center justify-center">✨</div>
+                <div>
+                  <h4 class="font-syne font-bold text-lg text-slate-800 dark:text-slate-100">Premium Aesthetics</h4>
+                  <p class="font-sans text-slate-600 dark:text-slate-300">A memorable first impression matters. I craft vibrant, dynamic, and polished visuals that elevate the brand.</p>
                 </div>
               </div>
             </div>
-
-            <!-- Design Tools -->
-            <div class="clay-inset p-8 max-md:p-6 flex flex-col justify-center gap-4 flex-shrink-0 min-h-[160px]">
-              <h4 class="font-syne font-bold text-slate-800 dark:text-slate-200 text-2xl flex items-center gap-3 transition-colors duration-300">
-                <span class="w-10 h-10 clay-circle bg-white text-lg flex items-center justify-center">🎨</span> Design Tools
-              </h4>
-              <div class="flex flex-wrap gap-4 mt-2">
-                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Figma">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="w-8 h-8" alt="Figma" />
-                </div>
-                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Adobe Photoshop">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" class="w-8 h-8" alt="Photoshop" />
-                </div>
-                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Adobe Illustrator">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg" class="w-8 h-8" alt="Illustrator" />
-                </div>
-                <div class="w-14 h-14 clay-circle bg-white flex items-center justify-center" title="Canva">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" class="w-8 h-8" alt="Canva" />
-                </div>
-              </div>
-            </div>
-
-            <!-- Soft Skills & Education Wrapper -->
-            <div class="flex flex-col xl:flex-row gap-6 flex-shrink-0">
-               <!-- Education -->
-               <div class="clay-inset p-8 flex flex-col justify-center gap-4 w-full xl:w-1/2">
-                 <h4 class="font-syne font-bold text-slate-800 dark:text-white transition-colors text-2xl mb-1 flex items-center gap-3">
-                   <span class="w-10 h-10 clay-circle bg-white text-lg flex items-center justify-center">🎓</span> Education
-                 </h4>
-                 <p class="font-sans text-slate-600 dark:text-slate-300 transition-colors text-lg font-medium">Pertamina University (2023-2027) <br/> Computer Science</p>
-               </div>
-
-               <!-- Soft Skills -->
-               <div class="clay-inset p-8 flex flex-col justify-center gap-4 w-full xl:w-1/2">
-                 <h4 class="font-syne font-bold text-slate-800 dark:text-white transition-colors text-2xl mb-1 flex items-center gap-3">
-                   <span class="w-10 h-10 clay-circle bg-white text-lg flex items-center justify-center">🤝</span> Soft Skills
-                 </h4>
-                 <div class="flex flex-wrap gap-2 mt-2">
-                   <span class="clay-btn px-4 py-2 text-xs font-bold text-slate-700">Leadership</span>
-                   <span class="clay-btn px-4 py-2 text-xs font-bold text-slate-700">Mentorship</span>
-                   <span class="clay-btn px-4 py-2 text-xs font-bold text-slate-700">Collaboration</span>
-                 </div>
-               </div>
-            </div>
-            
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- =======================================================================
-         SECTION 3: UI/UX ENGINEERING
+    </section>\n\n    <!-- =======================================================================
+         SECTION 3: SELECTED WORK
          ======================================================================= -->
-    <section id="uiux" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-[#F0F5F9] dark:bg-slate-900 transition-colors duration-300">
+    <section id="work" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-transparent transition-colors duration-300">
       <div class="w-full max-w-[1600px] mx-auto flex flex-col gap-16 max-md:gap-8">
         
         <!-- Intro -->
         <div class="text-center mb-4">
           <div class="inline-block clay-btn px-6 py-2 mb-4 text-sm font-bold tracking-widest text-[#0ea5e9]">
-            PART 1
+            HIGHLIGHTED PROJECTS
           </div>
           <h2 class="font-syne font-black text-4xl md:text-5xl text-slate-800 dark:text-slate-100 mb-4 transition-colors duration-300">
-            UI/UX Engineering
+            Selected Work
           </h2>
           <p class="font-sans text-slate-500 max-w-xl mx-auto font-medium text-lg">
-            Digital products molded with precision, empathy, and logic.
+            A curated selection of my most recent and impactful design case studies.
           </p>
         </div>
 
-        <!-- FSI Board -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4">
-            <img src="./assets/img/porto-fe_6.webp" class="w-full h-full object-contain rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="FSI Board" loading="lazy" decoding="async" />
+        <!-- Highlight 1: LuminaVisa -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center group">
+          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4 relative">
+             <div class="absolute inset-0 bg-gradient-to-tr from-fuchsia-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay"></div>
+            <img src="assets/img/porto-fe_4.webp" class="relative z-0 w-full h-full object-cover object-top rounded-2xl group-hover:scale-[1.03] transition-transform duration-700 ease-out" alt="Lumina Visa" loading="lazy" decoding="async" />
           </div>
-          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full">
-            <div>
-              <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 01</div>
-              <h3 class="font-syne font-black text-4xl text-slate-800 dark:text-white transition-colors mb-4 leading-none">FSI BOARD</h3>
-              <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">Umrah and Hajj Management System Dashboard for PT Farhan Surya Indah. Built to monitor pilgrim data and daily operations efficiently in real-time.</p>
-            </div>
-            <div class="mt-auto">
-               <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider mb-3">Tech Stack</h4>
-               <div class="flex gap-4">
-                 <div class="w-12 h-12 clay-circle bg-white" title="Laravel"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" class="w-6 h-6" alt="Laravel" /></div>
-                 <div class="w-12 h-12 clay-circle bg-white" title="Tailwind CSS"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" class="w-6 h-6" alt="Tailwind" /></div>
-               </div>
+          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full relative overflow-hidden">
+             <div class="absolute -right-10 -top-10 w-32 h-32 bg-fuchsia-400/10 rounded-full blur-2xl group-hover:bg-fuchsia-400/20 transition-colors duration-500"></div>
+            <div class="relative z-10">
+              <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#8b5cf6]">CASE STUDY 01</div>
+              <h3 class="font-syne font-black text-3xl text-slate-800 dark:text-white transition-colors mb-4 leading-none">LuminaVisa</h3>
+              <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">A Webisite concept simplifying opaque visa processes. Broken down into bite-sized steps with clear visual feedback to ease traveler anxiety.</p>
             </div>
             <div class="mt-4">
-               <a href="https://fsi-board.zeabur.app/login" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#0ea5e9]">VIEW DETAILS</a>
+               <a href="case-study-lumina.html" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#8b5cf6]">VIEW CASE STUDY</a>
             </div>
           </div>
         </div>
 
-        <!-- Pilgrim Tracker -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4">
-            <img src="./assets/img/porto-fe_5.webp" class="w-full h-full object-contain rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Pilgrim Tracker" loading="lazy" decoding="async" />
+        <!-- Highlight 2: Pilgrim's Tracker / FSI Board -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center group">
+          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4 md:order-2 relative">
+             <div class="absolute inset-0 bg-gradient-to-tr from-cyan-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay"></div>
+            <img src="./assets/img/porto-fe_6.webp" class="relative z-0 w-full h-full object-contain rounded-2xl group-hover:scale-[1.03] transition-transform duration-700 ease-out" alt="Pilgrim Tracker UI" loading="lazy" decoding="async" />
           </div>
-          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full">
-            <div>
-              <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 02</div>
-              <h3 class="font-syne font-black text-4xl text-slate-800 dark:text-white transition-colors mb-4 leading-none">Pilgrim Tracker</h3>
-              <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">Mobile app prototype specifically optimizing Tour & Travel services through real-time pilgrim tracking. Features live interactive maps and comprehensive travel itinerary discovery.</p>
-            </div>
-            <div class="mt-auto">
-               <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider mb-3">Tech Stack</h4>
-               <div class="flex gap-4">
-                 <div class="w-12 h-12 clay-circle bg-white" title="Figma"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" class="w-6 h-6" alt="Figma" /></div>
-               </div>
+          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full md:order-1 relative overflow-hidden">
+            <div class="absolute -left-10 -bottom-10 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl group-hover:bg-cyan-400/20 transition-colors duration-500"></div>
+            <div class="relative z-10">
+              <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">CASE STUDY 02</div>
+              <h3 class="font-syne font-black text-4xl text-slate-800 dark:text-white transition-colors mb-4 leading-none">Pilgrim's Tracker</h3>
+              <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">Umrah and Hajj Management System Dashboard built to monitor pilgrim data and daily operations efficiently in real-time.</p>
             </div>
             <div class="mt-4">
-               <a href="https://www.figma.com/proto/doR1e9PA9uMuuVXvmALa2v/FARHAN-SURYA-INDAH?node-id=65-384&starting-point-node-id=65%3A384&t=UL6F8ad4MTyowKQI-1" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#0ea5e9]">EXPLORE PROTOTYPE</a>
+               <a href="case-study-booking.html" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#0ea5e9]">VIEW CASE STUDY</a>
             </div>
           </div>
         </div>
 
-        <!-- Kalcer.ID -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4">
-            <img src="assets/img/porto-fe_2.webp" class="w-full h-full object-cover object-top rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Kalcer.ID" loading="lazy" decoding="async" />
+        <!-- Highlight 3: Kalcer.ID -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center group">
+          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4 relative">
+             <div class="absolute inset-0 bg-gradient-to-tr from-orange-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay"></div>
+            <img src="assets/img/porto-fe_2.webp" class="relative z-0 w-full h-full object-cover object-top rounded-2xl group-hover:scale-[1.03] transition-transform duration-700 ease-out" alt="Kalcer.ID" loading="lazy" decoding="async" />
           </div>
-          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full">
-            <div>
-              <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 03</div>
+          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full relative overflow-hidden">
+             <div class="absolute -right-10 -top-10 w-32 h-32 bg-orange-400/10 rounded-full blur-2xl group-hover:bg-orange-400/20 transition-colors duration-500"></div>
+            <div class="relative z-10">
+              <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#f97316]">CASE STUDY 03</div>
               <h3 class="font-syne font-black text-4xl text-slate-800 dark:text-white transition-colors mb-4 leading-none">Kalcer.ID</h3>
-              <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">A comprehensive cultural hub bridging fragmented heritage sites into one unified platform. Features dynamic event discovery wrapped in a smooth, responsive UI.</p>
-            </div>
-            <div class="mt-auto">
-               <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider mb-3">Tech Stack</h4>
-               <div class="flex gap-4 items-center flex-wrap">
-                 <div class="w-12 h-12 clay-circle bg-white" title="Laravel"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" class="w-6 h-6" alt="Laravel" /></div>
-                 <span class="px-3 py-2 rounded-full text-xs font-bold clay-card text-slate-700">Livewire</span>
-                 <span class="px-3 py-2 rounded-full text-xs font-bold clay-card text-slate-700">Breeze</span>
-                 <div class="w-12 h-12 clay-circle bg-white" title="Tailwind CSS"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" class="w-6 h-6" alt="Tailwind" /></div>
-               </div>
+              <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">A comprehensive cultural hub bridging fragmented heritage sites into one unified platform with dynamic event discovery.</p>
             </div>
             <div class="mt-4">
-               <a href="https://kalcer-id.zeabur.app/" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#0ea5e9]">VIEW LIVE PROJECT</a>
+               <a href="case-study-kalcer.html" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#f97316]">VIEW CASE STUDY</a>
             </div>
           </div>
         </div>
 
-        <!-- LuminaVisa -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4">
-            <img src="assets/img/porto-fe_4.webp" class="w-full h-full object-cover object-top rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Lumina Visa" loading="lazy" decoding="async" />
-          </div>
-          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full">
-            <div>
-              <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 04</div>
-              <h3 class="font-syne font-black text-4xl text-slate-800 dark:text-white transition-colors mb-4 leading-none">LuminaVisa</h3>
-              <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">A mobile app aimed at simplifying opaque visa processes. Broken down into bite-sized steps with clear visual feedback to ease traveler anxiety.</p>
-            </div>
-            <div class="mt-auto">
-               <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider mb-3">Tech Stack</h4>
-               <div class="flex gap-4 items-center flex-wrap">
-                 <div class="w-12 h-12 clay-circle bg-white" title="Laravel"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" class="w-6 h-6" alt="Laravel" /></div>
-                 <span class="px-3 py-2 rounded-full text-xs font-bold clay-card text-slate-700">Livewire</span>
-               </div>
-            </div>
-            <div class="mt-4">
-               <a href="https://github.com/farhankholid/LuminaVisa" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#0ea5e9]">EXPLORE CASE STUDY</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Mono Stock -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4">
-            <img src="assets/img/porto-fe_1.webp" class="w-full h-full object-cover object-top rounded-2xl hover:scale-[1.02] transition-transform duration-500" alt="Mono Stock Dashboard" loading="lazy" decoding="async" />
-          </div>
-          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full">
-            <div>
-              <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#0ea5e9]">PROJECT 05</div>
-              <h3 class="font-syne font-black text-4xl text-slate-800 dark:text-white transition-colors mb-4 leading-none">Mono Stock</h3>
-              <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">Designed a monochromatic, high-contrast dashboard to reduce decision fatigue for traders. The clean layout prioritizes rapid market scanning without cognitive overload.</p>
-            </div>
-            <div class="mt-auto">
-               <h4 class="font-syne font-bold text-slate-700 text-sm uppercase tracking-wider mb-3">Tech Stack</h4>
-               <div class="flex gap-4">
-                 <div class="w-12 h-12 clay-circle bg-white" title="HTML5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="w-6 h-6" alt="HTML5" /></div>
-                 <div class="w-12 h-12 clay-circle bg-white" title="CSS3"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="w-6 h-6" alt="CSS3" /></div>
-                 <div class="w-12 h-12 clay-circle bg-white" title="JavaScript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="w-6 h-6" alt="JavaScript" /></div>
-               </div>
-            </div>
-            <div class="mt-4">
-               <a href="https://frhnkhld.github.io/Mono-Inventory-Dashboard/" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#0ea5e9]">VIEW LIVE DEMO</a>
-            </div>
-          </div>
-        </div>
-        
       </div>
     </section>
 
     <!-- =======================================================================
-         SECTION 9: GRAPHIC DESIGN INTRO
+         SECTION 4: OTHER WORKS & EVIDENCES
          ======================================================================= -->
-    <section id="graphic-intro" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-[#F0F5F9] dark:bg-slate-900 transition-colors duration-300">
-      <div class="w-full flex flex-col items-center justify-center pt-8 md:pt-16">
-        <div class="container mx-auto px-6 max-w-7xl max-md:px-0">
-          <div class="text-center clay-card p-12 max-md:p-8 relative z-10 w-[80vw] max-md:w-full max-w-3xl">
-            <div class="inline-block clay-btn px-6 py-2 mb-4 text-sm font-bold tracking-widest text-[#f59e0b]">
-              PART 2
+    <section id="other-works" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-transparent transition-colors duration-300">
+      <div class="w-full max-w-[1600px] mx-auto flex flex-col gap-12 max-md:gap-8">
+        <div class="text-center mb-8">
+          <div class="inline-block clay-btn px-6 py-2 mb-4 text-sm font-bold tracking-widest text-slate-500">EVIDENCES</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl text-slate-800 dark:text-slate-100 mb-4 transition-colors duration-300">Other Works & Archives</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Mono Stock -->
+          <div class="clay-card p-6 flex flex-col gap-4 relative group overflow-hidden">
+            <div class="absolute inset-0 bg-emerald-400/5 opacity-0 group-hover:opacity-100 transition-opacity z-0 pointer-events-none mix-blend-overlay"></div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-4 bg-white/50 backdrop-blur-sm relative z-10">
+              <img src="assets/img/porto-fe_1.webp" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" alt="Mono Stock" loading="lazy" />
             </div>
-            <h2 class="font-syne font-black text-4xl md:text-5xl text-slate-800 dark:text-slate-100 mb-6 transition-colors duration-300">
-              Graphic Design Archives
-            </h2>
-            <p class="font-sans text-slate-500 font-medium text-lg">
-              Branding, typography, and visual identities crafted with care.
-            </p>
+            <h3 class="font-syne font-bold text-xl text-slate-800 dark:text-white relative z-10">Mono Stock Dashboard</h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm flex-grow relative z-10">Monochromatic, high-contrast dashboard to reduce decision fatigue for traders.</p>
+            <a href="case-study-dashboard.html" class="clay-btn w-full py-3 text-center text-sm font-bold text-[#10b981] relative z-10">VIEW WORK</a>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- =======================================================================
-         SECTION 10: GRAPHIC DESIGN - CITEUP 2025
-         ======================================================================= -->
-    <section id="citeup-2025" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-[#F0F5F9] dark:bg-slate-900 transition-colors duration-300">
-      <div class="w-full max-w-[1600px] h-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center p-8 max-md:p-0">
-        <!-- Project 1: Image LEFT -->
-        <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[3rem] p-4 flex items-center justify-center bg-white/50 backdrop-blur-sm order-1 md:order-1">
-          <img src="./assets/img/cu25/cu25.webp" class="w-full h-full object-cover rounded-3xl" alt="CITEUP 2025" loading="lazy" decoding="async" />
-        </div>
-        <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center order-2 md:order-2">
-           <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#f59e0b] w-max">ARCHIVE 01</div>
-           <h3 class="font-syne font-black text-4xl text-slate-800 dark:text-white transition-colors mb-4 leading-none">CITEUP 2025</h3>
-           <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">Spearheaded the visual identity for the "Node of Connection" concept, creating a unified brand applied seamlessly across all digital and print assets.</p>
-           <div>
-             <a href="https://www.instagram.com/CITEUP2025/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 mt-4 rounded-full clay-card font-bold text-slate-800 dark:text-slate-100 hover:scale-105 transition-transform"><img src="https://cdn.simpleicons.org/instagram/E4405F" class="w-5 h-5" alt="Instagram"> View on Instagram</a>
-           </div>
-        </div>
-      </div>
-    </section>
+          <!-- CITEUP 2025 -->
+          <div class="clay-card p-6 flex flex-col gap-4 relative group overflow-hidden">
+            <div class="absolute inset-0 bg-amber-400/5 opacity-0 group-hover:opacity-100 transition-opacity z-0 pointer-events-none mix-blend-overlay"></div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-4 bg-white/50 backdrop-blur-sm relative z-10">
+              <img src="./assets/img/cu25/cu25.webp" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="CITEUP 2025" loading="lazy" />
+            </div>
+            <h3 class="font-syne font-bold text-xl text-slate-800 dark:text-white relative z-10">CITEUP Event Branding</h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm flex-grow relative z-10">Visual identity for "Node of Connection". Applied across digital and print assets.</p>
+            <a href="https://www.instagram.com/citeup2025/" target="_blank" class="clay-btn w-full py-3 text-center text-sm font-bold text-[#f59e0b] relative z-10">VIEW INSTAGRAM</a>
+          </div>
 
-    <!-- =======================================================================
-         SECTION 11: GRAPHIC DESIGN - CITEUP 2024
-         ======================================================================= -->
-    <section id="citeup-2024" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-[#F0F5F9] dark:bg-slate-900 transition-colors duration-300">
-      <div class="w-full max-w-[1600px] h-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center p-8 max-md:p-0">
-        <!-- Project 2: Image RIGHT -->
-        <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center order-2 md:order-1">
-           <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#f59e0b] w-max">ARCHIVE 02</div>
-           <h3 class="font-syne font-black text-4xl text-slate-800 dark:text-white transition-colors mb-4 leading-none">CITEUP 2024</h3>
-           <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">Developed engaging marketing collateral and event guidebook layouts using rapid design iterations, ensuring a modern and immersive visual experience.</p>
-           <div>
-             <a href="https://www.instagram.com/citeup2025/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 mt-4 rounded-full clay-card font-bold text-slate-800 dark:text-slate-100 hover:scale-105 transition-transform"><img src="https://cdn.simpleicons.org/instagram/E4405F" class="w-5 h-5" alt="Instagram"> View on Instagram</a>
-           </div>
-        </div>
-        <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[3rem] p-4 flex items-center justify-center bg-white/50 backdrop-blur-sm order-1 md:order-2">
-          <img src="./assets/img/cu24/cu24.webp" class="w-full h-full object-cover object-top rounded-3xl" alt="CITEUP 2024" loading="lazy" decoding="async" />
-        </div>
-      </div>
-    </section>
+          <!-- FSI Graphic Archives -->
+          <div class="clay-card p-6 flex flex-col gap-4 relative group overflow-hidden">
+            <div class="absolute inset-0 bg-cyan-400/5 opacity-0 group-hover:opacity-100 transition-opacity z-0 pointer-events-none mix-blend-overlay"></div>
+            <div class="aspect-video rounded-xl overflow-hidden mb-4 bg-white/50 backdrop-blur-sm relative z-10">
+              <img src="./assets/img/fsi/fsi.webp" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" alt="PT Farhan Surya Indah" loading="lazy" />
+            </div>
+            <h3 class="font-syne font-bold text-xl text-slate-800 dark:text-white relative z-10">PT Farhan Surya Indah</h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm flex-grow relative z-10">Full-scale visual identities and promotional materials for umrah programs.</p>
+            <a href="https://www.instagram.com/farhansuryaindah/" target="_blank" class="clay-btn w-full py-3 text-center text-sm font-bold text-[#0ea5e9] relative z-10">VIEW INSTAGRAM</a>
+          </div>
 
-    <!-- =======================================================================
-         SECTION 12: GRAPHIC DESIGN - FSI
-         ======================================================================= -->
-    <section id="graphic-fsi" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-[#F0F5F9] dark:bg-slate-900 transition-colors duration-300">
-      <div class="w-full max-w-[1600px] h-full grid grid-cols-1 md:grid-cols-12 gap-8 items-center p-8 max-md:p-0">
-        <!-- Project 3: Image LEFT -->
-        <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[3rem] p-4 flex items-center justify-center bg-white/50 backdrop-blur-sm order-1 md:order-1">
-          <img src="./assets/img/fsi/fsi.webp" class="w-full h-full object-cover object-top rounded-3xl" alt="PT Farhan Surya Indah" loading="lazy" decoding="async" />
-        </div>
-        <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center order-2 md:order-2">
-           <div class="inline-block clay-btn px-4 py-1 mb-4 text-xs font-bold tracking-widest text-[#f59e0b] w-max">ARCHIVE 03</div>
-           <h3 class="font-syne font-black text-4xl text-slate-800 dark:text-white transition-colors mb-4 leading-none">PT FARHAN SURYA INDAH</h3>
-           <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">Designed full-scale visual identities and promotional materials for various programs, enhancing brand recognition across all platforms.</p>
-           <div>
-             <a href="https://www.instagram.com/farhansuryaindah/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 mt-4 rounded-full clay-card font-bold text-slate-800 dark:text-slate-100 hover:scale-105 transition-transform"><img src="https://cdn.simpleicons.org/instagram/E4405F" class="w-5 h-5" alt="Instagram"> View on Instagram</a>
-           </div>
         </div>
       </div>
     </section>
@@ -843,7 +715,6 @@
         </div>
       </div>
     </section>
-
     <!-- Footer -->
     <footer class="w-full py-8 text-center relative z-10 bg-[#F0F5F9] dark:bg-slate-900 pb-12 transition-colors duration-300">
       <p class="font-sans text-sm text-slate-500 dark:text-slate-400 tracking-wider font-semibold transition-colors duration-300">

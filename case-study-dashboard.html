@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mono Stock Dashboard - Farhan Kholid - Case Study" />
+    <title>Mono Stock Dashboard - UI/UX Case Study</title>
+    <link rel="icon" type="image/webp" href="./assets/img/logo.webp">
+
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Outfit", "sans-serif"],
+              syne: ["Syne", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .clay-card {
+        background-color: #ffffff;
+        border-radius: 2rem;
+        box-shadow: 15px 15px 30px #d1d9e6, -15px -15px 30px #ffffff, inset -5px -5px 10px rgba(0, 0, 0, 0.03), inset 5px 5px 10px rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+      }
+      .clay-btn {
+        background-color: #f0f5f9;
+        border-radius: 9999px;
+        box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff, inset -3px -3px 6px rgba(0, 0, 0, 0.02), inset 3px 3px 6px rgba(255, 255, 255, 0.8);
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border: none;
+        color: #1e293b;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .clay-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 10px 10px 20px #ccdbed, -10px -10px 20px #ffffff, inset -5px -5px 10px rgba(0, 0, 0, 0.05), inset 5px 5px 10px rgba(255, 255, 255, 0.9);
+      }
+      .dark .clay-card {
+        background-color: #1e293b;
+        box-shadow: 15px 15px 30px #0f172a, -15px -15px 30px #24354a, inset -5px -5px 10px rgba(0, 0, 0, 0.4), inset 5px 5px 10px rgba(255, 255, 255, 0.05);
+      }
+      .dark .clay-btn {
+        background-color: #1e293b;
+        color: #f1f5f9;
+        box-shadow: 8px 8px 16px #0f172a, -8px -8px 16px #24354a, inset -3px -3px 6px rgba(0, 0, 0, 0.3), inset 3px 3px 6px rgba(255, 255, 255, 0.05);
+      }
+      .dark .clay-btn:hover {
+        box-shadow: 10px 10px 20px #0a0f1c, -10px -10px 20px #2a3d57, inset -5px -5px 10px rgba(0, 0, 0, 0.5), inset 5px 5px 10px rgba(255, 255, 255, 0.1);
+      }
+      img.placeholder-img {
+        background-color: #e2e8f0;
+        width: 100%;
+        min-height: 300px;
+        object-fit: cover;
+      }
+      .dark img.placeholder-img { background-color: #334155; }
+    </style>
+  </head>
+  <body class="antialiased font-sans bg-[#F0F5F9] dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300">
+    
+    <!-- Navbar -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 clay-card px-6 py-3 flex items-center gap-6">
+      <a href="index.html" class="font-bold text-slate-600 dark:text-slate-300 hover:text-[#10b981] transition-colors flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> Back to Home
+      </a>
+      <div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
+      <span class="font-syne font-bold truncate max-w-[200px]">Mono Stock Dashboard</span>
+    </nav>
+
+    <main class="w-full max-w-5xl mx-auto px-6 py-32 flex flex-col gap-16">
+      
+      <!-- Hero -->
+      <section class="text-center pt-8">
+        <div class="inline-block clay-btn px-6 py-2 mb-6 text-sm font-bold tracking-widest text-[#10b981]">
+          CASE STUDY
+        </div>
+        <h1 class="font-syne font-black text-5xl md:text-7xl mb-6 leading-tight">Mono Stock Dashboard</h1>
+        <p class="text-xl text-slate-500 max-w-3xl mx-auto mb-12">Monochromatic, high-contrast dashboard to reduce decision fatigue for traders.</p>
+        
+        <div class="clay-card rounded-[2rem] overflow-hidden aspect-video relative">
+          <img src="assets/img/porto-fe_1.webp" class="w-full h-full object-cover placeholder-img" alt="Mono Stock Dashboard Hero Image">
+        </div>
+      </section>
+
+      <!-- Section: Problem -->
+      <section class="clay-card p-10 md:p-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">01</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">The Problem</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          Financial traders and inventory managers constantly face "decision fatigue" when monitoring dashboards laden with hyper-colorful, cluttered charts. The excessive use of competing accent colors (reds, greens, blues) for non-critical information created visual noise, making it difficult to spot actual anomalies in stock movements. The goal was to build a UI that prioritized rapid scanning and reduced eye strain during long trading hours.
+        </p>
+      </section>
+
+      <!-- Section: Research -->
+      <section class="clay-card p-10 md:p-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">02</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">Research & Insights</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
+          By shadowing day traders and utilizing eye-tracking software on existing platforms, we learned that a monochromatic baseline actually improves cognitive load management.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-2 text-[#10b981]">Insight 1: Color Overload</h4>
+            <p class="text-slate-600 dark:text-slate-400">When everything is highlighted, nothing is. Interfaces using 5+ distinct accent colors doubled the time it took users to find specific ticker data.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-2 text-[#10b981]">Insight 2: Spatial Memory</h4>
+            <p class="text-slate-600 dark:text-slate-400">Users relied heavily on spatial memory. Modular, customizable widget grids allowed users to place critical data exactly where they intuitively look for it.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: User Flow -->
+      <section class="clay-card p-10 md:p-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">03</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">User Flow</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
+          The flow minimizes deep navigation. Most interactions happen on the main surface through modular expansions rather than entirely new pages.
+        </p>
+        <div class="w-full bg-[#10b981]/5 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-center gap-4 border border-[#10b981]/20">
+          <div class="bg-white dark:bg-slate-800 py-3 px-6 rounded-xl shadow-sm text-sm font-bold">Global Overview</div>
+          <span class="text-[#10b981]">→</span>
+          <div class="bg-white dark:bg-slate-800 py-3 px-6 rounded-xl shadow-sm text-sm font-bold">Widget Focus (Hover)</div>
+          <span class="text-[#10b981]">→</span>
+          <div class="bg-white dark:bg-slate-800 py-3 px-6 rounded-xl shadow-sm text-sm font-bold">Quick Execution Panel</div>
+        </div>
+      </section>
+
+      <!-- Section: Wireframes -->
+      <section class="clay-card p-10 md:p-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">04</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">Wireframes</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
+          Wireframing focused strictly on alignment and grid structures (Bento Box style) to ensure data density didn't compromise readability.
+        </p>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-[#F0F5F9] dark:bg-slate-800 rounded-2xl aspect-video flex flex-col items-center justify-center border border-slate-200 dark:border-slate-700 p-4 opacity-70 gap-2">
+             <div class="flex gap-2 w-full h-1/3">
+               <div class="w-2/3 h-full bg-slate-200 dark:bg-slate-700 rounded-lg"></div>
+               <div class="w-1/3 h-full bg-slate-300 dark:bg-slate-600 rounded-lg"></div>
+             </div>
+             <div class="flex gap-2 w-full h-2/3">
+               <div class="w-1/3 h-full bg-slate-300 dark:bg-slate-600 rounded-lg"></div>
+               <div class="w-2/3 h-full bg-slate-200 dark:bg-slate-700 rounded-lg"></div>
+             </div>
+             <span class="text-slate-500 text-xs font-bold mt-2 uppercase tracking-widest">Bento Grid Layout</span>
+          </div>
+          <div class="bg-[#F0F5F9] dark:bg-slate-800 rounded-2xl aspect-video flex flex-col items-center justify-center border border-slate-200 dark:border-slate-700 p-4 opacity-70 gap-2">
+             <div class="w-full h-1/4 bg-slate-200 dark:bg-slate-700 rounded-lg"></div>
+             <div class="w-full h-3/4 bg-slate-300 dark:bg-slate-600 rounded-lg flex items-end p-2 gap-1">
+               <div class="w-1/4 h-1/2 bg-slate-400 rounded-t-sm"></div>
+               <div class="w-1/4 h-3/4 bg-slate-400 rounded-t-sm"></div>
+               <div class="w-1/4 h-full bg-slate-400 rounded-t-sm"></div>
+               <div class="w-1/4 h-2/3 bg-slate-400 rounded-t-sm"></div>
+             </div>
+             <span class="text-slate-500 text-xs font-bold mt-2 uppercase tracking-widest">Chart Proportions</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: UI Design & Design System -->
+      <section class="clay-card p-10 md:p-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">05</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">UI Design & Elements</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-10">
+          The final interface uses a strict grayscale foundation. Only critical shifts (like a sudden drop in inventory or a stock market spike) use the primary emerald accent color, ensuring that when the UI speaks, the user immediately pays attention.
+        </p>
+        <div class="w-full clay-card rounded-2xl aspect-video mb-8 overflow-hidden relative">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#10b981]/20 to-transparent z-10 mix-blend-overlay"></div>
+          <img src="assets/img/porto-fe_1.webp" class="relative z-0 w-full h-full object-cover object-top bg-[#f8fafc] dark:bg-slate-900" alt="Mono Stock UI Design" loading="lazy" />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-4 font-syne">Colors</h4>
+            <div class="flex gap-2">
+              <div class="w-8 h-8 rounded-full bg-${accentColor} shadow-sm"></div>
+              <div class="w-8 h-8 rounded-full bg-slate-800 shadow-sm"></div>
+              <div class="w-8 h-8 rounded-full bg-slate-100 shadow-sm"></div>
+            </div>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-4 font-syne">Typography</h4>
+            <p class="font-syne font-bold text-xl">Syne (Display)</p>
+            <p class="font-sans text-lg">Outfit (Body)</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-4 font-syne">Components</h4>
+            <div class="h-8 rounded-full bg-${accentColor}/20 w-3/4 mb-2"></div>
+            <div class="h-8 rounded-full bg-slate-200 w-1/2"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Prototype & Outcome -->
+      <section class="clay-card p-10 md:p-16 mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">06</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">Prototype & Outcome</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
+          The Mono Stock dashboard was praised for its minimalist approach. By stripping away extraneous UI decorations, end-users reported a 40% reduction in time-to-action for critical alerts. The dark mode variation became the default choice for 90% of the user base.
+        </p>
+        
+        <div class="p-8 rounded-3xl bg-[#10b981]/5 border border-[#10b981]/20 flex flex-col items-center justify-center gap-6 text-center">
+          <h3 class="font-syne font-bold text-2xl">Want to see it in action?</h3>
+          <a href="https://frhnkhld.github.io/Mono-Inventory-Dashboard/" target="_blank" class="clay-btn px-8 py-4 text-[#10b981]">
+            Live Dashboard (Mono Stock)
+          </a>
+        </div>
+      </section>
+      
+    </main>
+    
+    <script>
+      // Match system theme preference
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LuminaVisa - Farhan Kholid - Case Study" />
+    <title>LuminaVisa - UI/UX Case Study</title>
+    <link rel="icon" type="image/webp" href="./assets/img/logo.webp">
+
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Outfit", "sans-serif"],
+              syne: ["Syne", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .clay-card {
+        background-color: #ffffff;
+        border-radius: 2rem;
+        box-shadow: 15px 15px 30px #d1d9e6, -15px -15px 30px #ffffff, inset -5px -5px 10px rgba(0, 0, 0, 0.03), inset 5px 5px 10px rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+      }
+      .clay-btn {
+        background-color: #f0f5f9;
+        border-radius: 9999px;
+        box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff, inset -3px -3px 6px rgba(0, 0, 0, 0.02), inset 3px 3px 6px rgba(255, 255, 255, 0.8);
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border: none;
+        color: #1e293b;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .clay-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 10px 10px 20px #ccdbed, -10px -10px 20px #ffffff, inset -5px -5px 10px rgba(0, 0, 0, 0.05), inset 5px 5px 10px rgba(255, 255, 255, 0.9);
+      }
+      .dark .clay-card {
+        background-color: #1e293b;
+        box-shadow: 15px 15px 30px #0f172a, -15px -15px 30px #24354a, inset -5px -5px 10px rgba(0, 0, 0, 0.4), inset 5px 5px 10px rgba(255, 255, 255, 0.05);
+      }
+      .dark .clay-btn {
+        background-color: #1e293b;
+        color: #f1f5f9;
+        box-shadow: 8px 8px 16px #0f172a, -8px -8px 16px #24354a, inset -3px -3px 6px rgba(0, 0, 0, 0.3), inset 3px 3px 6px rgba(255, 255, 255, 0.05);
+      }
+      .dark .clay-btn:hover {
+        box-shadow: 10px 10px 20px #0a0f1c, -10px -10px 20px #2a3d57, inset -5px -5px 10px rgba(0, 0, 0, 0.5), inset 5px 5px 10px rgba(255, 255, 255, 0.1);
+      }
+      img.placeholder-img {
+        background-color: #e2e8f0;
+        width: 100%;
+        min-height: 300px;
+        object-fit: cover;
+      }
+      .dark img.placeholder-img { background-color: #334155; }
+
+      /* Wireframe & Mermaid */
+      .mermaid-wrap {
+        border-radius: 2rem;
+        padding: 40px 32px;
+        overflow-x: auto;
+      }
+      .mermaid-wrap .mermaid {
+        min-width: 600px;
+      }
+      .legend { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; padding: 16px 24px; border-radius: 12px; }
+      .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; }
+      .legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+      
+      .wf-grid { display: flex; flex-direction: column; gap: 48px; }
+      .wf-card-header {
+        background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 60%, #38BDF8 100%);
+        padding: 24px 32px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        border-radius: 2rem 2rem 0 0;
+      }
+      .dark .wf-card-header {
+        background: linear-gradient(135deg, #5b21b6 0%, #3730a3 60%, #0369a1 100%);
+      }
+      .wf-screen-num {
+        width: 44px; height: 44px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 12px;
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'Syne', sans-serif;
+        font-size: 18px; font-weight: 800; color: #fff;
+        flex-shrink: 0;
+      }
+      .wf-card-header-text h3 {
+        font-family: 'Syne', sans-serif;
+        font-size: 20px; font-weight: 700; color: #fff;
+        letter-spacing: -0.01em;
+      }
+      .wf-card-header-text p {
+        color: rgba(255,255,255,0.75);
+        font-size: 13px;
+        font-weight: 400;
+      }
+      .wf-body { padding: 32px; }
+      .wf-layout {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 32px;
+        align-items: start;
+      }
+      @media (max-width: 680px) {
+        .wf-layout { grid-template-columns: 1fr; }
+      }
+      .phone-mock {
+        width: 220px;
+        border: 3px solid #1e293b;
+        border-radius: 32px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(30,27,75,0.18);
+        flex-shrink: 0;
+        position: relative;
+        background: #ffffff;
+      }
+      .dark .phone-mock {
+        border-color: #0f172a;
+        background: #1e293b;
+      }
+      .phone-notch {
+        background: #1e293b;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .dark .phone-notch { background: #0f172a; }
+      .phone-notch::after {
+        content: '';
+        width: 60px; height: 8px;
+        background: #334155;
+        border-radius: 4px;
+      }
+      .phone-screen {
+        min-height: 380px;
+        padding: 16px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background: #f8fafc;
+      }
+      .dark .phone-screen { background: #0f172a; }
+      .mock-bar { height: 4px; border-radius: 2px; background: #e2e8f0; }
+      .dark .mock-bar { background: #334155; }
+      .mock-bar.progress { background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 60%, #38BDF8 100%); }
+      .mock-title { height: 14px; border-radius: 4px; background: #1e293b; width: 70%; }
+      .dark .mock-title { background: #f1f5f9; }
+      .mock-sub { height: 8px; border-radius: 4px; background: #cbd5e1; width: 90%; }
+      .dark .mock-sub { background: #475569; }
+      .mock-sub.short { width: 55%; }
+      .mock-logo {
+        display: flex; align-items: center; gap: 6px;
+        margin-bottom: 4px;
+      }
+      .mock-logo-mark {
+        width: 22px; height: 22px;
+        background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 60%, #38BDF8 100%);
+        border-radius: 6px;
+      }
+      .mock-logo-text {
+        height: 10px; width: 70px;
+        background: #1e293b;
+        border-radius: 3px;
+      }
+      .dark .mock-logo-text { background: #f1f5f9; }
+      .mock-hero-block {
+        background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 60%, #38BDF8 100%);
+        border-radius: 14px;
+        height: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 12px;
+        gap: 6px;
+      }
+      .mock-hero-line1 { height: 10px; width: 75%; background: rgba(255,255,255,0.9); border-radius: 3px; }
+      .mock-hero-line2 { height: 8px; width: 55%; background: rgba(255,255,255,0.5); border-radius: 3px; }
+      .mock-btn {
+        height: 32px;
+        background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 60%, #38BDF8 100%);
+        border-radius: 100px;
+        width: 100%;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .mock-btn-text { height: 8px; width: 50%; background: rgba(255,255,255,0.85); border-radius: 3px; }
+      .mock-btn.ghost {
+        background: transparent;
+        border: 1.5px solid #8b5cf6;
+      }
+      .mock-btn.ghost .mock-btn-text { background: #8b5cf6; }
+      .mock-input {
+        height: 34px;
+        background: #ffffff;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 0 10px;
+        display: flex; align-items: center;
+      }
+      .dark .mock-input { background: #1e293b; border-color: #334155; }
+      .mock-input-placeholder { height: 7px; width: 60%; background: #e2e8f0; border-radius: 3px; }
+      .dark .mock-input-placeholder { background: #334155; }
+      .mock-chip-row { display: flex; gap: 5px; flex-wrap: wrap; }
+      .mock-chip {
+        height: 22px; padding: 0 8px;
+        background: #f1f5f9;
+        border-radius: 100px;
+        display: flex; align-items: center;
+      }
+      .dark .mock-chip { background: #334155; }
+      .mock-chip-text { height: 6px; width: 28px; background: #8b5cf6; border-radius: 2px; }
+      .mock-chip.active { background: #8b5cf6; }
+      .mock-chip.active .mock-chip-text { background: rgba(255,255,255,0.85); }
+      .mock-q-block {
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 12px;
+        display: flex; flex-direction: column; gap: 6px;
+        box-shadow: 0 2px 8px rgba(124,58,237,0.08);
+      }
+      .dark .mock-q-block { background: #1e293b; }
+      .mock-q-tag { height: 6px; width: 40%; background: #0ea5e9; border-radius: 2px; }
+      .mock-progress-track {
+        height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden;
+      }
+      .dark .mock-progress-track { background: #334155; }
+      .mock-progress-fill {
+        height: 100%; width: 45%; background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 60%, #38BDF8 100%); border-radius: 3px;
+      }
+      .mock-option {
+        background: #ffffff;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 10px;
+        height: 28px;
+        display: flex; align-items: center;
+        padding: 0 8px; gap: 6px;
+      }
+      .dark .mock-option { background: #1e293b; border-color: #334155; }
+      .mock-option.selected { border-color: #8b5cf6; background: #f8fafc; }
+      .dark .mock-option.selected { background: #0f172a; }
+      .mock-option-dot { width: 8px; height: 8px; border-radius: 50%; background: #cbd5e1; flex-shrink: 0; }
+      .dark .mock-option-dot { background: #475569; }
+      .mock-option.selected .mock-option-dot { background: #8b5cf6; }
+      .mock-option-line { height: 6px; width: 70%; background: #e2e8f0; border-radius: 2px; }
+      .dark .mock-option-line { background: #334155; }
+      .mock-upload-zone {
+        border: 2px dashed #8b5cf6;
+        border-radius: 14px;
+        height: 70px;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+        background: #f8fafc;
+      }
+      .dark .mock-upload-zone { background: #0f172a; }
+      .mock-upload-icon { width: 20px; height: 20px; background: #8b5cf6; border-radius: 50%; }
+      .mock-upload-line { height: 6px; width: 55%; background: #8b5cf6; border-radius: 2px; opacity: 0.5; }
+      .mock-success-ring {
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #10b981, #34d399);
+        margin: 0 auto;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .mock-check { width: 22px; height: 22px; background: rgba(255,255,255,0.9); border-radius: 50%; }
+      .mock-review-row {
+        background: #ffffff;
+        border-radius: 8px;
+        height: 20px;
+        display: flex; align-items: center;
+        padding: 0 8px;
+        justify-content: space-between;
+      }
+      .dark .mock-review-row { background: #1e293b; }
+      .mock-review-label { height: 5px; width: 35%; background: #e2e8f0; border-radius: 2px; }
+      .dark .mock-review-label { background: #334155; }
+      .mock-review-val { height: 5px; width: 25%; background: #1e293b; border-radius: 2px; opacity: 0.6; }
+      .dark .mock-review-val { background: #f1f5f9; }
+      .mock-scan-box {
+        border: 2px solid #0ea5e9;
+        border-radius: 10px;
+        height: 60px;
+        background: linear-gradient(135deg, rgba(14,165,233,0.08), rgba(139,92,246,0.08));
+        display: flex; align-items: center; justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .mock-scan-line {
+        position: absolute;
+        top: 30%;
+        left: 0; right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #0ea5e9, transparent);
+        animation: scan 2s ease-in-out infinite;
+      }
+      @keyframes scan { 0%,100% { top: 20%; } 50% { top: 70%; } }
+      .mock-badge {
+        background: #10b981;
+        border-radius: 100px;
+        height: 18px; padding: 0 8px;
+        display: flex; align-items: center;
+      }
+      .mock-badge-text { height: 5px; width: 40px; background: rgba(255,255,255,0.9); border-radius: 2px; }
+      .mock-badge.warn { background: #f59e0b; }
+      .mock-badge.error { background: #ef4444; }
+      .mock-step-dots { display: flex; gap: 4px; justify-content: center; margin-top: 4px; }
+      .mock-dot { width: 6px; height: 6px; border-radius: 50%; background: #e2e8f0; }
+      .dark .mock-dot { background: #334155; }
+      .mock-dot.active { background: #8b5cf6; width: 18px; border-radius: 3px; }
+      .mock-trust-row { display: flex; gap: 6px; }
+      .mock-trust-chip {
+        flex: 1; height: 26px; background: #ffffff;
+        border-radius: 8px; border: 1px solid #e2e8f0;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .dark .mock-trust-chip { background: #1e293b; border-color: #334155; }
+      .mock-trust-line { height: 5px; width: 65%; background: #e2e8f0; border-radius: 2px; }
+      .dark .mock-trust-line { background: #334155; }
+
+      .spec-panels { display: flex; flex-direction: column; gap: 20px; }
+      .spec-panel {
+        border-left: 3px solid #8b5cf6;
+        padding: 16px 20px;
+        background: #f8fafc;
+        border-radius: 0 12px 12px 0;
+      }
+      .dark .spec-panel { background: #1e293b; }
+      .spec-panel.system { border-color: #0ea5e9; }
+      .spec-panel.action { border-color: #10b981; }
+      .spec-panel.decision { border-color: #f59e0b; }
+      .spec-panel-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #8b5cf6;
+        margin-bottom: 6px;
+      }
+      .spec-panel.system .spec-panel-label { color: #0ea5e9; }
+      .spec-panel.action .spec-panel-label { color: #10b981; }
+      .spec-panel.decision .spec-panel-label { color: #f59e0b; }
+      .spec-panel h4 {
+        font-family: 'Syne', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 8px;
+      }
+      .dark .spec-panel h4 { color: #f1f5f9; }
+      .spec-panel ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .spec-panel ul li {
+        font-size: 13.5px;
+        color: #64748b;
+        padding-left: 16px;
+        position: relative;
+      }
+      .dark .spec-panel ul li { color: #cbd5e1; }
+      .spec-panel ul li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: #8b5cf6;
+        font-weight: 700;
+      }
+      .spec-panel.system ul li::before { color: #4f46e5; }
+      .spec-panel.action ul li::before { color: #10b981; }
+      .spec-panel.decision ul li::before { color: #f59e0b; }
+      .copy-block {
+        background: #f1f5f9;
+        border-radius: 12px;
+        padding: 14px 18px;
+        font-size: 14px;
+        color: #1e293b;
+        border-left: 3px solid #8b5cf6;
+        font-style: italic;
+        line-height: 1.6;
+      }
+      .dark .copy-block { background: #0f172a; color: #f1f5f9; }
+      .copy-block strong {
+        font-style: normal;
+        font-weight: 600;
+        color: #8b5cf6;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .annotation-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .annotation {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #64748b;
+        background: #ffffff;
+        border: 1px solid rgba(139,92,246,0.15);
+        padding: 4px 12px;
+        border-radius: 100px;
+      }
+      .dark .annotation { background: #1e293b; color: #cbd5e1; border-color: rgba(139,92,246,0.3); }
+      .annotation::before {
+        content: '✦';
+        color: #8b5cf6;
+        font-size: 10px;
+      }
+    </style>
+  </head>
+  <body class="antialiased font-sans bg-[#F0F5F9] dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300">
+    
+    <!-- Navbar -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 clay-card px-6 py-3 flex items-center gap-6">
+      <a href="index.html" class="font-bold text-slate-600 dark:text-slate-300 hover:text-[#8b5cf6] transition-colors flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> Back to Home
+      </a>
+      <div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
+      <span class="font-syne font-bold truncate max-w-[200px]">LuminaVisa</span>
+    </nav>
+
+    <main class="w-full max-w-5xl mx-auto px-6 py-32 flex flex-col gap-16">
+      
+      <!-- Hero -->
+      <section class="text-center pt-8">
+        <div class="inline-block clay-btn px-6 py-2 mb-6 text-sm font-bold tracking-widest text-[#8b5cf6]">
+          CASE STUDY
+        </div>
+        <h1 class="font-syne font-black text-5xl md:text-7xl mb-6 leading-tight">LuminaVisa</h1>
+        <p class="text-xl text-slate-500 max-w-3xl mx-auto mb-12">A Website concept simplifying opaque visa processes. Broken down into bite-sized steps with clear visual feedback to ease traveler anxiety.</p>
+        
+        <div class="clay-card rounded-[2rem] overflow-hidden aspect-video relative">
+          <img src="assets/img/porto-fe_4.webp" class="w-full h-full object-cover placeholder-img" alt="LuminaVisa Hero Image">
+        </div>
+      </section>
+
+      <!-- Section: Problem -->
+      <section class="clay-card p-10 md:p-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">01</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">The Problem</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          Applying for a visa is inherently stressful, opaque, and intimidating for first-time travelers. Users often abandon applications midway due to overwhelming forms, unclear document requirements, and anxiety about rejection. Existing government portals are notorious for poor UX, and third-party agencies charge exorbitant fees without providing transparency into the actual process. The challenge was to design an experience that felt supportive rather than bureaucratic.
+        </p>
+      </section>
+
+      <!-- Section: Research -->
+      <section class="clay-card p-10 md:p-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">02</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">Research & Insights</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
+          Through usability testing of existing visa portals and user interviews with frequent travelers, we identified cognitive overload as the primary barrier to completion.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-2 text-[#8b5cf6]">Insight 1: Form Fatigue</h4>
+            <p class="text-slate-600 dark:text-slate-400">Users experienced extreme cognitive overload when faced with 5-page long continuous scrolling forms. Presenting all questions at once caused immediate abandonment.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-2 text-[#8b5cf6]">Insight 2: The Need for Milestones</h4>
+            <p class="text-slate-600 dark:text-slate-400">Providing clear, visual feedback (like progress bars, "auto-saved" indicators, and micro-animations) reduced self-reported anxiety by 60% during prototype testing.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: User Flow -->
+      <section class="clay-card p-10 md:p-16 mb-8">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-[#8b5cf6]/10 text-[#8b5cf6] flex items-center justify-center font-black text-xl">03</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">User Flow Architecture</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
+          An expanded, decision-rich flow from first landing to post-submission. Covers user actions, system responses, micro-animation triggers, and all branching decision nodes.
+        </p>
+
+        <div class="mermaid-wrap">
+          <div class="mermaid">
+flowchart TD
+    A([🌐 User lands on LuminaVisa]) --> B[View Hero — trust signals, headline,\n'Start My Application' CTA]
+    B --> C{First-time visitor?}
+    C -- Yes --> D[View 3-step process explainer\n+ social proof carousel]
+    C -- No --> E[Returning user banner:\n'Continue your application?']
+    D --> F[Tap 'Start My Application']
+    E --> F
+
+    F --> G[/Screen 2: Destination & Eligibility/]
+    G --> H[Search or tap destination flag chip]
+    H --> I[System: Instant flag + country name\nconfirmation micro-animation]
+    I --> J[User selects passport country]
+    J --> K{Eligibility Engine\nChecks Policy}
+    K -- ✅ Eligible --> L[Green 'Great news!' banner\nshows visa type + fee preview]
+    K -- ⚠️ Conditional --> M[Amber banner with conditions list\nUser taps 'Proceed Anyway']
+    K -- ❌ Not Eligible --> N[Empathetic error state:\n'We're sorry — no e-visa available'\n+ alternative options suggested]
+    M --> O
+    L --> O[/Screen 3: Conversational\nMicro-Form — Step 1 of N/]
+    N --> END_INEL([Session ends / alternative path])
+
+    O --> P[Progress bar appears at top\nAuto-save indicator pulses]
+    P --> Q[One question displayed:\n'What's your first name?']
+    Q --> R[User types answer]
+    R --> S[System: Inline validation ✓\nField turns purple-border on focus]
+    S --> T[Tap 'Next →' — slide animation\nProgress bar increments]
+    T --> U{More form steps?}
+    U -- Yes --> Q
+    U -- No → All steps complete --> V[/Screen 4: Document Upload\n& Passport Scan/]
+
+    V --> W{Upload method?}
+    W -- Scan Passport --> X[Camera overlay opens\nLuminaVisa scan frame appears]
+    X --> Y[User aligns passport in frame]
+    Y --> Z{OCR + Document\nValidation}
+    Z -- ✅ Detected & Valid --> AA[Success micro-animation 🎉\nFields auto-populate from scan]
+    Z -- ❌ Poor Quality --> AB[Gentle shake + tip:\n'Try brighter lighting'\nRe-scan CTA]
+    AB --> X
+    W -- Manual Upload --> AC[File picker opens\nDrag-and-drop zone active]
+    AC --> AD{File Check}
+    AD -- ✅ Valid type & size --> AE[Thumbnail preview appears\nGreen checkmark badge]
+    AD -- ❌ Wrong format/size --> AF[Inline error: 'JPG or PDF under 5MB'\nRetry button]
+    AF --> AC
+
+    AA --> AG
+    AE --> AG[All documents collected ✓\nAuto-save triggers — toast: 'Saved!']
+
+    AG --> AH[/Screen 5: Review & Confirm/]
+    AH --> AI[Animated summary cards\nAll fields readable + editable]
+    AI --> AJ{User spots error?}
+    AJ -- Yes --> AK[Tap pencil icon on section\nJumps back to that micro-form step]
+    AK --> AI
+    AJ -- No → All looks good --> AL[Checkbox: 'I confirm details are correct']
+    AL --> AM[Tap 'Submit Application'\nHaptic feedback on mobile]
+    AM --> AN{Payment required?}
+    AN -- Yes --> AO[Secure payment sheet slides up\nVisa fee displayed clearly]
+    AO --> AP{Payment Success?}
+    AP -- ✅ --> AQ
+    AP -- ❌ --> AR[Error toast + retry / change method]
+    AR --> AO
+    AN -- No / Free --> AQ
+
+    AQ([🎉 SUCCESS SCREEN\nRef number shown · Email sent\nConfetti micro-animation])
+
+    style A fill:#7C3AED,color:#fff,stroke:none
+    style AQ fill:#10B981,color:#fff,stroke:none
+    style END_INEL fill:#EF4444,color:#fff,stroke:none
+    style K fill:#FEF3C7,color:#78350F,stroke:#F59E0B
+    style Z fill:#FEF3C7,color:#78350F,stroke:#F59E0B
+    style AD fill:#FEF3C7,color:#78350F,stroke:#F59E0B
+    style AJ fill:#FEF3C7,color:#78350F,stroke:#F59E0B
+    style AN fill:#FEF3C7,color:#78350F,stroke:#F59E0B
+    style AP fill:#FEF3C7,color:#78350F,stroke:#F59E0B
+    style W fill:#EDE9FE,color:#4C1D95,stroke:#7C3AED
+    style C fill:#EDE9FE,color:#4C1D95,stroke:#7C3AED
+    style U fill:#EDE9FE,color:#4C1D95,stroke:#7C3AED
+          </div>
+        </div>
+
+        <div class="legend border border-slate-200 dark:border-slate-800 bg-[#f8fafc] dark:bg-slate-800">
+          <div class="legend-item"><div class="legend-dot" style="background:#7C3AED"></div> Entry / Exit nodes</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#EDE9FE;border:1.5px solid #7C3AED"></div> User decision / branching</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#FEF3C7;border:1.5px solid #F59E0B"></div> System decision node</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#10B981"></div> Success state</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#EF4444"></div> Disqualification / error</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#38BDF8"></div> System feedback / animation</div>
+        </div>
+      </section>
+
+      <!-- Section: Wireframes -->
+      <section class="clay-card p-10 md:p-16 mb-8">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-[#8b5cf6]/10 text-[#8b5cf6] flex items-center justify-center font-black text-xl">04</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">Wireframes Blueprint</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
+          Detailed mobile-first blueprints. Each card specifies every UI zone: header, body components, input types, microcopy, and footer actions — structured for direct Figma translation.
+        </p>
+
+        <div class="wf-grid">
+          <!-- ══ SCREEN 1: HOMEPAGE ══ -->
+          <div class="clay-card overflow-hidden !rounded-[2rem] border border-slate-200 dark:border-slate-800">
+            <div class="wf-card-header">
+              <div class="wf-screen-num">S1</div>
+              <div class="wf-card-header-text">
+                <h3>Homepage / Onboarding</h3>
+                <p>Building trust before the first tap</p>
+              </div>
+            </div>
+            <div class="wf-body w-full overflow-x-auto">
+              <div class="wf-layout min-w-[600px] mb-4">
+                <!-- Phone Mockup -->
+                <div>
+                  <div class="phone-mock">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                      <div class="mock-logo">
+                        <div class="mock-logo-mark"></div>
+                        <div class="mock-logo-text"></div>
+                      </div>
+                      <div class="mock-hero-block">
+                        <div class="mock-hero-line1"></div>
+                        <div class="mock-hero-line2"></div>
+                        <div class="mock-hero-line2" style="width:40%"></div>
+                      </div>
+                      <div class="mock-btn"><div class="mock-btn-text"></div></div>
+                      <div class="mock-btn ghost"><div class="mock-btn-text"></div></div>
+                      <div class="mock-trust-row">
+                        <div class="mock-trust-chip"><div class="mock-trust-line"></div></div>
+                        <div class="mock-trust-chip"><div class="mock-trust-line"></div></div>
+                      </div>
+                      <div class="h-px bg-slate-200 dark:bg-slate-700 my-1"></div>
+                      <div class="mock-sub"></div>
+                      <div class="mock-sub short"></div>
+                      <div class="mock-sub" style="width:75%"></div>
+                      <div class="mock-chip-row">
+                        <div class="mock-chip active"><div class="mock-chip-text"></div></div>
+                        <div class="mock-chip"><div class="mock-chip-text"></div></div>
+                      </div>
+                      <div class="mock-step-dots">
+                        <div class="mock-dot active"></div>
+                        <div class="mock-dot"></div>
+                        <div class="mock-dot"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="annotation-row" style="max-width:220px;margin-top:12px">
+                    <div class="annotation">375px baseline</div>
+                    <div class="annotation">Tap targets ≥48px</div>
+                  </div>
+                </div>
+
+                <!-- Specs -->
+                <div class="spec-panels">
+                  <div class="spec-panel">
+                    <div class="spec-panel-label">🔝 Header Zone</div>
+                    <h4>Sticky Nav Bar</h4>
+                    <ul>
+                      <li>Logo: LuminaVisa wordmark.</li>
+                      <li>Nav dims to frosted white at scroll.</li>
+                    </ul>
+                  </div>
+
+                  <div class="spec-panel action">
+                    <div class="spec-panel-label">📱 Body — Hero Block</div>
+                    <h4>Full-bleed gradient card</h4>
+                    <ul>
+                      <li>Headline: "Your visa. Sorted in minutes."</li>
+                      <li>Subline: "No jargon. Just clear steps."</li>
+                    </ul>
+                  </div>
+
+                  <div class="copy-block">
+                    <strong>Primary CTA</strong> "Start My Application →"
+                  </div>
+                  <div class="copy-block">
+                    <strong>Secondary CTA</strong> "See how it works"
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ SCREEN 2: DESTINATION & ELIGIBILITY ══ -->
+          <div class="clay-card overflow-hidden !rounded-[2rem] border border-slate-200 dark:border-slate-800">
+            <div class="wf-card-header">
+              <div class="wf-screen-num">S2</div>
+              <div class="wf-card-header-text">
+                <h3>Destination &amp; Eligibility Check</h3>
+                <p>The first real interaction — keep it light</p>
+              </div>
+            </div>
+            <div class="wf-body w-full overflow-x-auto">
+              <div class="wf-layout min-w-[600px] mb-4">
+                <div>
+                  <div class="phone-mock">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                      <div class="mock-logo" style="justify-content:space-between">
+                        <div class="mock-logo-text" style="width:40px"></div>
+                        <div class="mock-sub short" style="width:30px"></div>
+                      </div>
+                      <div class="mock-title" style="width:80%"></div>
+                      <div class="mock-sub"></div>
+                      <div class="mock-input"><div class="mock-input-placeholder"></div></div>
+                      <div class="mock-chip-row">
+                        <div class="mock-chip active"><div class="mock-chip-text"></div></div>
+                        <div class="mock-chip"><div class="mock-chip-text"></div></div>
+                        <div class="mock-chip"><div class="mock-chip-text"></div></div>
+                      </div>
+                      <div class="h-px bg-slate-200 dark:bg-slate-700 my-1"></div>
+                      <div class="mock-sub" style="width:50%"></div>
+                      <div class="mock-input"><div class="mock-input-placeholder"></div></div>
+                      <div class="h-px bg-slate-200 dark:bg-slate-700 my-1"></div>
+                      <div style="background:#10B98120;border-radius:10px;padding:8px;display:flex;align-items:center;gap:6px;">
+                        <div class="mock-badge"><div class="mock-badge-text" style="width:30px"></div></div>
+                        <div class="mock-sub" style="width:60%;margin:0"></div>
+                      </div>
+                      <div class="mock-btn" style="margin-top:4px"><div class="mock-btn-text"></div></div>
+                    </div>
+                  </div>
+                  <div class="annotation-row" style="max-width:220px;margin-top:12px">
+                    <div class="annotation">No auth wall</div>
+                    <div class="annotation">Instant feedback</div>
+                  </div>
+                </div>
+
+                <div class="spec-panels">
+                  <div class="spec-panel">
+                    <div class="spec-panel-label">🔝 Header Zone</div>
+                    <h4>Minimal nav + back chevron</h4>
+                    <ul>
+                      <li>Left: "← Back" text link.</li>
+                      <li>No right-side element — reduce cognitive noise.</li>
+                    </ul>
+                  </div>
+
+                  <div class="spec-panel action">
+                    <div class="spec-panel-label">📱 Body — Question 1</div>
+                    <h4>Where are you headed?</h4>
+                    <ul>
+                      <li>Heading (Syne 700): "Where are you headed?"</li>
+                      <li>Search input: Placeholder: "Type a country or region…"</li>
+                    </ul>
+                  </div>
+
+                  <div class="spec-panel system">
+                    <div class="spec-panel-label">⚡ System Response States</div>
+                    <h4>Eligibility result banner</h4>
+                    <ul>
+                      <li>✅ Eligible: Green-tinted card, "Great news — you qualify!"</li>
+                      <li>⚠️ Conditional: Amber card, conditions bullet list.</li>
+                      <li>❌ Not eligible: Muted red card, empathetic copy.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ SCREEN 3: MICRO-FORM ══ -->
+          <div class="clay-card overflow-hidden !rounded-[2rem] border border-slate-200 dark:border-slate-800">
+            <div class="wf-card-header">
+              <div class="wf-screen-num">S3</div>
+              <div class="wf-card-header-text">
+                <h3>Conversational Micro-Form</h3>
+                <p>One question at a time — the anxiety-reduction core</p>
+              </div>
+            </div>
+            <div class="wf-body w-full overflow-x-auto">
+              <div class="wf-layout min-w-[600px] mb-4">
+                <div>
+                  <div class="phone-mock">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                      <div style="display:flex;justify-content:space-between;align-items:center">
+                        <div class="mock-sub short" style="width:20px"></div>
+                        <div class="mock-sub short" style="width:35px;font-size:10px"></div>
+                      </div>
+                      <div class="mock-progress-track">
+                        <div class="mock-progress-fill"></div>
+                      </div>
+                      <div class="mock-sub short" style="text-align:right;width:100%;font-size:10px">Step 3 of 7</div>
+                      <div class="mock-q-block" style="margin-top: 8px;">
+                        <div class="mock-q-tag"></div>
+                        <div class="mock-title" style="width:90%"></div>
+                        <div class="mock-sub"></div>
+                      </div>
+                      <div class="mock-option selected">
+                        <div class="mock-option-dot"></div>
+                        <div class="mock-option-line"></div>
+                      </div>
+                      <div class="mock-option">
+                        <div class="mock-option-dot"></div>
+                        <div class="mock-option-line" style="width:50%"></div>
+                      </div>
+                      <div class="mock-option">
+                        <div class="mock-option-dot"></div>
+                        <div class="mock-option-line" style="width:65%"></div>
+                      </div>
+                      <div style="display:flex;gap:8px;margin-top:4px">
+                        <div class="mock-btn ghost" style="flex:0.4"><div class="mock-btn-text"></div></div>
+                        <div class="mock-btn" style="flex:1"><div class="mock-btn-text"></div></div>
+                      </div>
+                      <div style="display:flex;align-items:center;gap:6px;margin-top:4px">
+                        <div style="width:8px;height:8px;background:#10B981;border-radius:50%;animation:pulse 2s infinite"></div>
+                        <div class="mock-sub short" style="width:80px"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="annotation-row" style="max-width:220px;margin-top:12px">
+                    <div class="annotation">Slide transitions</div>
+                    <div class="annotation">Auto-save pulse</div>
+                    <div class="annotation">Keyboard-aware</div>
+                  </div>
+                </div>
+
+                <div class="spec-panels">
+                  <div class="spec-panel">
+                    <div class="spec-panel-label">🔝 Header Zone — Fixed</div>
+                    <h4>Progress bar + step counter</h4>
+                    <ul>
+                      <li>Full-width thin progress bar pinned below nav.</li>
+                      <li>"Step 3 of 7" — Updates on each transition.</li>
+                    </ul>
+                  </div>
+
+                  <div class="spec-panel action">
+                    <div class="spec-panel-label">📱 Body — Question Card</div>
+                    <h4>Conversational question block</h4>
+                    <ul>
+                      <li>Question heading: Syne 700. Conversational tone.</li>
+                      <li>Helper text below. Answers "why we're asking."</li>
+                    </ul>
+                  </div>
+
+                  <div class="spec-panel action">
+                    <div class="spec-panel-label">📱 Body — Input Types</div>
+                    <h4>Input patterns per type</h4>
+                    <ul>
+                      <li><strong>Text:</strong> Single-line input, 52px height.</li>
+                      <li><strong>Options:</strong> Full-width option cards with radio.</li>
+                      <li><strong>Yes/No:</strong> Two large tiles side-by-side.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- SCREEN 4: DOCUMENT UPLOAD -->
+          <div class="clay-card overflow-hidden !rounded-[2rem] border border-slate-200 dark:border-slate-800">
+            <div class="wf-card-header">
+              <div class="wf-screen-num">S4</div>
+              <div class="wf-card-header-text">
+                <h3>Document Upload</h3>
+                <p>Reducing the scariest step</p>
+              </div>
+            </div>
+            <div class="wf-body w-full overflow-x-auto">
+              <div class="wf-layout min-w-[600px] mb-4">
+                <div>
+                  <div class="phone-mock">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                      <div class="mock-progress-track">
+                        <div class="mock-progress-fill" style="width:70%"></div>
+                      </div>
+                      <div class="mock-title" style="width:75%"></div>
+                      <div class="mock-sub"></div>
+                      <div class="mock-scan-box">
+                        <div class="mock-scan-line"></div>
+                        <div class="mock-badge warn" style="position:absolute;bottom:6px;right:6px"><div class="mock-badge-text"></div></div>
+                      </div>
+                      <div style="display:flex;gap:6px;margin-top:2px">
+                        <div class="mock-btn" style="flex:1;height:36px"><div class="mock-btn-text"></div></div>
+                        <div class="mock-btn ghost" style="flex:1;height:36px"><div class="mock-btn-text"></div></div>
+                      </div>
+                      <div class="h-px bg-slate-200 dark:bg-slate-700 my-1"></div>
+                      <div class="mock-sub short"></div>
+                      <div class="mock-upload-zone">
+                        <div class="mock-upload-icon"></div>
+                        <div class="mock-upload-line"></div>
+                      </div>
+                      <div style="background:#10B98120;border-radius:8px;padding:6px 10px;display:flex;align-items:center;gap:6px;margin-top:4px">
+                        <div class="mock-badge"><div class="mock-badge-text" style="width:20px"></div></div>
+                        <div class="mock-sub short" style="margin:0;width:80%"></div>
+                      </div>
+                      <div class="mock-btn" style="margin-top:4px"><div class="mock-btn-text"></div></div>
+                    </div>
+                  </div>
+                  <div class="annotation-row" style="max-width:220px;margin-top:12px">
+                    <div class="annotation">OCR validation</div>
+                    <div class="annotation">Graceful fallback</div>
+                  </div>
+                </div>
+
+                <div class="spec-panels">
+                  <div class="spec-panel">
+                    <div class="spec-panel-label">🔝 Header Zone</div>
+                    <h4>Progress bar (70% filled) + back nav</h4>
+                    <ul>
+                      <li>Progress bar now ~70% full — visual momentum.</li>
+                      <li>Heading: "Let's grab your passport."</li>
+                    </ul>
+                  </div>
+
+                  <div class="spec-panel action">
+                    <div class="spec-panel-label">📸 Body — Scan UI</div>
+                    <h4>Camera overlay</h4>
+                    <ul>
+                      <li>Animated scan line: sky-blue horizontal gradient bar.</li>
+                      <li>Status badge: shows scanning state.</li>
+                    </ul>
+                  </div>
+
+                  <div class="spec-panel system">
+                    <div class="spec-panel-label">⚡ OCR Result States</div>
+                    <h4>Validation outcomes</h4>
+                    <ul>
+                      <li>✅ Success: Frame flashes green.</li>
+                      <li>⚠️ Partial: "Confirm a few fields."</li>
+                      <li>❌ Failed: "Try in better lighting"</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>          
+
+        </div>
+      </section>
+
+      <!-- Section: UI Design & Design System -->
+      <section class="clay-card p-10 md:p-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">05</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">UI Design & Elements</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-10">
+          The visual language relies on soft curves, ample whitespace, and calming purple/blue gradients to evoke a sense of trust and security. Error states are handled with clear, friendly microcopy rather than aggressive warnings.
+        </p>
+        <div class="w-full clay-card rounded-2xl aspect-video mb-8 overflow-hidden relative">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#8b5cf6]/20 to-transparent z-10 mix-blend-overlay"></div>
+          <img src="assets/img/porto-fe_4.webp" class="relative z-0 w-full h-full object-cover object-top bg-[#f8fafc] dark:bg-slate-900" alt="LuminaVisa UI Design" loading="lazy" />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-4 font-syne">Colors</h4>
+            <div class="flex gap-2">
+              <div class="w-8 h-8 rounded-full bg-${accentColor} shadow-sm"></div>
+              <div class="w-8 h-8 rounded-full bg-slate-800 shadow-sm"></div>
+              <div class="w-8 h-8 rounded-full bg-slate-100 shadow-sm"></div>
+            </div>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-4 font-syne">Typography</h4>
+            <p class="font-syne font-bold text-xl">Syne (Display)</p>
+            <p class="font-sans text-lg">Outfit (Body)</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-4 font-syne">Components</h4>
+            <div class="h-8 rounded-full bg-${accentColor}/20 w-3/4 mb-2"></div>
+            <div class="h-8 rounded-full bg-slate-200 w-1/2"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Prototype & Outcome -->
+      <section class="clay-card p-10 md:p-16 mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">06</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">Prototype & Outcome</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
+          By transforming a daunting, multi-page form into an engaging, bite-sized conversational flow, we drastically reduced the perceived effort required. The "scan passport" capability and instant document validation eliminated the most common points of user friction, successfully modernizing an archaic process.
+        </p>
+        
+        <div class="p-8 rounded-3xl bg-[#8b5cf6]/5 border border-[#8b5cf6]/20 flex flex-col items-center justify-center gap-6 text-center">
+          <h3 class="font-syne font-bold text-2xl">Want to see it in action?</h3>
+          <a href="https://github.com/farhankholid/LuminaVisa" target="_blank" class="clay-btn px-8 py-4 text-[#8b5cf6]">
+            View on GitHub (LuminaVisa)
+          </a>
+        </div>
+      </section>
+      
+    </main>
+    
+    <script>
+      // Match system theme preference
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'base',
+        themeVariables: {
+          primaryColor: '#EDE9FE',
+          primaryTextColor: '#1E1B4B',
+          primaryBorderColor: '#7C3AED',
+          lineColor: '#7C3AED',
+          secondaryColor: '#E0F2FE',
+          tertiaryColor: '#FEF3C7',
+          fontSize: '13px',
+          fontFamily: 'Outfit, sans-serif',
+          nodeBorder: '1.5px',
+          clusterBkg: '#F5F3FF',
+          edgeLabelBackground: '#EDE9FE'
+        },
+        flowchart: {
+          curve: 'basis',
+          padding: 20
+        }
+      });
+    </script>
+  </body>
+</html>

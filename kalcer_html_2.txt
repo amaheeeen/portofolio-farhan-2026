@@ -1,0 +1,722 @@
+<!-- ═══ TASK 2: WIREFRAMES ═══ -->
+<div class="section">
+  <div class="section-eye">
+    <div class="eye-num">02</div>
+    <div class="eye-label">Task 2 — Wireframe Screen Blueprints</div>
+  </div>
+  <h2 class="font-syne font-black text-3xl md:text-4xl text-slate-800 dark:text-slate-100">Screen-by-Screen Architecture</h2>
+  <p class="s-desc">Four annotated blueprints built around the demographic reality: Gen-Z users who expect aesthetic density, social signals everywhere, and zero friction between curiosity and action.</p>
+
+  <div class="wf-grid">
+
+    <!-- ══ S1: EXPLORE FEED ══ -->
+    <div class="wf-card">
+      <div class="wf-header">
+        <div class="wf-num mobile">S1</div>
+        <div class="wf-head-text">
+          <h3>Explore Feed / Homepage</h3>
+          <p>Scannable cards · Verified badges · Instant bookmark · Aesthetic-first grid</p>
+        </div>
+        <div class="wf-head-tag m">Mobile · 390px</div>
+      </div>
+      <div class="wf-body">
+        <div class="layout-2">
+
+          <!-- Phone Mockup -->
+          <div>
+            <div class="phone-mock">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <!-- Nav -->
+                <div class="mob-nav">
+                  <div class="mob-logo"></div>
+                  <div class="mob-nav-right">
+                    <div class="mob-nav-icon notif"></div>
+                    <div class="mob-nav-icon"></div>
+                  </div>
+                </div>
+                <!-- Search -->
+                <div class="mob-search">
+                  <div class="mob-search-icon"></div>
+                  <div class="mob-search-ph"></div>
+                </div>
+                <!-- Filter chips -->
+                <div class="chip-row">
+                  <div class="chip active"><div class="chip-text"></div></div>
+                  <div class="chip rest"><div class="chip-text"></div></div>
+                  <div class="chip rest"><div class="chip-text"></div></div>
+                  <div class="chip rest"><div class="chip-text"></div></div>
+                </div>
+                <!-- Section label -->
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <div class="mob-sec-label"></div>
+                  <div class="mob-sec-sub"></div>
+                </div>
+                <!-- Featured card (wide) -->
+                <div class="place-card">
+                  <div class="place-card-img" style="height:90px">
+                    <div class="place-card-overlay"></div>
+                    <div class="bookmark-btn"><div class="bookmark-icon"></div></div>
+                    <div class="place-card-category" style="position:relative;z-index:1"><div class="place-card-cat-text"></div></div>
+                  </div>
+                  <div class="place-card-body">
+                    <div class="place-card-row">
+                      <div class="place-name" style="width:60%"></div>
+                      <div class="verified-badge"><div class="verified-dot"></div><div class="verified-text"></div></div>
+                    </div>
+                    <div class="place-meta-row">
+                      <div class="open-badge"><div class="open-text"></div></div>
+                      <div class="star-row">
+                        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star" style="opacity:0.3"></div>
+                      </div>
+                      <div class="place-meta" style="width:30%"></div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 2-col grid -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+                  <div class="place-card">
+                    <div class="place-card-img" style="height:58px;background:linear-gradient(135deg,rgba(245,166,35,0.2),rgba(232,85,42,0.1))">
+                      <div class="place-card-overlay"></div>
+                      <div class="bookmark-btn"><div class="bookmark-icon"></div></div>
+                      <div class="place-card-category" style="position:relative;z-index:1"><div class="place-card-cat-text"></div></div>
+                    </div>
+                    <div class="place-card-body">
+                      <div class="place-name" style="width:75%"></div>
+                      <div class="verified-badge" style="width:fit-content"><div class="verified-dot"></div><div class="verified-text"></div></div>
+                      <div class="open-badge" style="width:fit-content"><div class="open-text"></div></div>
+                    </div>
+                  </div>
+                  <div class="place-card">
+                    <div class="place-card-img" style="height:58px;background:linear-gradient(135deg,rgba(14,138,122,0.15),rgba(45,155,111,0.1))">
+                      <div class="place-card-overlay"></div>
+                      <div class="bookmark-btn"><div class="bookmark-icon"></div></div>
+                      <div class="place-card-category" style="position:relative;z-index:1"><div class="place-card-cat-text"></div></div>
+                    </div>
+                    <div class="place-card-body">
+                      <div class="place-name" style="width:80%"></div>
+                      <div style="display:flex;align-items:center;gap:4px">
+                        <div class="closed-pill" style="width:fit-content"><div class="closed-pill-text" style="width:20px"></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Tab bar -->
+                <div class="tab-bar">
+                  <div class="tab-item active">
+                    <div class="tab-icon active"></div>
+                    <div class="tab-dot"></div>
+                  </div>
+                  <div class="tab-item">
+                    <div class="tab-icon"></div>
+                    <div class="tab-dot"></div>
+                  </div>
+                  <div class="tab-item">
+                    <div class="tab-icon"></div>
+                    <div class="tab-dot"></div>
+                  </div>
+                  <div class="tab-item">
+                    <div class="tab-icon"></div>
+                    <div class="tab-dot"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="annotations" style="max-width:220px;margin-top:12px">
+              <div class="anno">Card tap = detail</div>
+              <div class="anno g">Verified = API badge</div>
+              <div class="anno a">Open = live hours</div>
+            </div>
+          </div>
+
+          <!-- Spec -->
+          <div class="spec-panels">
+            <div class="sp">
+              <div class="sp-label">🔝 Header Zone — Sticky</div>
+              <h4>Minimal nav + search always visible</h4>
+              <ul>
+                <li><strong>Logo:</strong> Kalcer.ID wordmark left-aligned. Syne 800, coral accent on the period. 28px height.</li>
+                <li><strong>Right cluster:</strong> Notification bell (coral dot badge for unread) + Location pin icon. 44×44px tap targets.</li>
+                <li><strong>Sticky behaviour:</strong> Nav stays pinned. On scroll down, nav subtly reduces height (56px → 44px) and gains a frosted warm-white background blur.</li>
+              </ul>
+            </div>
+
+            <div class="sp sys">
+              <div class="sp-label">🔍 Search Bar</div>
+              <h4>Persistent, rounded, always above fold</h4>
+              <ul>
+                <li>Full-width pill (48px height, 100px radius). Soft paper background, warm border. Magnifier icon left (14px, coral). Placeholder: "Search cafés, venues, vibes…"</li>
+                <li>On focus: border turns coral, keyboard-aware scroll locks search bar near top.</li>
+                <li>Livewire-powered: triggers real-time results with 300ms debounce — no submit button needed.</li>
+              </ul>
+            </div>
+
+            <div class="sp">
+              <div class="sp-label">🏷️ Filter Chips</div>
+              <h4>Horizontal-scroll category row</h4>
+              <ul>
+                <li>Chips: "All" / "Café" / "Bar" / "Rooftop" / "Open Now" / "Near Me" / "Under 50K" — extend off-screen (overflow scroll, no scrollbar visible).</li>
+                <li>Active chip: coral fill, white text. Inactive: paper bg, faint border, muted text.</li>
+                <li>Multiple chips selectable simultaneously (filter stack). Active count badge on filter icon if >2 active.</li>
+                <li>Selecting a chip updates feed in-place — no page reload. Livewire reactive component.</li>
+              </ul>
+            </div>
+
+            <div class="sp act">
+              <div class="sp-label">🃏 Hangout Place Cards — The Core Component</div>
+              <h4>Transforming dense data into scannable visuals</h4>
+              <ul>
+                <li><strong>Card anatomy:</strong> Hero image (variable height, 3:2 ratio) → category chip overlay (bottom-left) → bookmark icon (top-right, always accessible) → Info section below image.</li>
+                <li><strong>Info row 1:</strong> Venue name (Syne 600, 14px, ink) + Verified badge (if applicable) — right-aligned green pill with checkmark dot.</li>
+                <li><strong>Info row 2:</strong> Open/Closed pill (semantic color) + Star rating (filled amber stars) + Check-in count ("128 check-ins" as social proof).</li>
+                <li><strong>Bookmark icon:</strong> Persists on top-right of image overlay at all times. Tap: heart fill animation, immediate optimistic UI, syncs to Livewire. No login required for local save.</li>
+                <li><strong>Verified badge:</strong> Only renders when <code>is_verified = true</code>. Green dot + "Verified" text. Never faked. Builds trust signal instantly.</li>
+              </ul>
+            </div>
+
+            <div class="sp act">
+              <div class="sp-label">📐 Feed Layout Rhythm</div>
+              <h4>Editorial mixed-grid — not a boring uniform list</h4>
+              <ul>
+                <li><strong>Pattern (repeating):</strong> 1 wide featured card (full-width, taller image) → 2-column grid (2 cards) → 1 wide card → 2-column → etc. Creates visual rhythm without clutter.</li>
+                <li><strong>Featured card trigger:</strong> Top-rated / most check-ins in last 24h. Slightly larger image. Editorial feel — like a magazine cover pick.</li>
+                <li>Card corner radius: 14px. Subtle drop shadow (4px blur, 8% ink). Hover on desktop: scale(1.01) + shadow increase.</li>
+              </ul>
+            </div>
+
+            <div class="copy-block">
+              <strong>Empty state copy (no results)</strong>
+              "No spots match your vibe right now. Try a different filter — or be the first to discover something new nearby."
+            </div>
+
+            <div class="sp sys">
+              <div class="sp-label">⬇️ Tab Bar — 4 items max</div>
+              <h4>Thumb-zone persistent navigation</h4>
+              <ul>
+                <li>Tabs: Explore (home) · Map View · My Wishlist · Profile. 4 items maximum — no hamburger.</li>
+                <li>Active tab: icon turns coral + small coral dot below. Inactive: grey icon.</li>
+                <li>Sticky bottom, above system gesture bar. Safe area padding applied.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ S2: HANGOUT DETAIL ══ -->
+    <div class="wf-card">
+      <div class="wf-header">
+        <div class="wf-num mobile">S2</div>
+        <div class="wf-head-text">
+          <h3>Hangout Detail Page</h3>
+          <p>Hero image · Live hours indicator · Check-in CTA · Community reviews</p>
+        </div>
+        <div class="wf-head-tag m">Mobile · Full Page</div>
+      </div>
+      <div class="wf-body">
+        <div class="layout-2">
+          <div>
+            <div class="phone-mock">
+              <div class="phone-notch"></div>
+              <div class="phone-screen" style="padding:0;gap:0">
+                <!-- Hero image -->
+                <div class="detail-hero" style="border-radius:0;height:100px;margin-bottom:0">
+                  <div class="detail-hero-overlay"></div>
+                  <div class="detail-back" style="top:8px;left:8px"><div class="back-arrow"></div></div>
+                  <!-- Bookmark top-right -->
+                  <div class="bookmark-btn" style="top:8px;right:8px;width:24px;height:24px"><div class="bookmark-icon"></div></div>
+                  <div class="detail-name-row">
+                    <div style="display:flex;flex-direction:column;gap:4px;">
+                      <div class="detail-name"></div>
+                      <div style="height:6px;width:80px;background:rgba(255,255,255,0.5);border-radius:2px;"></div>
+                    </div>
+                    <div class="detail-verified"><div class="detail-v-dot"></div><div class="detail-v-text"></div></div>
+                  </div>
+                </div>
+                <!-- Content area -->
+                <div style="padding:12px;display:flex;flex-direction:column;gap:8px;">
+                  <!-- Stats row -->
+                  <div style="display:flex;gap:6px;">
+                    <div class="open-pill"><div class="open-pill-text"></div></div>
+                    <div style="height:18px;padding:0 8px;background:var(--amber-l);border:1px solid rgba(245,166,35,0.2);border-radius:100px;display:flex;align-items:center;"><div style="height:4px;width:20px;background:var(--amber);border-radius:2px;"></div></div>
+                    <div style="height:18px;padding:0 8px;background:var(--coral-l);border:1px solid rgba(232,85,42,0.2);border-radius:100px;display:flex;align-items:center;"><div style="height:4px;width:24px;background:var(--coral);border-radius:2px;"></div></div>
+                  </div>
+                  <!-- Hours block -->
+                  <div class="hours-block">
+                    <div class="hours-left">
+                      <div class="hours-label"></div>
+                      <div class="hours-time"></div>
+                    </div>
+                    <div class="open-pill"><div class="open-pill-text" style="width:30px"></div></div>
+                  </div>
+                  <!-- About -->
+                  <div style="display:flex;flex-direction:column;gap:4px;padding:8px 10px;background:var(--paper);border:1px solid var(--border);border-radius:11px;">
+                    <div style="height:5px;width:30%;background:var(--ink);border-radius:2px;opacity:0.5;"></div>
+                    <div style="height:4px;background:var(--ghost);border-radius:2px;"></div>
+                    <div style="height:4px;width:85%;background:var(--ghost);border-radius:2px;"></div>
+                  </div>
+                  <!-- Check-in btn -->
+                  <div class="checkin-btn"><div class="checkin-text"></div></div>
+                  <!-- Reviews header -->
+                  <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div class="mob-sec-label" style="width:40%"></div>
+                    <div style="height:16px;padding:0 10px;background:var(--coral);border-radius:100px;display:flex;align-items:center;"><div style="height:4px;width:28px;background:rgba(255,255,255,0.85);border-radius:2px;"></div></div>
+                  </div>
+                  <!-- Review cards -->
+                  <div class="review-card">
+                    <div class="review-header">
+                      <div class="reviewer-avatar"></div>
+                      <div class="reviewer-name"></div>
+                      <div class="review-stars" style="margin-left:auto"><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star" style="opacity:0.25"></div></div>
+                    </div>
+                    <div class="review-body"></div>
+                    <div class="review-body2"></div>
+                  </div>
+                  <div class="review-card">
+                    <div class="review-header">
+                      <div class="reviewer-avatar" style="background:var(--amber-l)"></div>
+                      <div class="reviewer-name"></div>
+                      <div class="review-stars" style="margin-left:auto"><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div></div>
+                    </div>
+                    <div class="review-body"></div>
+                    <div class="review-body2" style="width:55%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="annotations" style="max-width:220px;margin-top:12px">
+              <div class="anno">Livewire hours</div>
+              <div class="anno g">Check-in logged</div>
+              <div class="anno a">Review moderated</div>
+            </div>
+          </div>
+
+          <div class="spec-panels">
+            <div class="sp">
+              <div class="sp-label">🖼️ Hero Image Zone</div>
+              <h4>Full-bleed top, edge-to-edge on mobile</h4>
+              <ul>
+                <li><strong>Height:</strong> 280px on mobile. Full viewport width. No horizontal padding — image extends to screen edges for an immersive feel.</li>
+                <li><strong>Gradient overlay:</strong> Bottom 50% fades to semi-transparent ink (0.55 opacity). Venue name and metadata sit on this gradient — always legible regardless of image color.</li>
+                <li><strong>Back button:</strong> Top-left, 40×40px circle, frosted white. Tap returns to feed at scroll position (no full reload — Livewire maintains state).</li>
+                <li><strong>Bookmark button:</strong> Top-right, same frosted circle. Coral fill when saved. Always accessible — no scroll required.</li>
+                <li><strong>Bottom of hero:</strong> Venue name (Syne 700, 20px, white) + category tag + Verified badge (if applicable).</li>
+              </ul>
+            </div>
+
+            <div class="sp act">
+              <div class="sp-label">⏰ Operational Hours Indicator</div>
+              <h4>The critical information hierarchy moment</h4>
+              <ul>
+                <li><strong>Status pill (top of info section):</strong> "Open Now" = green pill / "Closed" = red pill / "Opens at 6PM" = amber pill with time. This is the <em>first</em> piece of info after scrolling past hero — before anything else.</li>
+                <li><strong>Hours card:</strong> Shows today's hours by default ("Today: 10:00 — 22:00"). Expandable: tap to show full weekly schedule as a day-by-day table.</li>
+                <li><strong>Livewire-reactive:</strong> Status updates dynamically based on server time — no stale "Open" badges. Connected to <code>operational_hours</code> model already coded.</li>
+              </ul>
+            </div>
+
+            <div class="copy-block">
+              <strong>Hours status copy examples</strong>
+              "Open Now · Closes at 10:00 PM"
+              "Closed · Opens tomorrow at 10:00 AM"
+              "Opening soon · Opens in 45 minutes"
+            </div>
+
+            <div class="sp act">
+              <div class="sp-label">📍 Check-In Button</div>
+              <h4>Primary CTA — bold, single, always visible</h4>
+              <ul>
+                <li><strong>Full-width, 52px height, 100px radius:</strong> Coral gradient fill. Label: "Check In Here 📍" — Syne 700, 15px, white. This is the primary action on the page.</li>
+                <li><strong>Tapping while logged out:</strong> Bottom sheet slides up with auth prompt — not a hard redirect. User sees check-in confirmation waiting for them on the other side of login.</li>
+                <li><strong>After check-in:</strong> Button transforms to "✓ You checked in" with a green fill. Counter below increments: "Now 129 people have been here." Social proof loop.</li>
+                <li><strong>Second check-in same day:</strong> Button disabled, label: "Already checked in today." Prevents spam.</li>
+              </ul>
+            </div>
+
+            <div class="sp sys">
+              <div class="sp-label">⭐ Reviews Section</div>
+              <h4>Community-first, photo-friendly, contributor-rewarding</h4>
+              <ul>
+                <li><strong>Section header:</strong> "What people are saying" (Syne 600, 16px) + "Write a Review" pill button (coral, right-aligned).</li>
+                <li><strong>Rating summary bar:</strong> Large average score (Syne 800, 32px, coral) + star visual + breakdown (5★ 60% / 4★ 25% / etc.) as horizontal fill bars. Scannable at a glance.</li>
+                <li><strong>Review cards:</strong> Reviewer avatar + username + date + star rating + text + optional photo thumbnail. Card shadow: subtle warm. "Helpful?" thumbs up below.</li>
+                <li><strong>Photo reviews:</strong> Show a horizontal scroll of user-submitted photos above the text reviews. Like Instagram highlights. Younger users respond strongly to UGC imagery.</li>
+                <li><strong>Review composer:</strong> Opens as full-screen overlay. Star tap → text input → photo upload (optional) → submit. All within 3 interactions.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ S3: USER PROFILE / WISHLIST ══ -->
+    <div class="wf-card">
+      <div class="wf-header">
+        <div class="wf-num mobile">S3</div>
+        <div class="wf-head-text">
+          <h3>User Profile &amp; Wishlist</h3>
+          <p>Saved places grid · Check-in history · Personal discovery identity</p>
+        </div>
+        <div class="wf-head-tag m">Mobile · Profile Tab</div>
+      </div>
+      <div class="wf-body">
+        <div class="layout-2">
+          <div>
+            <div class="phone-mock">
+              <div class="phone-notch"></div>
+              <div class="phone-screen">
+                <!-- Profile header -->
+                <div class="profile-header">
+                  <div class="profile-avatar"></div>
+                  <div class="profile-info">
+                    <div class="profile-name"></div>
+                    <div class="profile-handle"></div>
+                  </div>
+                  <div style="width:24px;height:24px;background:rgba(255,255,255,0.1);border-radius:7px;flex-shrink:0;"></div>
+                </div>
+                <!-- Stats row -->
+                <div class="profile-stats">
+                  <div class="stat-cell">
+                    <div class="stat-num"></div>
+                    <div class="stat-label"></div>
+                  </div>
+                  <div class="stat-cell">
+                    <div class="stat-num" style="background:var(--green)"></div>
+                    <div class="stat-label"></div>
+                  </div>
+                  <div class="stat-cell">
+                    <div class="stat-num" style="background:var(--amber)"></div>
+                    <div class="stat-label"></div>
+                  </div>
+                </div>
+                <!-- Tab switcher -->
+                <div style="display:flex;gap:0;background:var(--warm);border-radius:10px;padding:3px;border:1px solid var(--border);">
+                  <div style="flex:1;height:26px;background:var(--paper);border-radius:8px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border)"><div style="height:5px;width:40px;background:var(--coral);border-radius:2px;"></div></div>
+                  <div style="flex:1;height:26px;display:flex;align-items:center;justify-content:center;"><div style="height:5px;width:40px;background:var(--ghost);border-radius:2px;"></div></div>
+                </div>
+                <!-- Wishlist section label -->
+                <div class="mob-sec-label"></div>
+                <!-- Wishlist grid -->
+                <div class="wishlist-grid">
+                  <div class="wishlist-item">
+                    <div class="wishlist-thumb"></div>
+                    <div class="wishlist-info">
+                      <div class="wishlist-name"></div>
+                      <div class="wishlist-meta"></div>
+                    </div>
+                  </div>
+                  <div class="wishlist-item">
+                    <div class="wishlist-thumb" style="background:linear-gradient(135deg,rgba(45,155,111,0.2),rgba(14,138,122,0.1))"></div>
+                    <div class="wishlist-info">
+                      <div class="wishlist-name"></div>
+                      <div class="wishlist-meta"></div>
+                    </div>
+                  </div>
+                  <div class="wishlist-item">
+                    <div class="wishlist-thumb" style="background:linear-gradient(135deg,rgba(245,166,35,0.2),rgba(232,85,42,0.1))"></div>
+                    <div class="wishlist-info">
+                      <div class="wishlist-name"></div>
+                      <div class="wishlist-meta"></div>
+                    </div>
+                  </div>
+                  <div class="wishlist-item empty">
+                    <div class="wishlist-plus"><span class="wishlist-plus-icon">+</span></div>
+                  </div>
+                </div>
+                <!-- Check-in history label -->
+                <div class="mob-sec-label" style="margin-top:4px"></div>
+                <!-- Check-in items -->
+                <div class="checkin-item">
+                  <div class="checkin-thumb"></div>
+                  <div class="checkin-info">
+                    <div class="checkin-name"></div>
+                    <div class="checkin-date"></div>
+                  </div>
+                  <div class="checkin-badge"><div class="checkin-badge-text"></div></div>
+                </div>
+                <div class="checkin-item">
+                  <div class="checkin-thumb" style="background:var(--amber-l)"></div>
+                  <div class="checkin-info">
+                    <div class="checkin-name"></div>
+                    <div class="checkin-date"></div>
+                  </div>
+                  <div class="checkin-badge"><div class="checkin-badge-text"></div></div>
+                </div>
+                <!-- Tab bar -->
+                <div class="tab-bar" style="margin-top:auto">
+                  <div class="tab-item"><div class="tab-icon"></div><div class="tab-dot"></div></div>
+                  <div class="tab-item"><div class="tab-icon"></div><div class="tab-dot"></div></div>
+                  <div class="tab-item"><div class="tab-icon"></div><div class="tab-dot"></div></div>
+                  <div class="tab-item active"><div class="tab-icon active"></div><div class="tab-dot"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="annotations" style="max-width:220px;margin-top:12px">
+              <div class="anno">2-tab switcher</div>
+              <div class="anno g">Wishlist = bookmarks</div>
+              <div class="anno a">Stats = gamification</div>
+            </div>
+          </div>
+
+          <div class="spec-panels">
+            <div class="sp">
+              <div class="sp-label">👤 Profile Header</div>
+              <h4>Identity card — dark ink background for contrast pop</h4>
+              <ul>
+                <li><strong>Background:</strong> Deep ink card (not the page background) — creates a "card within page" effect. Makes the profile feel premium.</li>
+                <li><strong>Avatar:</strong> 56px circle. Editable — tap opens image picker. Initials fallback if no photo set.</li>
+                <li><strong>Username + @handle:</strong> Syne 700 + Outfit 400. Handle in muted white — discoverable identity.</li>
+                <li><strong>Edit icon:</strong> Top-right gear/pencil. 40×40px. Opens inline edit mode (no new page).</li>
+              </ul>
+            </div>
+
+            <div class="sp act">
+              <div class="sp-label">📊 Stats Strip — Social Proof + Gamification</div>
+              <h4>3-cell row below profile header</h4>
+              <ul>
+                <li><strong>Cells:</strong> Saved Places count (coral) · Check-ins count (green) · Reviews Written (amber). Numbers in Syne 700, 20px. Label below in 11px muted.</li>
+                <li>Tapping a stat cell jumps to that section (e.g., tapping "12 Check-ins" scrolls to check-in history).</li>
+                <li>These stats are the gamification loop — users are motivated to increase their numbers. No complex badge system needed at V1.</li>
+              </ul>
+            </div>
+
+            <div class="sp">
+              <div class="sp-label">📑 Tab Switcher — Wishlist ↔ Check-ins</div>
+              <h4>Segmented control, not separate pages</h4>
+              <ul>
+                <li>Pill-style toggle: "Saved Places" | "My Check-ins". Active pill: paper bg, coral text, border. Inactive: flat, muted.</li>
+                <li>Content switches without navigation — Livewire conditional rendering. No scroll-to-top on switch.</li>
+              </ul>
+            </div>
+
+            <div class="sp act">
+              <div class="sp-label">🔖 Wishlist Grid — "Saved Places"</div>
+              <h4>2-column card grid — visual, not a list</h4>
+              <ul>
+                <li><strong>Card anatomy:</strong> Thumbnail image (48px height, gradient fallback) + venue name + category tag. Square format. 11px radius.</li>
+                <li><strong>Long-press action:</strong> Hold on a card → context menu: "Visit page" / "Remove from wishlist" / "Share." Avoids cluttering the card UI with extra buttons.</li>
+                <li><strong>Empty slot card:</strong> Dashed border, soft coral "+" icon centered. Tapping jumps to Explore Feed. Solves empty state UX gracefully.</li>
+                <li><strong>Sort options:</strong> Small "Sort" chip top-right of section: "Recently Saved" / "Alphabetical" / "Most Visited." Default: recently saved.</li>
+              </ul>
+            </div>
+
+            <div class="sp sys">
+              <div class="sp-label">📍 Check-in History List</div>
+              <h4>Horizontal card with thumbnail, name, date, badge</h4>
+              <ul>
+                <li><strong>Row anatomy:</strong> Square thumbnail (36px, venue cover image or gradient fallback) + venue name + check-in date ("Yesterday", "Mar 10") + coral count badge (how many times visited).</li>
+                <li>Multiple check-ins to same venue collapse: "Visited 3×" badge instead of 3 separate rows.</li>
+                <li>Tapping a row opens the venue's detail page (same Livewire component re-rendered).</li>
+                <li>Empty state: "Your adventures start here — check in somewhere!" with Explore CTA button.</li>
+              </ul>
+            </div>
+
+            <div class="copy-block">
+              <strong>Profile stat labels</strong>
+              "Saved Places"  ·  "Check-ins"  ·  "Reviews"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ S4: BUSINESS DASHBOARD ══ -->
+    <div class="wf-card">
+      <div class="wf-header">
+        <div class="wf-num desktop">S4</div>
+        <div class="wf-head-text">
+          <h3>Business Owner Dashboard</h3>
+          <p>Venue analytics · Listing management · Review responses · Image &amp; hours editor</p>
+        </div>
+        <div class="wf-head-tag d">Desktop · 1280px+</div>
+      </div>
+      <div class="wf-body">
+
+        <!-- Browser mockup -->
+        <div class="browser" style="margin-bottom:24px;">
+          <div class="browser-chrome">
+            <div class="b-dot-btn" style="background:#EF4444"></div>
+            <div class="b-dot-btn" style="background:#F5A623;margin-left:4px"></div>
+            <div class="b-dot-btn" style="background:#2D9B6F;margin-left:4px"></div>
+            <div class="b-url"><div class="b-url-text"></div></div>
+          </div>
+          <div class="browser-screen">
+            <!-- Sidebar -->
+            <div class="biz-sidebar">
+              <div class="biz-logo"></div>
+              <div class="biz-nav-item active">
+                <div class="biz-nav-icon active"></div>
+                <div class="biz-nav-label"></div>
+              </div>
+              <div class="biz-nav-item"><div class="biz-nav-icon"></div><div class="biz-nav-label"></div></div>
+              <div class="biz-nav-item"><div class="biz-nav-icon"></div><div class="biz-nav-label"></div></div>
+              <div class="biz-nav-item"><div class="biz-nav-icon"></div><div class="biz-nav-label"></div></div>
+              <div class="biz-nav-item"><div class="biz-nav-icon"></div><div class="biz-nav-label"></div></div>
+              <div style="margin-top:auto">
+                <div class="biz-nav-item"><div class="biz-nav-icon"></div><div class="biz-nav-label"></div></div>
+              </div>
+            </div>
+            <!-- Main -->
+            <div class="biz-main">
+              <div class="biz-topbar">
+                <div class="biz-title"></div>
+                <div class="biz-topbar-right">
+                  <div class="biz-icon"></div>
+                  <div class="biz-icon" style="background:var(--coral-l);border-color:rgba(232,85,42,0.2)"></div>
+                  <div class="biz-avatar"></div>
+                </div>
+              </div>
+              <!-- Notification strip -->
+              <div style="background:var(--amber-l);border:1px solid rgba(245,166,35,0.3);border-radius:9px;padding:7px 12px;display:flex;align-items:center;gap:8px;">
+                <div style="width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0;"></div>
+                <div style="height:5px;flex:1;background:var(--amber);border-radius:2px;opacity:0.35;"></div>
+                <div style="height:18px;padding:0 8px;background:var(--amber);border-radius:5px;display:flex;align-items:center;"><div style="height:4px;width:28px;background:rgba(255,255,255,0.7);border-radius:2px;"></div></div>
+              </div>
+              <!-- KPIs -->
+              <div class="kpi-row">
+                <div class="kpi coral-kpi">
+                  <div class="kpi-label"></div>
+                  <div class="kpi-val coral"></div>
+                  <div class="kpi-delta up"></div>
+                </div>
+                <div class="kpi green-kpi">
+                  <div class="kpi-label"></div>
+                  <div class="kpi-val green"></div>
+                  <div class="kpi-delta up"></div>
+                </div>
+                <div class="kpi amber-kpi">
+                  <div class="kpi-label"></div>
+                  <div class="kpi-val amber"></div>
+                  <div class="kpi-delta mid"></div>
+                </div>
+              </div>
+              <!-- Chart + reviews -->
+              <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:8px;">
+                <div class="chart-block">
+                  <div class="chart-title"></div>
+                  <div class="bars-row">
+                    <div class="bar f" style="height:65%"></div>
+                    <div class="bar f" style="height:80%"></div>
+                    <div class="bar a" style="height:55%"></div>
+                    <div class="bar f" style="height:90%"></div>
+                    <div class="bar f" style="height:70%"></div>
+                    <div class="bar a" style="height:45%"></div>
+                    <div class="bar f" style="height:75%"></div>
+                  </div>
+                </div>
+                <div style="background:var(--paper);border:1px solid var(--border);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:7px;">
+                  <div style="height:7px;width:80px;background:var(--ink);border-radius:2px;opacity:0.6;"></div>
+                  <div class="review-card" style="padding:7px 9px">
+                    <div class="review-header">
+                      <div class="reviewer-avatar" style="width:18px;height:18px;"></div>
+                      <div class="reviewer-name" style="width:40%"></div>
+                      <div class="review-stars" style="margin-left:auto"><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div></div>
+                    </div>
+                    <div class="review-body"></div>
+                    <div style="height:16px;padding:0 8px;background:var(--coral-l);border:1px solid rgba(232,85,42,0.2);border-radius:5px;width:fit-content;display:flex;align-items:center;margin-top:2px;"><div style="height:4px;width:30px;background:var(--coral);border-radius:2px;"></div></div>
+                  </div>
+                  <div class="review-card" style="padding:7px 9px">
+                    <div class="review-header">
+                      <div class="reviewer-avatar" style="width:18px;height:18px;background:var(--amber-l);"></div>
+                      <div class="reviewer-name" style="width:35%"></div>
+                      <div class="review-stars" style="margin-left:auto"><div class="r-star"></div><div class="r-star"></div><div class="r-star"></div><div class="r-star" style="opacity:0.3"></div><div class="r-star" style="opacity:0.3"></div></div>
+                    </div>
+                    <div class="review-body"></div>
+                    <div style="height:16px;padding:0 8px;background:var(--coral-l);border:1px solid rgba(232,85,42,0.2);border-radius:5px;width:fit-content;display:flex;align-items:center;margin-top:2px;"><div style="height:4px;width:30px;background:var(--coral);border-radius:2px;"></div></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Venue management table -->
+              <div class="table-mock">
+                <div class="table-head">
+                  <div class="t-search"><div class="t-search-ph"></div></div>
+                  <div class="t-btn"><div class="t-btn-text"></div></div>
+                </div>
+                <div class="t-col-heads">
+                  <div class="t-col-h"></div><div class="t-col-h"></div><div class="t-col-h"></div><div class="t-col-h"></div>
+                </div>
+                <div class="t-row">
+                  <div class="t-cell bold" style="width:80%"></div>
+                  <div class="t-cell" style="width:60%"></div>
+                  <div class="t-status ok"><div class="t-st-text"></div></div>
+                  <div class="t-status ok"><div class="t-st-text"></div></div>
+                </div>
+                <div class="t-row">
+                  <div class="t-cell bold" style="width:75%"></div>
+                  <div class="t-cell" style="width:55%"></div>
+                  <div class="t-status warn"><div class="t-st-text"></div></div>
+                  <div class="t-status pend"><div class="t-st-text"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spec panels -->
+        <div class="spec-panels">
+          <div class="sp biz">
+            <div class="sp-label">🗂️ Layout Structure</div>
+            <h4>Dark sidebar + light main content — clear role separation</h4>
+            <ul>
+              <li><strong>Sidebar (160px fixed, ink background):</strong> Kalcer.ID coral logo mark top. Nav: Dashboard · My Venue · Reviews · Analytics · Images · Hours · Settings. Icon + label. Bottom: Profile + Logout.</li>
+              <li><strong>Topbar (56px, warm background, sticky):</strong> Page title left. Right: Notification bell (amber badge for new reviews) + "Preview my listing →" button (coral outline) + avatar.</li>
+              <li>"Preview listing" CTA is unique to the business portal — lets owner see exactly how their page appears to end-users. Critical feedback loop.</li>
+            </ul>
+          </div>
+
+          <div class="sp dec">
+            <div class="sp-label">🔔 Notification / Alert Strip</div>
+            <h4>Amber strip for pending actions — renders before KPIs</h4>
+            <ul>
+              <li>Only renders when actionable items exist: new reviews awaiting response, incomplete listing fields, verification pending, operational hours not set.</li>
+              <li>Format: amber dot + description text + "Review now →" button (amber fill). Dismissable.</li>
+              <li>This is the equivalent of the 4h admin drain fix for business owners — they see exactly what needs doing first.</li>
+            </ul>
+          </div>
+
+          <div class="sp sys">
+            <div class="sp-label">📊 KPI Cards — 3 Core Metrics</div>
+            <h4>Top-border semantic color system</h4>
+            <ul>
+              <li><strong>Card anatomy:</strong> 2.5px top border (semantic color) + label (11px muted) + large number (Syne 700, 26px) + delta chip ("↑ 14% this week").</li>
+              <li>🔴 Coral: "Profile Views" — primary visibility metric.</li>
+              <li>🟢 Green: "Total Check-ins" — community engagement proof.</li>
+              <li>🟡 Amber: "Reviews this month" — reputation health signal.</li>
+              <li>Each card clickable → navigates to detailed breakdown view.</li>
+            </ul>
+          </div>
+
+          <div class="sp sys">
+            <div class="sp-label">📈 Analytics Chart</div>
+            <h4>7-day views chart (60% width) + Recent Reviews (40%)</h4>
+            <ul>
+              <li><strong>Bar chart:</strong> Profile views per day. Coral bars. Amber bars for days with <50% of average. X-axis: abbreviated day names. Y-axis: minimal — only max value shown.</li>
+              <li><strong>Review feed panel:</strong> Last 3 reviews shown as compact cards. Star rating + truncated text + "Respond" coral button. Clicking opens full response composer in a side panel (no page nav).</li>
+            </ul>
+          </div>
+
+          <div class="sp act">
+            <div class="sp-label">🏢 Venue Management Sections</div>
+            <h4>Four distinct editor zones (sidebar nav items)</h4>
+            <ul>
+              <li><strong>My Venue (info editor):</strong> Single-column form with sections: Basic Info (name, category, description) / Location / Contact / Vibe Tags. Auto-saves on field blur — no "save" button anxiety. Unsaved indicator chip top-right if changes pending.</li>
+              <li><strong>Operational Hours:</strong> Table-style editor: rows for each day. Toggle switch (On/Off) left. From/To time pickers right. "Copy to all days" quick action. Holiday dates section below. Saves in real-time via Livewire, reflects on public page instantly.</li>
+              <li><strong>Image Manager:</strong> Drag-and-drop grid. Cover photo = first slot (labelled). Max 10 images. Reorder by dragging. Delete on hover (X overlay). Upload progress bar per image. Accepted: JPG/PNG/WebP under 5MB.</li>
+              <li><strong>Review Management:</strong> Full review table with filter (All / Responded / Unanswered). Each row: user, rating, date, snippet. "Reply" button opens inline text field below row — contextual, no modal.</li>
+            </ul>
+          </div>
+
+          <div class="copy-block">
+            <strong>Auto-save indicator copy</strong>
+            "Changes saved automatically · Last saved just now"
+          </div>
+
+          <div class="copy-block">
+            <strong>Verification pending state copy</strong>
+            "Your venue is under review by our team. This usually takes 24–48 hours. We'll email you at [address] when it's live."
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.wf-grid -->
+</div>

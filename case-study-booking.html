@@ -1,0 +1,1101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="FsiBoard - Farhan Kholid - Case Study" />
+    <title>FsiBoard - UI/UX Case Study</title>
+    <link rel="icon" type="image/webp" href="./assets/img/logo.webp">
+
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Outfit", "sans-serif"],
+              syne: ["Syne", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .clay-card {
+        background-color: #ffffff;
+        border-radius: 2rem;
+        box-shadow: 15px 15px 30px #d1d9e6, -15px -15px 30px #ffffff, inset -5px -5px 10px rgba(0, 0, 0, 0.03), inset 5px 5px 10px rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+      }
+      .clay-btn {
+        background-color: #f0f5f9;
+        border-radius: 9999px;
+        box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff, inset -3px -3px 6px rgba(0, 0, 0, 0.02), inset 3px 3px 6px rgba(255, 255, 255, 0.8);
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border: none;
+        color: #1e293b;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .clay-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 10px 10px 20px #ccdbed, -10px -10px 20px #ffffff, inset -5px -5px 10px rgba(0, 0, 0, 0.05), inset 5px 5px 10px rgba(255, 255, 255, 0.9);
+      }
+      .dark .clay-card {
+        background-color: #1e293b;
+        box-shadow: 15px 15px 30px #0f172a, -15px -15px 30px #24354a, inset -5px -5px 10px rgba(0, 0, 0, 0.4), inset 5px 5px 10px rgba(255, 255, 255, 0.05);
+      }
+      .dark .clay-btn {
+        background-color: #1e293b;
+        color: #f1f5f9;
+        box-shadow: 8px 8px 16px #0f172a, -8px -8px 16px #24354a, inset -3px -3px 6px rgba(0, 0, 0, 0.3), inset 3px 3px 6px rgba(255, 255, 255, 0.05);
+      }
+      .dark .clay-btn:hover {
+        box-shadow: 10px 10px 20px #0a0f1c, -10px -10px 20px #2a3d57, inset -5px -5px 10px rgba(0, 0, 0, 0.5), inset 5px 5px 10px rgba(255, 255, 255, 0.1);
+      }
+      img.placeholder-img {
+        background-color: #e2e8f0;
+        width: 100%;
+        min-height: 300px;
+        object-fit: cover;
+      }
+      .dark img.placeholder-img { background-color: #334155; }
+
+/* FsiBoard Custom Styles */
+:root {
+  --navy:    #0B1120;
+  --navy2:   #111827;
+  --navy3:   #1A2236;
+  --navy4:   #232F45;
+  --border:  rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --teal:    #0EA5E9;
+  --teal2:   #38BDF8;
+  --teal-dim:#0EA5E920;
+  --ok:      #10B981;
+  --ok-dim:  #10B98120;
+  --ok-bg:   #052e1a;
+  --warn:    #F59E0B;
+  --warn-dim:#F59E0B20;
+  --warn-bg: #2d1f03;
+  --err:     #EF4444;
+  --err-dim: #EF444420;
+  --err-bg:  #2d0a0a;
+  --info:    #60A5FA;
+  --info-dim:#60A5FA20;
+  --txt:     #F1F5F9;
+  --txt2:    #94A3B8;
+  --txt3:    #64748B;
+  --grad:    linear-gradient(135deg,#0EA5E9,#6366F1);
+  --radius:  16px;
+  --radius-sm:10px;
+  --shadow:  0 4px 24px rgba(0,0,0,0.5);
+  --shadow2: 0 12px 48px rgba(0,0,0,0.6);
+}
+
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+@keyframes scan{0%,100%{top:15%}50%{top:75%}}
+
+/* TABS */
+.tabs{display:flex;gap:4px;background:var(--navy2);border:1px solid var(--border2);border-radius:var(--radius-sm);padding:4px;margin-bottom:24px;width:fit-content;}
+.tab{padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;color:var(--txt3);border:none;background:transparent;font-family:'Outfit',sans-serif;}
+.tab.on{background:var(--navy4);color:var(--teal2);border:1px solid rgba(14,165,233,0.25);}
+.pane{display:none;} .pane.on{display:block;}
+
+/* MERMAID */
+.mw{background:var(--navy2);border:1px solid var(--border2);border-radius:var(--radius);padding:36px 28px;overflow-x:auto;box-shadow:var(--shadow);}
+.mw .mermaid{min-width:620px;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:18px;background:var(--navy2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 20px;}
+.li{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--txt2);font-weight:500;}
+.ld{width:11px;height:11px;border-radius:3px;flex-shrink:0;}
+.fn{margin-top:20px;background:var(--navy3);border-left:3px solid var(--teal);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px;font-size:13.5px;color:var(--txt2);}
+.fn strong{color:var(--teal2);}
+
+/* WF CARDS */
+.wf-grid{display:flex;flex-direction:column;gap:56px;}
+.wc{background:var(--navy2);border:1px solid var(--border2);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:box-shadow .3s;}
+.wc:hover{box-shadow:var(--shadow2);}
+.wh{background:var(--navy3);border-bottom:1px solid var(--border2);padding:22px 32px;display:flex;align-items:center;gap:16px;}
+.wh-num{width:46px;height:46px;background:var(--grad);border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:#fff;flex-shrink:0;}
+.wh-txt h3{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;color:var(--txt);}
+.wh-txt p{color:var(--txt3);font-size:13px;}
+.wh-badge{margin-left:auto;background:var(--navy4);border:1px solid var(--border2);color:var(--txt2);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:100px;white-space:nowrap;}
+.wh-badge.mob{color:var(--teal2);border-color:rgba(14,165,233,0.3);background:var(--teal-dim);}
+.wb{padding:32px;}
+
+/* DESKTOP MOCKUP */
+.dmock{background:var(--navy);border:1px solid var(--border2);border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.5);margin-bottom:32px;}
+.dtb{background:var(--navy3);height:32px;display:flex;align-items:center;padding:0 14px;gap:6px;border-bottom:1px solid var(--border);}
+.dot{width:10px;height:10px;border-radius:50%;}
+.dc{display:grid;grid-template-columns:200px 1fr;min-height:320px;}
+.dsb{background:var(--navy2);border-right:1px solid var(--border);padding:16px 12px;display:flex;flex-direction:column;gap:4px;}
+.dlogo{display:flex;align-items:center;gap:8px;padding:8px 8px 16px;border-bottom:1px solid var(--border);margin-bottom:8px;}
+.dlm{width:24px;height:24px;background:var(--grad);border-radius:6px;}
+.dlt{height:9px;width:70px;background:var(--txt);border-radius:3px;opacity:.8;}
+.dni{height:32px;border-radius:7px;display:flex;align-items:center;padding:0 10px;gap:8px;}
+.dni.on{background:var(--teal-dim);border:1px solid rgba(14,165,233,0.2);}
+.dnd{width:14px;height:14px;border-radius:4px;background:var(--navy4);flex-shrink:0;}
+.dni.on .dnd{background:var(--teal);}
+.dnl{height:6px;border-radius:3px;background:var(--navy4);flex:1;}
+.dni.on .dnl{background:var(--teal2);opacity:.7;}
+.dm{padding:20px;display:flex;flex-direction:column;gap:12px;}
+.dtop{display:flex;align-items:center;gap:10px;}
+.dptl{height:12px;width:140px;background:var(--txt);border-radius:3px;opacity:.8;}
+.dsrch{height:26px;width:140px;background:var(--navy3);border:1px solid var(--border2);border-radius:7px;}
+.dav{width:28px;height:28px;border-radius:50%;background:var(--teal-dim);border:2px solid var(--teal);}
+.dsr{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.dsc{background:var(--navy3);border:1px solid var(--border);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:6px;}
+.dsc.ok{border-color:rgba(16,185,129,0.3);background:var(--ok-bg);}
+.dsc.wa{border-color:rgba(245,158,11,0.3);background:var(--warn-bg);}
+.dsc.er{border-color:rgba(239,68,68,0.3);background:var(--err-bg);}
+.dsc.in{border-color:rgba(96,165,250,0.3);background:rgba(30,58,138,.3);}
+.dscv{height:14px;border-radius:3px;width:50%;}
+.dsc.ok .dscv{background:var(--ok);} .dsc.wa .dscv{background:var(--warn);} .dsc.er .dscv{background:var(--err);} .dsc.in .dscv{background:var(--info);}
+.dscl{height:6px;width:70%;background:var(--txt3);border-radius:2px;}
+.dtbl{background:var(--navy3);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.dth{background:var(--navy4);display:flex;border-bottom:1px solid var(--border);}
+.dthc{flex:1;height:26px;display:flex;align-items:center;padding:0 10px;}
+.dthl{height:5px;width:60%;background:var(--txt3);border-radius:2px;}
+.dr{display:flex;align-items:center;border-bottom:1px solid var(--border);}
+.dr:last-child{border-bottom:none;}
+.drc{flex:1;height:30px;display:flex;align-items:center;padding:0 10px;}
+.drl{height:6px;border-radius:2px;background:var(--txt2);opacity:.4;}
+.dbg{height:18px;padding:0 8px;border-radius:100px;display:flex;align-items:center;gap:4px;}
+.dbd{width:5px;height:5px;border-radius:50%;}
+.dbt{height:5px;border-radius:2px;width:36px;}
+.dbg.ok{background:var(--ok-dim);} .dbg.ok .dbd,.dbg.ok .dbt{background:var(--ok);}
+.dbg.wa{background:var(--warn-dim);} .dbg.wa .dbd,.dbg.wa .dbt{background:var(--warn);}
+.dbg.er{background:var(--err-dim);} .dbg.er .dbd,.dbg.er .dbt{background:var(--err);}
+.dbg.in{background:var(--info-dim);} .dbg.in .dbd,.dbg.in .dbt{background:var(--info);}
+.dch{background:var(--navy3);border:1px solid var(--border);border-radius:10px;padding:12px;height:80px;display:flex;align-items:flex-end;gap:5px;}
+.db{flex:1;border-radius:4px 4px 0 0;background:var(--teal-dim);border:1px solid rgba(14,165,233,0.3);}
+.ddr{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.ddc{background:var(--navy3);border:1px solid var(--border);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:6px;}
+.ddc.ok{border-color:rgba(16,185,129,0.35);} .ddc.wa{border-color:rgba(245,158,11,0.35);} .ddc.er{border-color:rgba(239,68,68,0.35);}
+.ddth{height:44px;border-radius:7px;background:var(--navy4);display:flex;align-items:center;justify-content:center;}
+.ddti{width:20px;height:26px;border-radius:3px;}
+.ddc.ok .ddti{background:var(--ok-dim);border:1px solid var(--ok);} .ddc.wa .ddti{background:var(--warn-dim);border:1px solid var(--warn);} .ddc.er .ddti{background:var(--err-dim);border:1px solid var(--err);}
+.ddnm{height:7px;width:70%;background:var(--txt2);border-radius:2px;opacity:.7;}
+.dda{display:flex;gap:5px;margin-top:2px;}
+.dbn{height:22px;border-radius:6px;flex:1;display:flex;align-items:center;justify-content:center;}
+.dbt2{height:5px;width:55%;border-radius:2px;}
+.dbn.pri{background:var(--teal-dim);border:1px solid rgba(14,165,233,0.3);} .dbn.pri .dbt2{background:var(--teal2);}
+.dbn.dan{background:var(--err-dim);border:1px solid rgba(239,68,68,0.3);} .dbn.dan .dbt2{background:var(--err);}
+.dtl{display:flex;flex-direction:column;gap:8px;}
+.dfr{background:var(--navy3);border:1px solid var(--border);border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:10px;}
+.dfr.del{border-color:rgba(245,158,11,0.4);background:var(--warn-bg);} .dfr.ok{border-color:rgba(16,185,129,0.3);background:var(--ok-bg);}
+.dft{width:36px;} .dftl{height:8px;border-radius:3px;background:var(--teal);}
+.dfi{flex:1;display:flex;flex-direction:column;gap:4px;}
+.dfn{height:7px;width:60%;border-radius:2px;background:var(--txt);opacity:.7;}
+.dfs{height:5px;width:40%;border-radius:2px;background:var(--txt3);}
+.dfbw{width:80px;height:8px;background:var(--navy4);border-radius:4px;overflow:hidden;}
+.dfbf{height:100%;border-radius:4px;}
+.dfr.ok .dfbf{background:var(--ok);width:85%;} .dfr.del .dfbf{background:var(--warn);width:40%;} .dfr:not(.ok):not(.del) .dfbf{background:var(--info);width:60%;}
+
+/* PHONE */
+.pw{display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;}
+.pm{width:226px;flex-shrink:0;border:2.5px solid var(--border2);border-radius:36px;overflow:hidden;background:var(--navy2);box-shadow:0 12px 48px rgba(0,0,0,0.6),inset 0 0 0 1px rgba(255,255,255,.05);}
+.pn{background:var(--navy);height:28px;display:flex;align-items:center;justify-content:center;}
+.pn::after{content:'';width:56px;height:8px;background:var(--navy3);border-radius:4px;}
+.ps{padding:14px 13px;display:flex;flex-direction:column;gap:8px;min-height:460px;}
+.mtop{display:flex;align-items:center;gap:8px;}
+.mlm{width:22px;height:22px;background:var(--grad);border-radius:6px;flex-shrink:0;}
+.mtl{height:9px;width:80px;background:var(--txt);border-radius:3px;opacity:.8;}
+.mav{width:26px;height:26px;border-radius:50%;background:var(--teal-dim);border:1.5px solid var(--teal);flex-shrink:0;}
+.mpc{background:var(--navy3);border:1px solid var(--border2);border-radius:12px;padding:10px;display:flex;align-items:center;gap:8px;}
+.mpc.ok{border-color:rgba(16,185,129,.4);} .mpc.wa{border-color:rgba(245,158,11,.4);} .mpc.er{border-color:rgba(239,68,68,.4);}
+.masm{width:32px;height:32px;border-radius:50%;background:var(--navy4);flex-shrink:0;}
+.mpi{flex:1;display:flex;flex-direction:column;gap:4px;}
+.mpn{height:7px;width:70%;background:var(--txt);border-radius:2px;opacity:.85;}
+.mps{height:5px;width:50%;background:var(--txt3);border-radius:2px;}
+.mpl{height:18px;padding:0 7px;border-radius:100px;display:flex;align-items:center;}
+.mplt{height:5px;width:32px;border-radius:2px;}
+.mpl.ok{background:var(--ok-dim);} .mpl.ok .mplt{background:var(--ok);}
+.mpl.wa{background:var(--warn-dim);} .mpl.wa .mplt{background:var(--warn);}
+.mpl.er{background:var(--err-dim);} .mpl.er .mplt{background:var(--err);}
+.mab{height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;gap:6px;}
+.mab.pri{background:var(--grad);} .mab.gh{background:var(--navy3);border:1px solid var(--border2);}
+.mabt{height:7px;width:50%;border-radius:2px;background:rgba(255,255,255,.8);}
+.mab.gh .mabt{background:var(--txt2);}
+.mpb{height:4px;background:var(--navy4);border-radius:2px;overflow:hidden;}
+.mpbf{height:100%;border-radius:2px;background:var(--grad);}
+.mdiv{height:1px;background:var(--border);}
+.mlbl{height:5px;border-radius:2px;background:var(--txt3);}
+.mval{height:7px;border-radius:2px;background:var(--txt2);}
+.msr{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.msc{background:var(--navy3);border:1px solid var(--border);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:5px;}
+.msc.ok{border-color:rgba(16,185,129,.35);background:var(--ok-bg);} .msc.wa{border-color:rgba(245,158,11,.35);background:var(--warn-bg);}
+.mscv{height:14px;width:45%;border-radius:3px;}
+.msc.ok .mscv{background:var(--ok);} .msc.wa .mscv{background:var(--warn);}
+.mscl{height:5px;width:70%;border-radius:2px;background:var(--txt3);}
+.msh{background:var(--navy3);border:1px solid var(--border2);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:8px;}
+.mchr{display:flex;gap:5px;flex-wrap:wrap;}
+.mch{height:22px;padding:0 8px;border-radius:100px;display:flex;align-items:center;}
+.mcht{height:5px;width:36px;border-radius:2px;}
+.mch.def{background:var(--navy4);border:1px solid var(--border2);} .mch.def .mcht{background:var(--txt3);}
+.mch.act{background:var(--teal-dim);border:1px solid rgba(14,165,233,.3);} .mch.act .mcht{background:var(--teal2);}
+.msync{display:flex;align-items:center;gap:6px;}
+.msd{width:7px;height:7px;border-radius:50%;background:var(--ok);animation:blink 2s ease-in-out infinite;flex-shrink:0;}
+.mst{height:5px;width:80px;background:var(--ok);border-radius:2px;opacity:.7;}
+
+/* SPEC */
+.sg{display:flex;flex-direction:column;gap:16px;}
+.sp{border-left:2px solid var(--teal);background:var(--navy3);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px;}
+.sp.ok{border-color:var(--ok);} .sp.wa{border-color:var(--warn);} .sp.er{border-color:var(--err);} .sp.ac{border-color:#F59E0B;} .sp.sy{border-color:var(--info);}
+.spl{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--teal2);margin-bottom:5px;}
+.sp.ok .spl{color:var(--ok);} .sp.wa .spl{color:var(--warn);} .sp.er .spl{color:var(--err);} .sp.ac .spl{color:#F59E0B;} .sp.sy .spl{color:var(--info);}
+.sp h4{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--txt);margin-bottom:8px;}
+.sp ul{list-style:none;display:flex;flex-direction:column;gap:5px;padding-left:0;}
+.sp ul li{font-size:13px;color:var(--txt2);padding-left:16px;position:relative;line-height:1.55;}
+.sp ul li::before{content:'→';position:absolute;left:0;color:var(--teal2);font-weight:700;}
+.sp.ok ul li::before{color:var(--ok);} .sp.wa ul li::before{color:var(--warn);} .sp.er ul li::before{color:var(--err);} .sp.ac ul li::before{color:#F59E0B;} .sp.sy ul li::before{color:var(--info);}
+.co{background:var(--navy3);border:1px solid rgba(245,158,11,.3);border-radius:var(--radius-sm);padding:13px 18px;font-size:13px;color:var(--txt2);}
+.co strong{color:#F59E0B;font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:3px;}
+.ar{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+.an{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:500;color:var(--txt3);background:var(--navy3);border:1px solid var(--border2);padding:3px 10px;border-radius:100px;}
+.an::before{content:'◆';color:var(--teal);font-size:7px;}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;margin-top:20px;}
+@media(max-width:760px){.two{grid-template-columns:1fr;}}
+.dv{height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent);margin:24px 0;}
+    </style>
+  </head>
+  <body class="antialiased font-sans bg-[#F0F5F9] dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300">
+    
+    <!-- Navbar -->
+    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 clay-card px-6 py-3 flex items-center gap-6">
+      <a href="index.html" class="font-bold text-slate-600 dark:text-slate-300 hover:text-[#0ea5e9] transition-colors flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> Back to Home
+      </a>
+      <div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
+      <span class="font-syne font-bold truncate max-w-[200px]">FsiBoard</span>
+    </nav>
+
+    <main class="w-full max-w-5xl mx-auto px-6 py-32 flex flex-col gap-16">
+      
+      <!-- Hero -->
+      <section class="text-center pt-8">
+        <div class="inline-block clay-btn px-6 py-2 mb-6 text-sm font-bold tracking-widest text-[#0ea5e9]">
+          CASE STUDY
+        </div>
+        <h1 class="font-syne font-black text-5xl md:text-7xl mb-6 leading-tight">FsiBoard</h1>
+        <p class="text-xl text-slate-500 max-w-3xl mx-auto mb-12">Umrah and Hajj Management System Dashboard built to monitor pilgrim data and daily operations efficiently in real-time.</p>
+        
+        <div class="clay-card rounded-[2rem] overflow-hidden aspect-video relative">
+          <img src="./assets/img/porto-fe_6.webp" class="w-full h-full object-contain bg-[#f8fafc] dark:bg-slate-900 placeholder-img" alt="FsiBoard Hero Image">
+        </div>
+      </section>
+
+      <!-- Section: Problem -->
+      <section class="clay-card p-10 md:p-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">01</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">The Problem</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          Prior to this platform, Hajj and Umrah travel agencies managed thousands of pilgrims using fragmented systems: primarily chaotic Excel spreadsheets and unstructured WhatsApp groups. This led to scattered travel documents, lost passport data, uncoordinated flight schedules, and severe miscommunication between the central office administrators and the on-the-ground guides (mutawwifs) in Saudi Arabia. The lack of a centralized "source of truth" resulted in heightened anxiety for both the agency and the pilgrims.
+        </p>
+      </section>
+
+      <!-- Section: Research -->
+      <section class="clay-card p-10 md:p-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">02</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">Research & Insights</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
+          Through contextual inquiry and interviews with travel agency staff and field guides, we uncovered the core bottlenecks in their daily operations.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-2 text-[#0ea5e9]">Insight 1: Time Drain</h4>
+            <p class="text-slate-600 dark:text-slate-400">Administrators spent over 4 hours daily just manually reconciling pilgrim manifests and checking visa statuses across different portals.</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-2 text-[#0ea5e9]">Insight 2: Mobile Dependency</h4>
+            <p class="text-slate-600 dark:text-slate-400">Field guides (Mutawwifs) needed a mobile-first way to update pilgrim statuses (e.g., "Arrived at Hotel") instantly without navigating complex desktop UIs.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: User Flow -->
+      <section class="clay-card p-10 md:p-16 mb-8">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-[#0ea5e9]/10 text-[#0ea5e9] flex items-center justify-center font-black text-xl">03</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">Dual-Role User Flow Architecture</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
+          Two complete flows — Admin (desktop-first) and Mutawwif/Field Guide (mobile-first) — showing how both roles interconnect in real time. Each includes user actions, system responses, and decision nodes.
+        </p>
+
+        <div class="tabs">
+          <button class="tab on" onclick="sw('admin',this)">🖥 Admin Flow (Desktop)</button>
+          <button class="tab" onclick="sw('mut',this)">📱 Mutawwif Flow (Mobile)</button>
+        </div>
+
+        <!-- ADMIN -->
+        <div class="pane on" id="tab-admin">
+          <div class="mw">
+            <div class="mermaid">
+      flowchart TD
+          A([👤 Admin logs in — Desktop]) --> B[Dashboard loads\nLive KPI widgets render]
+          B --> C{Critical alerts\nflagged?}
+          C -- 🔴 Yes → red badge --> D[Click alert badge\nExpanded alert drawer opens]
+          D --> E{Alert type?}
+          E -- Visa Expiry Warning --> F[Navigate to Manifest\nFiltered by expiry risk]
+          E -- Flight Delay Detected --> G[Navigate to Flight Board\nAffected group highlighted amber]
+          E -- Missing Document --> H[Navigate to Doc Verification\nIncomplete records queue]
+          C -- ✅ No alerts --> I[Review KPI cards\nVisas approved · Pending · Rejected]
+          I --> J[Navigate to Pilgrim Manifest]
+          F --> J
+          H --> J
+          J --> K[Search or filter by\ngroup · status · flight]
+          K --> L[Click pilgrim row\nSide panel slides in — full profile]
+          L --> M{Document status?}
+          M -- ✅ All verified --> N[Mark pilgrim Ready\nBadge turns green · log entry created]
+          M -- ⚠️ Pending review --> O[Open doc preview modal\nCompare vs requirements]
+          M -- ❌ Missing or invalid --> P[Flag as Incomplete\nAuto-notif pushed to mutawwif]
+          O --> Q{Document valid?}
+          Q -- ✅ Approve --> R[Click Approve\nTimestamp + admin ID logged]
+          Q -- ❌ Reject --> S[Click Reject → enter reason\nReason stored · visible to mutawwif]
+          R --> N
+          S --> T[Pilgrim enters\nAction Required queue]
+          N --> U[Navigate to Flight Board]
+          G --> U
+          T --> U
+          U --> V[View flight timeline\nGroups colour-coded by status]
+          V --> W{Flight changes\nneeded?}
+          W -- Yes --> X[Drag group chip to\nnew flight slot]
+          X --> Y{Conflict\ndetected?}
+          Y -- ✅ No conflict --> Z[Save · push to mutawwifs' devices\nActivity log entry created]
+          Y -- ❌ Overbooking --> AA[Warning modal:\nSuggest alternative flight]
+          AA --> X
+          W -- No changes --> Z
+          Z --> AB([✅ Session complete\nAll changes logged and synced])
+
+          style A fill:#0EA5E9,color:#fff,stroke:none
+          style AB fill:#10B981,color:#fff,stroke:none
+          style C fill:#1A2236,color:#94A3B8,stroke:#F59E0B,stroke-width:1.5px
+          style E fill:#1A2236,color:#94A3B8,stroke:#F59E0B,stroke-width:1.5px
+          style M fill:#1A2236,color:#94A3B8,stroke:#F59E0B,stroke-width:1.5px
+          style Q fill:#1A2236,color:#94A3B8,stroke:#F59E0B,stroke-width:1.5px
+          style W fill:#1A2236,color:#94A3B8,stroke:#F59E0B,stroke-width:1.5px
+          style Y fill:#1A2236,color:#94A3B8,stroke:#F59E0B,stroke-width:1.5px
+          style T fill:#2d0a0a,color:#EF4444,stroke:#EF4444
+          style AA fill:#2d1f03,color:#F59E0B,stroke:#F59E0B
+          style P fill:#2d1f03,color:#F59E0B,stroke:#F59E0B
+            </div>
+          </div>
+          <div class="legend">
+            <div class="li"><div class="ld" style="background:#0EA5E9"></div>Entry node</div>
+            <div class="li"><div class="ld" style="background:#10B981"></div>Success end</div>
+            <div class="li"><div class="ld" style="background:#1A2236;border:1.5px solid #F59E0B"></div>Decision node</div>
+            <div class="li"><div class="ld" style="background:#2d0a0a;border:1px solid #EF4444"></div>Error / flagged state</div>
+            <div class="li"><div class="ld" style="background:#2d1f03;border:1px solid #F59E0B"></div>Warning / conflict</div>
+          </div>
+          <div class="fn"><strong>Insight 1 (Time Drain) addressed:</strong> The alert badge system surfaces critical issues within 10 seconds of login — no spreadsheet scanning. Approve/Reject is a single click with auto-logged timestamps, eliminating the 4-hour daily reconciliation entirely.</div>
+        </div>
+
+        <!-- MUTAWWIF -->
+        <div class="pane" id="tab-mut">
+          <div class="mw">
+            <div class="mermaid">
+      flowchart TD
+          A([📱 Mutawwif opens app\nmobile device]) --> B[PIN or biometric login\nNo complex password form]
+          B --> C{Network\navailable?}
+          C -- ✅ Online --> D[Live sync · admin updates\npull instantly]
+          C -- 📴 Offline --> E[Cached group loads\nAmber offline badge shown]
+          D --> F[Home: My Group list\nPilgrim status cards visible]
+          E --> F
+          F --> G{Mini KPI row\nshows issues?}
+          G -- ⚠️ Amber count > 0 --> H[Tap amber KPI chip\nList filters to problem pilgrims]
+          G -- ✅ All clear --> I[Scroll full group list]
+          H --> J[Tap pilgrim card\nStatus sheet slides up]
+          I --> J
+          J --> K{Action needed?}
+          K -- Update location --> L[Tap Update Status\nPre-set tile grid opens]
+          L --> M[Select tile:\nArrived Hotel · At Haram\nBoarded Bus · Needs Help]
+          M --> N[Confirm tap\nHaptic + green flash]
+          N --> O{Online?}
+          O -- ✅ --> P[Status pushed to server\nAdmin dashboard updates instantly]
+          O -- 📴 --> Q[Status queued locally\nSyncs when connection resumes]
+          Q --> P
+          K -- Report an issue --> R[Tap Report Issue\nIssue type selector opens]
+          R --> S[Select: Health · Lost Item\nMissed Bus · Passport Issue]
+          S --> T[Optional note — 200 chars max\nLarge tap-target text field]
+          T --> U[Submit\nAdmin alert badge fires instantly]
+          K -- View documents --> V[Tap Documents tab\nThumbnails load — view only]
+          V --> W{Admin-flagged\ndocuments?}
+          W -- ❌ Flagged --> X[Read rejection reason\nshown in amber card]
+          W -- ✅ Clear --> Y[View mode — no edit access]
+          P --> Z[Card status updates visually\nTimestamp + mutawwif name logged]
+          U --> Z
+          Z --> AA{More pilgrims?}
+          AA -- Yes --> F
+          AA -- No --> AB[Group summary screen\nAll statuses at a glance]
+          AB --> AC([✅ Field update complete\nAll synced to Admin Dashboard])
+
+          style A fill:#0EA5E9,color:#fff,stroke:none
+          style AC fill:#10B981,color:#fff,stroke:none
+          style C fill:#1A2236,color:#94A3B8,stroke:#F59E0B,stroke-width:1.5px
+          style G fill:#1A2236,color:#94A3B8,stroke:#F59E0B,stroke-width:1.5px
+          style K fill:#1A2236,color:#94A3B8,stroke:#F59E0B,stroke-width:1.5px
+          style O fill:#1A2236,color:#94A3B8,stroke:#F59E0B,stroke-width:1.5px
+          style W fill:#1A2236,color:#94A3B8,stroke:#F59E0B,stroke-width:1.5px
+          style AA fill:#1A2236,color:#94A3B8,stroke:#F59E0B,stroke-width:1.5px
+          style E fill:#1A2236,color:#60A5FA,stroke:#60A5FA
+          style Q fill:#1A2236,color:#60A5FA,stroke:#60A5FA
+          style X fill:#2d0a0a,color:#EF4444,stroke:#EF4444
+            </div>
+          </div>
+          <div class="legend">
+            <div class="li"><div class="ld" style="background:#0EA5E9"></div>Entry</div>
+            <div class="li"><div class="ld" style="background:#10B981"></div>Success end</div>
+            <div class="li"><div class="ld" style="background:#1A2236;border:1.5px solid #F59E0B"></div>Decision</div>
+            <div class="li"><div class="ld" style="background:#1A2236;border:1.5px solid #60A5FA"></div>Offline fallback</div>
+            <div class="li"><div class="ld" style="background:#2d0a0a;border:1px solid #EF4444"></div>Flagged / error</div>
+          </div>
+          <div class="fn"><strong>Insight 2 (Mobile Dependency) addressed:</strong> Pre-set status tiles eliminate keyboard typing entirely. The offline-first queue ensures no update is lost in low-signal zones like the Haram. Every update is timestamped and attributed — replacing all WhatsApp coordination.</div>
+        </div>
+      </section>
+
+      <!-- Section: Wireframes -->
+      <section class="clay-card p-10 md:p-16 mb-8">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-[#0ea5e9]/10 text-[#0ea5e9] flex items-center justify-center font-black text-xl">04</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">Screen-by-Screen Architecture</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
+          Four detailed blueprints — three desktop-first, one mobile-first — with annotated component specs, semantic colour logic, and Figma-ready layout descriptions.
+        </p>
+        
+        <div class="wf-grid">
+
+          <!-- S1: DASHBOARD -->
+          <div class="wc">
+            <div class="wh">
+              <div class="wh-num">S1</div>
+              <div class="wh-txt"><h3>Admin Dashboard</h3><p>Critical metrics surfaced in under 10 seconds of login</p></div>
+              <div class="wh-badge">Desktop · 1440px</div>
+            </div>
+            <div class="wb">
+              <div class="dmock">
+                <div class="dtb">
+                  <div class="dot" style="background:#EF4444"></div><div class="dot" style="background:#F59E0B"></div><div class="dot" style="background:#10B981"></div>
+                  <div style="flex:1;height:8px;background:var(--navy4);border-radius:3px;margin-left:12px;max-width:200px"></div>
+                </div>
+                <div class="dc">
+                  <div class="dsb">
+                    <div class="dlogo"><div class="dlm"></div><div class="dlt"></div></div>
+                    <div class="dni on"><div class="dnd"></div><div class="dnl"></div></div>
+                    <div class="dni"><div class="dnd"></div><div class="dnl"></div></div>
+                    <div class="dni"><div class="dnd"></div><div class="dnl"></div></div>
+                    <div class="dni"><div class="dnd"></div><div class="dnl"></div></div>
+                    <div class="dni"><div class="dnd"></div><div class="dnl"></div></div>
+                    <div style="margin-top:auto"><div class="dni"><div class="dnd"></div><div class="dnl"></div></div></div>
+                  </div>
+                  <div class="dm">
+                    <div class="dtop"><div class="dptl"></div><div style="flex:1"></div><div class="dsrch"></div><div class="dav"></div></div>
+                    <div class="dsr">
+                      <div class="dsc ok"><div class="dscv"></div><div class="dscl"></div></div>
+                      <div class="dsc wa"><div class="dscv"></div><div class="dscl"></div></div>
+                      <div class="dsc er"><div class="dscv"></div><div class="dscl"></div></div>
+                      <div class="dsc in"><div class="dscv"></div><div class="dscl"></div></div>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                      <div class="dtbl">
+                        <div class="dth"><div class="dthc"><div class="dthl"></div></div><div class="dthc"><div class="dthl"></div></div><div class="dthc"><div class="dthl" style="width:40%"></div></div></div>
+                        <div class="dr"><div class="drc"><div class="drl" style="width:70%"></div></div><div class="drc"><div class="dbg ok"><div class="dbd"></div><div class="dbt"></div></div></div><div class="drc"><div class="drl" style="width:50%"></div></div></div>
+                        <div class="dr"><div class="drc"><div class="drl" style="width:60%"></div></div><div class="drc"><div class="dbg wa"><div class="dbd"></div><div class="dbt"></div></div></div><div class="drc"><div class="drl" style="width:40%"></div></div></div>
+                        <div class="dr"><div class="drc"><div class="drl" style="width:75%"></div></div><div class="drc"><div class="dbg er"><div class="dbd"></div><div class="dbt"></div></div></div><div class="drc"><div class="drl" style="width:55%"></div></div></div>
+                      </div>
+                      <div class="dch">
+                        <div class="db" style="height:55%"></div><div class="db" style="height:70%"></div><div class="db" style="height:40%"></div>
+                        <div class="db" style="height:90%;background:var(--teal);border-color:var(--teal)"></div>
+                        <div class="db" style="height:65%"></div><div class="db" style="height:80%"></div><div class="db" style="height:50%"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="two">
+                <div class="sg">
+                  <div class="sp">
+                    <div class="spl">🗂 Layout Structure</div>
+                    <h4>Fixed Sidebar + Fluid Main Area</h4>
+                    <ul>
+                      <li>Sidebar: 220px fixed, dark navy (#111827). Logo top, nav links (icon + label), avatar/logout anchored bottom. Never collapses on desktop.</li>
+                      <li>Top bar: 60px sticky. Page title (Syne 700, 20px) left. Notification bell with red number badge. Global search center. Admin avatar right.</li>
+                      <li>Alert drawer: slides down from top bar (320px height) on bell click — overlays content without full navigation. Dismissible per alert.</li>
+                      <li>Main content: fluid, 24px gutters. Scrollable independently of fixed sidebar.</li>
+                    </ul>
+                  </div>
+                  <div class="sp wa">
+                    <div class="spl">🔴 KPI Card Row — Semantic Colour Logic</div>
+                    <h4>The dashboard's decision-making engine</h4>
+                    <ul>
+                      <li><strong>Card 1 — Visas Approved:</strong> Green tint (#052e1a bg, #10B981 border). Syne 800, 36px value. Icon: shield-check. Clicking = no navigation needed.</li>
+                      <li><strong>Card 2 — Pending Review:</strong> Amber tint. Clock icon. Clicking navigates to manifest filtered to "Pending." Badge shows count.</li>
+                      <li><strong>Card 3 — Issues Flagged:</strong> Red tint (#2d0a0a, #EF4444 border). Pulsing red ring on card if count > 0. Warning triangle icon. Highest visual urgency — eye goes here first.</li>
+                      <li><strong>Card 4 — Flights Today:</strong> Blue tint. Split value: "X on time / Y delayed". Clicking goes to flight board.</li>
+                      <li>All cards: 16px radius, semantic 1px border, hover: lift shadow. Click = contextual navigation shortcut to relevant section.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sg">
+                  <div class="sp sy">
+                    <div class="spl">📊 Secondary Widgets</div>
+                    <h4>Activity Table + Trend Chart (below KPIs)</h4>
+                    <ul>
+                      <li>Left (55%): "Recent Activity" table — Name, Status Badge, Group, Last Updated. 8 visible rows, then scroll. Status badge = semantic pill (green/amber/red dot + label).</li>
+                      <li>Right (45%): "Processing Trend This Week" bar chart — X: days, Y: count. Pure CSS bars in Figma. Current day bar = solid teal. Others = teal-dim. No chart library needed.</li>
+                      <li>Section labels: Syne 600, 12px, uppercase, txt3. Consistent above every widget.</li>
+                    </ul>
+                  </div>
+                  <div class="sp ac">
+                    <div class="spl">⚡ Key Interactions — Insight 1 Fix</div>
+                    <h4>Reducing the 4-hour daily time drain</h4>
+                    <ul>
+                      <li>Red badge on bell → pre-filtered view on click. Admin never searches manually.</li>
+                      <li>Each KPI card click = 1-click contextual navigation to the problem area. No menus.</li>
+                      <li>Keyboard shortcuts visible on hover (e.g. "Press M — Manifest") for daily power users.</li>
+                      <li>Live sync indicator: bottom-left, "Synced 12s ago" with green pulse — removes doubt about data freshness vs. a stale spreadsheet.</li>
+                    </ul>
+                  </div>
+                  <div class="co !bg-[#f0f5f9] dark:!bg-slate-800 !border-[#0ea5e9]/30">
+                    <strong class="!text-[#0ea5e9]">Design rationale — replacing Excel</strong>
+                    The four semantic KPI cards replace "scan 12 tabs." The mental model: admins navigate by colour, not cell reference. Green = no action. Amber = review soon. Red = act immediately.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- S2: MANIFEST -->
+          <div class="wc">
+            <div class="wh">
+              <div class="wh-num">S2</div>
+              <div class="wh-txt"><h3>Pilgrim Manifest &amp; Document Verification</h3><p>Dense data grids transformed into scannable, actionable records</p></div>
+              <div class="wh-badge">Desktop · 1440px</div>
+            </div>
+            <div class="wb">
+              <div class="dmock">
+                <div class="dtb"><div class="dot" style="background:#EF4444"></div><div class="dot" style="background:#F59E0B"></div><div class="dot" style="background:#10B981"></div></div>
+                <div class="dc">
+                  <div class="dsb">
+                    <div class="dlogo"><div class="dlm"></div><div class="dlt"></div></div>
+                    <div class="dni"><div class="dnd"></div><div class="dnl"></div></div>
+                    <div class="dni on"><div class="dnd"></div><div class="dnl"></div></div>
+                    <div class="dni"><div class="dnd"></div><div class="dnl"></div></div>
+                    <div class="dni"><div class="dnd"></div><div class="dnl"></div></div>
+                  </div>
+                  <div class="dm">
+                    <div class="dtop">
+                      <div class="dptl" style="width:160px"></div>
+                      <div style="flex:1"></div>
+                      <div class="dsrch"></div>
+                      <div style="width:80px;height:26px;background:var(--teal-dim);border:1px solid rgba(14,165,233,.3);border-radius:7px"></div>
+                    </div>
+                    <div style="display:flex;gap:6px">
+                      <div style="height:22px;padding:0 10px;background:var(--teal-dim);border:1px solid rgba(14,165,233,.3);border-radius:100px;display:flex;align-items:center"><div style="height:5px;width:40px;background:var(--teal2);border-radius:2px"></div></div>
+                      <div style="height:22px;padding:0 10px;background:var(--navy3);border:1px solid var(--border);border-radius:100px;display:flex;align-items:center"><div style="height:5px;width:30px;background:var(--txt3);border-radius:2px"></div></div>
+                      <div style="height:22px;padding:0 10px;background:var(--warn-bg);border:1px solid rgba(245,158,11,.3);border-radius:100px;display:flex;align-items:center"><div style="height:5px;width:35px;background:var(--warn);border-radius:2px"></div></div>
+                      <div style="height:22px;padding:0 10px;background:var(--err-bg);border:1px solid rgba(239,68,68,.3);border-radius:100px;display:flex;align-items:center"><div style="height:5px;width:30px;background:var(--err);border-radius:2px"></div></div>
+                    </div>
+                    <div class="dtbl">
+                      <div class="dth">
+                        <div class="dthc" style="flex:.1"><div style="width:12px;height:12px;background:var(--navy4);border-radius:3px;border:1px solid var(--border2)"></div></div>
+                        <div class="dthc"><div class="dthl"></div></div><div class="dthc"><div class="dthl"></div></div>
+                        <div class="dthc"><div class="dthl" style="width:70%"></div></div>
+                        <div class="dthc"><div class="dthl" style="width:50%"></div></div>
+                        <div class="dthc"><div class="dthl" style="width:40%"></div></div>
+                      </div>
+                      <div class="dr">
+                        <div class="drc" style="flex:.1"><div style="width:12px;height:12px;background:var(--teal-dim);border-radius:3px;border:1px solid var(--teal)"></div></div>
+                        <div class="drc"><div class="drl" style="width:80%"></div></div>
+                        <div class="drc"><div class="drl" style="width:60%"></div></div>
+                        <div class="drc"><div class="dbg ok"><div class="dbd"></div><div class="dbt"></div></div></div>
+                        <div class="drc"><div class="dbg ok"><div class="dbd"></div><div class="dbt"></div></div></div>
+                        <div class="drc"><div class="drl" style="width:50%"></div></div>
+                      </div>
+                      <div class="dr" style="background:rgba(245,158,11,.04)">
+                        <div class="drc" style="flex:.1"><div style="width:12px;height:12px;background:var(--navy4);border-radius:3px;border:1px solid var(--border2)"></div></div>
+                        <div class="drc"><div class="drl" style="width:70%"></div></div>
+                        <div class="drc"><div class="drl" style="width:55%"></div></div>
+                        <div class="drc"><div class="dbg wa"><div class="dbd"></div><div class="dbt"></div></div></div>
+                        <div class="drc"><div class="dbg wa"><div class="dbd"></div><div class="dbt"></div></div></div>
+                        <div class="drc"><div class="drl" style="width:45%"></div></div>
+                      </div>
+                      <div class="dr" style="background:rgba(239,68,68,.04);border-left:3px solid #EF4444">
+                        <div class="drc" style="flex:.1"><div style="width:12px;height:12px;background:var(--navy4);border-radius:3px;border:1px solid var(--border2)"></div></div>
+                        <div class="drc"><div class="drl" style="width:75%"></div></div>
+                        <div class="drc"><div class="drl" style="width:50%"></div></div>
+                        <div class="drc"><div class="dbg er"><div class="dbd"></div><div class="dbt"></div></div></div>
+                        <div class="drc"><div class="dbg er"><div class="dbd"></div><div class="dbt"></div></div></div>
+                        <div class="drc"><div class="drl" style="width:40%"></div></div>
+                      </div>
+                    </div>
+                    <div class="ddr">
+                      <div class="ddc ok"><div class="ddth"><div class="ddti"></div></div><div class="ddnm"></div><div class="dda"><div class="dbn pri"><div class="dbt2"></div></div></div></div>
+                      <div class="ddc wa"><div class="ddth"><div class="ddti"></div></div><div class="ddnm"></div><div class="dda"><div class="dbn pri"><div class="dbt2"></div></div><div class="dbn dan"><div class="dbt2"></div></div></div></div>
+                      <div class="ddc er"><div class="ddth"><div class="ddti"></div></div><div class="ddnm"></div><div class="dda"><div class="dbn pri"><div class="dbt2"></div></div><div class="dbn dan"><div class="dbt2"></div></div></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="two">
+                <div class="sg">
+                  <div class="sp">
+                    <div class="spl">📋 Manifest Table — Row Design</div>
+                    <h4>The scannable grid (replacing dense Excel rows)</h4>
+                    <ul>
+                      <li>Columns: Checkbox · Pilgrim Name (+ 28px avatar) · Passport No. · Visa Status · Document Status · Group · Actions.</li>
+                      <li>Row height: 48px minimum. 16px horizontal cell padding — no cramming.</li>
+                      <li><strong>Row-level semantic tinting:</strong> Approved = default dark row. Pending = amber row tint (rgba 4%). Flagged = red row tint (rgba 4%) + 3px red left-border accent.</li>
+                      <li>Admins scan the left edge — colour bleeds surface problem rows without reading any text. This is the core grid → card transformation.</li>
+                      <li>Sticky header row on scroll. Bulk-select checkbox in header for batch actions.</li>
+                    </ul>
+                  </div>
+                  <div class="sp ok">
+                    <div class="spl">🏷 Status Badge System</div>
+                    <h4>Semantic pill badges — the anti-spreadsheet pattern</h4>
+                    <ul>
+                      <li><strong>Approved:</strong> Green dot + "Approved" — #10B981 tint, green border + text.</li>
+                      <li><strong>Pending:</strong> Amber dot + "Pending Review" — amber tint.</li>
+                      <li><strong>Rejected:</strong> Red dot + "Rejected" — red tint. Tooltip on hover: rejection reason preview.</li>
+                      <li><strong>Incomplete:</strong> Grey dot + "Missing Docs" — neutral tint + warning icon.</li>
+                      <li>All badges: 18px height, 100px radius, 11px Outfit 600 uppercase. 5px dot left of label. Clicking a badge opens the document panel directly.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sg">
+                  <div class="sp wa">
+                    <div class="spl">🗃 Document Verification Side Panel</div>
+                    <h4>Approve / Reject without leaving the list</h4>
+                    <ul>
+                      <li>Clicking any row opens a 380px right panel (slides in — admin keeps list in view on left).</li>
+                      <li>Panel: pilgrim photo (48px) + name (Syne 700) + group chip at top. Tabs: Documents · Details · History.</li>
+                      <li>Document cards grid: one card per document type (Passport, Visa, Vaccination Certificate). Each card: thumbnail + type label + status badge + Approve / Reject buttons.</li>
+                      <li>Approve: single click, logs timestamp + admin ID instantly. No modal.</li>
+                      <li>Reject: opens inline reason field (required). Reason stored, visible to mutawwif in their app under that pilgrim.</li>
+                    </ul>
+                  </div>
+                  <div class="sp ac">
+                    <div class="spl">🔍 Filter Bar</div>
+                    <h4>Quick-filter chips — instant triage</h4>
+                    <ul>
+                      <li>Chips: "All" · "Pending Review (14)" · "Issues Flagged (6)" · "Ready (203)" · "My Group [A]". Click = instant client-side filter, no reload.</li>
+                      <li>Count in parentheses lets admin triage by volume — highest-count problem first.</li>
+                      <li>Search: filters by name, passport number, group ID in real time. 300ms debounce.</li>
+                      <li>Export button (top right): generates filtered PDF manifest — replaces manual Excel export entirely.</li>
+                    </ul>
+                  </div>
+                  <div class="co !bg-[#f0f5f9] dark:!bg-slate-800 !border-[#0ea5e9]/30">
+                    <strong class="!text-[#0ea5e9]">The grid → card shift</strong>
+                    Row tinting + badge pills + inline panel = admin reads the status of 200 pilgrims in 60 seconds by scanning left-edge colour. Only edge cases need the detail panel opened.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- S3: FLIGHT SCHEDULING -->
+          <div class="wc">
+            <div class="wh">
+              <div class="wh-num">S3</div>
+              <div class="wh-txt"><h3>Flight &amp; Logistics Scheduling</h3><p>Multi-group flight coordination without a spreadsheet</p></div>
+              <div class="wh-badge">Desktop · 1440px</div>
+            </div>
+            <div class="wb">
+              <div class="dmock">
+                <div class="dtb"><div class="dot" style="background:#EF4444"></div><div class="dot" style="background:#F59E0B"></div><div class="dot" style="background:#10B981"></div></div>
+                <div class="dc">
+                  <div class="dsb">
+                    <div class="dlogo"><div class="dlm"></div><div class="dlt"></div></div>
+                    <div class="dni"><div class="dnd"></div><div class="dnl"></div></div>
+                    <div class="dni"><div class="dnd"></div><div class="dnl"></div></div>
+                    <div class="dni on"><div class="dnd"></div><div class="dnl"></div></div>
+                    <div class="dni"><div class="dnd"></div><div class="dnl"></div></div>
+                  </div>
+                  <div class="dm">
+                    <div class="dtop">
+                      <div class="dptl" style="width:180px"></div>
+                      <div style="flex:1"></div>
+                      <div style="display:flex;gap:5px">
+                        <div style="height:26px;width:60px;background:var(--navy3);border:1px solid var(--border2);border-radius:7px"></div>
+                        <div style="height:26px;width:80px;background:var(--teal-dim);border:1px solid rgba(14,165,233,.3);border-radius:7px"></div>
+                      </div>
+                    </div>
+                    <div style="display:flex;gap:4px">
+                      <div style="height:24px;width:54px;background:var(--teal-dim);border:1px solid rgba(14,165,233,.3);border-radius:7px"></div>
+                      <div style="height:24px;width:54px;background:var(--navy3);border:1px solid var(--border);border-radius:7px"></div>
+                      <div style="height:24px;width:54px;background:var(--navy3);border:1px solid var(--border);border-radius:7px"></div>
+                      <div style="height:24px;width:54px;background:var(--navy3);border:1px solid var(--border);border-radius:7px"></div>
+                    </div>
+                    <div style="background:var(--warn-bg);border:1px solid rgba(245,158,11,.35);border-radius:10px;padding:8px 14px;display:flex;align-items:center;gap:8px">
+                      <div style="width:8px;height:8px;background:var(--warn);border-radius:50%;flex-shrink:0"></div>
+                      <div style="height:6px;width:55%;background:var(--warn);border-radius:2px;opacity:.6"></div>
+                      <div style="margin-left:auto;height:20px;width:60px;background:var(--warn-dim);border:1px solid rgba(245,158,11,.4);border-radius:6px"></div>
+                    </div>
+                    <div class="dtl">
+                      <div class="dfr ok">
+                        <div class="dft"><div class="dftl" style="background:var(--ok)"></div><div style="height:4px;width:55%;background:var(--txt3);border-radius:2px;margin-top:3px"></div></div>
+                        <div class="dfi"><div class="dfn"></div><div class="dfs"></div></div>
+                        <div class="dfbw"><div class="dfbf" style="background:var(--ok);width:100%"></div></div>
+                        <div class="dbg ok" style="margin-left:8px"><div class="dbd"></div><div class="dbt"></div></div>
+                      </div>
+                      <div class="dfr del">
+                        <div class="dft"><div class="dftl" style="background:var(--warn)"></div><div style="height:4px;width:55%;background:var(--txt3);border-radius:2px;margin-top:3px"></div></div>
+                        <div class="dfi"><div class="dfn"></div><div class="dfs"></div></div>
+                        <div class="dfbw"><div class="dfbf" style="background:var(--warn);width:40%"></div></div>
+                        <div class="dbg wa" style="margin-left:8px"><div class="dbd"></div><div class="dbt"></div></div>
+                      </div>
+                      <div class="dfr">
+                        <div class="dft"><div class="dftl"></div><div style="height:4px;width:55%;background:var(--txt3);border-radius:2px;margin-top:3px"></div></div>
+                        <div class="dfi"><div class="dfn"></div><div class="dfs"></div></div>
+                        <div class="dfbw"><div class="dfbf" style="background:var(--info);width:65%"></div></div>
+                        <div class="dbg in" style="margin-left:8px"><div class="dbd"></div><div class="dbt"></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="two">
+                <div class="sg">
+                  <div class="sp">
+                    <div class="spl">🗂 Layout Structure</div>
+                    <h4>Timeline Board + Assignment Detail Panel</h4>
+                    <ul>
+                      <li>Main view: chronological flight card list (65% width). Each flight = a "flight row card" — not a spreadsheet row.</li>
+                      <li>Right panel (35%): Group Assignment detail on flight click. Lists assigned groups, headcount, pilgrim status breakdown.</li>
+                      <li>Date tabs at top: Today · Tomorrow · +2 · +3. Today always active on load.</li>
+                      <li>Filter row: Airline dropdown · Destination (Jeddah / Madinah / Istanbul) · Status (On Time / Delayed / Cancelled).</li>
+                    </ul>
+                  </div>
+                  <div class="sp wa">
+                    <div class="spl">⚠️ Delay Alert Banner</div>
+                    <h4>Proactive alert — replaces WhatsApp monitoring</h4>
+                    <ul>
+                      <li>Amber banner pinned below top bar when any flight on the current day is delayed. "⚠ SV 4821 Jeddah — Group B — now 14:30 (was 12:00). View affected pilgrims →"</li>
+                      <li>Banner auto-dismisses once admin opens the affected flight card or manually closes.</li>
+                      <li>This is the critical behaviour change: system pushes the delay to admin. Admin no longer monitors airline WhatsApp groups or calls the airport.</li>
+                    </ul>
+                  </div>
+                  <div class="sp ok">
+                    <div class="spl">✈ Flight Card Row Anatomy</div>
+                    <h4>High-density but visually scannable</h4>
+                    <ul>
+                      <li>Left: departure + arrival time (Syne 600, 14px).</li>
+                      <li>Center: flight number, route, group tag chip, seat count pill ("234/260").</li>
+                      <li>Right: capacity progress bar (booked/total) + status badge.</li>
+                      <li>Row states: On Time = green left-border + green bg tint. Delayed = amber. Cancelled = red. Upcoming = teal/neutral. Delayed rows show "+Xh" amber chip for delay duration.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="sg">
+                  <div class="sp ac">
+                    <div class="spl">🔁 Group Reassignment</div>
+                    <h4>Drag-to-reassign + conflict detection</h4>
+                    <ul>
+                      <li>Group chips inside flight rows are draggable on desktop. Drop onto another flight row triggers reassignment.</li>
+                      <li>On drop: system checks seat capacity. OK → green toast + real-time push notification to all mutawwifs in that group ("Your flight has been updated — new departure 14:30").</li>
+                      <li>Conflict: modal mid-drag — "SV 4823 has 48 seats. Your group has 62 pilgrims. Suggested: SV 4825 (80 seats free)."</li>
+                      <li>All changes logged in sidebar Activity Log: timestamp + admin name + previous vs. new assignment.</li>
+                    </ul>
+                  </div>
+                  <div class="sp sy">
+                    <div class="spl">📡 Live Connection Indicator</div>
+                    <h4>Admin ↔ Mutawwif real-time visibility</h4>
+                    <ul>
+                      <li>Bottom of page: "● Live — 4 mutawwifs online" with green pulse dot. Admin sees which field guides are active.</li>
+                      <li>Saving a flight change auto-pushes an in-app notification to affected mutawwifs. No manual message. No WhatsApp.</li>
+                    </ul>
+                  </div>
+                  <div class="co !bg-[#f0f5f9] dark:!bg-slate-800 !border-[#0ea5e9]/30">
+                    <strong class="!text-[#0ea5e9]">Replacing WhatsApp coordination</strong>
+                    Every flight change auto-notifies the relevant mutawwif in-app. The "compose message to Group B" step is removed from the admin's workflow entirely — the system handles distribution.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- S4: MUTAWWIF APP -->
+          <div class="wc">
+            <div class="wh">
+              <div class="wh-num">S4</div>
+              <div class="wh-txt"><h3>Mutawwif Companion App</h3><p>Field-first UI — minimum taps, maximum clarity in the field</p></div>
+              <div class="wh-badge mob">Mobile · 390px</div>
+            </div>
+            <div class="wb">
+
+              <div class="pw">
+                <!-- Phone 1 -->
+                <div>
+                  <div style="font-size:11px;color:var(--txt3);text-align:center;margin-bottom:8px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Home · My Group</div>
+                  <div class="pm">
+                    <div class="pn"></div>
+                    <div class="ps">
+                      <div class="mtop">
+                        <div class="mlm"></div>
+                        <div style="display:flex;flex-direction:column;gap:3px;flex:1;margin-left:4px">
+                          <div class="mtl" style="width:65px"></div>
+                          <div class="mlbl" style="width:50px"></div>
+                        </div>
+                        <div class="msync"><div class="msd"></div><div class="mst"></div></div>
+                        <div class="mav"></div>
+                      </div>
+                      <div class="msr">
+                        <div class="msc ok"><div class="mscv"></div><div class="mscl"></div></div>
+                        <div class="msc wa"><div class="mscv"></div><div class="mscl"></div></div>
+                      </div>
+                      <div class="mlbl" style="width:55%"></div>
+                      <div class="mchr">
+                        <div class="mch act"><div class="mcht"></div></div>
+                        <div class="mch def"><div class="mcht"></div></div>
+                        <div class="mch def"><div class="mcht"></div></div>
+                      </div>
+                      <div class="mpc ok">
+                        <div class="masm" style="background:var(--ok-dim);border:1.5px solid var(--ok)"></div>
+                        <div class="mpi"><div class="mpn"></div><div class="mps"></div></div>
+                        <div class="mpl ok"><div class="mplt"></div></div>
+                      </div>
+                      <div class="mpc wa">
+                        <div class="masm" style="background:var(--warn-dim);border:1.5px solid var(--warn)"></div>
+                        <div class="mpi"><div class="mpn"></div><div class="mps"></div></div>
+                        <div class="mpl wa"><div class="mplt"></div></div>
+                      </div>
+                      <div class="mpc">
+                        <div class="masm"></div>
+                        <div class="mpi"><div class="mpn"></div><div class="mps"></div></div>
+                        <div class="mpl ok"><div class="mplt"></div></div>
+                      </div>
+                      <div class="mpc er">
+                        <div class="masm" style="background:var(--err-dim);border:1.5px solid var(--err)"></div>
+                        <div class="mpi"><div class="mpn"></div><div class="mps"></div></div>
+                        <div class="mpl er"><div class="mplt"></div></div>
+                      </div>
+                      <div class="mab pri"><div class="mabt" style="width:70%"></div></div>
+                    </div>
+                  </div>
+                  <div class="ar" style="max-width:226px;margin-top:10px">
+                    <div class="an">Live sync dot</div>
+                    <div class="an">Semantic borders</div>
+                  </div>
+                </div>
+
+                <!-- Phone 2 -->
+                <div>
+                  <div style="font-size:11px;color:var(--txt3);text-align:center;margin-bottom:8px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Status Update Sheet</div>
+                  <div class="pm">
+                    <div class="pn"></div>
+                    <div class="ps">
+                      <div class="mtop">
+                        <div style="font-size:20px;line-height:1;color:var(--txt2)">←</div>
+                        <div class="mtl"></div>
+                      </div>
+                      <div style="background:var(--navy3);border:1px solid var(--border2);border-radius:12px;padding:10px;display:flex;align-items:center;gap:8px">
+                        <div class="masm" style="background:var(--teal-dim);border:1.5px solid var(--teal)"></div>
+                        <div class="mpi"><div class="mpn"></div><div class="mps"></div></div>
+                        <div class="mpl wa"><div class="mplt"></div></div>
+                      </div>
+                      <div class="mlbl" style="width:45%"></div>
+                      <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
+                        <div style="height:54px;background:var(--ok-bg);border:1.5px solid rgba(16,185,129,.4);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
+                          <div style="height:7px;width:60%;background:var(--ok);border-radius:2px"></div>
+                          <div style="height:5px;width:40%;background:var(--ok);border-radius:2px;opacity:.5"></div>
+                        </div>
+                        <div style="height:54px;background:var(--navy3);border:1.5px solid var(--border2);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
+                          <div style="height:7px;width:60%;background:var(--txt2);border-radius:2px"></div>
+                          <div style="height:5px;width:40%;background:var(--txt3);border-radius:2px"></div>
+                        </div>
+                        <div style="height:54px;background:var(--navy3);border:1.5px solid var(--border2);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
+                          <div style="height:7px;width:60%;background:var(--txt2);border-radius:2px"></div>
+                          <div style="height:5px;width:40%;background:var(--txt3);border-radius:2px"></div>
+                        </div>
+                        <div style="height:54px;background:var(--err-bg);border:1.5px solid rgba(239,68,68,.4);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px">
+                          <div style="height:7px;width:60%;background:var(--err);border-radius:2px"></div>
+                          <div style="height:5px;width:40%;background:var(--err);border-radius:2px;opacity:.5"></div>
+                        </div>
+                      </div>
+                      <div class="mlbl" style="width:40%"></div>
+                      <div style="background:var(--navy3);border:1px solid var(--border2);border-radius:10px;height:52px;padding:10px"></div>
+                      <div class="mab pri" style="margin-top:4px"><div class="mabt"></div></div>
+                      <div class="msync" style="justify-content:center">
+                        <div class="msd"></div>
+                        <div class="mst" style="width:100px"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ar" style="max-width:226px;margin-top:10px">
+                    <div class="an">54px tap targets</div>
+                    <div class="an">No keyboard input</div>
+                  </div>
+                </div>
+
+                <!-- Specs -->
+                <div class="sg" style="flex:1;min-width:260px">
+                  <div class="sp">
+                    <div class="spl">📱 Home — My Group Screen</div>
+                    <h4>Header + Mini KPIs + Pilgrim Card List</h4>
+                    <ul>
+                      <li>Header: logo + "My Group — [Name]" + live sync dot (green pulse, "Live") + avatar. No complex nav.</li>
+                      <li>Mini KPI row: 2-card grid — "Checked In: 38/42" (green) · "Needs Attention: 4" (amber). Tapping amber filters list immediately to problem pilgrims.</li>
+                      <li>Filter chips: "All · Pending · Issues" — 22px height, horizontal row. Active = teal tint.</li>
+                      <li>Pilgrim card: 32px avatar circle + name + sub-label (room/group) + status pill right-aligned. Card border colour = semantic status. 56px min height for thumb-friendly tap.</li>
+                      <li>Tap any card = status sheet slides up. No page navigation — context preserved.</li>
+                    </ul>
+                  </div>
+                  <div class="sp ok">
+                    <div class="spl">✅ Status Update Sheet — The 2-Tap Flow</div>
+                    <h4>Designed for one hand, in a crowd</h4>
+                    <ul>
+                      <li>Sheet slides up 85% of viewport. Pilgrim mini-card at top confirms identity before action.</li>
+                      <li>Status grid: 2×2 large tile buttons (54px height). Labels: "Arrived at Hotel" · "At Haram" · "Boarded Bus" · "Needs Assistance" (red tint). Pre-set — zero typing required.</li>
+                      <li>Selected tile: coloured border + bg tint. Selecting auto-highlights, one tap per pilgrim update.</li>
+                      <li>Optional note field: 52px text area. Keyboard opens only on tap — not automatically.</li>
+                      <li>Confirm: 48px full-width teal button. Haptic feedback + green flash + sheet dismisses + card list updates instantly.</li>
+                    </ul>
+                  </div>
+                  <div class="sp wa">
+                    <div class="spl">📴 Offline Mode</div>
+                    <h4>Built for low-signal sacred sites</h4>
+                    <ul>
+                      <li>Top bar shows amber "Offline — syncing when connected" badge when network drops.</li>
+                      <li>All status updates queue locally: "Queued: 3 updates" shown. No data lost.</li>
+                      <li>On reconnect: auto-sync fires, toast: "3 updates synced ✓". Admin dashboard reflects changes immediately.</li>
+                      <li>Core pilgrim list always cached — mutawwif can view all records without any connection.</li>
+                    </ul>
+                  </div>
+                  <div class="sp sy">
+                    <div class="spl">🔔 Push Notifications from Admin</div>
+                    <h4>In-app only — no WhatsApp, no SMS</h4>
+                    <ul>
+                      <li>Flight update: "⚠ Group B — SV 4821 now departs 14:30 (was 12:00). Confirm group notified →"</li>
+                      <li>Document flag: "Pilgrim [Name] — visa flagged by admin. Action required."</li>
+                      <li>In-app banner (4 sec) + persisted in Notifications tab. One notification centre replaces multiple WhatsApp groups.</li>
+                    </ul>
+                  </div>
+                  <div class="co !bg-[#f0f5f9] dark:!bg-slate-800 !border-[#0ea5e9]/30">
+                    <strong class="!text-[#0ea5e9]">Insight 2 — Mobile Dependency solved</strong>
+                    Zero typing for standard updates. The 2×2 tile grid means a mutawwif can log 10 pilgrim arrivals in under 60 seconds — one hand, in a crowd, at full Haram capacity.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section: UI Design & Design System -->
+      <section class="clay-card p-10 md:p-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">05</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">UI Design & Elements</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-10">
+          The final interface utilizes a clean, high-contrast aesthetic. Crucial metrics like "Visas Approved" or "Flights Delayed" are highlighted using semantic color coding (greens for success, amber for warnings) to draw immediate attention to actionable items.
+        </p>
+        <div class="w-full clay-card rounded-2xl aspect-video mb-8 overflow-hidden relative">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#0ea5e9]/20 to-transparent z-10 mix-blend-overlay"></div>
+          <img src="./assets/img/porto-fe_6.webp" class="relative z-0 w-full h-full object-contain bg-[#f8fafc] dark:bg-slate-900" alt="Pilgrim Tracker UI Design" loading="lazy" />
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-4 font-syne">Colors</h4>
+            <div class="flex gap-2">
+              <div class="w-8 h-8 rounded-full bg-${accentColor} shadow-sm"></div>
+              <div class="w-8 h-8 rounded-full bg-slate-800 shadow-sm"></div>
+              <div class="w-8 h-8 rounded-full bg-slate-100 shadow-sm"></div>
+            </div>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-4 font-syne">Typography</h4>
+            <p class="font-syne font-bold text-xl">Syne (Display)</p>
+            <p class="font-sans text-lg">Outfit (Body)</p>
+          </div>
+          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            <h4 class="font-bold mb-4 font-syne">Components</h4>
+            <div class="h-8 rounded-full bg-${accentColor}/20 w-3/4 mb-2"></div>
+            <div class="h-8 rounded-full bg-slate-200 w-1/2"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Prototype & Outcome -->
+      <section class="clay-card p-10 md:p-16 mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full bg-${accentColor}/10 text-${accentColor} flex items-center justify-center font-black text-xl">06</div>
+          <h2 class="font-syne font-black text-3xl md:text-4xl">Prototype & Outcome</h2>
+        </div>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
+          The shift from spreadsheets to a unified dashboard reduced administrative sorting time by 75%. Agency owners reported significantly less anxiety during the peak Hajj season, as the real-time tracking allowed them to proactively address flight delays and visa issues before they cascaded into larger logistical nightmares.
+        </p>
+        
+        <div class="p-8 rounded-3xl bg-[#0ea5e9]/5 border border-[#0ea5e9]/20 flex flex-col items-center justify-center gap-6 text-center">
+          <h3 class="font-syne font-bold text-2xl">Want to see it in action?</h3>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="https://www.figma.com/proto/doR1e9PA9uMuuVXvmALa2v/FARHAN-SURYA-INDAH?node-id=65-384&starting-point-node-id=65%3A384&t=UL6F8ad4MTyowKQI-1" target="_blank" class="clay-btn px-8 py-4 text-[#0ea5e9]">
+              Figma Prototype
+            </a>
+            <a href="https://fsi-board.zeabur.app/login" target="_blank" class="clay-btn px-8 py-4 text-[#0ea5e9]">
+              Live App (FSI Board)
+            </a>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+    
+    <script>
+      // Match system theme preference
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+
+      // Initialize Mermaid for flowcharts
+      mermaid.initialize({
+        startOnLoad:true,
+        theme:'base',
+        themeVariables: {
+          background:'transparent',
+          primaryColor:'#1A2236',
+          primaryTextColor:'#F1F5F9',
+          primaryBorderColor:'#0ea5e9',
+          lineColor:'#38BDF8',
+          secondaryColor:'#232F45',
+          tertiaryColor:'#2d1f03',
+          fontSize:'13px',
+          fontFamily:'Outfit, sans-serif',
+          edgeLabelBackground:'var(--navy3, #1A2236)'
+        },
+        flowchart:{ curve: 'basis', padding: 20 }
+      });
+
+      // Tab switcher function
+      function sw(id, el) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+        document.querySelectorAll('.pane').forEach(p => p.classList.remove('on'));
+        document.getElementById('tab-' + id).classList.add('on');
+        el.classList.add('on');
+      }
+    </script>
+  </body>
+</html>

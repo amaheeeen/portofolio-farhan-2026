@@ -1,0 +1,140 @@
+<!-- ═══ TASK 1: USER FLOWS ═══ -->
+<div class="section">
+  <div class="section-eye">
+    <div class="eye-num">01</div>
+    <div class="eye-label">Task 1 — Dual User Flow Architecture</div>
+  </div>
+  <h2 class="font-syne font-black text-3xl md:text-4xl text-slate-800 dark:text-slate-100">Journey Maps · Two Roles, Two Worlds</h2>
+  <p class="s-desc">Flow A maps the end-user's discovery journey from emotional browsing to community contribution. Flow B maps the business owner's operational cycle from analytics to active listing management.</p>
+
+  <!-- FLOW A -->
+  <div class="flow-panel user-panel">
+    <div class="flow-head">
+      <div class="flow-badge fb-user">Flow A · End-User</div>
+      <div class="flow-title">Explore → Discover → Act → Contribute</div>
+      <div class="flow-sub">Mobile-first path</div>
+    </div>
+    <div class="mermaid">
+flowchart TD
+    A([📱 User opens Kalcer.ID]) --> B[Explore Feed loads\nPersonalised cards: trending nearby\nLocation permission requested]
+    B --> C{Location\npermitted?}
+    C -- ✅ Yes --> D[Feed ranked by proximity\n+ trending score\nGeolocation-aware cards]
+    C -- ❌ No --> E[Feed ranked by general trending\nPrompt to enable later stays visible]
+    D --> F
+    E --> F[User browses Hangout Cards\nImage · Name · Verified badge · Open/Closed · Rating]
+
+    F --> G{Interaction\ntype?}
+    G -- 🔍 Search intent --> H[Tap search bar\nType keyword or category\nInstant live results filter]
+    G -- 🎯 Filter intent --> I[Tap filter chips:\nCategory / Open Now / District / Vibe\nResults update without page reload]
+    G -- 👆 Curious tap --> J
+
+    H --> J[/Hangout Detail Page/\nHero image full-bleed\nName + Verified + Category]
+    I --> J
+
+    J --> K[User reads operational hours\nOpen/Closed status badge\nSchedule table if tapped]
+    K --> L[User scrolls to Reviews section\nReads community ratings\nPhoto reviews visible]
+    L --> M{User intent?}
+
+    M -- 🔖 Save for later --> N[Tap Bookmark icon\nHeart animation plays\nAdded to Wishlist instantly]
+    N --> O[Toast: 'Saved to your Wishlist ✓'\nNo account? → Soft prompt to sign up\nGuest can still bookmark with local storage]
+    O --> P{User logged in?}
+    P -- No → nudge --> Q[Non-intrusive banner:\n'Sign up to keep your saves forever'\nDismissable — not blocking]
+    P -- Yes --> R
+
+    M -- 📍 Check in --> S{User logged in?}
+    S -- No --> T[Auth wall with context:\n'Log in to check in at this spot'\nSign up or continue as guest info]
+    T --> U[/Auth Flow/\nEmail / Google / Phone OTP\nFast — under 3 screens]
+    U --> S
+    S -- Yes --> V[Tap 'Check In' button\nConfirmation sheet slides up:\nVenue name · timestamp · optional photo]
+    V --> W[Check-in confirmed ✅\nBadge added to user profile\nVenue's check-in count increments\nSocial feed can show activity]
+
+    W --> R
+    M -- ✍️ Leave a review --> X{User checked in\nor visited?}
+    X -- Yes --> Y[/Review Composer/ <br> Star rating (1–5)\nText field: 'What made this spot special?'\nPhoto upload optional]
+    X -- No → prompt --> Z[Soft gate: 'Have you visited this place?'\nTwo options: 'I've been here' or\n'Just sharing thoughts?'\nBoth paths allowed — honesty label]
+    Z --> Y
+    Y --> AA[Submit review\nModeration flag check\nReview appears after brief delay]
+    AA --> AB([✅ Review live · Profile updated\nXP / badge earned if gamification enabled])
+
+    R --> F
+
+    style A fill:#E8552A,color:#fff,stroke:none
+    style AB fill:#2D9B6F,color:#fff,stroke:none
+    style C fill:#F7F3EE,color:#7A6B5D,stroke:#E8552A
+    style G fill:#F7F3EE,color:#7A6B5D,stroke:#E8552A
+    style M fill:#F7F3EE,color:#7A6B5D,stroke:#F5A623
+    style P fill:#F7F3EE,color:#7A6B5D,stroke:#F5A623
+    style S fill:#F7F3EE,color:#7A6B5D,stroke:#2D9B6F
+    style X fill:#F7F3EE,color:#7A6B5D,stroke:#2D9B6F
+    style N fill:#f0fdf4,color:#166534,stroke:#2D9B6F
+    style W fill:#f0fdf4,color:#166534,stroke:#2D9B6F
+    style T fill:#fff7ed,color:#9a3412,stroke:#F5A623
+    style Q fill:#fff7ed,color:#9a3412,stroke:#F5A623
+    </div>
+  </div>
+
+  <!-- FLOW B -->
+  <div class="flow-panel biz-panel">
+    <div class="flow-head">
+      <div class="flow-badge fb-biz">Flow B · Business Owner</div>
+      <div class="flow-title">Login → Analytics → Manage Listing → Publish</div>
+      <div class="flow-sub">Desktop-first path</div>
+    </div>
+    <div class="mermaid">
+flowchart TD
+    BA([💼 Business Owner accesses\nKalcer.ID Business Portal]) --> BB[Login screen\nEmail + password OR\nGoogle Business account]
+    BB --> BC{Account\nverified?}
+    BC -- ❌ Pending verification --> BD[Verification pending screen\n'Your venue is under review — 24–48h'\nEmail notification queued]
+    BC -- ✅ Verified --> BE[/Business Dashboard loads/\nKPI cards: Views · Check-ins · Reviews · Saves\nNotification bell with alerts]
+
+    BE --> BF{Notifications\npresent?}
+    BF -- 🔔 Yes --> BG[Owner reads notification tray:\nNew reviews to respond to\nProfile completion prompts\nSystem alerts]
+    BG --> BH[Owner taps review notification\n/Review Response Panel/\nShows star rating + user comment]
+    BH --> BI[Owner types public response\n'Thank you for visiting…'\nSubmit → response appears below review]
+    BF -- None --> BJ
+
+    BI --> BJ[Owner navigates to\n'My Venue' management section]
+    BJ --> BK[/Venue Editor loads/\nCurrent details shown in editable form\nLast updated timestamp visible]
+
+    BK --> BL{What to update?}
+    BL -- 🕐 Operational Hours --> BM[Edit hours table:\nDay-by-day toggle On/Off\nFrom/To time picker\nHoliday exception dates]
+    BM --> BN[Preview shows how it appears\nto end-users: 'Opens 10:00 AM'\nSave → Hours update live on platform]
+
+    BL -- 📸 Images --> BO[/Image Manager/\nDrag-and-drop upload zone\nExisting images in grid with delete X\nSet cover photo by dragging to first slot]
+    BO --> BP[Image compression auto-runs\nAlt-text field optional\nMax 10 images per venue]
+    BP --> BQ[Save → New images live immediately\nOld cover replaced with fade transition]
+
+    BL -- 📝 Venue Info --> BR[Edit form:\nVenue name · Description · Category\nAddress · Social links · Vibe tags]
+    BR --> BS{Changes pass\nvalidation?}
+    BS -- ❌ Missing required fields --> BT[Inline errors highlighted in red\nScroll to first error auto\nNo data loss on validation fail]
+    BS -- ✅ Valid --> BU[Save draft OR Publish immediately]
+    BU --> BV[/Change log entry created/\nAdmin moderation for sensitive fields\nMinor edits go live instantly]
+
+    BN --> BW
+    BQ --> BW
+    BV --> BW[Venue page updated ✅\nSuccess toast: 'Your venue is live'\nDashboard analytics refresh]
+    BW --> BX([✅ Session complete\nChanges reflected on explore feed\nOwner can preview public page])
+
+    style BA fill:#0E8A7A,color:#fff,stroke:none
+    style BX fill:#2D9B6F,color:#fff,stroke:none
+    style BC fill:#F7F3EE,color:#7A6B5D,stroke:#0E8A7A
+    style BF fill:#F7F3EE,color:#7A6B5D,stroke:#F5A623
+    style BL fill:#F7F3EE,color:#7A6B5D,stroke:#0E8A7A
+    style BS fill:#F7F3EE,color:#7A6B5D,stroke:#2D9B6F
+    style BD fill:#fff7ed,color:#9a3412,stroke:#F5A623
+    style BT fill:#fef2f2,color:#991b1b,stroke:#DC3545
+    style BN fill:#f0fdf4,color:#166534,stroke:#2D9B6F
+    style BW fill:#f0fdf4,color:#166534,stroke:#2D9B6F
+    </div>
+  </div>
+
+  <div class="lgnd">
+    <div class="lgnd-item"><div class="lgnd-dot" style="background:#E8552A"></div> User entry / action node</div>
+    <div class="lgnd-item"><div class="lgnd-dot" style="background:#0E8A7A"></div> Business owner entry</div>
+    <div class="lgnd-item"><div class="lgnd-dot" style="background:#2D9B6F"></div> Success / completion</div>
+    <div class="lgnd-item"><div class="lgnd-dot" style="background:#F7F3EE;border:1px solid #E8552A"></div> User decision node</div>
+    <div class="lgnd-item"><div class="lgnd-dot" style="background:#F7F3EE;border:1px solid #F5A623"></div> System / auth check</div>
+    <div class="lgnd-item"><div class="lgnd-dot" style="background:#fff7ed;border:1px solid #F5A623"></div> Friction / nudge state</div>
+    <div class="lgnd-item"><div class="lgnd-dot" style="background:#fef2f2;border:1px solid #DC3545"></div> Validation error</div>
+  </div>
+</div>
