@@ -318,9 +318,31 @@
   <body
     class="antialiased font-sans selection:bg-[#c026d3] selection:text-white text-slate-800 dark:text-slate-100 transition-colors duration-300 relative"
   >
-    <!-- Liquid Faded Gradient Background -->
-    <div class="fixed inset-0 z-[-20] liquid-bg transition-colors duration-500"></div>
-    <div class="noise-bg"></div>
+    <!-- Ethereal Shadow Global Background -->
+    <div class="fixed inset-0 z-[-20] pointer-events-none overflow-hidden liquid-bg dark:bg-slate-900 transition-colors duration-500" id="ethereal-container">
+        <!-- SVG Filter Definition -->
+        <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+            <defs>
+                <filter id="ethereal-filter">
+                    <feTurbulence result="undulation" numOctaves="2" baseFrequency="0.0005,0.002" seed="0" type="turbulence" />
+                    <feColorMatrix id="ethereal-hue" in="undulation" type="hueRotate" values="0" />
+                    <!-- Matrix trick for visual effect -->
+                    <feColorMatrix in="dist" result="circulation" type="matrix" values="4 0 0 0 1  4 0 0 0 1  4 0 0 0 1  1 0 0 0 0" />
+                    <feDisplacementMap in="SourceGraphic" in2="circulation" scale="100" result="dist" />
+                    <feDisplacementMap in="dist" in2="undulation" scale="100" result="output" />
+                </filter>
+            </defs>
+        </svg>
+
+        <!-- Filtered Content Layer -->
+        <div style="position: absolute; inset: -100px; filter: url(#ethereal-filter) blur(4px);">
+            <!-- Shape Masking -->
+            <div class="w-full h-full bg-cyan-500/20 dark:bg-fuchsia-500/20 transition-colors duration-500" style="mask-image: url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png'); -webkit-mask-image: url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png'); mask-size: cover; -webkit-mask-size: cover; mask-repeat: no-repeat; -webkit-mask-repeat: no-repeat; mask-position: center; -webkit-mask-position: center;"></div>
+        </div>
+
+        <!-- Noise Overlay -->
+        <div style="position: absolute; inset: 0; background-image: url('https://framerusercontent.com/images/g0QcWrxr87K0ufOxIUFBakwYA8.png'); background-size: 240px; background-repeat: repeat; opacity: 0.3;"></div>
+    </div>
     <main id="main-container" class="w-full min-h-screen overflow-x-hidden relative transition-colors duration-300">
     
     <!-- Background Clay Blobs (Vibrant Gen Z Palette) -->
@@ -446,6 +468,7 @@
         </div>
       </div>
     </section>
+
 
     <!-- =======================================================================
          SECTION 2: ABOUT
@@ -873,6 +896,29 @@
               darkIcon.classList.remove('hidden');
             }
           });
+        }
+
+        // --- Ethereal Shadows Animation Logic ---
+        const etherealHueMatrix = document.getElementById('ethereal-hue');
+        let etherealHueValue = 180;
+        let etherealLastTime = 0;
+        
+        function animateEtherealHue(time) {
+          if (!etherealLastTime) etherealLastTime = time;
+          const deltaTime = time - etherealLastTime;
+          etherealLastTime = time;
+          
+          // Speed adjustment (similar to duration in Framer Motion)
+          etherealHueValue = (etherealHueValue + (deltaTime * 0.05)) % 360;
+          
+          if (etherealHueMatrix) {
+            etherealHueMatrix.setAttribute('values', etherealHueValue);
+          }
+          requestAnimationFrame(animateEtherealHue);
+        }
+        
+        if (etherealHueMatrix) {
+            requestAnimationFrame(animateEtherealHue);
         }
 
       });
