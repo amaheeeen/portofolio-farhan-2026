@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stardew Portfolio RPG</title>
+    <link rel="stylesheet" href="stardew.css">
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+</head>
+<body>
+    <div id="game-container"></div>
+    
+    <!-- UI Layer -->
+    <div id="ui-layer" class="hidden">
+        <div id="dialog-box">
+            <h3 id="dialog-name">NPC Name</h3>
+            <div id="dialog-content">Portfolio text goes here...</div>
+            <span id="dialog-hint">Press SPACE to close</span>
+        </div>
+    </div>
+
+    <!-- COMMAND BAR (NAVBAR) -->
+    <div id="command-bar">
+        <button class="cmd-btn" id="nav-home">Home</button>
+        <button class="cmd-btn" id="nav-about">About Me</button>
+        <button class="cmd-btn" id="nav-projects">Projects</button>
+        <button class="cmd-btn" id="nav-contact">Contact</button>
+        <button class="cmd-btn" id="nav-map">🗺️ Map</button>
+    </div>
+
+    <!-- MAP OVERLAY -->
+    <div id="map-overlay" class="hidden">
+        <div id="map-container">
+            <img src="assets/stardewAssets/farm-map.png" id="minimap-img" alt="Farm Map">
+            <div id="player-marker"></div>
+            <button id="close-map">X</button>
+        </div>
+    </div>
+
+    <!-- Mobile Controls -->
+    <div id="mobile-controls">
+        <div id="dpad">
+            <button id="btn-up" class="dpad-btn">▲</button>
+            <button id="btn-left" class="dpad-btn">◀</button>
+            <button id="btn-right" class="dpad-btn">▶</button>
+            <button id="btn-down" class="dpad-btn">▼</button>
+        </div>
+        <div id="action-pad">
+            <button id="btn-action" class="action-btn">A</button>
+        </div>
+    </div>
+
+    <script src="stardew.js"></script>
+</body>
+</html>
