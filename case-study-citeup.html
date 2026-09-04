@@ -1,241 +1,471 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="CITEUP Event Branding - Farhan Kholid - Graphic Design Case Study" />
-    <title>CITEUP Event Branding - Graphic Design Case Study</title>
-    <link rel="icon" type="image/webp" href="./assets/img/logo.webp">
+    <meta
+      name="description"
+      content="CITEUP Event Branding Full Graphic Design Case Study - Farhan Kholid. Full-scale visual identity and campaign graphics for Node of Connection technology conference."
+    />
+    <title>CITEUP EVENT BRANDING // GRAPHIC DESIGN CASE STUDY - FARHAN KHOLID 2026</title>
+    <link rel="icon" type="image/webp" href="./assets/img/logo.webp" />
 
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+    <!-- Preconnect & Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@700;800;900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config with Portfolio Neo-Brutalist Tokens -->
     <script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
+          screens: {
+            'xs': '380px',
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+          },
           extend: {
             fontFamily: {
-              sans: ["Outfit", "sans-serif"],
-              syne: ["Syne", "sans-serif"],
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              syne: ['Syne', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
             },
+            colors: {
+              canvas: '#F4F0EA',
+              ink: '#000000',
+              accent: {
+                yellow: '#FFE600',
+                green: '#00F076',
+                orange: '#FF5E3A',
+                cyan: '#00E5FF',
+                purple: '#B57CFF',
+              },
+              dark: {
+                bg: '#121214',
+                surface: '#1A1A1E',
+                border: '#FFFFFF',
+              }
+            },
+            boxShadow: {
+              'nb-sm': '2px 2px 0px #000000',
+              'nb': '4px 4px 0px #000000',
+              'nb-lg': '6px 6px 0px #000000',
+              'nb-xl': '8px 8px 0px #000000',
+              'nb-dark': '4px 4px 0px #FFFFFF',
+              'nb-dark-lg': '6px 6px 0px #FFFFFF',
+              'nb-dark-xl': '8px 8px 0px #FFFFFF',
+              'nb-yellow': '4px 4px 0px #FFE600',
+            }
           },
         },
       };
     </script>
+
     <style>
-      .clay-card {
-        background-color: #ffffff;
-        border-radius: 2rem;
-        box-shadow: 15px 15px 30px #d1d9e6, -15px -15px 30px #ffffff, inset -5px -5px 10px rgba(0, 0, 0, 0.03), inset 5px 5px 10px rgba(255, 255, 255, 0.8);
-        transition: all 0.3s ease;
+      :root {
+        --nb-border: 2.5px solid #000000;
+        --nb-shadow: 4px 4px 0px #000000;
+        --nb-shadow-hover: 6px 6px 0px #000000;
+        --nb-shadow-lg: 6px 6px 0px #000000;
+        --nb-shadow-xl: 8px 8px 0px #000000;
       }
-      .clay-btn {
-        background-color: #f0f5f9;
-        border-radius: 9999px;
-        box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff, inset -3px -3px 6px rgba(0, 0, 0, 0.02), inset 3px 3px 6px rgba(255, 255, 255, 0.8);
-        transition: all 0.2s ease;
+      .dark {
+        --nb-border: 2.5px solid #FFFFFF;
+        --nb-shadow: 4px 4px 0px #FFFFFF;
+        --nb-shadow-hover: 6px 6px 0px #FFFFFF;
+        --nb-shadow-lg: 6px 6px 0px #FFFFFF;
+        --nb-shadow-xl: 8px 8px 0px #FFFFFF;
+      }
+      ::selection { background-color: #FFE600; color: #000000; }
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-track { background: #F4F0EA; border-left: 2px solid #000000; }
+      .dark ::-webkit-scrollbar-track { background: #121214; border-left: 2px solid #FFFFFF; }
+      ::-webkit-scrollbar-thumb { background: #000000; border: 2px solid #FFE600; }
+      .dark ::-webkit-scrollbar-thumb { background: #FFFFFF; border: 2px solid #00F076; }
+
+      .nb-box {
+        border: 2.5px solid #000000;
+        box-shadow: 4px 4px 0px #000000;
+        transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.15s cubic-bezier(0.2, 0, 0, 1);
+      }
+      .dark .nb-box { border-color: #FFFFFF; box-shadow: 4px 4px 0px #FFFFFF; }
+
+      .nb-box-lg {
+        border: 3px solid #000000;
+        box-shadow: 6px 6px 0px #000000;
+        transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.15s cubic-bezier(0.2, 0, 0, 1);
+      }
+      .dark .nb-box-lg { border-color: #FFFFFF; box-shadow: 6px 6px 0px #FFFFFF; }
+
+      .nb-card {
+        border: 2.5px solid #000000;
+        box-shadow: 5px 5px 0px #000000;
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .dark .nb-card { border-color: #FFFFFF; box-shadow: 5px 5px 0px #FFFFFF; }
+      .nb-card:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0px #000000; }
+      .dark .nb-card:hover { box-shadow: 8px 8px 0px #FFFFFF; }
+
+      .nb-btn {
+        border: 2.5px solid #000000;
+        box-shadow: 4px 4px 0px #000000;
+        transition: all 0.12s ease-in-out;
         cursor: pointer;
-        border: none;
-        color: #1e293b;
-        font-weight: 600;
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        font-weight: 700;
+        user-select: none;
       }
-      .clay-btn:hover {
-        transform: scale(1.05);
-        box-shadow: 10px 10px 20px #ccdbed, -10px -10px 20px #ffffff, inset -5px -5px 10px rgba(0, 0, 0, 0.05), inset 5px 5px 10px rgba(255, 255, 255, 0.9);
+      .dark .nb-btn { border-color: #FFFFFF; box-shadow: 4px 4px 0px #FFFFFF; }
+      .nb-btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0px #000000; }
+      .dark .nb-btn:hover { box-shadow: 6px 6px 0px #FFFFFF; }
+      .nb-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #000000; }
+      .dark .nb-btn:active { box-shadow: 1px 1px 0px #FFFFFF; }
+
+      @keyframes marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+      .animate-marquee { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+      .animate-marquee:hover { animation-play-state: paused; }
+
+      .ticket-coupon { position: relative; }
+      .ticket-coupon::before, .ticket-coupon::after {
+        content: ''; position: absolute; width: 14px; height: 14px;
+        background: #F4F0EA; border: 2px solid #000000; top: 50%;
+        transform: translateY(-50%); border-radius: 50%; z-index: 10;
       }
-      .dark .clay-card {
-        background-color: #1e293b;
-        box-shadow: 15px 15px 30px #0f172a, -15px -15px 30px #24354a, inset -5px -5px 10px rgba(0, 0, 0, 0.4), inset 5px 5px 10px rgba(255, 255, 255, 0.05);
-      }
-      .dark .clay-btn {
-        background-color: #1e293b;
-        color: #f1f5f9;
-        box-shadow: 8px 8px 16px #0f172a, -8px -8px 16px #24354a, inset -3px -3px 6px rgba(0, 0, 0, 0.3), inset 3px 3px 6px rgba(255, 255, 255, 0.05);
-      }
-      .dark .clay-btn:hover {
-        box-shadow: 10px 10px 20px #0a0f1c, -10px -10px 20px #2a3d57, inset -5px -5px 10px rgba(0, 0, 0, 0.5), inset 5px 5px 10px rgba(255, 255, 255, 0.1);
-      }
-      img.placeholder-img {
-        background-color: #e2e8f0;
-        width: 100%;
-        min-height: 300px;
-        object-fit: cover;
-      }
-      .dark img.placeholder-img { background-color: #334155; }
+      .dark .ticket-coupon::before, .dark .ticket-coupon::after { background: #121214; border-color: #FFFFFF; }
+      .ticket-coupon::before { left: -8px; }
+      .ticket-coupon::after { right: -8px; }
     </style>
   </head>
-  <body class="antialiased font-sans bg-[#F0F5F9] dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300">
-    
-    <!-- Navbar -->
-    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 clay-card px-6 py-3 flex items-center gap-6">
-      <a href="index.html" class="font-bold text-slate-600 dark:text-slate-300 hover:text-[#f59e0b] transition-colors flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> Back to Home
-      </a>
-      <div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
-      <span class="font-syne font-bold truncate max-w-[200px]">CITEUP Event Branding</span>
-    </nav>
 
-    <main class="w-full max-w-5xl mx-auto px-6 py-32 flex flex-col gap-16">
-      
-      <!-- Hero -->
-      <section class="text-center pt-8">
-        <div class="inline-block clay-btn px-6 py-2 mb-6 text-sm font-bold tracking-widest text-[#f59e0b]">
-          CASE STUDY
-        </div>
-        <h1 class="font-syne font-black text-5xl md:text-7xl mb-6 leading-tight">CITEUP Event Branding</h1>
-        <p class="text-xl text-slate-500 max-w-3xl mx-auto mb-12">Visual identity for "Node of Connection". Applied across digital and print assets.</p>
-        
-        <div class="clay-card rounded-[2rem] overflow-hidden aspect-video relative">
-          <img src="./assets/img/cu25/cu25.webp" class="w-full h-full object-cover placeholder-img" alt="CITEUP Event Branding Hero Image">
-        </div>
-      </section>
+  <body class="bg-[#F4F0EA] dark:bg-[#121214] text-black dark:text-white font-sans antialiased selection:bg-accent-yellow selection:text-black transition-colors duration-200">
+    <!-- [A] STICKY NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-[#F4F0EA] dark:bg-[#121214] border-b-[3px] border-black dark:border-white">
+      <div class="w-full h-1.5 bg-black/10 dark:bg-white/10 relative overflow-hidden">
+        <div id="reading-progress-bar" class="h-full bg-accent-yellow border-r-2 border-black dark:border-white transition-all duration-75 ease-out" style="width: 0%;"></div>
+      </div>
 
-      <!-- Section: Problem -->
-      <section class="clay-card p-10 md:p-16">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-12 h-12 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-black text-xl">01</div>
-          <h2 class="font-syne font-black text-3xl md:text-4xl">The Problem</h2>
-        </div>
-        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          Large-scale tech university events often suffer from generic "cyber" branding that fails to differentiate them or build a sense of community. The challenge was to create a comprehensive visual identity for CITEUP 2025 that embodied the concept of networking and synergy, while maintaining enough flexibility to be applied across diverse touchpoints: from mobile apps to 10-meter physical banners.
-        </p>
-      </section>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-18 flex items-center justify-between gap-4">
+        <a href="index.html" class="nb-btn px-3 sm:px-4 py-2 bg-white dark:bg-[#1A1A1E] text-black dark:text-white font-mono text-xs sm:text-sm uppercase tracking-wider group">
+          <span class="mr-1.5 transition-transform group-hover:-translate-x-1 inline-block">←</span>
+          <span>BACK TO ARCHIVE</span>
+        </a>
 
-      <!-- Section: Research -->
-      <section class="clay-card p-10 md:p-16">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-12 h-12 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-black text-xl">02</div>
-          <h2 class="font-syne font-black text-3xl md:text-4xl">Research & Insights</h2>
+        <div class="hidden md:flex items-center gap-2 px-3 py-1 bg-white dark:bg-[#1A1A1E] border-2 border-black dark:border-white font-mono text-xs font-bold shadow-nb-sm">
+          <span class="w-2 h-2 rounded-full bg-accent-yellow animate-pulse"></span>
+          <span>PROJECT // CITEUP-2025</span>
+          <span class="text-zinc-400">|</span>
+          <span class="text-accent-yellow font-black">EVENT IDENTITY BRANDING</span>
         </div>
-        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
-          Through workshops with the event organizers and surveys of past attendees, we formulated the "Node of Connection" philosophy.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-            <h4 class="font-bold mb-2 text-[#f59e0b]">Insight 1: Fragmentation</h4>
-            <p class="text-slate-600 dark:text-slate-400">Past events had different visual styles for their web presence vs. their physical merchandise, leading to brand dilution.</p>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 bg-accent-yellow text-black border-2 border-black font-mono text-xs font-bold shadow-nb-sm">
+            <span>●</span>
+            <span>GFX CASE STUDY</span>
           </div>
-          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-            <h4 class="font-bold mb-2 text-[#f59e0b]">Insight 2: "Instagrammability"</h4>
-            <p class="text-slate-600 dark:text-slate-400">Gen Z attendees strongly prefer bold, typography-heavy designs for physical photo-ops over traditional corporate logos.</p>
-          </div>
-        </div>
-      </section>
 
-      <!-- Section: User Flow -->
-      <section class="clay-card p-10 md:p-16">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-12 h-12 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-black text-xl">03</div>
-          <h2 class="font-syne font-black text-3xl md:text-4xl">User Flow</h2>
+          <button id="theme-toggle" aria-label="Toggle Dark Mode" class="nb-btn w-9 h-9 sm:w-10 sm:h-10 bg-white dark:bg-[#1A1A1E] text-black dark:text-white text-base">
+            <span class="dark:hidden">🌙</span>
+            <span class="hidden dark:inline">☀️</span>
+          </button>
         </div>
-        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
-          The attendee journey was mapped from initial social media discovery to physical event navigation.
-        </p>
-        <div class="w-full bg-[#f59e0b]/5 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-center gap-4 border border-[#f59e0b]/20">
-          <div class="bg-white dark:bg-slate-800 py-3 px-6 rounded-xl shadow-sm text-sm font-bold">Insta Teaser</div>
-          <span class="text-[#f59e0b]">→</span>
-          <div class="bg-white dark:bg-slate-800 py-3 px-6 rounded-xl shadow-sm text-sm font-bold">Landing Page</div>
-          <span class="text-[#f59e0b]">→</span>
-          <div class="bg-white dark:bg-slate-800 py-3 px-6 rounded-xl shadow-sm text-sm font-bold">E-Ticket PDF</div>
-          <span class="text-[#f59e0b]">→</span>
-          <div class="bg-white dark:bg-slate-800 py-3 px-6 rounded-xl shadow-sm text-sm font-bold">Event Lanyard & Wayfinding</div>
-        </div>
-      </section>
+      </div>
 
-      <!-- Section: Wireframes -->
-      <section class="clay-card p-10 md:p-16">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-12 h-12 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-black text-xl">04</div>
-          <h2 class="font-syne font-black text-3xl md:text-4xl">Wireframes</h2>
+      <div class="w-full bg-accent-yellow text-black border-t-2 border-black dark:border-white py-1 font-mono text-[11px] sm:text-xs font-black overflow-hidden select-none border-b-2">
+        <div class="animate-marquee whitespace-nowrap flex gap-8 tracking-wide uppercase">
+          <span>⚡ CASE STUDY: CITEUP EVENT BRANDING</span>
+          <span>•</span>
+          <span>ESTIMATED READING TIME: 4 MIN</span>
+          <span>•</span>
+          <span>VISUAL IDENTITY SYSTEM & PHYSICAL MERCHANDISE ARCHITECTURE</span>
+          <span>•</span>
+          <span>IMPACT: +30% TICKET SALES EXPANSION</span>
+          <span>•</span>
+          <span>SYSTEM REVISION: NODE OF CONNECTION 2025</span>
+          <span>•</span>
+          <span>⚡ CASE STUDY: CITEUP EVENT BRANDING</span>
+          <span>•</span>
+          <span>ESTIMATED READING TIME: 4 MIN</span>
+          <span>•</span>
+          <span>VISUAL IDENTITY SYSTEM & PHYSICAL MERCHANDISE ARCHITECTURE</span>
         </div>
-        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
-          Initial explorations centered on geometric shapes that could tessellate and combine, representing nodes in a network connecting.
-        </p>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-[#F0F5F9] dark:bg-slate-800 rounded-2xl aspect-square flex flex-col items-center justify-center border border-slate-200 dark:border-slate-700 p-6 opacity-70">
-             <div class="w-16 h-16 rounded-full border-4 border-slate-300 dark:border-slate-600 relative">
-               <div class="absolute top-1/2 -right-12 w-12 h-1 bg-slate-300 dark:bg-slate-600"></div>
-             </div>
-             <div class="w-16 h-16 rounded-full border-4 border-slate-300 dark:border-slate-600 ml-24"></div>
-             <span class="text-slate-500 text-xs font-bold mt-8 uppercase tracking-widest">Node Concept Outline</span>
-          </div>
-          <div class="bg-[#F0F5F9] dark:bg-slate-800 rounded-2xl aspect-square flex flex-col items-center justify-center border border-slate-200 dark:border-slate-700 p-6 opacity-70">
-             <h1 class="font-syne text-5xl font-black text-slate-300 dark:text-slate-600 tracking-tighter">CITE<br>UP</h1>
-             <span class="text-slate-500 text-xs font-bold mt-8 uppercase tracking-widest">Typographic Stack</span>
-          </div>
-        </div>
-      </section>
+      </div>
+    </header>
 
-      <!-- Section: UI Design & Design System -->
-      <section class="clay-card p-10 md:p-16">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-12 h-12 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-black text-xl">05</div>
-          <h2 class="font-syne font-black text-3xl md:text-4xl">Visual Design &amp; Elements</h2>
-        </div>
-        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-10">
-          The final visual identity utilizes electric orange and deep navy. We created a design system that spanned from the digital landing page to physical ID cards, ensuring high-energy consistency throughout the event.
-        </p>
-        <div class="w-full clay-card rounded-2xl aspect-video mb-8 overflow-hidden relative">
-          <div class="absolute inset-0 bg-gradient-to-tr from-[#f59e0b]/20 to-transparent z-10 mix-blend-overlay"></div>
-          <img src="assets/img/cu25/1.png" onerror="this.src='assets/img/porto-fe_5.webp'" class="relative z-0 w-full h-full object-cover object-center bg-[#f8fafc] dark:bg-slate-900" alt="CITEUP 2025 Branding" loading="lazy" />
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-            <h4 class="font-bold mb-4 font-syne">Colors</h4>
-            <div class="flex gap-2">
-              <div class="w-8 h-8 rounded-full bg-amber-500 shadow-sm"></div>
-              <div class="w-8 h-8 rounded-full bg-slate-800 shadow-sm"></div>
-              <div class="w-8 h-8 rounded-full bg-slate-100 shadow-sm"></div>
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+      <article>
+        <!-- [B] HERO & OVERVIEW BOARD -->
+        <header class="mb-12 sm:mb-16">
+          <div class="flex flex-wrap items-center gap-2 sm:gap-3 font-mono text-xs font-black uppercase mb-4 sm:mb-6">
+            <span class="px-2.5 py-1 bg-black text-white dark:bg-white dark:text-black border-2 border-black dark:border-white">
+              [IDX-01 // GFX]
+            </span>
+            <span class="px-2.5 py-1 bg-accent-yellow text-black border-2 border-black font-bold">
+              YEAR: 2025 ↗
+            </span>
+            <span class="px-2.5 py-1 bg-white dark:bg-[#1A1A1E] text-zinc-600 dark:text-zinc-300 border-2 border-black dark:border-white">
+              TECH CONFERENCE
+            </span>
+          </div>
+
+          <h1 class="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.95] text-black dark:text-white border-b-4 border-black dark:border-white pb-6 sm:pb-8">
+            CITEUP EVENT BRANDING
+          </h1>
+
+          <div class="mt-6 sm:mt-8 max-w-4xl">
+            <p class="font-sans text-lg sm:text-2xl text-zinc-800 dark:text-zinc-200 font-semibold leading-snug">
+              Full-scale visual identity, dynamic motion assets, stage collateral, and print merchandise engineered for "Node of Connection", the premiere university annual technology conference.
+            </p>
+          </div>
+
+          <!-- Metadata Grid Box -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-[3px] border-black dark:border-white bg-white dark:bg-[#1A1A1E] shadow-nb-lg mt-8 divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-black dark:divide-white font-mono">
+            <div class="p-4 sm:p-5 flex flex-col justify-between">
+              <span class="text-[11px] font-black uppercase text-zinc-500 dark:text-zinc-400 mb-2">// 01. ROLE</span>
+              <div>
+                <p class="font-display font-bold text-base sm:text-lg text-black dark:text-white uppercase leading-tight">Lead Graphic Designer</p>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1">Brand Identity & Stage Collateral</p>
+              </div>
+            </div>
+
+            <div class="p-4 sm:p-5 flex flex-col justify-between">
+              <span class="text-[11px] font-black uppercase text-zinc-500 dark:text-zinc-400 mb-2">// 02. TIMELINE</span>
+              <div>
+                <p class="font-display font-bold text-base sm:text-lg text-black dark:text-white uppercase leading-tight">10 Weeks</p>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1">Concept → Print Production</p>
+              </div>
+            </div>
+
+            <div class="p-4 sm:p-5 flex flex-col justify-between">
+              <span class="text-[11px] font-black uppercase text-zinc-500 dark:text-zinc-400 mb-2">// 03. TECH STACK</span>
+              <div class="flex flex-wrap gap-1.5 mt-1">
+                <span class="px-1.5 py-0.5 bg-accent-yellow text-black border border-black text-[10px] font-bold">ILLUSTRATOR</span>
+                <span class="px-1.5 py-0.5 bg-accent-cyan text-black border border-black text-[10px] font-bold">PHOTOSHOP</span>
+                <span class="px-1.5 py-0.5 bg-accent-orange text-white border border-black text-[10px] font-bold">PRINT PROD</span>
+              </div>
+            </div>
+
+            <div class="p-4 sm:p-5 flex flex-col justify-between">
+              <span class="text-[11px] font-black uppercase text-zinc-500 dark:text-zinc-400 mb-2">// 04. DELIVERABLES</span>
+              <div>
+                <p class="font-display font-bold text-base sm:text-lg text-black dark:text-white uppercase leading-tight">Identity Suite</p>
+                <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1">Stage Banners, Lanyards, Merch, Social</p>
+              </div>
             </div>
           </div>
-          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-            <h4 class="font-bold mb-4 font-syne">Typography</h4>
-            <p class="font-syne font-bold text-xl">Syne (Display)</p>
-            <p class="font-sans text-lg">Outfit (Body)</p>
-          </div>
-          <div class="p-6 rounded-2xl bg-[#F0F5F9] dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-            <h4 class="font-bold mb-4 font-syne">Components</h4>
-            <div class="h-8 rounded-full bg-amber-500/20 w-3/4 mb-2"></div>
-            <div class="h-8 rounded-full bg-slate-200 w-1/2"></div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Section: Prototype & Outcome -->
-      <section class="clay-card p-10 md:p-16 mb-16">
-        <div class="flex items-center gap-4 mb-6">
-          <div class="w-12 h-12 rounded-full bg-amber-500/10 text-amber-500 flex items-center justify-center font-black text-xl">06</div>
-          <h2 class="font-syne font-black text-3xl md:text-4xl">Prototype & Outcome</h2>
-        </div>
-        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300 mb-8">
-          The cohesive branding raised ticket sales by 30% compared to previous years. The unified "Node of Connection" aesthetic was highly praised for making the event feel like a premium tech conference rather than a standard university gathering.
-        </p>
-        
-        <div class="p-8 rounded-3xl bg-[#f59e0b]/5 border border-[#f59e0b]/20 flex flex-col items-center justify-center gap-6 text-center">
-          <h3 class="font-syne font-bold text-2xl">Want to see it in action?</h3>
-          <a href="https://www.instagram.com/CITEUP2026/" target="_blank" class="clay-btn px-8 py-4 text-[#f59e0b]">
-            View on Instagram (CITEUP 2026)
-          </a>
-        </div>
-      </section>
-      
+          <!-- Hero Mockup Frame -->
+          <figure class="mt-10 border-[3px] border-black dark:border-white bg-black shadow-nb-xl overflow-hidden">
+            <div class="flex flex-wrap items-center justify-between px-3 sm:px-4 py-2.5 bg-black text-white dark:bg-white dark:text-black font-mono text-[10px] sm:text-xs font-bold border-b-[3px] border-black dark:border-white gap-2">
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-[#FF5E3A] border border-black dark:border-white"></span>
+                <span class="w-3 h-3 rounded-full bg-[#FFE600] border border-black dark:border-white"></span>
+                <span class="w-3 h-3 rounded-full bg-[#00F076] border border-black dark:border-white"></span>
+                <span class="ml-2 hidden sm:inline uppercase text-zinc-400 dark:text-zinc-600">
+                  SPEC: CITEUP_2025_KEY_VISUAL.WEBP
+                </span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="hidden md:inline text-zinc-400 dark:text-zinc-600">PRODUCTION: CMYK OFFSET + DIGITAL</span>
+                <span class="px-2 py-0.5 bg-accent-yellow text-black font-black uppercase text-[10px]">
+                  EVENT COMPLETED
+                </span>
+              </div>
+            </div>
+
+            <div class="relative bg-zinc-900 aspect-[16/10] overflow-hidden flex items-center justify-center">
+              <img
+                src="./assets/img/cu25/cu25.webp"
+                alt="CITEUP Event Branding Visual Identity Hero"
+                class="w-full h-full object-cover object-top"
+                loading="eager"
+              />
+              <div class="absolute bottom-3 right-3 px-3 py-1 bg-black/90 text-white border border-white font-mono text-xs font-bold">
+                FIG 00.1 // KEY EVENT VISUAL
+              </div>
+            </div>
+            <figcaption class="p-3 bg-white dark:bg-[#1A1A1E] border-t-2 border-black dark:border-white font-mono text-xs text-zinc-600 dark:text-zinc-400 flex flex-wrap justify-between items-center gap-2">
+              <span>FIG 00.1: CITEUP 2025 "Node of Connection" identity system incorporating circuit pathways and editorial typography.</span>
+              <span class="text-black dark:text-white font-bold">COMMISSION ARCHIVE</span>
+            </figcaption>
+          </figure>
+        </header>
+
+        <!-- [C] KEY METRICS -->
+        <section class="mb-16">
+          <div class="flex items-center gap-2 mb-4 font-mono text-xs font-black uppercase">
+            <span class="w-3 h-3 bg-accent-yellow border border-black dark:border-white"></span>
+            <span>CAMPAIGN IMPACT METRICS</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div class="nb-box p-6 bg-accent-yellow text-black flex flex-col justify-between ticket-coupon relative overflow-hidden">
+              <div>
+                <span class="font-mono text-xs font-black uppercase tracking-wider block mb-2">[METRIC-01 // SALES]</span>
+                <div class="font-display font-black text-5xl sm:text-6xl tracking-tighter leading-none mb-3">+30%</div>
+              </div>
+              <div>
+                <h3 class="font-syne font-black text-sm uppercase tracking-tight mb-1">Ticket Sales Increase</h3>
+                <p class="font-sans text-xs text-zinc-900 leading-snug">Highest conference registration attendance in the university's history.</p>
+              </div>
+            </div>
+
+            <div class="nb-box p-6 bg-accent-green text-black flex flex-col justify-between ticket-coupon relative overflow-hidden">
+              <div>
+                <span class="font-mono text-xs font-black uppercase tracking-wider block mb-2">[METRIC-02 // REACH]</span>
+                <div class="font-display font-black text-5xl sm:text-6xl tracking-tighter leading-none mb-3">1.2K+</div>
+              </div>
+              <div>
+                <h3 class="font-syne font-black text-sm uppercase tracking-tight mb-1">On-Site Attendees</h3>
+                <p class="font-sans text-xs text-zinc-900 leading-snug">Tech enthusiasts, student developers, and keynote speakers gathered.</p>
+              </div>
+            </div>
+
+            <div class="nb-box p-6 bg-accent-cyan text-black flex flex-col justify-between ticket-coupon relative overflow-hidden">
+              <div>
+                <span class="font-mono text-xs font-black uppercase tracking-wider block mb-2">[METRIC-03 // COLLATERAL]</span>
+                <div class="font-display font-black text-5xl sm:text-6xl tracking-tighter leading-none mb-3">24+</div>
+              </div>
+              <div>
+                <h3 class="font-syne font-black text-sm uppercase tracking-tight mb-1">Physical Assets</h3>
+                <p class="font-sans text-xs text-zinc-900 leading-snug">Stage backdrops, ID lanyards, enamel pins, certificates, and outdoor wayfinding.</p>
+              </div>
+            </div>
+
+            <div class="nb-box p-6 bg-accent-orange text-white flex flex-col justify-between ticket-coupon relative overflow-hidden">
+              <div>
+                <span class="font-mono text-xs font-black uppercase tracking-wider block mb-2">[METRIC-04 // CONSISTENCY]</span>
+                <div class="font-display font-black text-5xl sm:text-6xl tracking-tighter leading-none mb-3">100%</div>
+              </div>
+              <div>
+                <h3 class="font-syne font-black text-sm uppercase tracking-tight mb-1">Brand Cohesion</h3>
+                <p class="font-sans text-xs text-white leading-snug">Flawless color reproduction across screen RGB and printed CMYK materials.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- [D] NARRATIVE SECTIONS -->
+        <section class="border-t-[3px] border-black dark:border-white pt-12 sm:pt-16 mt-12 sm:mt-16">
+          <div class="flex items-center gap-2 mb-3 font-mono text-xs font-black uppercase">
+            <span class="px-2 py-0.5 bg-black text-white dark:bg-white dark:text-black">01</span>
+            <span>THE CREATIVE BRIEF & IDENTITY SYSTEM</span>
+          </div>
+
+          <h2 class="font-display font-black text-3xl sm:text-5xl uppercase tracking-tight mb-6">
+            NODE OF CONNECTION: VISUALIZING DIGITAL NETWORKS
+          </h2>
+
+          <div class="space-y-6 font-sans text-base sm:text-lg text-zinc-800 dark:text-zinc-200 leading-relaxed max-w-4xl">
+            <p>
+              CITEUP required a high-energy, contemporary identity that avoided tired corporate cliches (like stock circuit boards and blue globes). The concept "Node of Connection" explored geometric modular nodes connecting through bold typography and vibrant contrasting color fields.
+            </p>
+          </div>
+        </section>
+
+        <!-- [F] FOOTER NAVIGATION -->
+        <footer class="border-t-[3px] border-black dark:border-white pt-12 sm:pt-16 mt-12 sm:mt-16">
+          <div class="nb-box p-6 sm:p-10 bg-accent-yellow text-black mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <span class="font-mono text-xs font-black uppercase tracking-wider block mb-1">
+                [CAMPAIGN ARCHIVE & SOCIAL COLLATERAL]
+              </span>
+              <h3 class="font-display font-black text-2xl sm:text-4xl uppercase tracking-tight">
+                VIEW CITEUP ON INSTAGRAM
+              </h3>
+              <p class="font-sans text-sm sm:text-base text-zinc-900 mt-2 max-w-xl">
+                Explore the published social campaign, speaker posters, and live event documentation.
+              </p>
+            </div>
+            <a
+              href="https://www.instagram.com/citeup2025/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="nb-btn px-6 py-3.5 bg-black text-white text-xs sm:text-sm font-mono uppercase tracking-wider text-center flex-shrink-0"
+            >
+              INSTAGRAM ARCHIVE ↗
+            </a>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <a href="case-study-dashboard.html" class="nb-card p-6 bg-white dark:bg-[#1A1A1E] text-black dark:text-white flex flex-col justify-between group">
+              <div>
+                <div class="flex items-center justify-between font-mono text-xs font-bold text-zinc-500 mb-3">
+                  <span>← PREVIOUS CASE STUDY</span>
+                  <span>[IDX-06 // UX]</span>
+                </div>
+                <h4 class="font-syne font-black text-2xl uppercase group-hover:text-accent-cyan transition-colors">
+                  Mono Stock Terminal
+                </h4>
+                <p class="font-sans text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+                  Monochromatic, ultra high-contrast financial market terminal engineered to eliminate visual noise.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t-2 border-black dark:border-white font-mono text-xs font-bold flex justify-between">
+                <span>[ READ CASE STUDY ← ]</span>
+              </div>
+            </a>
+
+            <a href="case-study-lumina.html" class="nb-card p-6 bg-white dark:bg-[#1A1A1E] text-black dark:text-white flex flex-col justify-between group">
+              <div>
+                <div class="flex items-center justify-between font-mono text-xs font-bold text-zinc-500 mb-3">
+                  <span>NEXT CASE STUDY →</span>
+                  <span>[IDX-03 // UX]</span>
+                </div>
+                <h4 class="font-syne font-black text-2xl uppercase group-hover:text-accent-green transition-colors">
+                  LuminaVisa Platform
+                </h4>
+                <p class="font-sans text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+                  High-clarity web platform demystifying international visa applications into guided micro-steps.
+                </p>
+              </div>
+              <div class="mt-6 pt-4 border-t-2 border-black dark:border-white font-mono text-xs font-bold flex justify-between">
+                <span>[ READ CASE STUDY → ]</span>
+              </div>
+            </a>
+          </div>
+        </footer>
+      </article>
     </main>
-    
+
     <script>
-      // Match system theme preference
+      window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        const bar = document.getElementById('reading-progress-bar');
+        if (bar) bar.style.width = scrolled + '%';
+      });
+
+      const themeToggle = document.getElementById('theme-toggle');
       if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       } else {
         document.documentElement.classList.remove('dark');
+      }
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.theme = 'light';
+          } else {
+            document.documentElement.classList.add('dark');
+            localStorage.theme = 'dark';
+          }
+        });
       }
     </script>
   </body>
