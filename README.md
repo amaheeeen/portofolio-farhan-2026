@@ -1,86 +1,112 @@
-# Farhan Kholid - UI/UX & Graphic Designer Portfolio
+# Farhan Kholid - UI/UX & Graphic Designer Portfolio (2026)
 
-> A highly curated, single-page landing portfolio showcasing design fidelity, engineering precision, and a strictly enforced **Claymorphism** aesthetic. Built for speed, elegance, and pixel-perfect responsiveness.
+> A high-contrast, unapologetic, single-page landing portfolio engineered with a pure **Neo-Brutalism** design system. Built for speed, sharp information architecture, tactile micro-interactions, and WCAG AA accessibility.
 
 <div align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
   <img src="https://img.shields.io/badge/Vanilla_JS-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="Vanilla JS" />
+  <img src="https://img.shields.io/badge/Design_System-Neo--Brutalist-FFE600?style=for-the-badge&logoColor=black" alt="Neo-Brutalist" />
 </div>
 
 <br />
 
 ---
 
-## 🌟 Overview
+## ⚡ Design System & Visual Tokens
 
-This repository houses the pure static frontend code for my 2026 professional design portfolio. Moving away from standard flat design and heavy JS frameworks, this project embraces **Claymorphism**—a modern UI trend characterized by soft, fluffy 3D shapes, dual inner shadows, and floating, touch-friendly interfaces.
+The user interface follows pure **Neo-Brutalism** principles, completely discarding soft claymorphism and blur drop shadows in favor of tangible physical depth:
 
-The architecture is built completely on **HTML5** and **Tailwind CSS (via CDN)**, ensuring that there are zero heavy node_modules dependencies, zero build steps required to fire it up, and lightning-fast deployment capabilities.
-
----
-
-## ✨ Key Features
-
-- **The Claymorphism Design System**: Custom-written CSS algorithms to extend Tailwind's utility classes. Generating flawless `.clay-card`, `.clay-btn`, and `.clay-inset` shadows specifically calibrated against a `bg-[#F0F5F9]` canvas.
-- **Single-Page Flow**: A seamless `scroll-smooth` vertical layout engineered for an unblocked and comfortable reading experience from Hero to Contact.
-- **Bento Grid Architecture**: Asymmetric, responsive `grid-cols-12` layouts utilized across the "About Me" and Project Showcase sections for maximum content density and visual hierarchy.
-- **Icon-Only Logic**: Removed redundant text lists in favor of a sleek, purely visual Devicon gallery for the Tech Stack and Design Tool sections to elevate the aesthetic.
-- **Built-in Lightbox**: A custom Vanilla JS modal logic to scale, examine, and view high-fidelity UI/UX and Graphic Design screenshots dynamically.
-- **Zero-Dependency Animations**: Elegant CSS-only micro-interactions, including continuous floating blobs (`@keyframes float`) and gentle scaling hover states.
-
----
-
-## 🛠️ Built With
-
-- **Markup**: Semantic HTML5
-- **Styling Engine**: Tailwind CSS
-- **Custom CSS**: Vanilla CSS variables and keyframes exclusively for 3D shadowing algorithms.
-- **Interactivity**: Pure Vanilla JavaScript (DOM Manipulation for Lightbox)
-- **Typography**: Outfit & Syne (Google Fonts)
-- **Assets**: Devicon (SVGs) & SimpleIcons
-
----
-
-## 🚀 Quick Start / Deployment
-
-Since this project avoids Webpack, Vite, or Next.js build steps, running it is instantaneous.
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/portfolio-farhan-2026.git
-   ```
-2. **Open locally:**  
-   Simply open the `index.html` file in any modern web browser. No local server is strictly required, though you may use an extension like VS Code's _Live Server_ for hot-reloading.
-
-3. **Deploying (e.g., Vercel, Netlify, GitHub Pages):**  
-   Drag-and-drop the root folder directly into your hosting provider of choice. The site is production-ready.
+- **Borders & Outlines**: Solid `2.5px` to `3px` pure black (`#000000`) borders across all containers, cards, buttons, badges, and modals.
+- **Corners**: Strictly sharp (`rounded-none`) or subtle micro-radii (`rounded-sm`).
+- **Hard Offset Shadows**:
+  - Buttons / Badges: `4px 4px 0px #000000`
+  - Cards: `5px 5px 0px #000000` (expands to `8px 8px 0px #000000` on hover)
+  - Modals / Large Containers: `6px 6px 0px #000000` / `8px 8px 0px #000000`
+  - Zero blur radius (`blur: 0px`).
+  - Responsively scaled down on mobile viewports (<768px).
+- **High-Contrast Color Palette**:
+  - Main Canvas: `#F4F0EA` (warm newsprint off-white)
+  - Card Surfaces: `#FFFFFF`
+  - Borders & Typography: `#000000`
+  - Primary Accent: Electric Yellow (`#FFE600`)
+  - Secondary Accent: Acid Green (`#00F076`)
+  - Alert / Punch: Vivid Orange (`#FF5E3A`)
+  - Tech Accent: Electric Cyan (`#00E5FF`)
+  - Purple Accent: Vivid Lavender (`#B57CFF`)
+  - Dark Mode: `#121214` obsidian canvas with stark `#FFFFFF` borders and neon accents.
+- **Typography Matrix**:
+  - Headings: `Space Grotesk` & `Syne` (Black/Bold, tight tracking, all-caps headers).
+  - Body: `Inter` (high legibility, 16px/18px base).
+  - Monospace / Metadata: `JetBrains Mono` (technical indexing, live clocks, system specs).
 
 ---
 
-## 📂 Project Structure
+## 🕹️ Micro-Interactions & Physical States
 
-```text
-├── index.html          # The Main Single-Page Application Layout
-├── assets/             # Local Imagery
-│   └── img/
-│       ├── cu24/       # CITEUP 2024 Assets
-│       ├── cu25/       # CITEUP 2025 Assets
-│       ├── fsi/        # FSI Project Assets
-│       └── ...         # UI/UX Screenshots
-└── README.md
+- **Tactile Physical Buttons**:
+  - Default: Solid black border with `4px 4px 0px #000000` hard shadow.
+  - Hover: Hover lift (`translate(-2px, -2px)`) with expanded shadow.
+  - Active/Click: Down-right physical button sink (`translate(2px, 2px)`) with reduced shadow (`1px 1px 0px #000000`), accurately simulating physical mechanical switches.
+- **Project Index Cards**:
+  - Smooth hover elevation (`translate(-3px, -3px)`) and shadow expansion to `8px 8px 0px #000000`.
+- **Infinite Marquee Ticker**:
+  - High-visibility ribbon continuously cycling operational announcements, accessibility badges, and core capabilities.
+
+---
+
+## 🏛️ Page Architecture
+
+1. **Sticky Brutalist Topbar**:
+   - Monospaced brand identifier `[FK_2026.SYS // UX+GFX]` with pulsing live status.
+   - Infinite horizontal ticker ribbon.
+   - Quick navigation jump buttons (`[01. WORK]`, `[02. SKILLS]`, `[03. ARCHITECTURE]`, `[04. MOTION]`, `[05. CONNECT]`).
+   - Dark/Light Neo-Brutalist theme toggle.
+2. **Hero Section**:
+   - Giant display typography: `FARHAN KHOLID`.
+   - Floating utility badges (`[LOC: JAKARTA, ID]`, `[STATUS: AVAILABLE]`, `[CS @ PERTAMINA UNIV]`).
+   - Architectural Blueprint Box with quantitative metrics (06+ Works, 100% Token Driven, WCAG AA Contrast, Computer Science foundation).
+   - Solid-framed portrait with technical crop marks and crosshairs (`[+]`).
+3. **Selected Works (Modular Index System)**:
+   - Interactive category tabs (`ALL [06]`, `UI/UX APPS [04]`, `GRAPHIC & BRAND [02]`).
+   - Six featured projects:
+     - `CITEUP Event Branding` (Brand Identity & Print Collateral)
+     - `PT Farhan Surya Indah` (Corporate Identity & Umrah Travel Branding)
+     - `LuminaVisa Platform` (Guided Visa Micro-Step UI/UX)
+     - `Pilgrim's Tracker Enterprise` (Real-Time Operations & Manifest B2B SaaS)
+     - `Kalcer.ID Platform` (Indonesian Cultural Event & Heritage Hub)
+     - `Mono Stock Terminal` (Monochromatic Low-Fatigue Fintech Terminal)
+4. **Interactive Case Study Modal**:
+   - Dynamic modal drawer with strict 4-pillar narrative:
+     - `01. Problem Statement`
+     - `02. Architecture & Stepwise Flow`
+     - `03. Key Usability & Architectural Decisions`
+     - `04. Final Interface & Technical Specifications`
+   - Full keyboard accessibility (`ESC` to close) and direct links to standalone case study documents.
+5. **Two-Pillar Capabilities Matrix**:
+   - Explicitly distinguishes between **Pillar 01 (UI/UX & Product Systems)** and **Pillar 02 (Graphic & Visual Craft)**.
+6. **Convergence Dossier**:
+   - Details Farhan's background merging Computer Science engineering with graphic and typography mastery.
+7. **Motion & Video Tape Archive**:
+   - Retro brutalist cassette block linking directly to Google Drive promotional reel repository.
+8. **Contact Terminal**:
+   - High-contrast form and one-click email clipboard copy (`farhankholid20@gmail.com`).
+9. **Archival Terminal Footer**:
+   - Live Jakarta (WIB) time clock, system status ribbon, and smooth return-to-top trigger.
+
+---
+
+## 🚀 Local Development & Preview
+
+Zero build tools or heavy node dependencies required. Open `index.html` directly in any modern browser or run with any static HTTP server (e.g. Laragon, Python HTTP server, VS Code Live Server).
+
+```bash
+# Python 3 static server
+python -m http.server 8000
 ```
 
 ---
 
-## 🎨 Design Philosophy: Why Claymorphism?
-
-Claymorphism bridges the gap between the hyper-realistic _Neumorphism_ trends and the standard _Flat Design_. By combining two carefully calculated inner shadows (one dark top-left, one light bottom-right) against a prominent exterior drop-shadow, elements appear as if they are inflated, tangible objects floating slightly above the canvas. It invites interaction, feels incredibly friendly, and proves that high-end design doesn't always require complex WebGL setups.
-
----
-
 <div align="center">
-  <i>Designed and hand-coded by Farhan Kholid</i>
-  <br>
-  <b>2026</b>
+  <i>Designed & Developed by Farhan Kholid // 2026</i>
 </div>

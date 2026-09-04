@@ -1,925 +1,2128 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Farhan Kholid - 2026 Portofolio."
+      content="Farhan Kholid - UI/UX Designer & Graphic Designer Portfolio. High-density interfaces, experimental layout, pure Neo-Brutalism aesthetics. Fully responsive on smartphone, tablet, and desktop."
     />
-    <title>Farhan Kholid - 2026 Portofolio</title>
-    <link rel="icon" type="image/webp" href="./assets/img/logo.webp">
+    <title>FARHAN KHOLID // UI/UX & GRAPHIC DESIGNER 2026</title>
+    <link rel="icon" type="image/webp" href="./assets/img/logo.webp" />
 
-    <!-- Performance Optimizations & Security -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+    <!-- Preconnect & Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    
-    <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700;800&family=Space+Grotesk:wght@500;600;700;800&family=Syne:wght@700;800;900&display=swap"
       rel="stylesheet"
     />
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Tailwind Config -->
+    <!-- Tailwind Config with Neo-Brutalist Tokens & Breakpoints -->
     <script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
+          screens: {
+            'xs': '380px',
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px',
+          },
           extend: {
             fontFamily: {
-              sans: ["Outfit", "sans-serif"],
-              syne: ["Syne", "sans-serif"],
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              syne: ['Syne', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
             },
             colors: {
-              sand: "#F0F5F9",
-              mint: "#e6faec",
+              canvas: '#F4F0EA',
+              ink: '#000000',
+              accent: {
+                yellow: '#FFE600',
+                green: '#00F076',
+                orange: '#FF5E3A',
+                cyan: '#00E5FF',
+                purple: '#B57CFF',
+              },
+              dark: {
+                bg: '#121214',
+                surface: '#1A1A1E',
+                border: '#FFFFFF',
+              }
             },
+            boxShadow: {
+              'nb-sm': '2px 2px 0px #000000',
+              'nb': '4px 4px 0px #000000',
+              'nb-lg': '6px 6px 0px #000000',
+              'nb-xl': '8px 8px 0px #000000',
+              'nb-dark': '4px 4px 0px #FFFFFF',
+              'nb-dark-lg': '6px 6px 0px #FFFFFF',
+              'nb-dark-xl': '8px 8px 0px #FFFFFF',
+              'nb-yellow': '4px 4px 0px #FFE600',
+              'nb-green': '4px 4px 0px #00F076',
+            }
           },
         },
       };
     </script>
 
-    <!-- Custom Claymorphism Styles -->
     <style>
-      /* Base Clay Styling */
-      .clay-card {
-        background-color: #ffffff;
-        border-radius: 2rem;
-        box-shadow:
-          15px 15px 30px #d1d9e6,
-          -15px -15px 30px #ffffff,
-          inset -5px -5px 10px rgba(0, 0, 0, 0.03),
-          inset 5px 5px 10px rgba(255, 255, 255, 0.8);
-        transition: all 0.3s ease;
+      /* ==========================================================================
+         NEO-BRUTALISM CORE DESIGN SYSTEM TOKENS & RESPONSIVE SCALING
+         ========================================================================== */
+      :root {
+        --nb-border: 2.5px solid #000000;
+        --nb-shadow: 4px 4px 0px #000000;
+        --nb-shadow-hover: 6px 6px 0px #000000;
+        --nb-shadow-lg: 6px 6px 0px #000000;
+        --nb-shadow-xl: 8px 8px 0px #000000;
       }
 
-      .clay-container {
-        background-color: #f0f5f9;
-        border-radius: 2rem;
-        box-shadow:
-          15px 15px 30px #d1d9e6,
-          -15px -15px 30px #ffffff,
-          inset -5px -5px 10px rgba(0, 0, 0, 0.03),
-          inset 5px 5px 10px rgba(255, 255, 255, 0.8);
-        transition: all 0.3s ease;
+      .dark {
+        --nb-border: 2.5px solid #FFFFFF;
+        --nb-shadow: 4px 4px 0px #FFFFFF;
+        --nb-shadow-hover: 6px 6px 0px #FFFFFF;
+        --nb-shadow-lg: 6px 6px 0px #FFFFFF;
+        --nb-shadow-xl: 8px 8px 0px #FFFFFF;
       }
 
-      .clay-card-deep {
-        background-color: #ffffff;
-        border-radius: 2.5rem;
-        box-shadow:
-          20px 20px 40px #c8d0e0,
-          -20px -20px 40px #ffffff,
-          inset -8px -8px 15px rgba(0, 0, 0, 0.05),
-          inset 8px 8px 15px rgba(255, 255, 255, 0.9);
-        transition: all 0.3s ease;
+      /* Custom Selection */
+      ::selection {
+        background-color: #FFE600;
+        color: #000000;
       }
 
-      .clay-btn {
-        background-color: #f0f5f9;
-        border-radius: 9999px;
-        box-shadow:
-          8px 8px 16px #d1d9e6,
-          -8px -8px 16px #ffffff,
-          inset -3px -3px 6px rgba(0, 0, 0, 0.02),
-          inset 3px 3px 6px rgba(255, 255, 255, 0.8);
-        transition: all 0.2s ease;
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #F4F0EA;
+        border-left: 2px solid #000000;
+      }
+      .dark ::-webkit-scrollbar-track {
+        background: #121214;
+        border-left: 2px solid #FFFFFF;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #000000;
+        border: 2px solid #FFE600;
+      }
+      .dark ::-webkit-scrollbar-thumb {
+        background: #FFFFFF;
+        border: 2px solid #00F076;
+      }
+
+      /* Neo-Brutalist Utility Classes */
+      .nb-box {
+        border: 2.5px solid #000000;
+        box-shadow: 4px 4px 0px #000000;
+        transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.15s cubic-bezier(0.2, 0, 0, 1);
+      }
+      .dark .nb-box {
+        border: 2.5px solid #FFFFFF;
+        box-shadow: 4px 4px 0px #FFFFFF;
+      }
+
+      .nb-box-lg {
+        border: 3px solid #000000;
+        box-shadow: 6px 6px 0px #000000;
+        transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.15s cubic-bezier(0.2, 0, 0, 1);
+      }
+      .dark .nb-box-lg {
+        border: 3px solid #FFFFFF;
+        box-shadow: 6px 6px 0px #FFFFFF;
+      }
+
+      /* Tactile Button Micro-interactions */
+      .nb-btn {
+        border: 2.5px solid #000000;
+        box-shadow: 4px 4px 0px #000000;
+        transition: all 0.12s ease-in-out;
         cursor: pointer;
-        border: none;
-        color: #1e293b;
-        font-weight: 600;
-      }
-
-      .clay-btn:hover {
-        transform: scale(1.05);
-        box-shadow:
-          10px 10px 20px #ccdbed,
-          -10px -10px 20px #ffffff,
-          inset -5px -5px 10px rgba(0, 0, 0, 0.05),
-          inset 5px 5px 10px rgba(255, 255, 255, 0.9);
-      }
-
-      .clay-circle {
-        background-color: #ffffff;
-        border-radius: 50%;
-        box-shadow:
-          10px 10px 20px #d1d9e6,
-          -10px -10px 20px #ffffff,
-          inset -4px -4px 8px rgba(0, 0, 0, 0.03),
-          inset 4px 4px 8px rgba(255, 255, 255, 0.8);
-        transition: all 0.3s ease;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
+        font-weight: 700;
+        min-height: 40px;
+      }
+      .dark .nb-btn {
+        border: 2.5px solid #FFFFFF;
+        box-shadow: 4px 4px 0px #FFFFFF;
+      }
+      .nb-btn:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px #000000;
+      }
+      .dark .nb-btn:hover {
+        box-shadow: 6px 6px 0px #FFFFFF;
+      }
+      .nb-btn:active {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0px #000000;
+      }
+      .dark .nb-btn:active {
+        box-shadow: 1px 1px 0px #FFFFFF;
       }
 
-      .clay-circle:hover {
-        transform: scale(1.1);
-        box-shadow:
-          12px 12px 24px #cbd5e1,
-          -12px -12px 24px #ffffff,
-          inset -6px -6px 12px rgba(0, 0, 0, 0.06),
-          inset 6px 6px 12px rgba(255, 255, 255, 0.9);
+      /* Card Hover Lift */
+      .nb-card {
+        border: 2.5px solid #000000;
+        box-shadow: 5px 5px 0px #000000;
+        transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .dark .nb-card {
+        border: 2.5px solid #FFFFFF;
+        box-shadow: 5px 5px 0px #FFFFFF;
+      }
+      .nb-card:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 8px 8px 0px #000000;
+      }
+      .dark .nb-card:hover {
+        box-shadow: 8px 8px 0px #FFFFFF;
       }
 
-      /* Clay Blob inside hero */
-      .clay-blob {
-        background-color: #e2e8f0;
-        border-radius: 50%;
-        box-shadow:
-          15px 15px 30px #cbd5e1,
-          -15px -15px 30px #f8fafc,
-          inset -10px -10px 20px rgba(0, 0, 0, 0.05),
-          inset 10px 10px 20px rgba(255, 255, 255, 0.8);
-        animation: float 6s ease-in-out infinite;
+      /* Infinite Marquee Animation */
+      @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        display: flex;
+        width: max-content;
+        animation: marquee 24s linear infinite;
+      }
+      .animate-marquee:hover {
+        animation-play-state: paused;
       }
 
-      /* Utility for internal shadows only (like pressed areas, image windows) */
-      .clay-inset {
-        background-color: #f0f5f9;
-        border-radius: 1.5rem;
-        box-shadow:
-          inset 8px 8px 16px #d1d9e6,
-          inset -8px -8px 16px #ffffff;
+      /* Technical Grid Blueprint Pattern */
+      .bg-blueprint {
+        background-size: 24px 24px;
+        background-image: 
+          linear-gradient(to right, rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
       }
-
-      /* Input styling */
-      .clay-input {
-        background-color: #f0f5f9;
-        box-shadow:
-          inset 4px 4px 8px #d1d9e6,
-          inset -4px -4px 8px #ffffff;
-        transition: box-shadow 0.3s ease;
-      }
-      .clay-input:focus {
-        box-shadow:
-          inset 6px 6px 10px #cbd5e1,
-          inset -6px -6px 10px #ffffff;
-      }
-
-      /* Animations */
-      @keyframes float {
-        0% {
-          transform: translateY(0px) scale(1);
+      @media (min-width: 768px) {
+        .bg-blueprint {
+          background-size: 32px 32px;
         }
-        50% {
-          transform: translateY(-20px) scale(1.02);
+      }
+      .dark .bg-blueprint {
+        background-image: 
+          linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      }
+
+      /* Responsive Shadows on Mobile / Tablet */
+      @media (max-width: 767px) {
+        .nb-box {
+          border-width: 2px;
+          box-shadow: 2.5px 2.5px 0px #000000;
         }
-        100% {
-          transform: translateY(0px) scale(1);
+        .dark .nb-box {
+          border-width: 2px;
+          box-shadow: 2.5px 2.5px 0px #FFFFFF;
+        }
+        .nb-btn {
+          border-width: 2px;
+          box-shadow: 3px 3px 0px #000000;
+        }
+        .dark .nb-btn {
+          border-width: 2px;
+          box-shadow: 3px 3px 0px #FFFFFF;
+        }
+        .nb-btn:hover {
+          transform: none;
+          box-shadow: 3px 3px 0px #000000;
+        }
+        .dark .nb-btn:hover {
+          box-shadow: 3px 3px 0px #FFFFFF;
+        }
+        .nb-btn:active {
+          transform: translate(2px, 2px);
+          box-shadow: 0px 0px 0px #000000;
+        }
+        .dark .nb-btn:active {
+          box-shadow: 0px 0px 0px #FFFFFF;
+        }
+        .nb-card {
+          border-width: 2px;
+          box-shadow: 3px 3px 0px #000000;
+        }
+        .dark .nb-card {
+          border-width: 2px;
+          box-shadow: 3px 3px 0px #FFFFFF;
+        }
+        .nb-card:hover {
+          transform: none;
+          box-shadow: 3px 3px 0px #000000;
         }
       }
 
-      /* Hide Scrollbar Utility */
-      .hide-scrollbar {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-      }
-      .hide-scrollbar::-webkit-scrollbar {
-        display: none; /* Chrome, Safari and Opera */
-      }
-
-      /* --- Dark Mode Claymorphism Overrides --- */
-      .dark .clay-card {
-        background-color: #1e293b; /* slate-800 */
-        box-shadow:
-          15px 15px 30px #0f172a,
-          -15px -15px 30px #24354a,
-          inset -5px -5px 10px rgba(0, 0, 0, 0.4),
-          inset 5px 5px 10px rgba(255, 255, 255, 0.05);
-      }
-
-      .dark .clay-container {
-        background-color: #0f172a; /* slate-900 */
-        box-shadow:
-          15px 15px 30px #080c17,
-          -15px -15px 30px #16223d,
-          inset -5px -5px 10px rgba(0, 0, 0, 0.4),
-          inset 5px 5px 10px rgba(255, 255, 255, 0.05);
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .nb-box {
+          box-shadow: 3.5px 3.5px 0px #000000;
+        }
+        .dark .nb-box {
+          box-shadow: 3.5px 3.5px 0px #FFFFFF;
+        }
+        .nb-btn {
+          box-shadow: 3.5px 3.5px 0px #000000;
+        }
+        .dark .nb-btn {
+          box-shadow: 3.5px 3.5px 0px #FFFFFF;
+        }
+        .nb-card {
+          box-shadow: 4px 4px 0px #000000;
+        }
+        .dark .nb-card {
+          box-shadow: 4px 4px 0px #FFFFFF;
+        }
       }
 
-      .dark .clay-card-deep {
-        background-color: #1e293b;
-        box-shadow:
-          20px 20px 40px #0f172a,
-          -20px -20px 40px #24354a,
-          inset -8px -8px 15px rgba(0, 0, 0, 0.5),
-          inset 8px 8px 15px rgba(255, 255, 255, 0.05);
-      }
-
-      .dark .clay-btn {
-        background-color: #1e293b;
-        color: #f1f5f9;
-        box-shadow:
-          8px 8px 16px #0f172a,
-          -8px -8px 16px #24354a,
-          inset -3px -3px 6px rgba(0, 0, 0, 0.3),
-          inset 3px 3px 6px rgba(255, 255, 255, 0.05);
-      }
-      .dark .clay-btn:hover {
-        box-shadow:
-          10px 10px 20px #0a0f1c,
-          -10px -10px 20px #2a3d57,
-          inset -5px -5px 10px rgba(0, 0, 0, 0.5),
-          inset 5px 5px 10px rgba(255, 255, 255, 0.1);
-      }
-
-      .dark .clay-circle {
-        background-color: #1e293b;
-        box-shadow:
-          10px 10px 20px #0f172a,
-          -10px -10px 20px #24354a,
-          inset -4px -4px 8px rgba(0, 0, 0, 0.4),
-          inset 4px 4px 8px rgba(255, 255, 255, 0.05);
-      }
-      .dark .clay-circle:hover {
-        box-shadow:
-          12px 12px 24px #0a0f1c,
-          -12px -12px 24px #2a3d57,
-          inset -6px -6px 12px rgba(0, 0, 0, 0.5),
-          inset 6px 6px 12px rgba(255, 255, 255, 0.1);
-      }
-
-      .dark .clay-blob {
-        box-shadow:
-          15px 15px 30px rgba(0, 0, 0, 0.3),
-          -15px -15px 30px rgba(255, 255, 255, 0.02),
-          inset -10px -10px 20px rgba(0, 0, 0, 0.4),
-          inset 10px 10px 20px rgba(255, 255, 255, 0.05);
-      }
-
-      .dark .clay-inset, .dark .clay-input {
-        background-color: #0f172a;
-        box-shadow:
-          inset 6px 6px 12px #0a0f1c,
-          inset -6px -6px 12px #182542;
-      }
-      .dark .clay-input:focus {
-        box-shadow:
-          inset 8px 8px 16px #080c17,
-          inset -8px -8px 16px #1a2847;
-      }
-
-      @keyframes blob-bounce {
-        0% { transform: scale(1) translate3d(0, 0, 0); }
-        33% { transform: scale(1.1) translate3d(30px, -50px, 0); }
-        66% { transform: scale(0.9) translate3d(-20px, 20px, 0); }
-        100% { transform: scale(1) translate3d(0, 0, 0); }
-      }
-
-      @keyframes float-clay {
-        0% { transform: translate3d(0, 0px, 0) scale(1) rotate(0deg); }
-        33% { transform: translate3d(0, -40px, 0) scale(1.05) rotate(5deg); }
-        66% { transform: translate3d(0, 20px, 0) scale(0.95) rotate(-5deg); }
-        100% { transform: translate3d(0, 0px, 0) scale(1) rotate(0deg); }
-      }
-
-      /* Liquid Background Gradient */
-      @keyframes liquid-gradient {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-      .liquid-bg {
-        background: linear-gradient(-45deg, #F0F5F9, #e0ecf6, #f3e8ff, #e0f2fe);
-        background-size: 400% 400%;
-        animation: liquid-gradient 15s ease infinite;
-      }
-      .dark .liquid-bg {
-        background: linear-gradient(-45deg, #0f172a, #1e1b4b, #0c4a6e, #020617);
-        background-size: 400% 400%;
-        animation: liquid-gradient 15s ease infinite;
-      }
-
-      /* Noise Overlay for Gen Z Aesthetic */
-      .noise-bg {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        pointer-events: none;
-        z-index: 9999;
-        opacity: 0.04;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-      }
-      .dark .noise-bg {
-        opacity: 0.06;
+      /* Prevent iOS auto-zoom on input focus */
+      input, textarea {
+        font-size: 16px !important;
       }
     </style>
   </head>
   <body
-    class="antialiased font-sans selection:bg-[#c026d3] selection:text-white text-slate-800 dark:text-slate-100 transition-colors duration-300 relative"
+    class="bg-[#F4F0EA] dark:bg-[#121214] text-black dark:text-white font-sans antialiased selection:bg-accent-yellow selection:text-black transition-colors duration-200"
   >
-    <!-- Ethereal Shadow Global Background -->
-    <div class="fixed inset-0 z-[-20] pointer-events-none overflow-hidden liquid-bg dark:bg-slate-900 transition-colors duration-500" id="ethereal-container">
-        <!-- SVG Filter Definition -->
-        <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
-            <defs>
-                <filter id="ethereal-filter">
-                    <feTurbulence result="undulation" numOctaves="2" baseFrequency="0.0005,0.002" seed="0" type="turbulence" />
-                    <feColorMatrix id="ethereal-hue" in="undulation" type="hueRotate" values="0" />
-                    <!-- Matrix trick for visual effect -->
-                    <feColorMatrix in="dist" result="circulation" type="matrix" values="4 0 0 0 1  4 0 0 0 1  4 0 0 0 1  1 0 0 0 0" />
-                    <feDisplacementMap in="SourceGraphic" in2="circulation" scale="100" result="dist" />
-                    <feDisplacementMap in="dist" in2="undulation" scale="100" result="output" />
-                </filter>
-            </defs>
-        </svg>
-
-        <!-- Filtered Content Layer -->
-        <div style="position: absolute; inset: -100px; filter: url(#ethereal-filter) blur(4px);">
-            <!-- Shape Masking -->
-            <div class="w-full h-full bg-cyan-500/20 dark:bg-fuchsia-500/20 transition-colors duration-500" style="mask-image: url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png'); -webkit-mask-image: url('https://framerusercontent.com/images/ceBGguIpUU8luwByxuQz79t7To.png'); mask-size: cover; -webkit-mask-size: cover; mask-repeat: no-repeat; -webkit-mask-repeat: no-repeat; mask-position: center; -webkit-mask-position: center;"></div>
-        </div>
-
-        <!-- Noise Overlay -->
-        <div style="position: absolute; inset: 0; background-image: url('https://framerusercontent.com/images/g0QcWrxr87K0ufOxIUFBakwYA8.png'); background-size: 240px; background-repeat: repeat; opacity: 0.3;"></div>
-    </div>
-    <main id="main-container" class="w-full min-h-screen overflow-x-hidden relative transition-colors duration-300">
-    
-    <!-- Background Clay Blobs (Vibrant Gen Z Palette) -->
-    <div class="absolute top-10 -left-20 w-96 h-96 rounded-full bg-fuchsia-400/30 dark:bg-fuchsia-600/30 blur-3xl opacity-60 -z-10 clay-card border-none will-change-transform mix-blend-multiply dark:mix-blend-screen" style="animation: float-clay 20s infinite linear; transform: translateZ(0); backface-visibility: hidden; perspective: 1000px;"></div>
-    <div class="absolute top-[30%] -right-32 w-[30rem] h-[30rem] rounded-full bg-cyan-400/30 dark:bg-cyan-600/30 blur-3xl opacity-60 -z-10 clay-card border-none will-change-transform mix-blend-multiply dark:mix-blend-screen" style="animation: float-clay 25s infinite linear 2s; transform: translateZ(0); backface-visibility: hidden; perspective: 1000px;"></div>
-    <div class="absolute top-[60%] left-[-10%] w-80 h-80 rounded-full bg-lime-400/30 dark:bg-lime-600/30 blur-3xl opacity-60 -z-10 clay-card border-none will-change-transform mix-blend-multiply dark:mix-blend-screen" style="animation: float-clay 22s infinite linear 5s; transform: translateZ(0); backface-visibility: hidden; perspective: 1000px;"></div>
     <!-- =======================================================================
-         SIDEBAR NAV
+         STICKY BRUTALIST TOPBAR + RUNNING MARQUEE TICKER
          ======================================================================= -->
-    <aside class="fixed left-4 top-1/2 -translate-y-1/2 z-50 clay-card rounded-full p-4 flex flex-col gap-6 max-md:left-1/2 max-md:-translate-x-1/2 max-md:top-auto max-md:bottom-6 max-md:flex-row max-md:translate-y-0 max-md:w-[90%] max-md:max-w-[400px] max-md:justify-around max-md:gap-0 max-md:px-4 max-md:py-3 transition-colors duration-300">
-      
-      <!-- Dark Mode Toggle -->
-      <button id="theme-toggle" class="relative group" aria-label="Toggle Dark Mode">
-        <div class="w-12 h-12 max-md:w-10 max-md:h-10 clay-circle text-amber-500 hover:text-amber-600 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors">
-          <!-- Sun Icon (Light Mode) -->
-          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 max-md:w-4 max-md:h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 1.32a1 1 0 011.415 0l.708.707a1 1 0 01-1.414 1.414l-.708-.707a1 1 0 010-1.414zM17 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zm-1.32 4.22a1 1 0 010 1.415l-.707.708a1 1 0 01-1.414-1.414l.707-.708a1 1 0 011.414 0zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-4.22-1.32a1 1 0 01-1.415 0l-.708-.707a1 1 0 011.414-1.414l.708.707a1 1 0 010 1.414zM4 10a1 1 0 01-1 1H2a1 1 0 110-2h1a1 1 0 011 1zm1.32-4.22a1 1 0 010-1.415l.707-.708a1 1 0 011.414 1.414l-.707.708a1 1 0 01-1.414 0zM10 5a5 5 0 100 10 5 5 0 000-10z"></path></svg>
-          <!-- Moon Icon (Dark Mode) -->
-          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 max-md:w-4 max-md:h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-        </div>
-        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap max-md:hidden">Toggle Theme</span>
-      </button>
-
-      <!-- Home -->
-      <a href="#hero" class="relative group">
-        <div class="w-12 h-12 max-md:w-10 max-md:h-10 clay-circle text-slate-500 group-hover:text-[#0ea5e9]">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 max-md:w-4 max-md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <!-- Tooltip -->
-        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap max-md:hidden">Home</span>
-      </a>
-
-      <!-- Selected Work -->
-      <a href="#work" class="relative group">
-        <div class="w-12 h-12 max-md:w-10 max-md:h-10 clay-circle text-slate-500 group-hover:text-[#0ea5e9]">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 max-md:w-4 max-md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><line x1="9" x2="9" y1="21" y2="9"/></svg>
-        </div>
-        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap max-md:hidden">Selected Work</span>
-      </a>
-
-      <!-- About -->
-      <a href="#about" class="relative group">
-        <div class="w-12 h-12 max-md:w-10 max-md:h-10 clay-circle text-slate-500 group-hover:text-[#8b5cf6]">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 max-md:w-4 max-md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 22v-4a2 2 0 1 0-4 0v4"/><path d="m18 10 4 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8l4-2"/><path d="M18 5v17"/><path d="m4 6 8-4 8 4"/><path d="M6 5v17"/><circle cx="12" cy="9" r="2"/></svg>
-        </div>
-        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap max-md:hidden">About</span>
-      </a>
-
-      <!-- Video -->
-      <a href="#video" class="relative group">
-        <div class="w-12 h-12 max-md:w-10 max-md:h-10 clay-circle text-slate-500 group-hover:text-[#ec4899]">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 max-md:w-4 max-md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
-        </div>
-        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap max-md:hidden">Video Portfolio</span>
-      </a>
-
-      <!-- Contact -->
-      <a href="#contact" class="relative group">
-        <div class="w-12 h-12 max-md:w-10 max-md:h-10 clay-circle text-slate-500 group-hover:text-amber-500 dark:group-hover:text-amber-400">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 max-md:w-4 max-md:h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        </div>
-        <span class="absolute left-16 top-1/2 -translate-y-1/2 px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all pointer-events-none drop-shadow-md whitespace-nowrap max-md:hidden">Contact</span>
-      </a>
-    </aside>
-
-    <section
-      id="hero"
-      class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 relative overflow-hidden transition-colors duration-300"
-    >
-      <!-- Floating 3D Clay Blobs -->
-      <div class="absolute top-1/4 left-1/4 max-md:left-0 max-md:top-10 w-64 h-64 max-md:w-40 max-md:h-40 rounded-full blur-3xl opacity-40 bg-gradient-to-tr from-[#e8f1f8] to-[#e0ecf6] dark:from-indigo-900 dark:to-purple-900 -z-10" style="animation: blob-bounce 10s infinite alternate;"></div>
-      <div class="absolute bottom-1/4 right-1/4 max-md:right-0 max-md:bottom-20 w-96 h-96 max-md:w-64 max-md:h-64 rounded-full blur-3xl opacity-40 bg-gradient-to-tr from-[#e0ecf6] to-[#f0f5f9] dark:from-sky-900 dark:to-indigo-900 -z-10" style="animation: blob-bounce 15s infinite alternate-reverse;"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-80 h-80 max-md:w-48 max-md:h-48 rounded-full blur-3xl opacity-40 bg-gradient-to-tr from-[#f5f0f9] to-[#ece0f6] dark:from-fuchsia-900 dark:to-rose-900 -z-10" style="animation: blob-bounce 12s infinite alternate;"></div>
-
-      <div class="relative z-10 text-center flex flex-col items-center">
-        <!-- Decorative Stars (Gen Z aesthetic) -->
-        <div class="absolute -top-10 left-10 md:-left-20 animate-spin" style="animation-duration: 4s;">
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" class="text-fuchsia-400 opacity-60">
-            <path d="M20 0L23.5 16.5L40 20L23.5 23.5L20 40L16.5 23.5L0 20L16.5 16.5L20 0Z" fill="currentColor"/>
-          </svg>
-        </div>
-        <div class="absolute top-20 right-10 md:-right-10 animate-spin" style="animation-duration: 6s; animation-direction: reverse;">
-          <svg width="24" height="24" viewBox="0 0 40 40" fill="none" class="text-cyan-400 opacity-60">
-            <path d="M20 0L23.5 16.5L40 20L23.5 23.5L20 40L16.5 23.5L0 20L16.5 16.5L20 0Z" fill="currentColor"/>
-          </svg>
-        </div>
-
-        <!-- Profile Picture with Hover Effect -->
-        <div class="relative group cursor-pointer mb-8">
-          <div class="absolute -inset-1 bg-gradient-to-r from-fuchsia-500 to-cyan-500 rounded-full blur opacity-25 group-hover:opacity-75 transition duration-500 animate-pulse"></div>
-          <div class="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full clay-card p-1 mx-auto relative flex-shrink-0 transition-transform duration-500 group-hover:scale-105">
-            <img src="./assets/img/pp-formal.png" alt="Farhan Kholid" class="w-full h-full object-cover rounded-full" loading="eager" decoding="async" />
-            <!-- Floating Badge -->
-            <div class="absolute -bottom-2 -right-2 bg-white dark:bg-slate-800 text-2xl p-2 rounded-full shadow-lg border border-slate-100 dark:border-slate-700 animate-bounce">
-              ✨
-            </div>
-          </div>
-        </div>
-
-        <!-- Status Pill -->
-        <div class="clay-btn px-6 py-2 mb-8 text-sm uppercase tracking-widest text-[#c026d3] dark:text-[#e879f9] cursor-default flex items-center gap-2 mx-auto border border-fuchsia-200 dark:border-fuchsia-900/50">
-          <span class="w-2 h-2 rounded-full bg-[#c026d3] animate-ping absolute opacity-75"></span>
-          <span class="w-2 h-2 rounded-full bg-[#c026d3] relative"></span>
-          Available for work
-        </div>
-        <h1 class="font-syne font-black text-5xl md:text-7xl lg:text-[7rem] text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-slate-500 dark:from-white dark:to-slate-400 pb-2 leading-[1.1] md:leading-[1.1] tracking-tighter mb-2 transition-colors duration-300">
-          FARHAN
-          <br />
-          KHOLID<span class="text-fuchsia-400">.</span>
-        </h1>
-
-        <h2 class="font-syne font-bold text-xl md:text-3xl text-slate-600 dark:text-slate-400 mb-12 max-w-3xl mx-auto px-4 transition-colors duration-300 tracking-wide">
-           <span class="text-slate-800 dark:text-white font-black uppercase">GRAPHIC DESIGNER</span>
-           <br><span class="text-slate-500 dark:text-slate-400 text-base md:text-lg font-semibold tracking-widest uppercase">& UI/UX · Crafting Bold Visual Identities</span>
-        </h2>
-
-        <!-- Tech/Design Stack Logos -->
-        <div class="flex justify-center gap-3 md:gap-4 flex-wrap w-full mt-4 max-w-2xl mx-auto">
-          <span class="clay-btn px-5 py-3 text-sm font-bold text-slate-700 flex items-center gap-2 cursor-default hover:-translate-y-1 transition-transform"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg" class="w-8 h-8" alt="Photoshop"></span>
-          <span class="clay-btn px-5 py-3 text-sm font-bold text-slate-700 flex items-center gap-2 cursor-default hover:-translate-y-1 transition-transform"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg" class="w-8 h-8" alt="Illustrator"></span>
-          <span class="clay-btn px-5 py-3 text-sm font-bold text-slate-700 flex items-center gap-2 cursor-default hover:-translate-y-1 transition-transform"><img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma" class="w-5 h-5" /></span>
-          <span class="clay-btn px-5 py-3 text-sm font-bold text-slate-700 flex items-center gap-2 cursor-default hover:-translate-y-1 transition-transform"><img src="https://cdn.simpleicons.org/framer/0055FF" alt="Framer" class="w-5 h-5" /></span>
-          <span class="clay-btn px-5 py-3 text-sm font-bold text-slate-700 flex items-center gap-2 cursor-default hover:-translate-y-1 transition-transform"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React" class="w-5 h-5" /></span>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- =======================================================================
-         SECTION 2: ABOUT
-         ======================================================================= -->
-    <section id="about" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-[#e8f1f8] dark:bg-slate-900 transition-colors duration-300">
-      <div class="w-full h-full max-w-[1600px] flex flex-col py-12 px-8 max-md:px-2 max-md:py-4">
-        <div class="mb-12 flex justify-between items-end flex-shrink-0">
-          <div>
-            <div class="inline-block clay-btn px-4 py-1 mb-2 text-xs font-bold tracking-widest text-[#8b5cf6]">ABOUT ME</div>
-            <h2 class="font-syne font-black text-4xl text-slate-800 dark:text-slate-100 leading-none transition-colors duration-300">Background & <br/> Philosophy</h2>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div class="clay-card p-10 max-md:p-6 flex flex-col justify-center relative overflow-hidden group">
-            <div class="absolute -inset-2 bg-gradient-to-br from-fuchsia-500/10 to-cyan-500/10 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]"></div>
-            <div class="relative z-10">
-              <h3 class="font-syne font-bold text-2xl text-slate-800 dark:text-slate-100 mb-4 transition-colors">Who I Am</h3>
-              <p class="font-sans text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-6">
-                I am a Graphic Designer and UI/UX Designer who creates bold, meaningful visuals — from brand identities and event collateral to intuitive digital interfaces. Currently studying Computer Science at Pertamina University, I merge artistic precision with technical execution.
-              </p>
-              <p class="font-sans text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
-                With experience spanning event branding, visual identity, product design, and front-end development, I bring a holistic approach to every project — making it visually impactful and functionally excellent.
-              </p>
-            </div>
-          </div>
-          <div class="clay-card p-10 max-md:p-6 flex flex-col justify-center relative overflow-hidden group">
-            <div class="absolute -inset-2 bg-gradient-to-br from-lime-500/10 to-cyan-500/10 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-[2rem]"></div>
-            <div class="relative z-10">
-              <h3 class="font-syne font-bold text-2xl text-slate-800 dark:text-slate-100 mb-4 transition-colors">Design Philosophy</h3>
-            <div class="space-y-6">
-              <div class="flex gap-4 items-start">
-                <div class="w-12 h-12 clay-circle bg-white flex-shrink-0 text-xl flex items-center justify-center">🎨</div>
-                <div>
-                  <h4 class="font-syne font-bold text-lg text-slate-800 dark:text-slate-100">Visual Storytelling</h4>
-                  <p class="font-sans text-slate-600 dark:text-slate-300">Every composition tells a story. I craft visuals that communicate brand values instantly and leave a lasting impression.</p>
-                </div>
-              </div>
-              <div class="flex gap-4 items-start">
-                <div class="w-12 h-12 clay-circle bg-white flex-shrink-0 text-xl flex items-center justify-center">🧩</div>
-                <div>
-                  <h4 class="font-syne font-bold text-lg text-slate-800 dark:text-slate-100">Systems Thinking</h4>
-                  <p class="font-sans text-slate-600 dark:text-slate-300">I build scalable design systems that maintain consistency and accelerate development cycles.</p>
-                </div>
-              </div>
-              <div class="flex gap-4 items-start">
-                <div class="w-12 h-12 clay-circle bg-white flex-shrink-0 text-xl flex items-center justify-center">✨</div>
-                <div>
-                  <h4 class="font-syne font-bold text-lg text-slate-800 dark:text-slate-100">Premium Aesthetics</h4>
-                  <p class="font-sans text-slate-600 dark:text-slate-300">A memorable first impression matters. I craft vibrant, dynamic, and polished visuals that elevate the brand.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>\n\n    <!-- =======================================================================
-         SECTION 3: SELECTED WORK
-         ======================================================================= -->
-    <section id="work" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-transparent transition-colors duration-300">
-      <div class="w-full max-w-[1600px] mx-auto flex flex-col gap-16 max-md:gap-8">
+    <header class="sticky top-0 z-50 w-full bg-[#F4F0EA] dark:bg-[#121214] border-b-[3px] border-black dark:border-white">
+      <!-- Top Bar Content: Brand, Desktop Nav, Tablet/Mobile Toggles, Primary CTA -->
+      <div class="max-w-[1720px] mx-auto px-3 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between gap-2 sm:gap-4">
         
-        <!-- Intro -->
-        <div class="text-center mb-4">
-          <div class="inline-block clay-btn px-6 py-2 mb-4 text-sm font-bold tracking-widest text-[#f59e0b]">
-            GRAPHIC DESIGN · FEATURED
-          </div>
-          <h2 class="font-syne font-black text-4xl md:text-5xl text-slate-800 dark:text-slate-100 mb-4 transition-colors duration-300">
-            Selected Work
-          </h2>
-          <p class="font-sans text-slate-500 max-w-xl mx-auto font-medium text-lg">
-            Visual identities, event branding, and UI/UX — a curated look at my most impactful work.
-          </p>
-        </div>
-
-        <!-- Highlight 1: CITEUP Event Branding (Graphic Design) -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center group">
-          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4 relative">
-             <div class="absolute inset-0 bg-gradient-to-tr from-amber-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay"></div>
-            <img src="./assets/img/cu25/cu25.webp" class="relative z-0 w-full h-full object-cover object-top rounded-2xl group-hover:scale-[1.03] transition-transform duration-700 ease-out" alt="CITEUP Event Branding" loading="lazy" decoding="async" />
-          </div>
-          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full relative overflow-hidden">
-             <div class="absolute -right-10 -top-10 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl group-hover:bg-amber-400/20 transition-colors duration-500"></div>
-            <div class="relative z-10">
-              <div class="inline-block clay-btn px-4 py-1 mb-2 text-xs font-bold tracking-widest text-[#f59e0b]">GRAPHIC DESIGN · 01</div>
-              <h3 class="font-syne font-black text-3xl text-slate-800 dark:text-white transition-colors mb-4 leading-none">CITEUP Event Branding</h3>
-              <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">Visual identity for "Node of Connection" — a large-scale university tech event. Applied across digital and print assets including banners, lanyards, and social media kits.</p>
-            </div>
-            <div class="mt-4">
-               <a href="https://www.instagram.com/citeup2025/" target="_blank" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#f59e0b]">VIEW ON INSTAGRAM</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Highlight 2: PT Farhan Surya Indah (Graphic Design) -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center group">
-          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4 md:order-2 relative">
-             <div class="absolute inset-0 bg-gradient-to-tr from-cyan-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay"></div>
-            <img src="./assets/img/fsi/fsi.webp" class="relative z-0 w-full h-full object-cover rounded-2xl group-hover:scale-[1.03] transition-transform duration-700 ease-out" alt="PT Farhan Surya Indah Branding" loading="lazy" decoding="async" />
-          </div>
-          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full md:order-1 relative overflow-hidden">
-            <div class="absolute -left-10 -bottom-10 w-32 h-32 bg-cyan-400/10 rounded-full blur-2xl group-hover:bg-cyan-400/20 transition-colors duration-500"></div>
-            <div class="relative z-10">
-              <div class="inline-block clay-btn px-4 py-1 mb-2 text-xs font-bold tracking-widest text-[#0ea5e9]">GRAPHIC DESIGN · 02</div>
-              <h3 class="font-syne font-black text-3xl text-slate-800 dark:text-white transition-colors mb-4 leading-none">PT Farhan Surya Indah</h3>
-              <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">Full-scale visual identities and promotional materials for umrah travel programs — brochures, social media kits, and comprehensive brand guidelines.</p>
-            </div>
-            <div class="mt-4">
-               <a href="https://www.instagram.com/farhansuryaindah/" target="_blank" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#0ea5e9]">VIEW ON INSTAGRAM</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Highlight 3: LuminaVisa (UI/UX) -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center group">
-          <div class="col-span-12 md:col-span-8 clay-card aspect-video rounded-[2rem] flex items-center justify-center overflow-hidden bg-white/50 backdrop-blur-sm p-4 relative">
-             <div class="absolute inset-0 bg-gradient-to-tr from-fuchsia-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay"></div>
-            <img src="assets/img/porto-fe_4.webp" class="relative z-0 w-full h-full object-cover object-top rounded-2xl group-hover:scale-[1.03] transition-transform duration-700 ease-out" alt="Lumina Visa" loading="lazy" decoding="async" />
-          </div>
-          <div class="col-span-12 md:col-span-4 clay-card p-10 flex flex-col gap-6 justify-center h-full relative overflow-hidden">
-             <div class="absolute -right-10 -top-10 w-32 h-32 bg-fuchsia-400/10 rounded-full blur-2xl group-hover:bg-fuchsia-400/20 transition-colors duration-500"></div>
-            <div class="relative z-10">
-              <div class="inline-block clay-btn px-4 py-1 mb-2 text-xs font-bold tracking-widest text-[#8b5cf6]">UI/UX DESIGN · CASE STUDY 03</div>
-              <h3 class="font-syne font-black text-3xl text-slate-800 dark:text-white transition-colors mb-4 leading-none">LuminaVisa</h3>
-              <p class="text-slate-600 dark:text-slate-300 transition-colors font-sans leading-relaxed text-lg">A website concept simplifying opaque visa processes. Broken down into bite-sized steps with clear visual feedback to ease traveler anxiety.</p>
-            </div>
-            <div class="mt-4">
-               <a href="case-study-lumina.html" class="clay-btn w-full py-4 text-center block text-lg font-bold tracking-widest text-[#8b5cf6]">VIEW CASE STUDY</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =======================================================================
-         SECTION 4: OTHER WORKS & EVIDENCES
-         ======================================================================= -->
-    <section id="other-works" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-transparent transition-colors duration-300">
-      <div class="w-full max-w-[1600px] mx-auto flex flex-col gap-12 max-md:gap-8">
-        <div class="text-center mb-8">
-          <div class="inline-block clay-btn px-6 py-2 mb-4 text-sm font-bold tracking-widest text-[#8b5cf6]">UI/UX DESIGN</div>
-          <h2 class="font-syne font-black text-3xl md:text-4xl text-slate-800 dark:text-slate-100 mb-4 transition-colors duration-300">UI/UX Design Works</h2>
-          <p class="font-sans text-slate-500 max-w-xl mx-auto font-medium">Interactive products and digital experiences designed with purpose.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          
-          <!-- Pilgrim's Tracker -->
-          <div class="clay-card p-6 flex flex-col gap-4 relative group overflow-hidden">
-            <div class="absolute inset-0 bg-cyan-400/5 opacity-0 group-hover:opacity-100 transition-opacity z-0 pointer-events-none mix-blend-overlay"></div>
-            <div class="aspect-video rounded-xl overflow-hidden mb-4 bg-white/50 backdrop-blur-sm relative z-10">
-              <img src="./assets/img/porto-fe_6.webp" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" alt="Pilgrim's Tracker" loading="lazy" />
-            </div>
-            <h3 class="font-syne font-bold text-xl text-slate-800 dark:text-white relative z-10">Pilgrim's Tracker</h3>
-            <p class="text-slate-600 dark:text-slate-300 text-sm flex-grow relative z-10">Umrah and Hajj Management System Dashboard built to monitor pilgrim data and daily operations efficiently in real-time.</p>
-            <a href="case-study-booking.html" class="clay-btn w-full py-3 text-center text-sm font-bold text-[#0ea5e9] relative z-10">VIEW CASE STUDY</a>
-          </div>
-
-          <!-- Kalcer.ID -->
-          <div class="clay-card p-6 flex flex-col gap-4 relative group overflow-hidden">
-            <div class="absolute inset-0 bg-orange-400/5 opacity-0 group-hover:opacity-100 transition-opacity z-0 pointer-events-none mix-blend-overlay"></div>
-            <div class="aspect-video rounded-xl overflow-hidden mb-4 bg-white/50 backdrop-blur-sm relative z-10">
-              <img src="assets/img/porto-fe_2.webp" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" alt="Kalcer.ID" loading="lazy" />
-            </div>
-            <h3 class="font-syne font-bold text-xl text-slate-800 dark:text-white relative z-10">Kalcer.ID</h3>
-            <p class="text-slate-600 dark:text-slate-300 text-sm flex-grow relative z-10">A comprehensive cultural hub bridging fragmented heritage sites into one unified platform with dynamic event discovery.</p>
-            <a href="case-study-kalcer.html" class="clay-btn w-full py-3 text-center text-sm font-bold text-[#f97316] relative z-10">VIEW CASE STUDY</a>
-          </div>
-
-          <!-- Mono Stock Dashboard -->
-          <div class="clay-card p-6 flex flex-col gap-4 relative group overflow-hidden">
-            <div class="absolute inset-0 bg-emerald-400/5 opacity-0 group-hover:opacity-100 transition-opacity z-0 pointer-events-none mix-blend-overlay"></div>
-            <div class="aspect-video rounded-xl overflow-hidden mb-4 bg-white/50 backdrop-blur-sm relative z-10">
-              <img src="assets/img/porto-fe_1.webp" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" alt="Mono Stock" loading="lazy" />
-            </div>
-            <h3 class="font-syne font-bold text-xl text-slate-800 dark:text-white relative z-10">Mono Stock Dashboard</h3>
-            <p class="text-slate-600 dark:text-slate-300 text-sm flex-grow relative z-10">Monochromatic, high-contrast dashboard to reduce decision fatigue for traders.</p>
-            <a href="case-study-dashboard.html" class="clay-btn w-full py-3 text-center text-sm font-bold text-[#10b981] relative z-10">VIEW WORK</a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =======================================================================
-         SECTION 5: VIDEO PORTFOLIO
-         ======================================================================= -->
-    <section id="video" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-transparent transition-colors duration-300">
-      <div class="w-full max-w-[1600px] mx-auto flex flex-col gap-12 max-md:gap-8">
-        <div class="text-center mb-8">
-          <div class="inline-block clay-btn px-6 py-2 mb-4 text-sm font-bold tracking-widest text-[#ec4899]">VIDEO PORTFOLIO</div>
-          <h2 class="font-syne font-black text-3xl md:text-4xl text-slate-800 dark:text-slate-100 mb-4 transition-colors duration-300">Motion & Video Editing Works</h2>
-          <p class="font-sans text-slate-500 max-w-xl mx-auto font-medium">A collection of my video editing and motion graphic projects.</p>
-        </div>
-
-        <div class="flex justify-center">
-            <div class="clay-card p-10 flex flex-col gap-6 relative group overflow-hidden max-w-2xl w-full text-center items-center">
-                <div class="absolute inset-0 bg-pink-400/5 opacity-0 group-hover:opacity-100 transition-opacity z-0 pointer-events-none mix-blend-overlay"></div>
-                <div class="w-24 h-24 clay-circle bg-white text-4xl flex items-center justify-center mb-4 relative z-10 text-pink-500 shadow-md">
-                    🎬
-                </div>
-                <h3 class="font-syne font-bold text-2xl text-slate-800 dark:text-white relative z-10">Google Drive Archive</h3>
-                <p class="text-slate-600 dark:text-slate-300 text-base relative z-10 mb-4">Explore my complete collection of video editing projects, promotional videos, and motion graphics curated in one place.</p>
-                <a href="https://drive.google.com/drive/folders/1AbsWvAeQKMk1IMj9sEdLxQdeH6MzhvKm" target="_blank" rel="noopener noreferrer" class="clay-btn px-8 py-4 text-center text-lg font-bold tracking-widest text-[#ec4899] relative z-10 hover:scale-105 transition-transform w-full sm:w-auto">
-                    OPEN GOOGLE DRIVE
-                </a>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =======================================================================
-         SECTION 6: CONTACT
-         ======================================================================= -->
-    <section id="contact" class="min-h-screen flex flex-col justify-center py-24 pl-32 pr-8 max-md:px-6 max-md:pb-32 max-md:pt-16 relative overflow-hidden bg-[#F0F5F9] dark:bg-slate-900 transition-colors duration-300">
-      <div class="container mx-auto px-6 max-md:px-2 max-w-4xl w-full">
-        <div
-          class="clay-card-deep p-8 md:p-16 text-center relative overflow-hidden"
+        <!-- Brand / Monospaced Badge -->
+        <a
+          href="#hero"
+          class="flex items-center gap-1.5 sm:gap-2.5 px-2 sm:px-3 py-1 sm:py-1.5 bg-black text-white dark:bg-white dark:text-black font-mono text-[11px] sm:text-xs md:text-sm font-bold border-2 border-black dark:border-white hover:bg-accent-yellow hover:text-black transition-colors flex-shrink-0"
+          title="Return to Top"
         >
-          <h2
-            class="font-syne font-black text-4xl md:text-5xl text-slate-800 dark:text-slate-100 mb-6 relative z-10 transition-colors duration-300"
+          <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-accent-green inline-block border border-black animate-pulse"></span>
+          <span>FK_2026.SYS</span>
+        </a>
+
+        <!-- Desktop Quick Nav (Visible >=1024px) -->
+        <nav class="hidden lg:flex items-center gap-2 font-mono text-xs font-bold" aria-label="Main Desktop Navigation">
+          <a href="#work" class="px-3 py-1 bg-white dark:bg-[#1A1A1E] border-2 border-black dark:border-white hover:bg-accent-yellow hover:text-black transition-all">
+            [01. WORK]
+          </a>
+          <a href="#skills" class="px-3 py-1 bg-white dark:bg-[#1A1A1E] border-2 border-black dark:border-white hover:bg-accent-green hover:text-black transition-all">
+            [02. SKILLS]
+          </a>
+          <a href="#about" class="px-3 py-1 bg-white dark:bg-[#1A1A1E] border-2 border-black dark:border-white hover:bg-accent-cyan hover:text-black transition-all">
+            [03. DOSSIER]
+          </a>
+          <a href="#video" class="px-3 py-1 bg-white dark:bg-[#1A1A1E] border-2 border-black dark:border-white hover:bg-accent-orange hover:text-white transition-all">
+            [04. MOTION]
+          </a>
+          <a href="#contact" class="px-3 py-1 bg-white dark:bg-[#1A1A1E] border-2 border-black dark:border-white hover:bg-accent-purple hover:text-white transition-all">
+            [05. CONNECT]
+          </a>
+        </nav>
+
+        <!-- Right Side Controls: Theme Toggle, Mobile Menu Trigger, CTA -->
+        <div class="flex items-center gap-1.5 sm:gap-3">
+          <!-- Dark / Light Brutalist Switcher -->
+          <button
+            id="theme-toggle"
+            class="nb-btn px-2 sm:px-2.5 py-1 sm:py-1.5 bg-white dark:bg-[#1A1A1E] text-black dark:text-white text-[11px] sm:text-xs font-mono font-bold"
+            aria-label="Toggle Dark and Light Mode"
           >
-            Let's Connect
-          </h2>
-          <p
-            class="font-sans text-slate-500 dark:text-white transition-colors mb-10 text-lg font-medium relative z-10"
+            <span id="theme-icon-light" class="hidden">☀ LIGHT</span>
+            <span id="theme-icon-dark" class="flex items-center gap-1">☾ DARK</span>
+          </button>
+
+          <!-- Direct CTA -->
+          <a
+            href="#contact"
+            class="nb-btn px-2.5 sm:px-4 md:px-5 py-1 sm:py-1.5 md:py-2 bg-accent-yellow text-black text-[11px] sm:text-xs md:text-sm font-mono font-black tracking-wider uppercase"
           >
-            Have a project in mind? Let's mold it together.
-          </p>
+            LET'S TALK ↗
+          </a>
 
-          <!-- Contact Form -->
-          <form action="https://formspree.io/f/mreybrjg" method="POST" class="max-w-md mx-auto space-y-6 relative z-10">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              required
-              class="w-full px-6 py-4 rounded-2xl border-none focus:outline-none text-slate-700 placeholder-slate-400 clay-input"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              required
-              class="w-full px-6 py-4 rounded-2xl border-none focus:outline-none text-slate-700 placeholder-slate-400 clay-input"
-            />
-            <textarea
-              name="message"
-              rows="4"
-              placeholder="Tell me about your project..."
-              required
-              class="w-full px-6 py-4 rounded-2xl border-none focus:outline-none text-slate-700 placeholder-slate-400 clay-input"
-            ></textarea>
+          <!-- Mobile & Tablet Menu Button (Visible <1024px) -->
+          <button
+            id="mobile-menu-toggle"
+            class="lg:hidden nb-btn px-2.5 py-1 sm:py-1.5 bg-black text-white dark:bg-white dark:text-black text-[11px] sm:text-xs font-mono font-bold uppercase flex items-center gap-1"
+            aria-label="Open Navigation Menu"
+            aria-expanded="false"
+          >
+            <span id="menu-btn-icon">☰</span>
+            <span class="hidden xs:inline">MENU</span>
+          </button>
+        </div>
+      </div>
 
-            <button
-              type="submit"
-              class="clay-btn w-full py-4 text-slate-700 font-bold text-lg hover:text-slate-900 mt-4 outline-none"
-            >
-              Send Message
-            </button>
-          </form>
+      <!-- Mobile & Tablet Navigation Drawer Overlay (Hidden by Default) -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden hidden w-full bg-[#F4F0EA] dark:bg-[#121214] border-t-2 border-black dark:border-white px-4 py-6 shadow-nb-lg"
+      >
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs font-bold">
+          <a
+            href="#work"
+            class="mobile-nav-link nb-btn p-3 bg-white dark:bg-[#1A1A1E] text-black dark:text-white justify-between"
+          >
+            <span>[01. SELECTED WORK]</span>
+            <span>↓</span>
+          </a>
+          <a
+            href="#skills"
+            class="mobile-nav-link nb-btn p-3 bg-white dark:bg-[#1A1A1E] text-black dark:text-white justify-between"
+          >
+            <span>[02. SKILLS ARCHITECTURE]</span>
+            <span>↓</span>
+          </a>
+          <a
+            href="#about"
+            class="mobile-nav-link nb-btn p-3 bg-white dark:bg-[#1A1A1E] text-black dark:text-white justify-between"
+          >
+            <span>[03. OPERATOR DOSSIER]</span>
+            <span>↓</span>
+          </a>
+          <a
+            href="#video"
+            class="mobile-nav-link nb-btn p-3 bg-white dark:bg-[#1A1A1E] text-black dark:text-white justify-between"
+          >
+            <span>[04. MOTION REEL TAPE]</span>
+            <span>↓</span>
+          </a>
+          <a
+            href="#contact"
+            class="mobile-nav-link nb-btn p-3 bg-accent-yellow text-black justify-between sm:col-span-2"
+          >
+            <span>[05. DIRECT TRANSMISSION]</span>
+            <span>↗</span>
+          </a>
+          <a
+            href="assets/docs/CV_FARHAN KHOLID-26 (updated).pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mobile-nav-link nb-btn p-3 bg-accent-green text-black justify-between sm:col-span-2"
+          >
+            <span>DOWNLOAD CV [PDF]</span>
+            <span>📄 ↗</span>
+          </a>
+        </div>
+      </div>
 
-          <!-- Social Media CDN Icons in Fluffy Buttons -->
-          <div class="mt-16 flex justify-center gap-6 relative z-10 flex-wrap">
+      <!-- Infinite Marquee Ticker Ribbon -->
+      <div class="w-full bg-accent-yellow dark:bg-accent-green text-black border-t-[2.5px] border-black dark:border-white overflow-hidden py-1 sm:py-1.5 select-none font-mono text-[11px] sm:text-xs md:text-sm font-black tracking-wider uppercase">
+        <div class="animate-marquee whitespace-nowrap">
+          <span class="mx-3 sm:mx-4">⚡ OPEN FOR FREELANCE & FULL-TIME</span>
+          <span class="mx-3 sm:mx-4">✦</span>
+          <span class="mx-3 sm:mx-4">UI/UX PRODUCT DESIGN & GRAPHIC CRAFT</span>
+          <span class="mx-3 sm:mx-4">✦</span>
+          <span class="mx-3 sm:mx-4">BASED IN JAKARTA, ID</span>
+          <span class="mx-3 sm:mx-4">✦</span>
+          <span class="mx-3 sm:mx-4">WCAG AA COMPLIANCE</span>
+          <span class="mx-3 sm:mx-4">✦</span>
+          <span class="mx-3 sm:mx-4">SYSTEMS THINKING & HIGH-DENSITY INTERFACES</span>
+          <span class="mx-3 sm:mx-4">✦</span>
+          <span class="mx-3 sm:mx-4">⚡ OPEN FOR FREELANCE & FULL-TIME</span>
+          <span class="mx-3 sm:mx-4">✦</span>
+          <span class="mx-3 sm:mx-4">UI/UX PRODUCT DESIGN & GRAPHIC CRAFT</span>
+          <span class="mx-3 sm:mx-4">✦</span>
+          <span class="mx-3 sm:mx-4">BASED IN JAKARTA, ID</span>
+          <span class="mx-3 sm:mx-4">✦</span>
+          <span class="mx-3 sm:mx-4">WCAG AA COMPLIANCE</span>
+          <span class="mx-3 sm:mx-4">✦</span>
+          <span class="mx-3 sm:mx-4">SYSTEMS THINKING & HIGH-DENSITY INTERFACES</span>
+          <span class="mx-3 sm:mx-4">✦</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="w-full overflow-x-hidden">
+      <!-- =======================================================================
+           HERO SECTION: GIANT DISPLAY TYPOGRAPHY + TECHNICAL BLUEPRINT MATRIX
+           ======================================================================= -->
+      <section id="hero" class="relative w-full border-b-[3px] border-black dark:border-white bg-[#F4F0EA] dark:bg-[#121214] bg-blueprint py-8 sm:py-14 md:py-20 lg:py-24 px-3 sm:px-6 lg:px-12">
+        <div class="max-w-[1720px] mx-auto">
+          
+          <!-- Top Utility Badges / Metadata Strip -->
+          <div class="flex flex-wrap items-center justify-between gap-2.5 mb-6 sm:mb-8 pb-3 sm:pb-4 border-b-2 border-black dark:border-white/40 font-mono text-[10px] sm:text-xs font-bold uppercase">
+            <div class="flex items-center gap-1.5 sm:gap-2">
+              <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-black text-white dark:bg-white dark:text-black">LOC: JAKARTA, ID</span>
+              <span class="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-accent-green text-black border border-black">STATUS: AVAILABLE</span>
+            </div>
+            <div class="flex items-center gap-1.5 sm:gap-2">
+              <span class="text-black dark:text-white/80">EDU: CS @ PERTAMINA UNIV</span>
+              <span class="hidden sm:inline-block px-2 py-0.5 bg-white dark:bg-[#1A1A1E] border border-black dark:border-white">VER: 2026.04</span>
+            </div>
+          </div>
+
+          <!-- Main Hero Grid: Left Content (7 cols) / Right Visual Framing (5 cols) -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            
+            <!-- Left Column: Giant Typographic Positioning & Statement -->
+            <div class="lg:col-span-7 flex flex-col gap-4 sm:gap-6">
+              
+              <!-- Industrial Sticker Tags -->
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2.5 sm:px-3 py-1 bg-accent-yellow text-black font-mono text-[10px] sm:text-xs font-black border-2 border-black uppercase tracking-wider">
+                  ✦ UI/UX DESIGNER
+                </span>
+                <span class="px-2.5 sm:px-3 py-1 bg-accent-cyan text-black font-mono text-[10px] sm:text-xs font-black border-2 border-black uppercase tracking-wider">
+                  ✦ GRAPHIC DESIGNER
+                </span>
+                <span class="px-2.5 sm:px-3 py-1 bg-accent-orange text-white font-mono text-[10px] sm:text-xs font-black border-2 border-black uppercase tracking-wider">
+                  ✦ FRONT-END CAPABLE
+                </span>
+              </div>
+
+              <!-- Main Typographic Headline -->
+              <div>
+                <h1 class="font-syne font-black text-4xl xs:text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl uppercase tracking-tighter leading-[0.95] text-black dark:text-white break-words">
+                  FARHAN<br />
+                  <span class="text-black dark:text-white underline decoration-accent-yellow decoration-[5px] sm:decoration-[8px] md:decoration-[10px] underline-offset-4 sm:underline-offset-8">KHOLID</span>
+                </h1>
+                <p class="mt-4 sm:mt-6 font-display font-bold text-lg xs:text-xl sm:text-2xl md:text-3xl uppercase tracking-tight text-black dark:text-zinc-200">
+                  Engineering High-Density Interfaces & Unapologetic Visual Identities.
+                </p>
+              </div>
+
+              <!-- Design Philosophy Blueprint Box -->
+              <div class="nb-box p-4 sm:p-6 bg-white dark:bg-[#1A1A1E] text-black dark:text-white">
+                <div class="flex items-center justify-between border-b-2 border-black dark:border-white pb-2.5 sm:pb-3 mb-3 sm:mb-4 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                  <span class="flex items-center gap-1.5">
+                    <span class="w-2 h-2 bg-accent-orange inline-block"></span>
+                    MANIFESTO // SPEC-01
+                  </span>
+                  <span>ARTEFACT_REF: FK-PHILOSOPHY</span>
+                </div>
+                <p class="font-sans text-xs xs:text-sm sm:text-base leading-relaxed text-zinc-800 dark:text-zinc-300 font-medium">
+                  I fuse rigorous <strong class="text-black dark:text-white font-bold bg-accent-yellow/40 dark:bg-accent-yellow/20 px-1">information architecture</strong> with raw graphic experimentation. No hollow fluff, no unnecessary gradients. Every pixel, layout ratio, and micro-interaction serves explicit cognitive clarity and brand memorability.
+                </p>
+
+                <!-- Technical Metrics Strip: Responsive 2-col on Mobile, 4-col on Tablet/Desktop -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mt-4 sm:mt-6 pt-3 sm:pt-4 border-t-2 border-black dark:border-white font-mono text-center">
+                  <div class="p-2 sm:p-2.5 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">
+                    <div class="text-xl sm:text-2xl md:text-3xl font-black text-black dark:text-white">06+</div>
+                    <div class="text-[9px] sm:text-[10px] font-bold text-zinc-600 dark:text-zinc-400 uppercase">Featured Works</div>
+                  </div>
+                  <div class="p-2 sm:p-2.5 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">
+                    <div class="text-xl sm:text-2xl md:text-3xl font-black text-accent-green dark:text-accent-green">100%</div>
+                    <div class="text-[9px] sm:text-[10px] font-bold text-zinc-600 dark:text-zinc-400 uppercase">Token Driven</div>
+                  </div>
+                  <div class="p-2 sm:p-2.5 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">
+                    <div class="text-xl sm:text-2xl md:text-3xl font-black text-accent-cyan dark:text-accent-cyan">AA</div>
+                    <div class="text-[9px] sm:text-[10px] font-bold text-zinc-600 dark:text-zinc-400 uppercase">WCAG Contrast</div>
+                  </div>
+                  <div class="p-2 sm:p-2.5 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">
+                    <div class="text-xl sm:text-2xl md:text-3xl font-black text-accent-orange dark:text-accent-orange">CS</div>
+                    <div class="text-[9px] sm:text-[10px] font-bold text-zinc-600 dark:text-zinc-400 uppercase">Comp Science</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Primary Action Triggers -->
+              <div class="flex flex-wrap items-center gap-2.5 sm:gap-4 pt-1 sm:pt-2">
+                <a
+                  href="#work"
+                  class="nb-btn flex-grow sm:flex-grow-0 px-4 sm:px-6 py-2.5 sm:py-3.5 bg-accent-yellow text-black font-mono text-xs sm:text-sm font-black tracking-wider uppercase flex items-center justify-center gap-2"
+                >
+                  <span>EXPLORE INDEX</span>
+                  <span class="text-base sm:text-lg">↓</span>
+                </a>
+                <a
+                  href="#contact"
+                  class="nb-btn flex-grow sm:flex-grow-0 px-4 sm:px-6 py-2.5 sm:py-3.5 bg-white dark:bg-[#1A1A1E] text-black dark:text-white font-mono text-xs sm:text-sm font-bold tracking-wider uppercase flex items-center justify-center gap-2"
+                >
+                  <span>DISCUSS PROJECT</span>
+                  <span>↗</span>
+                </a>
+                <a
+                  href="assets/docs/CV_FARHAN KHOLID-26 (updated).pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="nb-btn px-3 sm:px-4 py-2.5 sm:py-3.5 bg-accent-green text-black font-mono text-xs sm:text-sm font-bold tracking-wider uppercase flex items-center gap-1.5"
+                  title="Download Official Curriculum Vitae"
+                >
+                  <span>CV</span>
+                  <span>📄 ↗</span>
+                </a>
+                <a
+                  href="https://github.com/amaheeeen/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="nb-btn px-3.5 py-2.5 sm:py-3.5 bg-black text-white dark:bg-white dark:text-black font-mono text-xs sm:text-sm font-bold"
+                  title="GitHub Profile"
+                >
+                  GH ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Column: Avatar Viewport with Technical Border & Callouts -->
+            <div class="lg:col-span-5 flex flex-col gap-4 max-w-md mx-auto w-full lg:max-w-none">
+              
+              <!-- Brutalist Portrait Container -->
+              <div class="nb-box-lg bg-white dark:bg-[#1A1A1E] p-2.5 sm:p-3 relative">
+                <!-- Corner Register Marks [+] -->
+                <span class="absolute -top-2.5 -left-2.5 font-mono text-xs sm:text-sm font-black bg-black text-white px-1 leading-none">+</span>
+                <span class="absolute -top-2.5 -right-2.5 font-mono text-xs sm:text-sm font-black bg-black text-white px-1 leading-none">+</span>
+                <span class="absolute -bottom-2.5 -left-2.5 font-mono text-xs sm:text-sm font-black bg-black text-white px-1 leading-none">+</span>
+                <span class="absolute -bottom-2.5 -right-2.5 font-mono text-xs sm:text-sm font-black bg-black text-white px-1 leading-none">+</span>
+
+                <!-- Header Bar of the Frame -->
+                <div class="flex items-center justify-between px-2.5 sm:px-3 py-1.5 sm:py-2 bg-black text-white dark:bg-white dark:text-black font-mono text-[10px] sm:text-xs font-bold uppercase mb-2 sm:mb-3">
+                  <span>FIG 0.1 // PORTRAIT_OPERATOR</span>
+                  <span class="flex items-center gap-1">
+                    <span class="w-2 h-2 rounded-full bg-accent-green"></span>
+                    ONLINE
+                  </span>
+                </div>
+
+                <!-- Image Frame with solid borders -->
+                <div class="relative w-full aspect-[4/5] overflow-hidden border-2 border-black dark:border-white bg-[#E5E0D8] dark:bg-zinc-900">
+                  <img
+                    src="./assets/img/pp-formal.png"
+                    alt="Farhan Kholid - UI/UX & Graphic Designer"
+                    class="w-full h-full object-cover object-center grayscale contrast-125 hover:grayscale-0 transition-all duration-300"
+                    loading="eager"
+                  />
+
+                  <!-- Overlay Technical Badge -->
+                  <div class="absolute bottom-2 left-2 right-2 p-2 sm:p-3 bg-white/95 dark:bg-black/95 text-black dark:text-white border-2 border-black dark:border-white font-mono text-[10px] sm:text-xs">
+                    <div class="flex items-center justify-between font-bold border-b border-black dark:border-white pb-1 mb-1">
+                      <span>ID: FK-2026-JKT</span>
+                      <span class="text-accent-green font-black">ACTIVE</span>
+                    </div>
+                    <p class="text-[10px] sm:text-[11px] text-zinc-700 dark:text-zinc-300 font-sans">
+                      UI/UX Designer • Graphic Identity Specialist • Computer Science Student
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Tool Stack Quick Badges at Bottom of Image -->
+                <div class="grid grid-cols-5 gap-1.5 sm:gap-2 mt-2 sm:mt-3 font-mono text-[10px] sm:text-[11px] font-bold text-center">
+                  <div class="p-1 sm:p-1.5 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">FIGMA</div>
+                  <div class="p-1 sm:p-1.5 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">AI</div>
+                  <div class="p-1 sm:p-1.5 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">PS</div>
+                  <div class="p-1 sm:p-1.5 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">CSS</div>
+                  <div class="p-1 sm:p-1.5 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">REACT</div>
+                </div>
+              </div>
+
+              <!-- Technical Specification Sidebar Card -->
+              <div class="nb-box p-3.5 sm:p-4 bg-accent-green text-black font-mono text-xs">
+                <div class="flex items-center justify-between font-black pb-2 border-b-2 border-black uppercase text-[11px] sm:text-xs">
+                  <span>DISCIPLINE RADAR</span>
+                  <span>INDEX_V2</span>
+                </div>
+                <div class="space-y-2 mt-2.5">
+                  <div>
+                    <div class="flex justify-between font-bold text-[10px] sm:text-[11px]">
+                      <span>UI/UX & DESIGN SYSTEMS</span>
+                      <span>95%</span>
+                    </div>
+                    <div class="w-full h-2.5 sm:h-3 bg-white border-2 border-black mt-0.5">
+                      <div class="h-full bg-black w-[95%]"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between font-bold text-[10px] sm:text-[11px]">
+                      <span>BRAND IDENTITY & EDITORIAL</span>
+                      <span>92%</span>
+                    </div>
+                    <div class="w-full h-2.5 sm:h-3 bg-white border-2 border-black mt-0.5">
+                      <div class="h-full bg-black w-[92%]"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between font-bold text-[10px] sm:text-[11px]">
+                      <span>INTERACTION & FRONT-END CODE</span>
+                      <span>88%</span>
+                    </div>
+                    <div class="w-full h-2.5 sm:h-3 bg-white border-2 border-black mt-0.5">
+                      <div class="h-full bg-black w-[88%]"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- =======================================================================
+           SECTION 2: SELECTED WORKS / MODULAR INDEX SYSTEM
+           ======================================================================= -->
+      <section id="work" class="w-full py-12 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-12 border-b-[3px] border-black dark:border-white">
+        <div class="max-w-[1720px] mx-auto">
+          
+          <!-- Section Header with Category Tabs -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-12 pb-4 sm:pb-6 border-b-[3px] border-black dark:border-white">
+            <div>
+              <div class="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 bg-black text-white dark:bg-white dark:text-black font-mono text-[10px] sm:text-xs font-bold uppercase mb-2 sm:mb-3">
+                <span class="w-2 h-2 bg-accent-yellow"></span>
+                CATALOG ARCHIVE // 2024-2026
+              </div>
+              <h2 class="font-syne font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-black dark:text-white">
+                SELECTED WORKS
+              </h2>
+              <p class="font-sans text-sm sm:text-base md:text-lg text-zinc-700 dark:text-zinc-300 max-w-2xl mt-1.5 sm:mt-2 font-medium">
+                Modular index of digital products, enterprise interfaces, and brand systems engineered with functional discipline.
+              </p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 font-mono text-[11px] sm:text-xs font-bold" role="tablist">
+              <button
+                class="filter-btn nb-btn px-3 sm:px-4 py-1.5 sm:py-2 bg-accent-yellow text-black border-2 border-black active-tab"
+                data-filter="all"
+              >
+                ALL [06]
+              </button>
+              <button
+                class="filter-btn nb-btn px-3 sm:px-4 py-1.5 sm:py-2 bg-white dark:bg-[#1A1A1E] text-black dark:text-white border-2 border-black dark:border-white"
+                data-filter="ux"
+              >
+                UI/UX APPS [04]
+              </button>
+              <button
+                class="filter-btn nb-btn px-3 sm:px-4 py-1.5 sm:py-2 bg-white dark:bg-[#1A1A1E] text-black dark:text-white border-2 border-black dark:border-white"
+                data-filter="gfx"
+              >
+                GRAPHIC & BRAND [02]
+              </button>
+            </div>
+          </div>
+
+          <!-- Project Cards Grid (Modular Index: 1 col on mobile, 2 col on tablet, 3 col on desktop) -->
+          <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            
+            <!-- PROJECT 01: CITEUP Event Branding (Graphic Design) -->
+            <article class="project-card nb-card flex flex-col bg-white dark:bg-[#1A1A1E] text-black dark:text-white" data-category="gfx">
+              <!-- Top Catalog Index Bar -->
+              <div class="flex items-center justify-between px-3.5 sm:px-4 py-2 sm:py-2.5 bg-black text-white dark:bg-white dark:text-black font-mono text-[11px] sm:text-xs font-black uppercase">
+                <span>[IDX-01 // GFX]</span>
+                <span class="px-2 py-0.5 bg-accent-yellow text-black font-bold">BRAND IDENTITY</span>
+              </div>
+
+              <!-- Media Preview Frame -->
+              <div class="relative aspect-video overflow-hidden border-b-2 border-black dark:border-white bg-[#EFEBE4] dark:bg-zinc-900 group">
+                <img
+                  src="./assets/img/cu25/cu25.webp"
+                  alt="CITEUP Event Branding Visual Identity"
+                  class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute top-2 left-2 px-2 py-0.5 bg-white/90 dark:bg-black/90 text-black dark:text-white font-mono text-[10px] font-bold border border-black dark:border-white">
+                  YEAR: 2025
+                </div>
+              </div>
+
+              <!-- Content Body -->
+              <div class="p-4 sm:p-6 flex flex-col flex-grow">
+                <h3 class="font-syne font-black text-xl sm:text-2xl uppercase tracking-tight text-black dark:text-white mb-2">
+                  CITEUP Event Branding
+                </h3>
+                <p class="font-sans text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4 flex-grow">
+                  Full-scale visual identity and campaign graphics for "Node of Connection", a premiere university tech conference. Encompassed stage collateral, print merchandise, and social kits.
+                </p>
+
+                <!-- Tech / Tool Badges -->
+                <div class="flex flex-wrap gap-1.5 mb-4 sm:mb-6 font-mono text-[10px] sm:text-[11px] font-bold">
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">ILLUSTRATOR</span>
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">PHOTOSHOP</span>
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">PRINT PRODUCTION</span>
+                </div>
+
+                <!-- Action Button Group -->
+                <div class="grid grid-cols-2 gap-2 font-mono text-[11px] sm:text-xs font-bold pt-3 sm:pt-4 border-t-2 border-black dark:border-white">
+                  <button
+                    class="open-modal-btn nb-btn py-2 sm:py-2.5 bg-accent-yellow text-black uppercase text-center"
+                    data-project="citeup"
+                  >
+                    CASE DETAILS ↗
+                  </button>
+                  <a
+                    href="https://www.instagram.com/citeup2025/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="nb-btn py-2 sm:py-2.5 bg-white dark:bg-[#121214] text-black dark:text-white text-center uppercase"
+                  >
+                    INSTAGRAM ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 02: PT Farhan Surya Indah (Graphic Design) -->
+            <article class="project-card nb-card flex flex-col bg-white dark:bg-[#1A1A1E] text-black dark:text-white" data-category="gfx">
+              <!-- Top Catalog Index Bar -->
+              <div class="flex items-center justify-between px-3.5 sm:px-4 py-2 sm:py-2.5 bg-black text-white dark:bg-white dark:text-black font-mono text-[11px] sm:text-xs font-black uppercase">
+                <span>[IDX-02 // GFX]</span>
+                <span class="px-2 py-0.5 bg-accent-cyan text-black font-bold">CORPORATE ID</span>
+              </div>
+
+              <!-- Media Preview Frame -->
+              <div class="relative aspect-video overflow-hidden border-b-2 border-black dark:border-white bg-[#EFEBE4] dark:bg-zinc-900 group">
+                <img
+                  src="./assets/img/fsi/fsi.webp"
+                  alt="PT Farhan Surya Indah Umrah Travel Branding"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute top-2 left-2 px-2 py-0.5 bg-white/90 dark:bg-black/90 text-black dark:text-white font-mono text-[10px] font-bold border border-black dark:border-white">
+                  TRAVEL & PILGRIMAGE
+                </div>
+              </div>
+
+              <!-- Content Body -->
+              <div class="p-4 sm:p-6 flex flex-col flex-grow">
+                <h3 class="font-syne font-black text-xl sm:text-2xl uppercase tracking-tight text-black dark:text-white mb-2">
+                  PT Farhan Surya Indah
+                </h3>
+                <p class="font-sans text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4 flex-grow">
+                  Comprehensive corporate identity and promotional packaging for an accredited Umrah & Hajj travel operator. Developed brand guidelines, physical brochures, and digital collateral.
+                </p>
+
+                <!-- Tech / Tool Badges -->
+                <div class="flex flex-wrap gap-1.5 mb-4 sm:mb-6 font-mono text-[10px] sm:text-[11px] font-bold">
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">BRAND GUIDELINES</span>
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">FIGMA</span>
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">ADOBE SUITE</span>
+                </div>
+
+                <!-- Action Button Group -->
+                <div class="grid grid-cols-2 gap-2 font-mono text-[11px] sm:text-xs font-bold pt-3 sm:pt-4 border-t-2 border-black dark:border-white">
+                  <button
+                    class="open-modal-btn nb-btn py-2 sm:py-2.5 bg-accent-cyan text-black uppercase text-center"
+                    data-project="fsi"
+                  >
+                    CASE DETAILS ↗
+                  </button>
+                  <a
+                    href="https://www.instagram.com/farhansuryaindah/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="nb-btn py-2 sm:py-2.5 bg-white dark:bg-[#121214] text-black dark:text-white text-center uppercase"
+                  >
+                    INSTAGRAM ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 03: LuminaVisa (UI/UX Case Study) -->
+            <article class="project-card nb-card flex flex-col bg-white dark:bg-[#1A1A1E] text-black dark:text-white" data-category="ux">
+              <!-- Top Catalog Index Bar -->
+              <div class="flex items-center justify-between px-3.5 sm:px-4 py-2 sm:py-2.5 bg-black text-white dark:bg-white dark:text-black font-mono text-[11px] sm:text-xs font-black uppercase">
+                <span>[IDX-03 // UX]</span>
+                <span class="px-2 py-0.5 bg-accent-green text-black font-bold">CASE STUDY</span>
+              </div>
+
+              <!-- Media Preview Frame -->
+              <div class="relative aspect-video overflow-hidden border-b-2 border-black dark:border-white bg-[#EFEBE4] dark:bg-zinc-900 group">
+                <img
+                  src="assets/img/porto-fe_4.webp"
+                  alt="LuminaVisa UI/UX Interface"
+                  class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute top-2 left-2 px-2 py-0.5 bg-white/90 dark:bg-black/90 text-black dark:text-white font-mono text-[10px] font-bold border border-black dark:border-white">
+                  FLOW SIMPLIFICATION
+                </div>
+              </div>
+
+              <!-- Content Body -->
+              <div class="p-4 sm:p-6 flex flex-col flex-grow">
+                <h3 class="font-syne font-black text-xl sm:text-2xl uppercase tracking-tight text-black dark:text-white mb-2">
+                  LuminaVisa Platform
+                </h3>
+                <p class="font-sans text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4 flex-grow">
+                  A high-clarity web platform demystifying international visa applications into guided micro-steps with real-time requirement validation and reduced cognitive stress.
+                </p>
+
+                <!-- Tech / Tool Badges -->
+                <div class="flex flex-wrap gap-1.5 mb-4 sm:mb-6 font-mono text-[10px] sm:text-[11px] font-bold">
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">USER RESEARCH</span>
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">FIGMA PROTOTYPE</span>
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">DESIGN SYSTEM</span>
+                </div>
+
+                <!-- Action Button Group -->
+                <div class="grid grid-cols-2 gap-2 font-mono text-[11px] sm:text-xs font-bold pt-3 sm:pt-4 border-t-2 border-black dark:border-white">
+                  <button
+                    class="open-modal-btn nb-btn py-2 sm:py-2.5 bg-accent-green text-black uppercase text-center"
+                    data-project="lumina"
+                  >
+                    QUICK MODAL ↗
+                  </button>
+                  <a
+                    href="case-study-lumina.html"
+                    class="nb-btn py-2 sm:py-2.5 bg-white dark:bg-[#121214] text-black dark:text-white text-center uppercase"
+                  >
+                    FULL STUDY ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 04: Pilgrim's Tracker (UI/UX Case Study) -->
+            <article class="project-card nb-card flex flex-col bg-white dark:bg-[#1A1A1E] text-black dark:text-white" data-category="ux">
+              <!-- Top Catalog Index Bar -->
+              <div class="flex items-center justify-between px-3.5 sm:px-4 py-2 sm:py-2.5 bg-black text-white dark:bg-white dark:text-black font-mono text-[11px] sm:text-xs font-black uppercase">
+                <span>[IDX-04 // UX]</span>
+                <span class="px-2 py-0.5 bg-accent-yellow text-black font-bold">OPERATIONS B2B</span>
+              </div>
+
+              <!-- Media Preview Frame -->
+              <div class="relative aspect-video overflow-hidden border-b-2 border-black dark:border-white bg-[#EFEBE4] dark:bg-zinc-900 group">
+                <img
+                  src="./assets/img/porto-fe_6.webp"
+                  alt="Pilgrim's Tracker Enterprise Dashboard"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute top-2 left-2 px-2 py-0.5 bg-white/90 dark:bg-black/90 text-black dark:text-white font-mono text-[10px] font-bold border border-black dark:border-white">
+                  REAL-TIME LOGISTICS
+                </div>
+              </div>
+
+              <!-- Content Body -->
+              <div class="p-4 sm:p-6 flex flex-col flex-grow">
+                <h3 class="font-syne font-black text-xl sm:text-2xl uppercase tracking-tight text-black dark:text-white mb-2">
+                  Pilgrim's Tracker
+                </h3>
+                <p class="font-sans text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4 flex-grow">
+                  Enterprise-grade management system designed for travel operators to monitor pilgrim manifests, medical alerts, hotel allocations, and flight timetables in real-time.
+                </p>
+
+                <!-- Tech / Tool Badges -->
+                <div class="flex flex-wrap gap-1.5 mb-4 sm:mb-6 font-mono text-[10px] sm:text-[11px] font-bold">
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">DATA DASHBOARD</span>
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">INFORMATION ARCH</span>
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">HIGH DENSITY UI</span>
+                </div>
+
+                <!-- Action Button Group -->
+                <div class="grid grid-cols-2 gap-2 font-mono text-[11px] sm:text-xs font-bold pt-3 sm:pt-4 border-t-2 border-black dark:border-white">
+                  <button
+                    class="open-modal-btn nb-btn py-2 sm:py-2.5 bg-accent-yellow text-black uppercase text-center"
+                    data-project="booking"
+                  >
+                    QUICK MODAL ↗
+                  </button>
+                  <a
+                    href="case-study-booking.html"
+                    class="nb-btn py-2 sm:py-2.5 bg-white dark:bg-[#121214] text-black dark:text-white text-center uppercase"
+                  >
+                    FULL STUDY ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 05: Kalcer.ID (UI/UX Case Study) -->
+            <article class="project-card nb-card flex flex-col bg-white dark:bg-[#1A1A1E] text-black dark:text-white" data-category="ux">
+              <!-- Top Catalog Index Bar -->
+              <div class="flex items-center justify-between px-3.5 sm:px-4 py-2 sm:py-2.5 bg-black text-white dark:bg-white dark:text-black font-mono text-[11px] sm:text-xs font-black uppercase">
+                <span>[IDX-05 // UX]</span>
+                <span class="px-2 py-0.5 bg-accent-orange text-white font-bold">COMMUNITY HUB</span>
+              </div>
+
+              <!-- Media Preview Frame -->
+              <div class="relative aspect-video overflow-hidden border-b-2 border-black dark:border-white bg-[#EFEBE4] dark:bg-zinc-900 group">
+                <img
+                  src="assets/img/porto-fe_2.webp"
+                  alt="Kalcer.ID Indonesian Heritage Platform"
+                  class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute top-2 left-2 px-2 py-0.5 bg-white/90 dark:bg-black/90 text-black dark:text-white font-mono text-[10px] font-bold border border-black dark:border-white">
+                  HERITAGE ARCHIVE
+                </div>
+              </div>
+
+              <!-- Content Body -->
+              <div class="p-4 sm:p-6 flex flex-col flex-grow">
+                <h3 class="font-syne font-black text-xl sm:text-2xl uppercase tracking-tight text-black dark:text-white mb-2">
+                  Kalcer.ID Discovery
+                </h3>
+                <p class="font-sans text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4 flex-grow">
+                  A centralized cultural platform unifying fragmented Indonesian heritage monuments, traditional arts, and grassroots exhibitions with geo-located schedules and guides.
+                </p>
+
+                <!-- Tech / Tool Badges -->
+                <div class="flex flex-wrap gap-1.5 mb-4 sm:mb-6 font-mono text-[10px] sm:text-[11px] font-bold">
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">EVENT ARCHITECTURE</span>
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">FIGMA</span>
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">COMMUNITY TESTING</span>
+                </div>
+
+                <!-- Action Button Group -->
+                <div class="grid grid-cols-2 gap-2 font-mono text-[11px] sm:text-xs font-bold pt-3 sm:pt-4 border-t-2 border-black dark:border-white">
+                  <button
+                    class="open-modal-btn nb-btn py-2 sm:py-2.5 bg-accent-orange text-white uppercase text-center"
+                    data-project="kalcer"
+                  >
+                    QUICK MODAL ↗
+                  </button>
+                  <a
+                    href="case-study-kalcer.html"
+                    class="nb-btn py-2 sm:py-2.5 bg-white dark:bg-[#121214] text-black dark:text-white text-center uppercase"
+                  >
+                    FULL STUDY ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 06: Mono Stock Dashboard (UI/UX) -->
+            <article class="project-card nb-card flex flex-col bg-white dark:bg-[#1A1A1E] text-black dark:text-white" data-category="ux">
+              <!-- Top Catalog Index Bar -->
+              <div class="flex items-center justify-between px-3.5 sm:px-4 py-2 sm:py-2.5 bg-black text-white dark:bg-white dark:text-black font-mono text-[11px] sm:text-xs font-black uppercase">
+                <span>[IDX-06 // UX]</span>
+                <span class="px-2 py-0.5 bg-accent-cyan text-black font-bold">FINTECH SYSTEM</span>
+              </div>
+
+              <!-- Media Preview Frame -->
+              <div class="relative aspect-video overflow-hidden border-b-2 border-black dark:border-white bg-[#EFEBE4] dark:bg-zinc-900 group">
+                <img
+                  src="assets/img/porto-fe_1.webp"
+                  alt="Mono Stock High Contrast Dashboard"
+                  class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+                <div class="absolute top-2 left-2 px-2 py-0.5 bg-white/90 dark:bg-black/90 text-black dark:text-white font-mono text-[10px] font-bold border border-black dark:border-white">
+                  MONOCHROME FINTECH
+                </div>
+              </div>
+
+              <!-- Content Body -->
+              <div class="p-4 sm:p-6 flex flex-col flex-grow">
+                <h3 class="font-syne font-black text-xl sm:text-2xl uppercase tracking-tight text-black dark:text-white mb-2">
+                  Mono Stock Terminal
+                </h3>
+                <p class="font-sans text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4 flex-grow">
+                  Monochromatic, ultra high-contrast financial market terminal engineered to eliminate visual noise and reduce decision fatigue during high-volatility trading sessions.
+                </p>
+
+                <!-- Tech / Tool Badges -->
+                <div class="flex flex-wrap gap-1.5 mb-4 sm:mb-6 font-mono text-[10px] sm:text-[11px] font-bold">
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">TRADING UI</span>
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">NEO-BRUTAL TOKENS</span>
+                  <span class="px-2 py-0.5 bg-[#F4F0EA] dark:bg-[#121214] border border-black dark:border-white">DARK MODE ONLY</span>
+                </div>
+
+                <!-- Action Button Group -->
+                <div class="grid grid-cols-2 gap-2 font-mono text-[11px] sm:text-xs font-bold pt-3 sm:pt-4 border-t-2 border-black dark:border-white">
+                  <button
+                    class="open-modal-btn nb-btn py-2 sm:py-2.5 bg-accent-cyan text-black uppercase text-center"
+                    data-project="dashboard"
+                  >
+                    QUICK MODAL ↗
+                  </button>
+                  <a
+                    href="case-study-dashboard.html"
+                    class="nb-btn py-2 sm:py-2.5 bg-white dark:bg-[#121214] text-black dark:text-white text-center uppercase"
+                  >
+                    FULL STUDY ↗
+                  </a>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =======================================================================
+           SECTION 3: ABOUT & SKILLS BREAKDOWN (EXPLICIT DUAL PILLARS)
+           ======================================================================= -->
+      <section id="skills" class="w-full py-12 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-12 border-b-[3px] border-black dark:border-white bg-[#F4F0EA] dark:bg-[#121214]">
+        <div class="max-w-[1720px] mx-auto">
+          
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-12 pb-4 sm:pb-6 border-b-[3px] border-black dark:border-white">
+            <div>
+              <div class="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 bg-black text-white dark:bg-white dark:text-black font-mono text-[10px] sm:text-xs font-bold uppercase mb-2 sm:mb-3">
+                <span class="w-2 h-2 bg-accent-green"></span>
+                CORE CAPABILITIES // MATRICES
+              </div>
+              <h2 class="font-syne font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-black dark:text-white">
+                TWO-PILLAR ARCHITECTURE
+              </h2>
+              <p class="font-sans text-sm sm:text-base md:text-lg text-zinc-700 dark:text-zinc-300 max-w-2xl mt-1.5 sm:mt-2 font-medium">
+                Explicit breakdown of product engineering on one side, and tactile visual/graphic craftsmanship on the other.
+              </p>
+            </div>
+            <div class="font-mono text-[11px] sm:text-xs font-bold uppercase bg-white dark:bg-[#1A1A1E] p-2.5 sm:p-3 border-2 border-black dark:border-white self-start md:self-auto">
+              STATUS: PRODUCTION VERIFIED
+            </div>
+          </div>
+
+          <!-- Dual Pillar Matrix Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            
+            <!-- PILLAR A: UI/UX & PRODUCT DESIGN -->
+            <div class="nb-box-lg bg-white dark:bg-[#1A1A1E] p-4 sm:p-6 lg:p-8 flex flex-col">
+              <div class="flex items-center justify-between pb-3 sm:pb-4 border-b-2 border-black dark:border-white mb-4 sm:mb-6">
+                <div class="flex items-center gap-2 sm:gap-3">
+                  <span class="w-7 h-7 sm:w-8 sm:h-8 bg-accent-yellow text-black border-2 border-black flex items-center justify-center font-mono font-black text-xs sm:text-sm">
+                    01
+                  </span>
+                  <h3 class="font-syne font-black text-lg xs:text-xl sm:text-2xl uppercase tracking-tight text-black dark:text-white">
+                    UI/UX & PRODUCT SYSTEMS
+                  </h3>
+                </div>
+                <span class="px-2 py-0.5 bg-accent-yellow text-black font-mono text-[9px] sm:text-[10px] font-bold border border-black uppercase">
+                  SYSTEMATIC
+                </span>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4 sm:mb-6 font-medium">
+                Designing frictionless interaction models and resilient design tokens tailored to complex user workflows. Every decision is anchored in cognitive psychology, usability benchmarks, and accessibility compliance.
+              </p>
+
+              <!-- Capability Table List -->
+              <div class="space-y-2.5 sm:space-y-3 font-mono text-xs flex-grow">
+                <div class="p-2.5 sm:p-3 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white flex flex-col xs:flex-row xs:items-start justify-between gap-1.5 sm:gap-4">
+                  <div>
+                    <strong class="font-bold text-black dark:text-white block text-[11px] sm:text-xs">Information Architecture & User Flows</strong>
+                    <span class="text-zinc-600 dark:text-zinc-400 text-[10px] sm:text-[11px]">Sitemaps, taxonomy classification, edge-case mitigation.</span>
+                  </div>
+                  <span class="self-start xs:self-auto px-1.5 py-0.5 bg-black text-white dark:bg-white dark:text-black text-[9px] sm:text-[10px] font-bold">CORE</span>
+                </div>
+
+                <div class="p-2.5 sm:p-3 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white flex flex-col xs:flex-row xs:items-start justify-between gap-1.5 sm:gap-4">
+                  <div>
+                    <strong class="font-bold text-black dark:text-white block text-[11px] sm:text-xs">Design Tokens & Component Systems</strong>
+                    <span class="text-zinc-600 dark:text-zinc-400 text-[10px] sm:text-[11px]">Figma variable modes, autolayout mastery, WCAG AA testing.</span>
+                  </div>
+                  <span class="self-start xs:self-auto px-1.5 py-0.5 bg-black text-white dark:bg-white dark:text-black text-[9px] sm:text-[10px] font-bold">SCALABLE</span>
+                </div>
+
+                <div class="p-2.5 sm:p-3 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white flex flex-col xs:flex-row xs:items-start justify-between gap-1.5 sm:gap-4">
+                  <div>
+                    <strong class="font-bold text-black dark:text-white block text-[11px] sm:text-xs">Wireframing & High-Fidelity Prototyping</strong>
+                    <span class="text-zinc-600 dark:text-zinc-400 text-[10px] sm:text-[11px]">Interactive component states, micro-interactions, motion specs.</span>
+                  </div>
+                  <span class="self-start xs:self-auto px-1.5 py-0.5 bg-black text-white dark:bg-white dark:text-black text-[9px] sm:text-[10px] font-bold">FIDELITY</span>
+                </div>
+
+                <div class="p-2.5 sm:p-3 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white flex flex-col xs:flex-row xs:items-start justify-between gap-1.5 sm:gap-4">
+                  <div>
+                    <strong class="font-bold text-black dark:text-white block text-[11px] sm:text-xs">Usability Testing & Quantitative Heuristics</strong>
+                    <span class="text-zinc-600 dark:text-zinc-400 text-[10px] sm:text-[11px]">User interview synthesis, task-completion analytics, heatmaps.</span>
+                  </div>
+                  <span class="self-start xs:self-auto px-1.5 py-0.5 bg-black text-white dark:bg-white dark:text-black text-[9px] sm:text-[10px] font-bold">VALIDATED</span>
+                </div>
+              </div>
+
+              <!-- Tool Badge Strip -->
+              <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t-2 border-black dark:border-white flex flex-wrap gap-1.5 sm:gap-2 font-mono text-[10px] sm:text-[11px] font-bold">
+                <span class="px-2 py-0.5 sm:py-1 bg-white dark:bg-[#1A1A1E] border border-black dark:border-white">FIGMA</span>
+                <span class="px-2 py-0.5 sm:py-1 bg-white dark:bg-[#1A1A1E] border border-black dark:border-white">FIGJAM</span>
+                <span class="px-2 py-0.5 sm:py-1 bg-white dark:bg-[#1A1A1E] border border-black dark:border-white">MAZE</span>
+                <span class="px-2 py-0.5 sm:py-1 bg-white dark:bg-[#1A1A1E] border border-black dark:border-white">STORYBOOK</span>
+                <span class="px-2 py-0.5 sm:py-1 bg-white dark:bg-[#1A1A1E] border border-black dark:border-white">TAILWIND CSS</span>
+              </div>
+            </div>
+
+            <!-- PILLAR B: GRAPHIC DESIGN & VISUAL CRAFT -->
+            <div class="nb-box-lg bg-white dark:bg-[#1A1A1E] p-4 sm:p-6 lg:p-8 flex flex-col">
+              <div class="flex items-center justify-between pb-3 sm:pb-4 border-b-2 border-black dark:border-white mb-4 sm:mb-6">
+                <div class="flex items-center gap-2 sm:gap-3">
+                  <span class="w-7 h-7 sm:w-8 sm:h-8 bg-accent-cyan text-black border-2 border-black flex items-center justify-center font-mono font-black text-xs sm:text-sm">
+                    02
+                  </span>
+                  <h3 class="font-syne font-black text-lg xs:text-xl sm:text-2xl uppercase tracking-tight text-black dark:text-white">
+                    GRAPHIC & VISUAL CRAFT
+                  </h3>
+                </div>
+                <span class="px-2 py-0.5 bg-accent-cyan text-black font-mono text-[9px] sm:text-[10px] font-bold border border-black uppercase">
+                  EXPRESSIVE
+                </span>
+              </div>
+
+              <p class="font-sans text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4 sm:mb-6 font-medium">
+                Crafting distinct, high-recall brand identities and editorial systems with bold typography, experimental grids, and meticulous physical and digital print preparation.
+              </p>
+
+              <!-- Capability Table List -->
+              <div class="space-y-2.5 sm:space-y-3 font-mono text-xs flex-grow">
+                <div class="p-2.5 sm:p-3 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white flex flex-col xs:flex-row xs:items-start justify-between gap-1.5 sm:gap-4">
+                  <div>
+                    <strong class="font-bold text-black dark:text-white block text-[11px] sm:text-xs">Brand Identity & Style Guides</strong>
+                    <span class="text-zinc-600 dark:text-zinc-400 text-[10px] sm:text-[11px]">Logo marks, typography standards, color mathematics, assets.</span>
+                  </div>
+                  <span class="self-start xs:self-auto px-1.5 py-0.5 bg-black text-white dark:bg-white dark:text-black text-[9px] sm:text-[10px] font-bold">IDENTITY</span>
+                </div>
+
+                <div class="p-2.5 sm:p-3 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white flex flex-col xs:flex-row xs:items-start justify-between gap-1.5 sm:gap-4">
+                  <div>
+                    <strong class="font-bold text-black dark:text-white block text-[11px] sm:text-xs">Editorial Layout & Publication</strong>
+                    <span class="text-zinc-600 dark:text-zinc-400 text-[10px] sm:text-[11px]">Grid hierarchies, multi-page catalogs, promotional brochures.</span>
+                  </div>
+                  <span class="self-start xs:self-auto px-1.5 py-0.5 bg-black text-white dark:bg-white dark:text-black text-[9px] sm:text-[10px] font-bold">PRINT</span>
+                </div>
+
+                <div class="p-2.5 sm:p-3 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white flex flex-col xs:flex-row xs:items-start justify-between gap-1.5 sm:gap-4">
+                  <div>
+                    <strong class="font-bold text-black dark:text-white block text-[11px] sm:text-xs">Event Stage, Merch & Environmental Collateral</strong>
+                    <span class="text-zinc-600 dark:text-zinc-400 text-[10px] sm:text-[11px]">Large-format backdrops, badges, lanyards, booth signage.</span>
+                  </div>
+                  <span class="self-start xs:self-auto px-1.5 py-0.5 bg-black text-white dark:bg-white dark:text-black text-[9px] sm:text-[10px] font-bold">SCALE</span>
+                </div>
+
+                <div class="p-2.5 sm:p-3 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white flex flex-col xs:flex-row xs:items-start justify-between gap-1.5 sm:gap-4">
+                  <div>
+                    <strong class="font-bold text-black dark:text-white block text-[11px] sm:text-xs">Vector Art & Pixel Craft</strong>
+                    <span class="text-zinc-600 dark:text-zinc-400 text-[10px] sm:text-[11px]">Custom iconography, retro illustration, expressive graphic decals.</span>
+                  </div>
+                  <span class="self-start xs:self-auto px-1.5 py-0.5 bg-black text-white dark:bg-white dark:text-black text-[9px] sm:text-[10px] font-bold">CRAFT</span>
+                </div>
+              </div>
+
+              <!-- Tool Badge Strip -->
+              <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t-2 border-black dark:border-white flex flex-wrap gap-1.5 sm:gap-2 font-mono text-[10px] sm:text-[11px] font-bold">
+                <span class="px-2 py-0.5 sm:py-1 bg-white dark:bg-[#1A1A1E] border border-black dark:border-white">ADOBE ILLUSTRATOR</span>
+                <span class="px-2 py-0.5 sm:py-1 bg-white dark:bg-[#1A1A1E] border border-black dark:border-white">PHOTOSHOP</span>
+                <span class="px-2 py-0.5 sm:py-1 bg-white dark:bg-[#1A1A1E] border border-black dark:border-white">PREMIERE PRO</span>
+                <span class="px-2 py-0.5 sm:py-1 bg-white dark:bg-[#1A1A1E] border border-black dark:border-white">AFTER EFFECTS</span>
+                <span class="px-2 py-0.5 sm:py-1 bg-white dark:bg-[#1A1A1E] border border-black dark:border-white">CANVAS API</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =======================================================================
+           SECTION 4: ABOUT / TECHNICAL BACKGROUND
+           ======================================================================= -->
+      <section id="about" class="w-full py-12 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-12 border-b-[3px] border-black dark:border-white bg-[#F4F0EA] dark:bg-[#121214] bg-blueprint">
+        <div class="max-w-[1720px] mx-auto">
+          
+          <div class="nb-box-lg bg-white dark:bg-[#1A1A1E] p-4 sm:p-8 lg:p-12 text-black dark:text-white">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
+              
+              <!-- Left: Bio & Academic Convergence -->
+              <div class="lg:col-span-8 flex flex-col gap-4 sm:gap-6">
+                <div class="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 bg-black text-white dark:bg-white dark:text-black font-mono text-[10px] sm:text-xs font-bold uppercase w-max">
+                  <span class="w-2 h-2 bg-accent-orange"></span>
+                  THE CONVERGENCE STORY // OPERATOR DOSSIER
+                </div>
+
+                <h2 class="font-syne font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-black dark:text-white">
+                  COMPUTER SCIENCE MEETS VISUAL FEROCITY.
+                </h2>
+
+                <p class="font-sans text-sm sm:text-base md:text-lg leading-relaxed text-zinc-800 dark:text-zinc-200 font-medium">
+                  Currently pursuing a Computer Science degree at <strong class="text-black dark:text-white underline decoration-accent-yellow">Universitas Pertamina</strong>, I operate at the vital intersection of frontend code, interaction design, and high-impact graphic art.
+                </p>
+
+                <p class="font-sans text-xs sm:text-sm md:text-base leading-relaxed text-zinc-700 dark:text-zinc-300">
+                  Too often, graphic designers neglect algorithmic constraints, while engineers neglect aesthetic charisma and typography. My practice deliberately bridges this chasm: designing design systems that developers can actually build with ease, and coding interfaces that feel tangible, alive, and unmistakably distinct.
+                </p>
+
+                <!-- 3 Principles Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-3 sm:pt-4 border-t-2 border-black dark:border-white font-mono text-xs">
+                  <div class="p-3 sm:p-4 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">
+                    <span class="text-accent-orange text-base sm:text-lg block mb-1 font-black">01.</span>
+                    <strong class="font-bold block text-xs sm:text-sm mb-1 text-black dark:text-white">TACTILITY OVER BLUR</strong>
+                    <span class="text-zinc-600 dark:text-zinc-400 text-[11px] block">Hard borders and physical presses create real feedback.</span>
+                  </div>
+                  <div class="p-3 sm:p-4 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">
+                    <span class="text-accent-green text-base sm:text-lg block mb-1 font-black">02.</span>
+                    <strong class="font-bold block text-xs sm:text-sm mb-1 text-black dark:text-white">PURPOSEFUL DENSITY</strong>
+                    <span class="text-zinc-600 dark:text-zinc-400 text-[11px] block">High information density without sacrificing visual breathing space.</span>
+                  </div>
+                  <div class="p-3 sm:p-4 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">
+                    <span class="text-accent-cyan text-base sm:text-lg block mb-1 font-black">03.</span>
+                    <strong class="font-bold block text-xs sm:text-sm mb-1 text-black dark:text-white">ZERO PLACEHOLDERS</strong>
+                    <span class="text-zinc-600 dark:text-zinc-400 text-[11px] block">Production assets only. Real data schemas, real content.</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right: Terminal System Spec Box -->
+              <div class="lg:col-span-4 nb-box bg-black text-white p-4 sm:p-6 font-mono text-[11px] sm:text-xs">
+                <div class="flex items-center justify-between pb-2.5 sm:pb-3 border-b border-white/30 text-accent-green font-bold">
+                  <span>TERMINAL // SYS_INFO</span>
+                  <span>[OK]</span>
+                </div>
+                <div class="mt-3 sm:mt-4 space-y-2 text-zinc-300">
+                  <p><span class="text-accent-yellow">NAME:</span> Farhan Kholid</p>
+                  <p><span class="text-accent-yellow">DISCIPLINE:</span> UI/UX + Graphic Design</p>
+                  <p><span class="text-accent-yellow">DEGREE:</span> B.S. Computer Science (In Progress)</p>
+                  <p><span class="text-accent-yellow">CAMPUS:</span> Universitas Pertamina, ID</p>
+                  <p><span class="text-accent-yellow">CORE_TOOLS:</span> Figma, Illustrator, Tailwind</p>
+                  <p><span class="text-accent-yellow">FRAMEWORKS:</span> HTML5, Vanilla JS, Livewire, React</p>
+                  <p><span class="text-accent-yellow">STATUS:</span> Ready for Deployment</p>
+                  <p><span class="text-accent-yellow">UPTIME:</span> 2024-2026</p>
+                </div>
+                <div class="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-white/30 flex flex-col gap-2">
+                  <a
+                    href="mailto:farhankholid20@gmail.com"
+                    class="nb-btn w-full py-2.5 sm:py-3 bg-accent-green text-black font-black uppercase text-center block"
+                  >
+                    SEND TRANSMISSION ↗
+                  </a>
+                  <a
+                    href="assets/docs/CV_FARHAN KHOLID-26 (updated).pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="nb-btn w-full py-2 bg-white text-black font-bold uppercase text-center block text-[11px]"
+                  >
+                    DOWNLOAD OFFICIAL CV [PDF] ↗
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =======================================================================
+           SECTION 5: VIDEO & MOTION PORTFOLIO (CASSETTE / BRUTALIST ARCHIVE)
+           ======================================================================= -->
+      <section id="video" class="w-full py-12 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-12 border-b-[3px] border-black dark:border-white">
+        <div class="max-w-[1720px] mx-auto">
+          
+          <div class="nb-box-lg bg-accent-orange text-white p-6 sm:p-10 lg:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8 relative overflow-hidden">
+            <!-- Decorative Large Monospaced Watermark -->
+            <div class="absolute -right-6 -bottom-6 font-syne font-black text-7xl sm:text-9xl text-black/10 select-none pointer-events-none">
+              TAPE
+            </div>
+
+            <div class="max-w-2xl relative z-10">
+              <div class="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 bg-black text-white font-mono text-[10px] sm:text-xs font-bold uppercase mb-3 sm:mb-4 border border-white">
+                <span class="w-2 h-2 bg-accent-yellow animate-ping"></span>
+                MOTION GRAPHICS & VIDEO REEL ARCHIVE
+              </div>
+              <h2 class="font-syne font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-white leading-tight">
+                PROMOTIONAL REELS, EVENT TEASERS & MOTION EDITS.
+              </h2>
+              <p class="font-sans text-white/90 text-xs sm:text-base md:text-lg mt-3 sm:mt-4 font-medium leading-relaxed">
+                A curated repository of motion design assets, commercial video edits, and dynamic kinetic typography assembled on Google Drive for instant review.
+              </p>
+            </div>
+
+            <div class="relative z-10 flex flex-col gap-2.5 w-full md:w-auto flex-shrink-0">
+              <a
+                href="https://drive.google.com/drive/folders/1AbsWvAeQKMk1IMj9sEdLxQdeH6MzhvKm"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nb-btn px-6 sm:px-8 py-3.5 sm:py-4 md:py-5 bg-white text-black font-mono text-xs sm:text-sm md:text-base font-black tracking-wider uppercase text-center border-2 border-black hover:bg-accent-yellow"
+              >
+                OPEN GOOGLE DRIVE REEL ↗
+              </a>
+              <span class="font-mono text-[10px] sm:text-xs text-white/80 text-center">DIRECT ACCESS // NO LOGIN REQUIRED</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =======================================================================
+           SECTION 6: CONTACT & TERMINAL TRANSMISSION
+           ======================================================================= -->
+      <section id="contact" class="w-full py-12 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-12 border-b-[3px] border-black dark:border-white bg-[#F4F0EA] dark:bg-[#121214]">
+        <div class="max-w-[1720px] mx-auto">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-start">
+            
+            <!-- Left Info Column -->
+            <div class="lg:col-span-5 flex flex-col gap-4 sm:gap-6">
+              <div class="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 bg-black text-white dark:bg-white dark:text-black font-mono text-[10px] sm:text-xs font-bold uppercase w-max">
+                <span class="w-2 h-2 bg-accent-yellow"></span>
+                COMMUNICATION CHANNEL // PROTOCOL-01
+              </div>
+
+              <h2 class="font-syne font-black text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight text-black dark:text-white leading-tight">
+                LET'S BUILD SOMETHING UNIGNORABLE.
+              </h2>
+
+              <p class="font-sans text-xs sm:text-base md:text-lg text-zinc-700 dark:text-zinc-300 font-medium leading-relaxed">
+                Whether you need a comprehensive UI/UX overhaul, an enterprise dashboard design system, or a brand identity that commands attention — my transmission lines are open.
+              </p>
+
+              <!-- Direct Contact Box with One-Click Copy -->
+              <div class="nb-box p-3.5 sm:p-5 bg-white dark:bg-[#1A1A1E] text-black dark:text-white flex flex-col gap-2.5 sm:gap-3">
+                <div class="flex items-center justify-between font-mono text-[10px] sm:text-xs font-bold border-b border-black dark:border-white pb-1.5 sm:pb-2">
+                  <span>DIRECT TRANSMISSION EMAIL</span>
+                  <span id="copy-status" class="text-accent-green font-bold uppercase">CLICK TO COPY</span>
+                </div>
+                <div class="flex flex-col xs:flex-row xs:items-center justify-between gap-2">
+                  <code id="email-address" class="font-mono text-xs sm:text-sm md:text-base font-black select-all break-all xs:break-normal">
+                    farhankholid20@gmail.com
+                  </code>
+                  <button
+                    id="copy-email-btn"
+                    class="nb-btn self-start xs:self-auto px-3 py-1 bg-accent-yellow text-black font-mono text-[11px] sm:text-xs font-bold"
+                  >
+                    COPY
+                  </button>
+                </div>
+              </div>
+
+              <!-- Social Links Cards -->
+              <div class="grid grid-cols-2 gap-2 sm:gap-3 font-mono text-xs font-bold">
+                <a
+                  href="https://www.linkedin.com/in/farhan-kholid-8115b9202/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="nb-btn p-3 sm:p-4 bg-white dark:bg-[#1A1A1E] text-black dark:text-white flex items-center justify-between"
+                >
+                  <span>LINKEDIN</span>
+                  <span>↗</span>
+                </a>
+                <a
+                  href="https://github.com/amaheeeen/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="nb-btn p-3 sm:p-4 bg-white dark:bg-[#1A1A1E] text-black dark:text-white flex items-center justify-between"
+                >
+                  <span>GITHUB</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Form Column (Tactile Neo-Brutalist Form) -->
+            <div class="lg:col-span-7 nb-box-lg bg-white dark:bg-[#1A1A1E] p-4 sm:p-6 md:p-8 lg:p-10 text-black dark:text-white">
+              
+              <div class="flex items-center justify-between pb-3 sm:pb-4 border-b-2 border-black dark:border-white mb-4 sm:mb-6">
+                <h3 class="font-syne font-black text-xl sm:text-2xl uppercase tracking-tight text-black dark:text-white">
+                  TRANSMISSION FORM
+                </h3>
+                <span class="font-mono text-[10px] sm:text-xs text-zinc-500 uppercase">ENCRYPTED PROTOCOL</span>
+              </div>
+
+              <form action="https://formspree.io/f/mreybrjg" method="POST" class="space-y-4 sm:space-y-5">
+                
+                <div>
+                  <label for="name" class="block font-mono text-[11px] sm:text-xs font-bold uppercase mb-1 sm:mb-1.5 text-black dark:text-white">
+                    01. YOUR NAME OR COMPANY *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="e.g. Alex Morgan / Studio Nord"
+                    class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3.5 bg-[#F4F0EA] dark:bg-[#121214] text-black dark:text-white font-mono text-sm border-2 border-black dark:border-white focus:bg-accent-yellow/20 focus:outline-none focus:ring-0 min-h-[44px]"
+                  />
+                </div>
+
+                <div>
+                  <label for="email" class="block font-mono text-[11px] sm:text-xs font-bold uppercase mb-1 sm:mb-1.5 text-black dark:text-white">
+                    02. TRANSMISSION EMAIL *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="alex@example.com"
+                    class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3.5 bg-[#F4F0EA] dark:bg-[#121214] text-black dark:text-white font-mono text-sm border-2 border-black dark:border-white focus:bg-accent-yellow/20 focus:outline-none focus:ring-0 min-h-[44px]"
+                  />
+                </div>
+
+                <div>
+                  <label for="message" class="block font-mono text-[11px] sm:text-xs font-bold uppercase mb-1 sm:mb-1.5 text-black dark:text-white">
+                    03. PROJECT BRIEF & SCOPE *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    required
+                    placeholder="Describe your timeline, goals, and deliverables..."
+                    class="w-full px-3.5 sm:px-4 py-2.5 sm:py-3.5 bg-[#F4F0EA] dark:bg-[#121214] text-black dark:text-white font-mono text-sm border-2 border-black dark:border-white focus:bg-accent-yellow/20 focus:outline-none focus:ring-0"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  class="nb-btn w-full py-3 sm:py-4 bg-accent-yellow text-black font-mono text-sm sm:text-base font-black tracking-wider uppercase flex items-center justify-center gap-2"
+                >
+                  <span>SEND DISPATCH</span>
+                  <span>⚡</span>
+                </button>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- =======================================================================
+         BRUTALIST FOOTER: TERMINAL & ARCHIVE STYLING
+         ======================================================================= -->
+    <footer class="w-full bg-black text-white py-8 sm:py-12 px-3 sm:px-6 lg:px-12 border-t-[4px] border-black dark:border-white">
+      <div class="max-w-[1720px] mx-auto flex flex-col gap-6 sm:gap-8">
+        
+        <!-- Giant Typographic Brand -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 pb-6 sm:pb-8 border-b-2 border-white/20">
+          <div>
+            <span class="font-mono text-[10px] sm:text-xs text-accent-green uppercase font-bold tracking-widest block mb-1.5 sm:mb-2">
+              ARCHIVAL INDEX // END OF LINE
+            </span>
+            <div class="font-syne font-black text-3xl xs:text-4xl sm:text-6xl md:text-7xl uppercase tracking-tighter leading-none">
+              FARHAN KHOLID
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
             <a
-              href="https://www.linkedin.com/in/farhan-kholid-8115b9202/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-16 h-16 clay-circle group"
-              title="LinkedIn"
+              href="#hero"
+              class="nb-btn px-3 sm:px-4 py-2 sm:py-2.5 bg-white text-black font-mono text-[11px] sm:text-xs font-black uppercase hover:bg-accent-yellow transition-colors"
             >
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg"
-                class="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                alt="LinkedIn"
-              />
-            </a>
-            <a
-              href="https://github.com/amaheeeen/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-16 h-16 clay-circle group"
-              title="GitHub"
-            >
-              <img
-                src="https://cdn.simpleicons.org/github/181717"
-                class="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                alt="GitHub"
-              />
-            </a>
-            <a
-              href="mailto:farhankholid20@gmail.com"
-              class="w-16 h-16 clay-circle group"
-              title="Email"
-            >
-              <img
-                src="https://cdn.simpleicons.org/gmail/EA4335"
-                class="w-8 h-8 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
-                alt="Gmail"
-              />
+              RETURN TO TOP ↑
             </a>
           </div>
         </div>
+
+        <!-- System Clock & Status Ribbon -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 font-mono text-[11px] sm:text-xs text-zinc-400">
+          <div>
+            <span class="text-white font-bold block">LOCATION:</span>
+            Jakarta, Republic of Indonesia (WIB)
+          </div>
+          <div>
+            <span class="text-white font-bold block">LOCAL TIME:</span>
+            <span id="live-clock" class="text-accent-green font-bold">--:--:-- WIB</span>
+          </div>
+          <div>
+            <span class="text-white font-bold block">SYSTEM STATUS:</span>
+            <span class="text-accent-green">ALL MATRICES OPERATIONAL</span>
+          </div>
+          <div>
+            <span class="text-white font-bold block">COPYRIGHT:</span>
+            &copy; 2026 FARHAN KHOLID. ALL RIGHTS RESERVED.
+          </div>
+        </div>
+
       </div>
-    </section>
-    <!-- Footer -->
-    <footer class="w-full py-8 text-center relative z-10 bg-[#F0F5F9] dark:bg-slate-900 pb-12 transition-colors duration-300">
-      <p class="font-sans text-sm text-slate-500 dark:text-slate-400 tracking-wider font-semibold transition-colors duration-300">
-        &copy; 2026 Farhan Kholid.
-      </p>
     </footer>
+
     <!-- =======================================================================
-         LIGHTBOX MODAL
+         INTERACTIVE CASE STUDY MODAL / DRAWER (RESPONSIVE)
          ======================================================================= -->
     <div
-      id="lightbox"
-      class="fixed inset-0 z-[200] hidden bg-black/90 flex justify-center items-center backdrop-blur-sm p-4"
+      id="case-modal"
+      class="fixed inset-0 z-[100] hidden bg-black/80 flex items-center justify-center p-2 xs:p-3 sm:p-6 overflow-y-auto"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
     >
-      <button
-        id="lightbox-close"
-        class="absolute top-6 right-6 text-white hover:text-gray-300 focus:outline-none z-[210]"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-10 h-10 drop-shadow-md"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-      <img
-        id="lightbox-img"
-        src=""
-        alt="Fullscreen View"
-        class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl relative z-[205]"
-      />
+      <div class="relative w-full max-w-5xl bg-white dark:bg-[#1A1A1E] text-black dark:text-white border-[3px] border-black dark:border-white shadow-nb-xl my-4 sm:my-8 max-h-[94vh] flex flex-col">
+        
+        <!-- Modal Top Title Bar with Close Button -->
+        <div class="flex items-center justify-between px-3 sm:px-6 py-2.5 sm:py-3 bg-black text-white dark:bg-white dark:text-black border-b-2 border-black dark:border-white flex-shrink-0">
+          <div class="flex items-center gap-1.5 sm:gap-2 font-mono text-xs sm:text-sm font-black uppercase">
+            <span id="modal-tag" class="px-1.5 sm:px-2 py-0.5 bg-accent-yellow text-black font-bold">[SPEC-CASE]</span>
+            <span id="modal-header-id" class="hidden xs:inline">INDEX DETAIL</span>
+          </div>
+          <button
+            id="close-modal-btn"
+            class="nb-btn px-2 sm:px-2.5 py-1 bg-accent-orange text-white font-mono text-[11px] sm:text-xs font-bold uppercase hover:bg-red-600"
+            aria-label="Close Case Study Modal"
+          >
+            ESC / CLOSE ✕
+          </button>
+        </div>
+
+        <!-- Modal Hero Header -->
+        <div class="p-4 sm:p-6 md:p-8 border-b-2 border-black dark:border-white bg-[#F4F0EA] dark:bg-[#121214] flex-shrink-0">
+          <h3 id="modal-title" class="font-syne font-black text-2xl xs:text-3xl sm:text-4xl uppercase tracking-tight text-black dark:text-white mb-1.5 sm:mb-2">
+            Project Title
+          </h3>
+          <p id="modal-subtitle" class="font-sans text-xs xs:text-sm sm:text-base text-zinc-700 dark:text-zinc-300 font-medium">
+            One-sentence summary of the project.
+          </p>
+        </div>
+
+        <!-- Strict UX Narrative Tabs (Horizontal Scrollable on Mobile) -->
+        <div class="flex border-b-2 border-black dark:border-white overflow-x-auto bg-white dark:bg-[#1A1A1E] font-mono text-[11px] sm:text-xs font-bold flex-shrink-0 hide-scrollbar">
+          <button
+            class="modal-tab-btn whitespace-nowrap px-3 sm:px-6 py-2.5 sm:py-3 border-r-2 border-black dark:border-white bg-accent-yellow text-black active-modal-tab"
+            data-tab="problem"
+          >
+            01. PROBLEM
+          </button>
+          <button
+            class="modal-tab-btn whitespace-nowrap px-3 sm:px-6 py-2.5 sm:py-3 border-r-2 border-black dark:border-white text-black dark:text-white"
+            data-tab="flow"
+          >
+            02. FLOW & ARCH
+          </button>
+          <button
+            class="modal-tab-btn whitespace-nowrap px-3 sm:px-6 py-2.5 sm:py-3 border-r-2 border-black dark:border-white text-black dark:text-white"
+            data-tab="decisions"
+          >
+            03. DECISIONS
+          </button>
+          <button
+            class="modal-tab-btn whitespace-nowrap px-3 sm:px-6 py-2.5 sm:py-3 text-black dark:text-white"
+            data-tab="gallery"
+          >
+            04. FINAL SPECS
+          </button>
+        </div>
+
+        <!-- Tab Dynamic Content Container (Scrollable) -->
+        <div id="modal-tab-content" class="p-4 sm:p-6 md:p-8 overflow-y-auto font-sans leading-relaxed text-xs xs:text-sm sm:text-base space-y-4">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Modal Bottom Action Bar -->
+        <div class="flex flex-col xs:flex-row items-stretch xs:items-center justify-between gap-2 p-3 sm:p-4 border-t-2 border-black dark:border-white bg-[#F4F0EA] dark:bg-[#121214] flex-shrink-0 font-mono text-[10px] sm:text-xs">
+          <span class="text-zinc-600 dark:text-zinc-400 text-center xs:text-left">PRESS [ESC] OR CLICK OUTSIDE TO RETURN</span>
+          <a
+            id="modal-external-link"
+            href="#"
+            target="_blank"
+            class="nb-btn px-4 sm:px-5 py-2 sm:py-2.5 bg-black text-white dark:bg-white dark:text-black font-bold uppercase text-center"
+          >
+            OPEN FULL REPORT ↗
+          </a>
+        </div>
+
+      </div>
     </div>
 
-
-
+    <!-- =======================================================================
+         VANILLA JAVASCRIPT: LOGIC, DATA REGISTRY & INTERACTIONS
+         ======================================================================= -->
     <script>
-      // Initialize theme synchronously to prevent FOUC
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      // 1. Synchronous Dark Mode Initialization
+      if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
         document.documentElement.classList.add('dark');
       } else {
         document.documentElement.classList.remove('dark');
       }
 
-      document.addEventListener("DOMContentLoaded", () => {
-        // --- Lightbox Logic ---
-        const lightbox = document.getElementById("lightbox");
-        const lightboxImg = document.getElementById("lightbox-img");
-        const lightboxClose = document.getElementById("lightbox-close");
-        const gridImages = document.querySelectorAll("img[data-full]");
+      document.addEventListener('DOMContentLoaded', () => {
+        // --- Dark Mode Switcher ---
+        const themeBtn = document.getElementById('theme-toggle');
+        const iconLight = document.getElementById('theme-icon-light');
+        const iconDark = document.getElementById('theme-icon-dark');
 
-        if (lightbox && lightboxImg && lightboxClose) {
-          // Open lightbox
-          gridImages.forEach((img) => {
-            img.addEventListener("click", () => {
-              const fullSrc = img.getAttribute("data-full");
-              if (fullSrc) {
-                lightboxImg.src = fullSrc;
-                lightbox.classList.remove("hidden");
-              }
-            });
-          });
-
-          // Close lightbox function
-          const closeLightbox = () => {
-            lightbox.classList.add("hidden");
-            lightboxImg.src = ""; // reset src
-          };
-
-          // Close on button click
-          lightboxClose.addEventListener("click", closeLightbox);
-
-          // Close on background click
-          lightbox.addEventListener("click", (e) => {
-            if (e.target === lightbox) {
-              closeLightbox();
-            }
-          });
-
-          // Close on Escape key
-          document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && !lightbox.classList.contains("hidden")) {
-              closeLightbox();
-            }
-          });
-        }
-
-        // --- Dark Mode Toggle Logic ---
-        const toggleBtn = document.getElementById('theme-toggle');
-        const lightIcon = document.getElementById('theme-toggle-light-icon');
-        const darkIcon = document.getElementById('theme-toggle-dark-icon');
-
-        if (toggleBtn && lightIcon && darkIcon) {
-          // Set initial icon visibility
+        function updateThemeUI() {
           if (document.documentElement.classList.contains('dark')) {
-            lightIcon.classList.remove('hidden');
-            darkIcon.classList.add('hidden');
+            iconLight.classList.remove('hidden');
+            iconDark.classList.add('hidden');
           } else {
-            lightIcon.classList.add('hidden');
-            darkIcon.classList.remove('hidden');
+            iconLight.classList.add('hidden');
+            iconDark.classList.remove('hidden');
           }
+        }
+        updateThemeUI();
 
-          // Toggle event
-          toggleBtn.addEventListener('click', () => {
+        if (themeBtn) {
+          themeBtn.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
             if (document.documentElement.classList.contains('dark')) {
               localStorage.theme = 'dark';
-              lightIcon.classList.remove('hidden');
-              darkIcon.classList.add('hidden');
             } else {
               localStorage.theme = 'light';
-              lightIcon.classList.add('hidden');
-              darkIcon.classList.remove('hidden');
             }
+            updateThemeUI();
           });
         }
 
-        // --- Ethereal Shadows Animation Logic ---
-        const etherealHueMatrix = document.getElementById('ethereal-hue');
-        let etherealHueValue = 180;
-        let etherealLastTime = 0;
-        
-        function animateEtherealHue(time) {
-          if (!etherealLastTime) etherealLastTime = time;
-          const deltaTime = time - etherealLastTime;
-          etherealLastTime = time;
-          
-          // Speed adjustment (similar to duration in Framer Motion)
-          etherealHueValue = (etherealHueValue + (deltaTime * 0.05)) % 360;
-          
-          if (etherealHueMatrix) {
-            etherealHueMatrix.setAttribute('values', etherealHueValue);
+        // --- Mobile & Tablet Navigation Menu Toggle ---
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuBtnIcon = document.getElementById('menu-btn-icon');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (mobileMenuToggle && mobileMenu) {
+          mobileMenuToggle.addEventListener('click', () => {
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+              mobileMenu.classList.add('hidden');
+              mobileMenuToggle.setAttribute('aria-expanded', 'false');
+              if (menuBtnIcon) menuBtnIcon.textContent = '☰';
+            } else {
+              mobileMenu.classList.remove('hidden');
+              mobileMenuToggle.setAttribute('aria-expanded', 'true');
+              if (menuBtnIcon) menuBtnIcon.textContent = '✕';
+            }
+          });
+
+          // Close mobile menu on clicking any navigation link
+          mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              mobileMenu.classList.add('hidden');
+              mobileMenuToggle.setAttribute('aria-expanded', 'false');
+              if (menuBtnIcon) menuBtnIcon.textContent = '☰';
+            });
+          });
+        }
+
+        // --- Live Jakarta (WIB) Clock in Footer ---
+        function updateClock() {
+          const clockElem = document.getElementById('live-clock');
+          if (!clockElem) return;
+          const now = new Date();
+          const options = {
+            timeZone: 'Asia/Jakarta',
+            hour12: false,
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+          };
+          clockElem.textContent = now.toLocaleTimeString('en-US', options) + ' WIB';
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+
+        // --- Copy Email Button ---
+        const copyBtn = document.getElementById('copy-email-btn');
+        const copyStatus = document.getElementById('copy-status');
+        if (copyBtn && copyStatus) {
+          copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText('farhankholid20@gmail.com').then(() => {
+              copyStatus.textContent = 'COPIED TO CLIPBOARD!';
+              copyStatus.classList.add('text-accent-yellow');
+              setTimeout(() => {
+                copyStatus.textContent = 'CLICK TO COPY';
+                copyStatus.classList.remove('text-accent-yellow');
+              }, 2500);
+            });
+          });
+        }
+
+        // --- Modular Project Category Filtering ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            // Reset active style
+            filterBtns.forEach(b => {
+              b.classList.remove('bg-accent-yellow', 'text-black');
+              b.classList.add('bg-white', 'dark:bg-[#1A1A1E]', 'text-black', 'dark:text-white');
+            });
+            btn.classList.remove('bg-white', 'dark:bg-[#1A1A1E]', 'text-black', 'dark:text-white');
+            btn.classList.add('bg-accent-yellow', 'text-black');
+
+            const filter = btn.getAttribute('data-filter');
+            projectCards.forEach(card => {
+              const cat = card.getAttribute('data-category');
+              if (filter === 'all' || cat === filter) {
+                card.style.display = 'flex';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          });
+        });
+
+        // --- Comprehensive Case Study Data Registry ---
+        const caseStudies = {
+          lumina: {
+            tag: '[IDX-03 // UX]',
+            title: 'LuminaVisa Platform',
+            subtitle: 'Redesigning international visa guidance through transparent cognitive pacing and automated document validation.',
+            externalLink: 'case-study-lumina.html',
+            problem: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214] mb-3 sm:mb-4">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-orange mb-1.5 sm:mb-2">01. The Problem Statement</h4>
+                <p class="text-xs sm:text-base leading-relaxed text-zinc-800 dark:text-zinc-200">
+                  Applying for a travel or business visa is plagued by fragmented government websites, confusing document criteria, and zero transparency into rejection risks. Applicants suffer high anxiety, redundant expenses, and frequent submission rejections due to trivial bureaucratic oversights.
+                </p>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 font-mono text-[11px] sm:text-xs">
+                <div class="p-2.5 sm:p-3 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">
+                  <strong>USER FRICTION:</strong> 64% of applicants report feeling overwhelmed by contradictory embassy checklists.
+                </div>
+                <div class="p-2.5 sm:p-3 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">
+                  <strong>SYSTEM GOAL:</strong> Deliver a linear, 3-step verification wizard with immediate visual feedback.
+                </div>
+              </div>
+            `,
+            flow: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214] mb-3 sm:mb-4">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-green mb-1.5 sm:mb-2">02. Architecture & Stepwise Flow</h4>
+                <div class="space-y-2 sm:space-y-3 font-mono text-[11px] sm:text-xs">
+                  <div class="p-2 border-2 border-black dark:border-white bg-[#F4F0EA] dark:bg-[#1A1A1E]">
+                    [ENTRY]: User selects Destination Country + Passport Nationality.
+                  </div>
+                  <div class="text-center font-bold">↓</div>
+                  <div class="p-2 border-2 border-black dark:border-white bg-[#F4F0EA] dark:bg-[#1A1A1E]">
+                    [REQUIREMENTS ENGINE]: Dynamic calculation of exact mandatory vs optional documents.
+                  </div>
+                  <div class="text-center font-bold">↓</div>
+                  <div class="p-2 border-2 border-black dark:border-white bg-[#F4F0EA] dark:bg-[#1A1A1E]">
+                    [UPLOAD & VALIDATION]: Pre-flight scanning for expiry dates, format, and resolution.
+                  </div>
+                  <div class="text-center font-bold">↓</div>
+                  <div class="p-2 border-2 border-black dark:border-white bg-accent-green text-black font-bold">
+                    [DISPATCH]: Instant tracking receipt with SLA turnaround countdown.
+                  </div>
+                </div>
+              </div>
+            `,
+            decisions: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214]">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-cyan mb-1.5 sm:mb-2">03. Key Usability & Architectural Decisions</h4>
+                <ul class="list-disc list-inside space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-zinc-800 dark:text-zinc-200">
+                  <li><strong>Progressive Disclosure:</strong> Replaced endless single-page forms with chunked micro-steps, reducing user cognitive drop-off by over 38%.</li>
+                  <li><strong>Visual Readiness Indicators:</strong> High-contrast status chips (Ready, Needs Attention, In Review) giving users absolute certainty before payment.</li>
+                  <li><strong>WCAG AA Compliance:</strong> Enforced minimum 4.5:1 text-to-background contrast across all informational tooltips and error alerts.</li>
+                </ul>
+              </div>
+            `,
+            gallery: `
+              <div class="space-y-3 sm:space-y-4">
+                <div class="border-2 border-black dark:border-white bg-black p-1">
+                  <img src="assets/img/porto-fe_4.webp" alt="LuminaVisa Interface Showcase" class="w-full object-cover">
+                </div>
+                <div class="p-2 bg-black text-white font-mono text-[10px] sm:text-xs flex flex-col xs:flex-row justify-between gap-1">
+                  <span>FIG 1.1 // LUMINA APPLICANT DASHBOARD</span>
+                  <span>VIEWPORT: DESKTOP 1440PX</span>
+                </div>
+              </div>
+            `
+          },
+          booking: {
+            tag: '[IDX-04 // UX]',
+            title: "Pilgrim's Tracker Enterprise",
+            subtitle: 'High-density operational dashboard for managing pilgrim manifests, flight schedules, and medical dispatch.',
+            externalLink: 'case-study-booking.html',
+            problem: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214] mb-3 sm:mb-4">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-orange mb-1.5 sm:mb-2">01. The Problem Statement</h4>
+                <p class="text-xs sm:text-base leading-relaxed text-zinc-800 dark:text-zinc-200">
+                  Hajj and Umrah travel agencies juggle thousands of travelers simultaneously across multiple international flights, hotel bookings in Mecca/Medina, and emergency medical incidents. Relying on legacy spreadsheets caused critical communication delays and misplaced traveler luggage.
+                </p>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 font-mono text-[11px] sm:text-xs">
+                <div class="p-2.5 sm:p-3 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">
+                  <strong>OPERATIONAL HAZARD:</strong> Up to 15 hours lost per week cross-referencing paper manifests.
+                </div>
+                <div class="p-2.5 sm:p-3 bg-[#F4F0EA] dark:bg-[#121214] border-2 border-black dark:border-white">
+                  <strong>CORE REQUIREMENT:</strong> Sub-second search by passport number and live status filtering.
+                </div>
+              </div>
+            `,
+            flow: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214] mb-3 sm:mb-4">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-green mb-1.5 sm:mb-2">02. Data Architecture</h4>
+                <p class="text-xs sm:text-sm text-zinc-800 dark:text-zinc-200 mb-2 sm:mb-3">
+                  Hierarchical schema: Agency Account → Group / Batch (KBIH) → Individual Pilgrim Dossier → Activity & Incident Log.
+                </p>
+                <div class="p-2.5 sm:p-3 bg-[#F4F0EA] dark:bg-[#1A1A1E] border-2 border-black dark:border-white font-mono text-[11px] sm:text-xs">
+                  [QUERY ENGINE] → Real-time WebSocket synchronization across airport ground teams and hotel concierge managers.
+                </div>
+              </div>
+            `,
+            decisions: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214]">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-yellow mb-1.5 sm:mb-2">03. Key Decisions</h4>
+                <ul class="list-disc list-inside space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-zinc-800 dark:text-zinc-200">
+                  <li><strong>High-Density Grid Layout:</strong> Utilized tight, tabular data views rather than oversized cards so dispatchers can monitor 40+ pilgrims per screen.</li>
+                  <li><strong>Color-Coded Status Tokens:</strong> Green for Arrived, Yellow for In Transit, Red for Medical/Emergency Alert.</li>
+                  <li><strong>Offline-First Synchronization:</strong> Cached essential traveler medical records for ground crew operating in low-connectivity areas.</li>
+                </ul>
+              </div>
+            `,
+            gallery: `
+              <div class="space-y-3 sm:space-y-4">
+                <div class="border-2 border-black dark:border-white bg-black p-1">
+                  <img src="./assets/img/porto-fe_6.webp" alt="Pilgrim's Tracker Dashboard" class="w-full object-cover">
+                </div>
+                <div class="p-2 bg-black text-white font-mono text-[10px] sm:text-xs flex flex-col xs:flex-row justify-between gap-1">
+                  <span>FIG 2.1 // ENTERPRISE MANIFEST & LOGISTICS TERMINAL</span>
+                  <span>SYSTEM: B2B SAAS</span>
+                </div>
+              </div>
+            `
+          },
+          kalcer: {
+            tag: '[IDX-05 // UX]',
+            title: 'Kalcer.ID Platform',
+            subtitle: 'Unifying Indonesian cultural events, heritage sanctuaries, and community art workshops.',
+            externalLink: 'case-study-kalcer.html',
+            problem: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214] mb-3 sm:mb-4">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-orange mb-1.5 sm:mb-2">01. The Problem Statement</h4>
+                <p class="text-xs sm:text-base leading-relaxed text-zinc-800 dark:text-zinc-200">
+                  Cultural tourism in Indonesia is heavily fragmented across obscure blogs and informal social media accounts. Tourists and youth communities miss local heritage exhibitions and traditional performances due to the lack of an authoritative discovery index.
+                </p>
+              </div>
+            `,
+            flow: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214] mb-3 sm:mb-4">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-green mb-1.5 sm:mb-2">02. Discovery Architecture</h4>
+                <p class="text-xs sm:text-sm text-zinc-800 dark:text-zinc-200">
+                  Geo-spatial map search integrated with date filters, category pills (Wayang, Batik, Music, Culinary), and instant ticket reservations.
+                </p>
+              </div>
+            `,
+            decisions: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214]">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-cyan mb-1.5 sm:mb-2">03. Key Decisions</h4>
+                <ul class="list-disc list-inside space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-zinc-800 dark:text-zinc-200">
+                  <li><strong>Neo-Brutalist Cultural Aesthetics:</strong> Blended traditional batik motifs with sharp contemporary typography to appeal directly to Gen Z.</li>
+                  <li><strong>Location-Based Community Feeds:</strong> Immediate recommendations within a 15km radius of the user.</li>
+                </ul>
+              </div>
+            `,
+            gallery: `
+              <div class="space-y-3 sm:space-y-4">
+                <div class="border-2 border-black dark:border-white bg-black p-1">
+                  <img src="assets/img/porto-fe_2.webp" alt="Kalcer.ID Interface" class="w-full object-cover">
+                </div>
+                <div class="p-2 bg-black text-white font-mono text-[10px] sm:text-xs flex flex-col xs:flex-row justify-between gap-1">
+                  <span>FIG 3.1 // KALCER CULTURAL DISCOVERY INTERFACE</span>
+                  <span>COMMUNITY EDITION</span>
+                </div>
+              </div>
+            `
+          },
+          dashboard: {
+            tag: '[IDX-06 // UX]',
+            title: 'Mono Stock Terminal',
+            subtitle: 'Monochromatic, low-cognitive-load financial platform designed for fast-paced equity and forex traders.',
+            externalLink: 'case-study-dashboard.html',
+            problem: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214] mb-3 sm:mb-4">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-orange mb-1.5 sm:mb-2">01. The Problem Statement</h4>
+                <p class="text-xs sm:text-base leading-relaxed text-zinc-800 dark:text-zinc-200">
+                  Traditional trading terminals overwhelm users with chaotic neon colors, blinking tickers, and nested menus, causing severe cognitive fatigue and execution errors during volatile market events.
+                </p>
+              </div>
+            `,
+            flow: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214] mb-3 sm:mb-4">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-green mb-1.5 sm:mb-2">02. Streamlined Trading Flow</h4>
+                <p class="text-xs sm:text-sm text-zinc-800 dark:text-zinc-200">
+                  Single-keystroke order execution with contextual depth charts and isolated watchlists.
+                </p>
+              </div>
+            `,
+            decisions: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214]">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-cyan mb-1.5 sm:mb-2">03. Key Decisions</h4>
+                <ul class="list-disc list-inside space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-zinc-800 dark:text-zinc-200">
+                  <li><strong>Monochrome Palette:</strong> Restricted color to critical trend triggers only (sharp green/red spikes), keeping 90% of the canvas in stark grayscale.</li>
+                  <li><strong>Keyboard-First Navigation:</strong> Complete terminal hotkey binding for hands-on-keyboard power traders.</li>
+                </ul>
+              </div>
+            `,
+            gallery: `
+              <div class="space-y-3 sm:space-y-4">
+                <div class="border-2 border-black dark:border-white bg-black p-1">
+                  <img src="assets/img/porto-fe_1.webp" alt="Mono Stock Dashboard" class="w-full object-cover">
+                </div>
+                <div class="p-2 bg-black text-white font-mono text-[10px] sm:text-xs flex flex-col xs:flex-row justify-between gap-1">
+                  <span>FIG 4.1 // HIGH-CONTRAST TRADING TERMINAL</span>
+                  <span>SPEC: LATENCY CRITICAL</span>
+                </div>
+              </div>
+            `
+          },
+          citeup: {
+            tag: '[IDX-01 // GFX]',
+            title: 'CITEUP Event Branding 2025',
+            subtitle: 'Visual identity system for "Node of Connection", a premiere national university technology summit.',
+            externalLink: 'https://www.instagram.com/citeup2025/',
+            problem: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214] mb-3 sm:mb-4">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-yellow mb-1.5 sm:mb-2">01. Brand Challenge</h4>
+                <p class="text-xs sm:text-base leading-relaxed text-zinc-800 dark:text-zinc-200">
+                  CITEUP required an identity that stood out from standard generic tech conferences. The theme "Node of Connection" needed a visual metaphor that resonated with computer science students, venture capitalists, and industry speakers alike.
+                </p>
+              </div>
+            `,
+            flow: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214] mb-3 sm:mb-4">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-green mb-1.5 sm:mb-2">02. Design Ecosystem</h4>
+                <p class="text-xs sm:text-sm text-zinc-800 dark:text-zinc-200">
+                  Comprehensive rollout across: Main Stage LED Backdrop (32:9), Physical Participant Badges, Social Media Campaign Templates, Event Merchandise (Tees, Stickers, Tote Bags).
+                </p>
+              </div>
+            `,
+            decisions: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214]">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-cyan mb-1.5 sm:mb-2">03. Key Visual Decisions</h4>
+                <ul class="list-disc list-inside space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-zinc-800 dark:text-zinc-200">
+                  <li><strong>Electric Yellow + Deep Obsidian:</strong> Created immediate eye-tracking contrast on printed street banners and Instagram feeds.</li>
+                  <li><strong>Modular Grid Nodes:</strong> Reusable graphic motifs depicting interconnected microchip traces and human collaboration.</li>
+                </ul>
+              </div>
+            `,
+            gallery: `
+              <div class="space-y-3 sm:space-y-4">
+                <div class="border-2 border-black dark:border-white bg-black p-1">
+                  <img src="./assets/img/cu25/cu25.webp" alt="CITEUP 2025 Brand Collage" class="w-full object-cover">
+                </div>
+                <div class="p-2 bg-black text-white font-mono text-[10px] sm:text-xs flex flex-col xs:flex-row justify-between gap-1">
+                  <span>FIG 5.1 // CITEUP CAMPAIGN COLLATERAL</span>
+                  <span>OUTPUT: MULTI-CHANNEL</span>
+                </div>
+              </div>
+            `
+          },
+          fsi: {
+            tag: '[IDX-02 // GFX]',
+            title: 'PT Farhan Surya Indah Corporate ID',
+            subtitle: 'Brand identity system and comprehensive collateral for an established Umrah & Hajj agency.',
+            externalLink: 'https://www.instagram.com/farhansuryaindah/',
+            problem: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214] mb-3 sm:mb-4">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-cyan mb-1.5 sm:mb-2">01. The Brand Challenge</h4>
+                <p class="text-xs sm:text-base leading-relaxed text-zinc-800 dark:text-zinc-200">
+                  The Umrah travel sector is saturated with generic gold and green religious branding. PT Farhan Surya Indah needed a modern, trustworthy, and elegant visual language to attract both young professionals and senior pilgrims.
+                </p>
+              </div>
+            `,
+            flow: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214] mb-3 sm:mb-4">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-green mb-1.5 sm:mb-2">02. Brand Guidelines</h4>
+                <p class="text-xs sm:text-sm text-zinc-800 dark:text-zinc-200">
+                  Corporate stationery, high-gloss itineraries, social media marketing templates, luggage tags, and prayer guide booklets.
+                </p>
+              </div>
+            `,
+            decisions: `
+              <div class="nb-box p-3.5 sm:p-4 bg-white dark:bg-[#121214]">
+                <h4 class="font-mono font-bold text-xs sm:text-sm uppercase text-accent-orange mb-1.5 sm:mb-2">03. Key Decisions</h4>
+                <ul class="list-disc list-inside space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-zinc-800 dark:text-zinc-200">
+                  <li><strong>Minimalist Islamic Geometry:</strong> Abstracted Islamic archways and sunrise motifs into clean vector geometry.</li>
+                  <li><strong>Clear Typography Hierarchy:</strong> Selected high-legibility serif and sans pairings for elder readability on print itineraries.</li>
+                </ul>
+              </div>
+            `,
+            gallery: `
+              <div class="space-y-3 sm:space-y-4">
+                <div class="border-2 border-black dark:border-white bg-black p-1">
+                  <img src="./assets/img/fsi/fsi.webp" alt="FSI Corporate Identity" class="w-full object-cover">
+                </div>
+                <div class="p-2 bg-black text-white font-mono text-[10px] sm:text-xs flex flex-col xs:flex-row justify-between gap-1">
+                  <span>FIG 6.1 // CORPORATE BRANDING SPREAD</span>
+                  <span>FORMAT: PRINT & DIGITAL</span>
+                </div>
+              </div>
+            `
           }
-          requestAnimationFrame(animateEtherealHue);
+        };
+
+        // --- Modal Interaction Logic ---
+        const modal = document.getElementById('case-modal');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        const modalTitle = document.getElementById('modal-title');
+        const modalSubtitle = document.getElementById('modal-subtitle');
+        const modalTag = document.getElementById('modal-tag');
+        const modalHeaderId = document.getElementById('modal-header-id');
+        const modalExternalLink = document.getElementById('modal-external-link');
+        const modalTabContent = document.getElementById('modal-tab-content');
+        const modalTabBtns = document.querySelectorAll('.modal-tab-btn');
+
+        let currentActiveProject = null;
+        let currentActiveTab = 'problem';
+
+        function renderTabContent() {
+          if (!currentActiveProject || !caseStudies[currentActiveProject]) return;
+          const data = caseStudies[currentActiveProject];
+          modalTabContent.innerHTML = data[currentActiveTab] || '<p>No content available.</p>';
         }
-        
-        if (etherealHueMatrix) {
-            requestAnimationFrame(animateEtherealHue);
+
+        function openModal(projectId) {
+          const data = caseStudies[projectId];
+          if (!data) return;
+          currentActiveProject = projectId;
+          currentActiveTab = 'problem';
+
+          modalTag.textContent = data.tag;
+          if (modalHeaderId) modalHeaderId.textContent = projectId.toUpperCase();
+          modalTitle.textContent = data.title;
+          modalSubtitle.textContent = data.subtitle;
+          modalExternalLink.href = data.externalLink;
+
+          // Reset tabs UI
+          modalTabBtns.forEach(btn => {
+            if (btn.getAttribute('data-tab') === 'problem') {
+              btn.classList.add('bg-accent-yellow', 'text-black');
+            } else {
+              btn.classList.remove('bg-accent-yellow', 'text-black');
+            }
+          });
+
+          renderTabContent();
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
         }
+
+        function closeModal() {
+          modal.classList.add('hidden');
+          document.body.style.overflow = '';
+          currentActiveProject = null;
+        }
+
+        // Attach modal trigger buttons
+        document.querySelectorAll('.open-modal-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const project = btn.getAttribute('data-project');
+            openModal(project);
+          });
+        });
+
+        if (closeModalBtn) {
+          closeModalBtn.addEventListener('click', closeModal);
+        }
+
+        if (modal) {
+          modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+          });
+        }
+
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeModal();
+          }
+        });
+
+        // Tab Switching inside Modal
+        modalTabBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            modalTabBtns.forEach(b => b.classList.remove('bg-accent-yellow', 'text-black'));
+            btn.classList.add('bg-accent-yellow', 'text-black');
+            currentActiveTab = btn.getAttribute('data-tab');
+            renderTabContent();
+          });
+        });
 
       });
     </script>
