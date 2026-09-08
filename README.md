@@ -87,8 +87,8 @@ The user interface follows pure **Neo-Brutalism** principles, completely discard
    - Explicitly distinguishes between **Pillar 01 (UI/UX & Product Systems)** and **Pillar 02 (Graphic & Visual Craft)**.
 6. **Convergence Dossier**:
    - Details Farhan's background merging Computer Science engineering with graphic and typography mastery.
-7. **Motion & Video Tape Archive**:
-   - Retro brutalist cassette block linking directly to Google Drive promotional reel repository.
+7. **Brutalist Media Rack / Video Archive**:
+   - Interactive Neo-Brutalist 9:16 vertical cover carousel featuring 9 real video showcases across CITEUP (TikTok & Instagram) and Farhan Surya Indah (Instagram) with live active slide counter (`SLIDE [01 / 09]`), mechanical navigation controls, touch swipe gestures, and pinned social hub badges.
 8. **Contact Terminal**:
    - High-contrast form and one-click email clipboard copy (`farhankholid20@gmail.com`).
 9. **Archival Terminal Footer**:

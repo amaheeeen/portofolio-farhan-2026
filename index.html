@@ -294,6 +294,36 @@
       input, textarea {
         font-size: 16px !important;
       }
+
+      /* ==========================================================================
+         BRUTALIST MEDIA RACK / VIDEO ARCHIVE CAROUSEL STYLES
+         ========================================================================== */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      @keyframes tape-spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .group:hover .tape-reel-spin {
+        animation: tape-spin 3.5s linear infinite;
+      }
+      .group:hover .tape-reel-spin-reverse {
+        animation: tape-spin 3.5s linear infinite reverse;
+      }
+
+      .bg-scanlines {
+        background-color: #0c0c10;
+        background-image: 
+          linear-gradient(rgba(18, 18, 20, 0) 50%, rgba(0, 0, 0, 0.4) 50%),
+          linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04));
+        background-size: 100% 4px, 6px 100%;
+      }
     </style>
   </head>
   <body
@@ -1302,41 +1332,477 @@
       </section>
 
       <!-- =======================================================================
-           SECTION 5: VIDEO & MOTION PORTFOLIO (CASSETTE / BRUTALIST ARCHIVE)
+           SECTION 5: BRUTALIST MEDIA RACK / VIDEO ARCHIVE (CITEUP & FSI VAULT)
            ======================================================================= -->
-      <section id="video" class="w-full py-12 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-12 border-b-[3px] border-black dark:border-white">
+      <section id="video" class="w-full py-12 sm:py-16 md:py-24 px-3 sm:px-6 lg:px-12 border-b-[3px] border-black dark:border-white bg-[#F4F0EA] dark:bg-[#121214] relative overflow-hidden">
         <div class="max-w-[1720px] mx-auto">
           
-          <div class="nb-box-lg bg-accent-orange text-white p-6 sm:p-10 lg:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8 relative overflow-hidden">
-            <!-- Decorative Large Monospaced Watermark -->
-            <div class="absolute -right-6 -bottom-6 font-syne font-black text-7xl sm:text-9xl text-black/10 select-none pointer-events-none">
-              TAPE
-            </div>
-
-            <div class="max-w-2xl relative z-10">
-              <div class="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 bg-black text-white font-mono text-[10px] sm:text-xs font-bold uppercase mb-3 sm:mb-4 border border-white">
+          <!-- Header Section -->
+          <div class="pb-6 sm:pb-8 border-b-2 border-black dark:border-white mb-6 sm:mb-8">
+            <div class="max-w-4xl">
+              <div class="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 bg-black text-white dark:bg-white dark:text-black font-mono text-[10px] sm:text-xs font-bold uppercase mb-2.5 sm:mb-3 border border-white dark:border-black">
                 <span class="w-2 h-2 bg-accent-yellow animate-ping"></span>
-                MOTION GRAPHICS & VIDEO REEL ARCHIVE
+                04. MOTION REELS // PRODUCTION VAULT
               </div>
-              <h2 class="font-syne font-black text-2xl xs:text-3xl sm:text-4xl md:text-5xl uppercase tracking-tight text-white leading-tight">
-                PROMOTIONAL REELS, EVENT TEASERS & MOTION EDITS.
+
+              <h2 class="font-syne font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl uppercase tracking-tight text-black dark:text-white leading-tight">
+                MEDIA &amp; VIDEO ARCHIVE
               </h2>
-              <p class="font-sans text-white/90 text-xs sm:text-base md:text-lg mt-3 sm:mt-4 font-medium leading-relaxed">
-                A curated repository of motion design assets, commercial video edits, and dynamic kinetic typography assembled on Google Drive for instant review.
+
+              <div class="font-mono text-xs sm:text-sm font-bold text-accent-orange dark:text-accent-yellow uppercase tracking-wider mt-1.5 sm:mt-2">
+                // PRODUCTION VAULT: REEL SHOWCASES &amp; MOTION ASSETS
+              </div>
+
+              <p class="font-sans text-sm sm:text-base md:text-lg text-zinc-700 dark:text-zinc-300 mt-2.5 sm:mt-3 font-medium leading-relaxed max-w-3xl">
+                A curated visual catalog of high-impact promotional reels, kinetic motion teasers, and event showcases produced for <strong class="text-black dark:text-white font-bold bg-accent-yellow/40 dark:bg-accent-yellow/20 px-1">CITEUP 2026</strong> and <strong class="text-black dark:text-white font-bold bg-accent-green/40 dark:bg-accent-green/20 px-1">PT Farhan Surya Indah</strong>.
               </p>
+
+              <!-- Technical Specification Chips -->
+              <div class="flex flex-wrap items-center gap-2 mt-3 sm:mt-4 font-mono text-[10px] sm:text-xs font-bold">
+                <span class="px-2.5 py-1 bg-white dark:bg-[#1A1A1E] border-2 border-black dark:border-white text-black dark:text-white shadow-nb-sm">
+                  09 PRODUCTION REELS
+                </span>
+                <span class="px-2.5 py-1 bg-white dark:bg-[#1A1A1E] border-2 border-black dark:border-white text-black dark:text-white shadow-nb-sm">
+                  FORMAT: 9:16 VERTICAL
+                </span>
+                <span class="px-2.5 py-1 bg-white dark:bg-[#1A1A1E] border-2 border-black dark:border-white text-black dark:text-white shadow-nb-sm">
+                  3 VERIFIED CHANNELS
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pinned Social Hub Control Bar (Never Stacks / Perfectly Structured) -->
+          <div class="p-3.5 sm:p-4 bg-white dark:bg-[#1A1A1E] border-2 sm:border-[2.5px] border-black dark:border-white shadow-nb dark:shadow-nb-dark mb-6 sm:mb-8 flex flex-col lg:flex-row lg:items-center justify-between gap-3 sm:gap-4">
+            
+            <!-- Channel Index Label -->
+            <div class="flex items-center gap-2 font-mono text-xs font-bold text-black dark:text-white">
+              <span class="w-2.5 h-2.5 bg-accent-yellow border border-black animate-pulse"></span>
+              <span class="text-[11px] sm:text-xs">OFFICIAL CHANNELS // TIKTOK &amp; INSTAGRAM:</span>
             </div>
 
-            <div class="relative z-10 flex flex-col gap-2.5 w-full md:w-auto flex-shrink-0">
+            <!-- Structured Buttons Grid: 1 col on mobile, 3 equal cols on tablet & desktop -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 w-full lg:w-auto">
+              <!-- Channel 01: CITEUP TikTok (Matches Cards 01-03) -->
               <a
-                href="https://drive.google.com/drive/folders/1AbsWvAeQKMk1IMj9sEdLxQdeH6MzhvKm"
+                href="https://www.tiktok.com/@citeup26"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="nb-btn px-6 sm:px-8 py-3.5 sm:py-4 md:py-5 bg-white text-black font-mono text-xs sm:text-sm md:text-base font-black tracking-wider uppercase text-center border-2 border-black hover:bg-accent-yellow"
+                class="nb-btn px-4 py-2 sm:py-2.5 bg-[#FFE600] text-black font-mono text-xs sm:text-sm font-bold border-2 border-black shadow-nb-sm hover:bg-accent-cyan active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all flex items-center justify-center gap-1.5 whitespace-nowrap"
               >
-                OPEN GOOGLE DRIVE REEL ↗
+                <span>[ ↗ TIKTOK @citeup26 ]</span>
               </a>
-              <span class="font-mono text-[10px] sm:text-xs text-white/80 text-center">DIRECT ACCESS // NO LOGIN REQUIRED</span>
+
+              <!-- Channel 02: CITEUP Instagram (Matches Cards 04-06) -->
+              <a
+                href="https://www.instagram.com/citeup2026"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nb-btn px-4 py-2 sm:py-2.5 bg-[#FFE600] text-black font-mono text-xs sm:text-sm font-bold border-2 border-black shadow-nb-sm hover:bg-accent-green active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all flex items-center justify-center gap-1.5 whitespace-nowrap"
+              >
+                <span>[ ↗ INSTAGRAM @citeup2026 ]</span>
+              </a>
+
+              <!-- Channel 03: Farhan Surya Indah Instagram (Matches Cards 07-09) -->
+              <a
+                href="https://www.instagram.com/farhansuryaindah"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="nb-btn px-4 py-2 sm:py-2.5 bg-[#FFE600] text-black font-mono text-xs sm:text-sm font-bold border-2 border-black shadow-nb-sm hover:bg-accent-purple active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all flex items-center justify-center gap-1.5 whitespace-nowrap"
+              >
+                <span>[ ↗ INSTAGRAM @farhansuryaindah ]</span>
+              </a>
             </div>
+
+          </div>
+
+          <!-- Carousel Wrapper Track -->
+          <div class="relative w-full">
+            <div
+              id="tape-carousel-track"
+              class="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar py-2 px-1 cursor-grab focus:outline-none"
+              role="region"
+              aria-label="Media and Video Archive Carousel"
+            >
+
+              <!-- [Item 01 - CITEUP TikTok] -->
+              <div class="tape-card flex-shrink-0 w-[84%] xs:w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start bg-white dark:bg-[#1A1A1E] text-black dark:text-white border-[2.5px] sm:border-[3px] border-black dark:border-white shadow-nb dark:shadow-nb-dark hover:shadow-nb-lg dark:hover:shadow-nb-dark-lg transition-all duration-200 group flex flex-col justify-between rounded-none overflow-hidden select-none">
+                <div class="px-3 py-1.5 bg-black text-white dark:bg-[#121214] border-b-2 border-black dark:border-white flex items-center justify-between font-mono text-[11px] sm:text-xs font-bold tracking-wider">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow animate-ping"></span>
+                    <span class="text-zinc-200">@citeup26</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-black text-accent-cyan border border-accent-cyan font-mono text-[10px] font-black uppercase tracking-widest">
+                    [TIKTOK]
+                  </span>
+                </div>
+                <div class="aspect-[9/16] relative overflow-hidden bg-black border-b-2 border-black dark:border-white group/thumb">
+                  <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-white border border-white/40 font-mono text-[9px] font-bold uppercase tracking-wider backdrop-blur-sm z-10 pointer-events-none">9:16 REEL</span>
+                  <img src="./assets/media/thumb-citeup-tk-01.jpg" alt="CITEUP 2026 Campaign Highlight 01" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                  <div class="absolute inset-0 bg-black/40 opacity-90 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3">
+                    <a href="https://www.tiktok.com/@citeup26/video/7536604809533656325" target="_blank" rel="noopener noreferrer" class="nb-btn px-3.5 py-2 bg-[#FFE600] text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] hover:scale-105 active:scale-95 transition-transform z-10 text-center whitespace-nowrap">
+                      PLAY / WATCH REEL ↗
+                    </a>
+                  </div>
+                </div>
+                <div class="p-4 sm:p-5 flex flex-col gap-3 flex-grow justify-between bg-white dark:bg-[#1A1A1E]">
+                  <div>
+                    <span class="inline-block px-2.5 py-0.5 bg-[#FFE600] text-black font-mono font-bold text-[10px] sm:text-xs border border-black uppercase mb-2 rounded-none w-max">
+                      #CREATIVE DIRECTION
+                    </span>
+                    <h3 class="font-bold text-sm sm:text-base line-clamp-2 text-black dark:text-white uppercase leading-snug tracking-tight">
+                      CITEUP 2026 Campaign Highlight 01
+                    </h3>
+                  </div>
+                  <a href="https://www.tiktok.com/@citeup26/video/7536604809533656325" target="_blank" rel="noopener noreferrer" class="nb-btn w-full py-2.5 bg-white dark:bg-[#222227] hover:bg-[#00F076] dark:hover:bg-[#00F076] text-black dark:text-white hover:text-black font-mono text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-between px-4 border-2 border-black dark:border-white shadow-nb-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                    <span>[ OPEN LINK ]</span>
+                    <span class="font-bold text-base">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- [Item 02 - CITEUP TikTok] -->
+              <div class="tape-card flex-shrink-0 w-[84%] xs:w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start bg-white dark:bg-[#1A1A1E] text-black dark:text-white border-[2.5px] sm:border-[3px] border-black dark:border-white shadow-nb dark:shadow-nb-dark hover:shadow-nb-lg dark:hover:shadow-nb-dark-lg transition-all duration-200 group flex flex-col justify-between rounded-none overflow-hidden select-none">
+                <div class="px-3 py-1.5 bg-black text-white dark:bg-[#121214] border-b-2 border-black dark:border-white flex items-center justify-between font-mono text-[11px] sm:text-xs font-bold tracking-wider">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow animate-ping"></span>
+                    <span class="text-zinc-200">@citeup26</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-black text-accent-cyan border border-accent-cyan font-mono text-[10px] font-black uppercase tracking-widest">
+                    [TIKTOK]
+                  </span>
+                </div>
+                <div class="aspect-[9/16] relative overflow-hidden bg-black border-b-2 border-black dark:border-white group/thumb">
+                  <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-white border border-white/40 font-mono text-[9px] font-bold uppercase tracking-wider backdrop-blur-sm z-10 pointer-events-none">9:16 REEL</span>
+                  <img src="./assets/media/thumb-citeup-tk-02.jpg" alt="CITEUP 2026 Event Highlight 02" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                  <div class="absolute inset-0 bg-black/40 opacity-90 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3">
+                    <a href="https://www.tiktok.com/@citeup26/video/7515827188013255942" target="_blank" rel="noopener noreferrer" class="nb-btn px-3.5 py-2 bg-[#FFE600] text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] hover:scale-105 active:scale-95 transition-transform z-10 text-center whitespace-nowrap">
+                      PLAY / WATCH REEL ↗
+                    </a>
+                  </div>
+                </div>
+                <div class="p-4 sm:p-5 flex flex-col gap-3 flex-grow justify-between bg-white dark:bg-[#1A1A1E]">
+                  <div>
+                    <span class="inline-block px-2.5 py-0.5 bg-[#FFE600] text-black font-mono font-bold text-[10px] sm:text-xs border border-black uppercase mb-2 rounded-none w-max">
+                      #EVENT HIGHLIGHT
+                    </span>
+                    <h3 class="font-bold text-sm sm:text-base line-clamp-2 text-black dark:text-white uppercase leading-snug tracking-tight">
+                      CITEUP 2026 Event Highlight 02
+                    </h3>
+                  </div>
+                  <a href="https://www.tiktok.com/@citeup26/video/7515827188013255942" target="_blank" rel="noopener noreferrer" class="nb-btn w-full py-2.5 bg-white dark:bg-[#222227] hover:bg-[#00F076] dark:hover:bg-[#00F076] text-black dark:text-white hover:text-black font-mono text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-between px-4 border-2 border-black dark:border-white shadow-nb-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                    <span>[ OPEN LINK ]</span>
+                    <span class="font-bold text-base">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- [Item 03 - CITEUP TikTok] -->
+              <div class="tape-card flex-shrink-0 w-[84%] xs:w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start bg-white dark:bg-[#1A1A1E] text-black dark:text-white border-[2.5px] sm:border-[3px] border-black dark:border-white shadow-nb dark:shadow-nb-dark hover:shadow-nb-lg dark:hover:shadow-nb-dark-lg transition-all duration-200 group flex flex-col justify-between rounded-none overflow-hidden select-none">
+                <div class="px-3 py-1.5 bg-black text-white dark:bg-[#121214] border-b-2 border-black dark:border-white flex items-center justify-between font-mono text-[11px] sm:text-xs font-bold tracking-wider">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow animate-ping"></span>
+                    <span class="text-zinc-200">@citeup26</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-black text-accent-cyan border border-accent-cyan font-mono text-[10px] font-black uppercase tracking-widest">
+                    [TIKTOK]
+                  </span>
+                </div>
+                <div class="aspect-[9/16] relative overflow-hidden bg-black border-b-2 border-black dark:border-white group/thumb">
+                  <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-white border border-white/40 font-mono text-[9px] font-bold uppercase tracking-wider backdrop-blur-sm z-10 pointer-events-none">9:16 REEL</span>
+                  <img src="./assets/media/thumb-citeup-tk-03.jpg" alt="CITEUP 2026 Motion Content 03" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                  <div class="absolute inset-0 bg-black/40 opacity-90 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3">
+                    <a href="https://www.tiktok.com/@citeup26/video/7504644403638635782" target="_blank" rel="noopener noreferrer" class="nb-btn px-3.5 py-2 bg-[#FFE600] text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] hover:scale-105 active:scale-95 transition-transform z-10 text-center whitespace-nowrap">
+                      PLAY / WATCH REEL ↗
+                    </a>
+                  </div>
+                </div>
+                <div class="p-4 sm:p-5 flex flex-col gap-3 flex-grow justify-between bg-white dark:bg-[#1A1A1E]">
+                  <div>
+                    <span class="inline-block px-2.5 py-0.5 bg-[#FFE600] text-black font-mono font-bold text-[10px] sm:text-xs border border-black uppercase mb-2 rounded-none w-max">
+                      #MOTION TEASER
+                    </span>
+                    <h3 class="font-bold text-sm sm:text-base line-clamp-2 text-black dark:text-white uppercase leading-snug tracking-tight">
+                      CITEUP 2026 Motion Content 03
+                    </h3>
+                  </div>
+                  <a href="https://www.tiktok.com/@citeup26/video/7504644403638635782" target="_blank" rel="noopener noreferrer" class="nb-btn w-full py-2.5 bg-white dark:bg-[#222227] hover:bg-[#00F076] dark:hover:bg-[#00F076] text-black dark:text-white hover:text-black font-mono text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-between px-4 border-2 border-black dark:border-white shadow-nb-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                    <span>[ OPEN LINK ]</span>
+                    <span class="font-bold text-base">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- [Item 04 - CITEUP IG Reel] -->
+              <div class="tape-card flex-shrink-0 w-[84%] xs:w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start bg-white dark:bg-[#1A1A1E] text-black dark:text-white border-[2.5px] sm:border-[3px] border-black dark:border-white shadow-nb dark:shadow-nb-dark hover:shadow-nb-lg dark:hover:shadow-nb-dark-lg transition-all duration-200 group flex flex-col justify-between rounded-none overflow-hidden select-none">
+                <div class="px-3 py-1.5 bg-black text-white dark:bg-[#121214] border-b-2 border-black dark:border-white flex items-center justify-between font-mono text-[11px] sm:text-xs font-bold tracking-wider">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow animate-ping"></span>
+                    <span class="text-zinc-200">@citeup2026</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-[#B57CFF] text-black border border-black font-mono text-[10px] font-black uppercase tracking-widest">
+                    [IG REEL]
+                  </span>
+                </div>
+                <div class="aspect-[9/16] relative overflow-hidden bg-black border-b-2 border-black dark:border-white group/thumb">
+                  <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-white border border-white/40 font-mono text-[9px] font-bold uppercase tracking-wider backdrop-blur-sm z-10 pointer-events-none">9:16 REEL</span>
+                  <img src="./assets/media/thumb-citeup-ig-01.jpg" alt="CITEUP Visual Campaign Reel 01" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                  <div class="absolute inset-0 bg-black/40 opacity-90 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3">
+                    <a href="https://www.instagram.com/reel/DRYcERekgb8/" target="_blank" rel="noopener noreferrer" class="nb-btn px-3.5 py-2 bg-[#FFE600] text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] hover:scale-105 active:scale-95 transition-transform z-10 text-center whitespace-nowrap">
+                      PLAY / WATCH REEL ↗
+                    </a>
+                  </div>
+                </div>
+                <div class="p-4 sm:p-5 flex flex-col gap-3 flex-grow justify-between bg-white dark:bg-[#1A1A1E]">
+                  <div>
+                    <span class="inline-block px-2.5 py-0.5 bg-[#FFE600] text-black font-mono font-bold text-[10px] sm:text-xs border border-black uppercase mb-2 rounded-none w-max">
+                      #SOCIAL REEL
+                    </span>
+                    <h3 class="font-bold text-sm sm:text-base line-clamp-2 text-black dark:text-white uppercase leading-snug tracking-tight">
+                      CITEUP Visual Campaign Reel 01
+                    </h3>
+                  </div>
+                  <a href="https://www.instagram.com/reel/DRYcERekgb8/" target="_blank" rel="noopener noreferrer" class="nb-btn w-full py-2.5 bg-white dark:bg-[#222227] hover:bg-[#00F076] dark:hover:bg-[#00F076] text-black dark:text-white hover:text-black font-mono text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-between px-4 border-2 border-black dark:border-white shadow-nb-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                    <span>[ OPEN LINK ]</span>
+                    <span class="font-bold text-base">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- [Item 05 - CITEUP IG Reel] -->
+              <div class="tape-card flex-shrink-0 w-[84%] xs:w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start bg-white dark:bg-[#1A1A1E] text-black dark:text-white border-[2.5px] sm:border-[3px] border-black dark:border-white shadow-nb dark:shadow-nb-dark hover:shadow-nb-lg dark:hover:shadow-nb-dark-lg transition-all duration-200 group flex flex-col justify-between rounded-none overflow-hidden select-none">
+                <div class="px-3 py-1.5 bg-black text-white dark:bg-[#121214] border-b-2 border-black dark:border-white flex items-center justify-between font-mono text-[11px] sm:text-xs font-bold tracking-wider">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow animate-ping"></span>
+                    <span class="text-zinc-200">@citeup2026</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-[#B57CFF] text-black border border-black font-mono text-[10px] font-black uppercase tracking-widest">
+                    [IG REEL]
+                  </span>
+                </div>
+                <div class="aspect-[9/16] relative overflow-hidden bg-black border-b-2 border-black dark:border-white group/thumb">
+                  <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-white border border-white/40 font-mono text-[9px] font-bold uppercase tracking-wider backdrop-blur-sm z-10 pointer-events-none">9:16 REEL</span>
+                  <img src="./assets/media/thumb-citeup-ig-02.jpg" alt="CITEUP Visual Campaign Reel 02" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                  <div class="absolute inset-0 bg-black/40 opacity-90 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3">
+                    <a href="https://www.instagram.com/reel/DNuQyVMXhKl/" target="_blank" rel="noopener noreferrer" class="nb-btn px-3.5 py-2 bg-[#FFE600] text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] hover:scale-105 active:scale-95 transition-transform z-10 text-center whitespace-nowrap">
+                      PLAY / WATCH REEL ↗
+                    </a>
+                  </div>
+                </div>
+                <div class="p-4 sm:p-5 flex flex-col gap-3 flex-grow justify-between bg-white dark:bg-[#1A1A1E]">
+                  <div>
+                    <span class="inline-block px-2.5 py-0.5 bg-[#FFE600] text-black font-mono font-bold text-[10px] sm:text-xs border border-black uppercase mb-2 rounded-none w-max">
+                      #VISUAL ASSET
+                    </span>
+                    <h3 class="font-bold text-sm sm:text-base line-clamp-2 text-black dark:text-white uppercase leading-snug tracking-tight">
+                      CITEUP Visual Campaign Reel 02
+                    </h3>
+                  </div>
+                  <a href="https://www.instagram.com/reel/DNuQyVMXhKl/" target="_blank" rel="noopener noreferrer" class="nb-btn w-full py-2.5 bg-white dark:bg-[#222227] hover:bg-[#00F076] dark:hover:bg-[#00F076] text-black dark:text-white hover:text-black font-mono text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-between px-4 border-2 border-black dark:border-white shadow-nb-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                    <span>[ OPEN LINK ]</span>
+                    <span class="font-bold text-base">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- [Item 06 - CITEUP IG Reel] -->
+              <div class="tape-card flex-shrink-0 w-[84%] xs:w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start bg-white dark:bg-[#1A1A1E] text-black dark:text-white border-[2.5px] sm:border-[3px] border-black dark:border-white shadow-nb dark:shadow-nb-dark hover:shadow-nb-lg dark:hover:shadow-nb-dark-lg transition-all duration-200 group flex flex-col justify-between rounded-none overflow-hidden select-none">
+                <div class="px-3 py-1.5 bg-black text-white dark:bg-[#121214] border-b-2 border-black dark:border-white flex items-center justify-between font-mono text-[11px] sm:text-xs font-bold tracking-wider">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow animate-ping"></span>
+                    <span class="text-zinc-200">@citeup2026</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-[#B57CFF] text-black border border-black font-mono text-[10px] font-black uppercase tracking-widest">
+                    [IG REEL]
+                  </span>
+                </div>
+                <div class="aspect-[9/16] relative overflow-hidden bg-black border-b-2 border-black dark:border-white group/thumb">
+                  <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-white border border-white/40 font-mono text-[9px] font-bold uppercase tracking-wider backdrop-blur-sm z-10 pointer-events-none">9:16 REEL</span>
+                  <img src="./assets/media/thumb-citeup-ig-03.jpg" alt="CITEUP Visual Campaign Reel 03" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                  <div class="absolute inset-0 bg-black/40 opacity-90 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3">
+                    <a href="https://www.instagram.com/reel/DNPXO6ESs6K/" target="_blank" rel="noopener noreferrer" class="nb-btn px-3.5 py-2 bg-[#FFE600] text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] hover:scale-105 active:scale-95 transition-transform z-10 text-center whitespace-nowrap">
+                      PLAY / WATCH REEL ↗
+                    </a>
+                  </div>
+                </div>
+                <div class="p-4 sm:p-5 flex flex-col gap-3 flex-grow justify-between bg-white dark:bg-[#1A1A1E]">
+                  <div>
+                    <span class="inline-block px-2.5 py-0.5 bg-[#FFE600] text-black font-mono font-bold text-[10px] sm:text-xs border border-black uppercase mb-2 rounded-none w-max">
+                      #BRAND AWARENESS
+                    </span>
+                    <h3 class="font-bold text-sm sm:text-base line-clamp-2 text-black dark:text-white uppercase leading-snug tracking-tight">
+                      CITEUP Visual Campaign Reel 03
+                    </h3>
+                  </div>
+                  <a href="https://www.instagram.com/reel/DNPXO6ESs6K/" target="_blank" rel="noopener noreferrer" class="nb-btn w-full py-2.5 bg-white dark:bg-[#222227] hover:bg-[#00F076] dark:hover:bg-[#00F076] text-black dark:text-white hover:text-black font-mono text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-between px-4 border-2 border-black dark:border-white shadow-nb-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                    <span>[ OPEN LINK ]</span>
+                    <span class="font-bold text-base">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- [Item 07 - Farhan Surya Indah Reel] -->
+              <div class="tape-card flex-shrink-0 w-[84%] xs:w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start bg-white dark:bg-[#1A1A1E] text-black dark:text-white border-[2.5px] sm:border-[3px] border-black dark:border-white shadow-nb dark:shadow-nb-dark hover:shadow-nb-lg dark:hover:shadow-nb-dark-lg transition-all duration-200 group flex flex-col justify-between rounded-none overflow-hidden select-none">
+                <div class="px-3 py-1.5 bg-black text-white dark:bg-[#121214] border-b-2 border-black dark:border-white flex items-center justify-between font-mono text-[11px] sm:text-xs font-bold tracking-wider">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow animate-ping"></span>
+                    <span class="text-zinc-200">@farhansuryaindah</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-[#B57CFF] text-black border border-black font-mono text-[10px] font-black uppercase tracking-widest">
+                    [IG REEL]
+                  </span>
+                </div>
+                <div class="aspect-[9/16] relative overflow-hidden bg-black border-b-2 border-black dark:border-white group/thumb">
+                  <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-white border border-white/40 font-mono text-[9px] font-bold uppercase tracking-wider backdrop-blur-sm z-10 pointer-events-none">9:16 REEL</span>
+                  <img src="./assets/media/thumb-fsi-01.jpg" alt="Farhan Surya Indah Promotional Showcase 01" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                  <div class="absolute inset-0 bg-black/40 opacity-90 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3">
+                    <a href="https://www.instagram.com/reel/C-HgXBTNMjb/" target="_blank" rel="noopener noreferrer" class="nb-btn px-3.5 py-2 bg-[#FFE600] text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] hover:scale-105 active:scale-95 transition-transform z-10 text-center whitespace-nowrap">
+                      PLAY / WATCH REEL ↗
+                    </a>
+                  </div>
+                </div>
+                <div class="p-4 sm:p-5 flex flex-col gap-3 flex-grow justify-between bg-white dark:bg-[#1A1A1E]">
+                  <div>
+                    <span class="inline-block px-2.5 py-0.5 bg-[#FFE600] text-black font-mono font-bold text-[10px] sm:text-xs border border-black uppercase mb-2 rounded-none w-max">
+                      #COMMERCIAL REEL
+                    </span>
+                    <h3 class="font-bold text-sm sm:text-base line-clamp-2 text-black dark:text-white uppercase leading-snug tracking-tight">
+                      Farhan Surya Indah Promotional Showcase 01
+                    </h3>
+                  </div>
+                  <a href="https://www.instagram.com/reel/C-HgXBTNMjb/" target="_blank" rel="noopener noreferrer" class="nb-btn w-full py-2.5 bg-white dark:bg-[#222227] hover:bg-[#00F076] dark:hover:bg-[#00F076] text-black dark:text-white hover:text-black font-mono text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-between px-4 border-2 border-black dark:border-white shadow-nb-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                    <span>[ OPEN LINK ]</span>
+                    <span class="font-bold text-base">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- [Item 08 - Farhan Surya Indah Reel] -->
+              <div class="tape-card flex-shrink-0 w-[84%] xs:w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start bg-white dark:bg-[#1A1A1E] text-black dark:text-white border-[2.5px] sm:border-[3px] border-black dark:border-white shadow-nb dark:shadow-nb-dark hover:shadow-nb-lg dark:hover:shadow-nb-dark-lg transition-all duration-200 group flex flex-col justify-between rounded-none overflow-hidden select-none">
+                <div class="px-3 py-1.5 bg-black text-white dark:bg-[#121214] border-b-2 border-black dark:border-white flex items-center justify-between font-mono text-[11px] sm:text-xs font-bold tracking-wider">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow animate-ping"></span>
+                    <span class="text-zinc-200">@farhansuryaindah</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-[#B57CFF] text-black border border-black font-mono text-[10px] font-black uppercase tracking-widest">
+                    [IG REEL]
+                  </span>
+                </div>
+                <div class="aspect-[9/16] relative overflow-hidden bg-black border-b-2 border-black dark:border-white group/thumb">
+                  <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-white border border-white/40 font-mono text-[9px] font-bold uppercase tracking-wider backdrop-blur-sm z-10 pointer-events-none">9:16 REEL</span>
+                  <img src="./assets/media/thumb-fsi-02.jpg" alt="Farhan Surya Indah Highlight 02" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                  <div class="absolute inset-0 bg-black/40 opacity-90 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3">
+                    <a href="https://www.instagram.com/reel/C-KKzeJtXSN/" target="_blank" rel="noopener noreferrer" class="nb-btn px-3.5 py-2 bg-[#FFE600] text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] hover:scale-105 active:scale-95 transition-transform z-10 text-center whitespace-nowrap">
+                      PLAY / WATCH REEL ↗
+                    </a>
+                  </div>
+                </div>
+                <div class="p-4 sm:p-5 flex flex-col gap-3 flex-grow justify-between bg-white dark:bg-[#1A1A1E]">
+                  <div>
+                    <span class="inline-block px-2.5 py-0.5 bg-[#FFE600] text-black font-mono font-bold text-[10px] sm:text-xs border border-black uppercase mb-2 rounded-none w-max">
+                      #CONTENT PRODUCTION
+                    </span>
+                    <h3 class="font-bold text-sm sm:text-base line-clamp-2 text-black dark:text-white uppercase leading-snug tracking-tight">
+                      Farhan Surya Indah Highlight 02
+                    </h3>
+                  </div>
+                  <a href="https://www.instagram.com/reel/C-KKzeJtXSN/" target="_blank" rel="noopener noreferrer" class="nb-btn w-full py-2.5 bg-white dark:bg-[#222227] hover:bg-[#00F076] dark:hover:bg-[#00F076] text-black dark:text-white hover:text-black font-mono text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-between px-4 border-2 border-black dark:border-white shadow-nb-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                    <span>[ OPEN LINK ]</span>
+                    <span class="font-bold text-base">↗</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- [Item 09 - Farhan Surya Indah Reel] -->
+              <div class="tape-card flex-shrink-0 w-[84%] xs:w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] xl:w-[calc(25%-18px)] snap-start bg-white dark:bg-[#1A1A1E] text-black dark:text-white border-[2.5px] sm:border-[3px] border-black dark:border-white shadow-nb dark:shadow-nb-dark hover:shadow-nb-lg dark:hover:shadow-nb-dark-lg transition-all duration-200 group flex flex-col justify-between rounded-none overflow-hidden select-none">
+                <div class="px-3 py-1.5 bg-black text-white dark:bg-[#121214] border-b-2 border-black dark:border-white flex items-center justify-between font-mono text-[11px] sm:text-xs font-bold tracking-wider">
+                  <div class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-accent-yellow animate-ping"></span>
+                    <span class="text-zinc-200">@farhansuryaindah</span>
+                  </div>
+                  <span class="px-2 py-0.5 bg-[#B57CFF] text-black border border-black font-mono text-[10px] font-black uppercase tracking-widest">
+                    [IG REEL]
+                  </span>
+                </div>
+                <div class="aspect-[9/16] relative overflow-hidden bg-black border-b-2 border-black dark:border-white group/thumb">
+                  <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-white border border-white/40 font-mono text-[9px] font-bold uppercase tracking-wider backdrop-blur-sm z-10 pointer-events-none">9:16 REEL</span>
+                  <img src="./assets/media/thumb-fsi-03.jpg" alt="Farhan Surya Indah Feature 03" class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                  <div class="absolute inset-0 bg-black/40 opacity-90 group-hover:opacity-100 transition-opacity flex items-center justify-center p-3">
+                    <a href="https://www.instagram.com/reel/DEb1-4eN46Z/" target="_blank" rel="noopener noreferrer" class="nb-btn px-3.5 py-2 bg-[#FFE600] text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] hover:scale-105 active:scale-95 transition-transform z-10 text-center whitespace-nowrap">
+                      PLAY / WATCH REEL ↗
+                    </a>
+                  </div>
+                </div>
+                <div class="p-4 sm:p-5 flex flex-col gap-3 flex-grow justify-between bg-white dark:bg-[#1A1A1E]">
+                  <div>
+                    <span class="inline-block px-2.5 py-0.5 bg-[#FFE600] text-black font-mono font-bold text-[10px] sm:text-xs border border-black uppercase mb-2 rounded-none w-max">
+                      #PROMO CAMPAIGN
+                    </span>
+                    <h3 class="font-bold text-sm sm:text-base line-clamp-2 text-black dark:text-white uppercase leading-snug tracking-tight">
+                      Farhan Surya Indah Feature 03
+                    </h3>
+                  </div>
+                  <a href="https://www.instagram.com/reel/DEb1-4eN46Z/" target="_blank" rel="noopener noreferrer" class="nb-btn w-full py-2.5 bg-white dark:bg-[#222227] hover:bg-[#00F076] dark:hover:bg-[#00F076] text-black dark:text-white hover:text-black font-mono text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-between px-4 border-2 border-black dark:border-white shadow-nb-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                    <span>[ OPEN LINK ]</span>
+                    <span class="font-bold text-base">↗</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Control Panel & Mechanical Navigation Bar -->
+          <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 p-3.5 sm:p-4 bg-white dark:bg-[#1A1A1E] border-2 sm:border-[2.5px] border-black dark:border-white shadow-nb dark:shadow-nb-dark">
+            
+            <!-- Monospace Status Indicator & 9-Segment Progress Track -->
+            <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-start">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 bg-accent-yellow border border-black animate-pulse"></span>
+                <span id="tape-counter-display" class="font-mono text-xs sm:text-sm font-black tracking-wider uppercase text-black dark:text-white">
+                  SLIDE [01 / 09]
+                </span>
+              </div>
+
+              <!-- Segmented Visual Progress Indicators (9 items) -->
+              <div class="flex items-center gap-1 sm:gap-1.5" aria-hidden="true">
+                <div class="tape-progress-segment w-3 sm:w-5 h-2 border border-black dark:border-white bg-accent-yellow dark:bg-accent-green transition-all"></div>
+                <div class="tape-progress-segment w-3 sm:w-5 h-2 border border-black dark:border-white bg-zinc-300 dark:bg-zinc-700 transition-all"></div>
+                <div class="tape-progress-segment w-3 sm:w-5 h-2 border border-black dark:border-white bg-zinc-300 dark:bg-zinc-700 transition-all"></div>
+                <div class="tape-progress-segment w-3 sm:w-5 h-2 border border-black dark:border-white bg-zinc-300 dark:bg-zinc-700 transition-all"></div>
+                <div class="tape-progress-segment w-3 sm:w-5 h-2 border border-black dark:border-white bg-zinc-300 dark:bg-zinc-700 transition-all"></div>
+                <div class="tape-progress-segment w-3 sm:w-5 h-2 border border-black dark:border-white bg-zinc-300 dark:bg-zinc-700 transition-all"></div>
+                <div class="tape-progress-segment w-3 sm:w-5 h-2 border border-black dark:border-white bg-zinc-300 dark:bg-zinc-700 transition-all"></div>
+                <div class="tape-progress-segment w-3 sm:w-5 h-2 border border-black dark:border-white bg-zinc-300 dark:bg-zinc-700 transition-all"></div>
+                <div class="tape-progress-segment w-3 sm:w-5 h-2 border border-black dark:border-white bg-zinc-300 dark:bg-zinc-700 transition-all"></div>
+              </div>
+            </div>
+
+            <!-- Central Touch & Interaction Hint -->
+            <div class="hidden md:flex items-center gap-2 font-mono text-[11px] text-zinc-500 dark:text-zinc-400">
+              <span>SWIPE // DRAG // ARROW KEYS [← →]</span>
+            </div>
+
+            <!-- Tactile Mechanical Buttons -->
+            <div class="flex items-center gap-2.5 w-full sm:w-auto justify-end">
+              <button
+                id="tape-prev-btn"
+                type="button"
+                aria-label="Previous Slide"
+                class="nb-btn px-4 sm:px-5 py-2 sm:py-2.5 bg-white dark:bg-[#1A1A1E] text-black dark:text-white font-mono text-xs sm:text-sm font-bold border-2 border-black dark:border-white hover:bg-[#00F076] dark:hover:bg-[#00F076] hover:text-black active:translate-x-[2px] active:translate-y-[2px] active:shadow-none shadow-[3px_3px_0px_#000] dark:shadow-[3px_3px_0px_#fff] transition-all"
+              >
+                [ PREV ]
+              </button>
+              <button
+                id="tape-next-btn"
+                type="button"
+                aria-label="Next Slide"
+                class="nb-btn px-4 sm:px-5 py-2 sm:py-2.5 bg-white dark:bg-[#1A1A1E] text-black dark:text-white font-mono text-xs sm:text-sm font-bold border-2 border-black dark:border-white hover:bg-[#00F076] dark:hover:bg-[#00F076] hover:text-black active:translate-x-[2px] active:translate-y-[2px] active:shadow-none shadow-[3px_3px_0px_#000] dark:shadow-[3px_3px_0px_#fff] transition-all"
+              >
+                [ NEXT ]
+              </button>
+            </div>
+
           </div>
 
         </div>
@@ -2126,5 +2592,7 @@
 
       });
     </script>
+    <!-- Brutalist Media Rack Carousel Script -->
+    <script src="./assets/js/video-archive.js"></script>
   </body>
 </html>
